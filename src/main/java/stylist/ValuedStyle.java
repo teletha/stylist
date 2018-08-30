@@ -17,7 +17,7 @@ import java.util.Map;
  * {@link Style} with the context value.
  * </p>
  * 
- * @version 2015/09/29 10:16:23
+ * @version 2018/08/30 22:24:36
  */
 class ValuedStyle<V> implements Style {
 

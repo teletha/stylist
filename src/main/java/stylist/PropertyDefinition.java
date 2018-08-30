@@ -22,7 +22,7 @@ import java.util.function.Function;
 import stylist.util.Strings;
 
 /**
- * @version 2016/10/21 17:41:32
+ * @version 2018/08/30 22:24:09
  */
 public class PropertyDefinition<T> {
 
@@ -268,7 +268,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * @version 2014/10/21 15:02:11
+     * @version 2018/08/30 22:22:50
      */
     protected static class PrefixAwareProperty {
 
@@ -407,6 +407,33 @@ public class PropertyDefinition<T> {
          */
         public PrefixAwareProperty webkit(String name, String value) {
             set(Webkit, name, value);
+
+            return this;
+        }
+
+        /**
+         * <p>
+         * Set property name and value.
+         * </p>
+         * 
+         * @param value
+         * @return
+         */
+        public PrefixAwareProperty fx(String value) {
+            return fx(names.get(Standard), value);
+        }
+
+        /**
+         * <p>
+         * Set property name and value.
+         * </p>
+         * 
+         * @param name
+         * @param value
+         * @return
+         */
+        public PrefixAwareProperty fx(String name, String value) {
+            set(JavaFX, name, value);
 
             return this;
         }

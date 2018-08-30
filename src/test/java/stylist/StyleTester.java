@@ -38,7 +38,7 @@ public class StyleTester extends StyleDSL {
     }
 
     /**
-     * @version 2014/11/13 13:31:06
+     * @version 2018/08/30 22:22:37
      */
     public static class ValidatableStyle {
 

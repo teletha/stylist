@@ -12,7 +12,7 @@ package stylist;
 /**
  * @version 2018/08/30 18:05:55
  */
-public interface Style extends Declarable, Location {
+public interface Style extends Location {
 
     /** The empty style. */
     Style Empty = () -> {
@@ -24,16 +24,6 @@ public interface Style extends Declarable, Location {
      * </p>
      */
     void style();
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    default void declare() {
-        // If this exception will be thrown, it is bug of this program. So we must rethrow the
-        // wrapped error in here.
-        throw new Error();
-    }
 
     /**
      * <p>

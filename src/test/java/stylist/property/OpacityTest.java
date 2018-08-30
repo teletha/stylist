@@ -12,7 +12,6 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.StyleTester.ValidatableStyle;
 
 /**
  * @version 2018/08/30 18:38:30
