@@ -23,7 +23,7 @@ public class CalcTest extends StyleTester {
     private static final Numeric two = new Numeric(2, em);
 
     @Test
-    public void none() throws Exception {
+    public void normal() throws Exception {
         ValidatableStyle style = writeStyle(() -> {
             display.width(one);
         });

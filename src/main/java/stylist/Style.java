@@ -14,10 +14,6 @@ package stylist;
  */
 public interface Style extends Location {
 
-    /** The empty style. */
-    Style Empty = () -> {
-    };
-
     /**
      * <p>
      * Define the style declaration.

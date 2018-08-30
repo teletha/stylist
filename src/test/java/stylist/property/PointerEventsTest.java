@@ -19,7 +19,7 @@ import stylist.StyleTester;
 public class PointerEventsTest extends StyleTester {
 
     @Test
-    public void none() {
+    public void pointerEventNone() {
         ValidatableStyle parsed = writeStyle(() -> {
             pointerEvents.none();
         });

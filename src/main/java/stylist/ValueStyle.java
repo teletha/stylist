@@ -33,7 +33,8 @@ public interface ValueStyle<V> extends Location {
      */
     default Style of(V value) {
         if (value == null) {
-            return Style.Empty;
+            return () -> {
+            };
         }
         return ValuedStyle.cache.computeIfAbsent(this, style -> new HashMap()).computeIfAbsent(value, key -> new ValuedStyle(this, key));
     }
