@@ -33,7 +33,7 @@ public enum Vendor {
     Standard("");
 
     /** The current vendor in this environment. */
-    public static Vendor Current = Standard;
+    static Vendor Current = Standard;
 
     /** The current vendor state in this environment. */
     public static final boolean isMozilla() {

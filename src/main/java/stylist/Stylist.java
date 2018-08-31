@@ -75,6 +75,15 @@ public class Stylist {
     }
 
     /**
+     * Set the default {@link Vendor}.
+     */
+    public static void setVendor(Vendor vendor) {
+        if (vendor != null) {
+            Vendor.Current = vendor;
+        }
+    }
+
+    /**
      * Compute the location name.
      * 
      * @param location

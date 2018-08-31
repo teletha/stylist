@@ -181,7 +181,7 @@ public class StyleRule {
         StringBuilder builder = new StringBuilder(selector);
         builder.append(selectorSeparator).append("{").append(eol);
         for (int i = 0, size = properties.size(); i < size; i++) {
-            // builder.append(indent).append(properties.key(i)).append(propertySeparator).append(properties.value(i)).append(";").append(eol);
+            builder.append(indent).append(properties.key(i)).append(propertySeparator).append(properties.value(i)).append(";").append(eol);
         }
         builder.append("}").append(eol);
         return builder.toString();
