@@ -10,7 +10,7 @@
 package stylist;
 
 /**
- * @version 2018/08/30 18:05:55
+ * @version 2018/08/31 9:54:42
  */
 public interface Style extends Location {
 

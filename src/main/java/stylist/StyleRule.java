@@ -168,10 +168,17 @@ public class StyleRule {
     }
 
     /**
-     * <p>
-     * Create {@link StyleRule} from the specified object. (e.g. {@link Style}, {@link RuntimeStyle}
-     * )
-     * </p>
+     * Create {@link StyleRule} from the specified {@link Style}.
+     * 
+     * @param style
+     * @return A create new {@link StyleRule}.
+     */
+    public static StyleRule create(Style style) {
+        return create("$", style, true);
+    }
+
+    /**
+     * Create {@link StyleRule} from the specified {@link Style}.
      * 
      * @param object A style description.
      * @return A create new {@link StyleRule}.
