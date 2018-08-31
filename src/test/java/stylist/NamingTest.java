@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 /**
  * @version 2018/08/31 11:44:35
  */
-class NamingTest {
+class NamingTest extends StyleTester {
 
     @Test
     void implementation() {
@@ -25,7 +25,6 @@ class NamingTest {
     /**
      * @version 2018/08/31 9:33:24
      */
-    @SuppressWarnings("serial")
     private static class Implementation implements Style {
 
         /**
@@ -49,21 +48,11 @@ class NamingTest {
     @Test
     void fieldLambda() {
         StyleRule rule = StyleRule.create(fieldLambda);
-        assert rule.selector.matches("\\.AT\\d+");
-    }
-
-    @RetainLocation
-    static Style fieldLambdaRetainLocation = () -> {
-    };
-
-    @Test
-    void fieldLambdaRetainLoation() {
-        StyleRule rule = StyleRule.create(fieldLambdaRetainLocation);
-        assert rule.selector.equals(".NamingTest≫fieldLambdaRetainLocation");
+        assert rule.selector.matches(".NamingTest≫fieldLambda");
     }
 
     @Test
-    void fieldLambdaRetainLoationInMemberCLass() {
+    void fieldLambdaInMemberCLass() {
         StyleRule rule = StyleRule.create(Member.style);
         assert rule.selector.equals(".NamingTest≫Member≫style");
     }
@@ -71,8 +60,7 @@ class NamingTest {
     /**
      * @version 2018/08/31 11:18:38
      */
-    @RetainLocation
-    private static class Member {
+    private static class Member extends StyleDSL {
 
         static Style style = () -> {
         };

@@ -9,12 +9,10 @@
  */
 package stylist;
 
-import java.io.Serializable;
-
 /**
  * @version 2018/08/31 11:14:03
  */
-public interface Location extends Serializable {
+public interface Location {
 
     /**
      * <p>
@@ -24,7 +22,7 @@ public interface Location extends Serializable {
      * @return A location name.
      */
     default String name() {
-        return LocationNamingStrategy.compute(this);
+        return Stylist.compute(this);
     }
 
     /**

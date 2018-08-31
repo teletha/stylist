@@ -11,6 +11,7 @@ package stylist;
 
 import static stylist.value.Color.*;
 
+import kiss.Extensible;
 import kiss.Manageable;
 import kiss.Singleton;
 import stylist.property.Animation;
@@ -43,10 +44,10 @@ import stylist.value.Shadow;
 import stylist.value.Unit;
 
 /**
- * @version 2016/09/18 19:02:34
+ * @version 2018/08/31 12:06:36
  */
 @Manageable(lifestyle = Singleton.class)
-public class StyleDSL extends SelectorDSL {
+public abstract class StyleDSL extends SelectorDSL implements Extensible {
 
     /**
      * <p>

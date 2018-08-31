@@ -13,12 +13,17 @@ import static java.lang.Integer.*;
 
 import java.util.List;
 
+import kiss.I;
 import stylist.value.Color;
 
 /**
  * @version 2018/08/30 18:32:21
  */
 public class StyleTester extends StyleDSL {
+
+    static {
+        I.load(StyleTester.class, false);
+    }
 
     /**
      * Helper method to wirte test style.
