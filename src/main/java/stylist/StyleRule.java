@@ -154,17 +154,45 @@ public class StyleRule {
     }
 
     /**
+     * Format this {@link StyleRule} human-readably.
+     * 
+     * @return
+     */
+    public String format() {
+        return format("\r\n", "\t", ": ", " ");
+    }
+
+    /**
+     * Format this {@link StyleRule} computer-readably.
+     * 
+     * @return
+     */
+    public String formatMin() {
+        return format("", "", ":", "");
+    }
+
+    /**
+     * Format code.
+     * 
+     * @param eol
+     * @return
+     */
+    private String format(String eol, String indent, String propertySeparator, String selectorSeparator) {
+        StringBuilder builder = new StringBuilder(selector);
+        builder.append(selectorSeparator).append("{").append(eol);
+        for (int i = 0, size = properties.size(); i < size; i++) {
+            // builder.append(indent).append(properties.key(i)).append(propertySeparator).append(properties.value(i)).append(";").append(eol);
+        }
+        builder.append("}").append(eol);
+        return builder.toString();
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder(selector);
-        builder.append("{");
-        for (int i = 0, size = properties.size(); i < size; i++) {
-            builder.append(properties.key(i)).append(":").append(properties.value(i)).append(";");
-        }
-        builder.append("}");
-        return builder.toString();
+        return format();
     }
 
     /**

@@ -9,8 +9,14 @@
  */
 package stylist;
 
+import static java.nio.charset.StandardCharsets.*;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -30,6 +36,13 @@ public class Stylist {
     private static final Map<Location, String> managed = new ConcurrentHashMap();
 
     static {
+        load();
+    }
+
+    /**
+     * Load all styles eargerly.
+     */
+    private static void load() {
         for (Class domain : I.findAs(StyleDSL.class)) {
             for (Field field : domain.getDeclaredFields()) {
                 try {
@@ -47,7 +60,6 @@ public class Stylist {
                 }
             }
         }
-        managed.entrySet().stream().forEach(System.out::println);
     }
 
     /**
@@ -58,6 +70,7 @@ public class Stylist {
     public static final void setNamingStrategy(Function<Field, String> strategy) {
         if (strategy != null) {
             naming = strategy;
+            load();
         }
     }
 
@@ -75,5 +88,40 @@ public class Stylist {
         } else {
             return "AT" + location.hashCode();
         }
+    }
+
+    /**
+     * Write out all styles to the specified path.
+     * 
+     * @param path
+     * @return
+     */
+    public static final Path writeTo(String path) {
+        return writeTo(Paths.get(path));
+    }
+
+    /**
+     * Write out all styles to the specified path.
+     * 
+     * @param path
+     * @return
+     */
+    public static final Path writeTo(Path path) {
+        StringBuilder builder = new StringBuilder();
+
+        I.signal(managed.keySet()).as(Style.class).to(style -> {
+            StyleRule rule = StyleRule.create(style);
+            builder.append(rule).append("\r\n");
+        });
+
+        try {
+            if (Files.notExists(path)) {
+                Files.createFile(path);
+            }
+            Files.write(path, builder.toString().getBytes(UTF_8));
+        } catch (IOException e) {
+            throw I.quiet(e);
+        }
+        return path;
     }
 }
