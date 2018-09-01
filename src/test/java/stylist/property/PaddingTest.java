@@ -27,7 +27,6 @@ public class PaddingTest extends StyleTester {
             padding.left(30, percent);
             padding.right(new Numeric(10, ex));
         });
-        System.out.println(parsed);
         assert parsed.property("padding-top", "10em");
         assert parsed.property("padding-bottom", "20px");
         assert parsed.property("padding-left", "30%");

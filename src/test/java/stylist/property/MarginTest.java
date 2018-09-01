@@ -11,12 +11,14 @@ package stylist.property;
 
 import org.junit.jupiter.api.Test;
 
+import antibug.powerassert.PowerAssertOff;
 import stylist.StyleTester;
 import stylist.value.Numeric;
 
 /**
  * @version 2018/08/30 18:38:35
  */
+@PowerAssertOff
 public class MarginTest extends StyleTester {
 
     @Test

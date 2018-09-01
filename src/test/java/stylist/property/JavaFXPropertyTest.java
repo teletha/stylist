@@ -9,6 +9,7 @@
  */
 package stylist.property;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ import stylist.Stylist;
 import stylist.Vendor;
 
 /**
- * @version 2018/09/01 12:50:26
+ * @version 2018/09/01 20:24:59
  */
 class JavaFXPropertyTest extends StyleTester {
 
@@ -26,6 +27,7 @@ class JavaFXPropertyTest extends StyleTester {
         Stylist.setCurrentVendor(Vendor.JavaFX);
     }
 
+    @AfterAll
     static void restore() {
         Stylist.setCurrentVendor(Vendor.Standard);
     }
