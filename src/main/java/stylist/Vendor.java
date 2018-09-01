@@ -45,8 +45,13 @@ public enum Vendor {
         return Current == Webkit;
     }
 
+    /** The current vendor state in this environment. */
+    public static final boolean isFX() {
+        return Current == JavaFX;
+    }
+
     /** The prefix. */
-    private final String prefix;
+    public final String prefix;
 
     /**
      * @param prefix

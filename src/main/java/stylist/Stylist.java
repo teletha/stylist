@@ -77,7 +77,7 @@ public class Stylist {
     /**
      * Set the default {@link Vendor}.
      */
-    public static void setVendor(Vendor vendor) {
+    public static final void setCurrentVendor(Vendor vendor) {
         if (vendor != null) {
             Vendor.Current = vendor;
         }
@@ -118,9 +118,8 @@ public class Stylist {
     public static final Path writeTo(Path path) {
         StringBuilder builder = new StringBuilder();
 
-        I.signal(managed.keySet()).as(Style.class).to(style -> {
-            StyleRule rule = StyleRule.create(style);
-            builder.append(rule).append("\r\n");
+        managed.keySet().stream().map(e -> StyleRule.create((Style) e)).sorted().forEach(e -> {
+            builder.append(e).append("\r\n");
         });
 
         try {

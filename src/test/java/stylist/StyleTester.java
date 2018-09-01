@@ -43,6 +43,23 @@ public class StyleTester extends StyleDSL {
     }
 
     /**
+     * Helper method to write test style with the specified selector.
+     * 
+     * @param selector
+     * @param style
+     * @return
+     */
+    protected final StyleRule writeStyle(String selector, Style style) {
+        StyleRule rule = new StyleRule(selector);
+        StyleRule soruce = StyleRule.create(style);
+
+        for (int i = 0; i < soruce.properties.size(); i++) {
+            rule.properties.add(soruce.properties.key(i), soruce.properties.value(i));
+        }
+        return rule;
+    }
+
+    /**
      * @version 2018/08/30 22:22:37
      */
     public static class ValidatableStyle {
@@ -146,6 +163,14 @@ public class StyleTester extends StyleDSL {
          */
         public boolean noPrefix() {
             return false;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public String toString() {
+            return rules.toString();
         }
     }
 }

@@ -18,6 +18,7 @@ import java.util.Optional;
 
 import kiss.I;
 import stylist.util.DualList;
+import stylist.util.Formatter;
 
 /**
  * <p>
@@ -26,7 +27,7 @@ import stylist.util.DualList;
  * 
  * @version 2018/08/30 18:18:24
  */
-public class StyleRule {
+public class StyleRule implements Comparable<StyleRule> {
 
     /** The selector. */
     public final String selector;
@@ -154,37 +155,11 @@ public class StyleRule {
     }
 
     /**
-     * Format this {@link StyleRule} human-readably.
-     * 
-     * @return
+     * {@inheritDoc}
      */
-    public String format() {
-        return format("\r\n", "\t", ": ", " ");
-    }
-
-    /**
-     * Format this {@link StyleRule} computer-readably.
-     * 
-     * @return
-     */
-    public String formatMin() {
-        return format("", "", ":", "");
-    }
-
-    /**
-     * Format code.
-     * 
-     * @param eol
-     * @return
-     */
-    private String format(String eol, String indent, String propertySeparator, String selectorSeparator) {
-        StringBuilder builder = new StringBuilder(selector);
-        builder.append(selectorSeparator).append("{").append(eol);
-        for (int i = 0, size = properties.size(); i < size; i++) {
-            builder.append(indent).append(properties.key(i)).append(propertySeparator).append(properties.value(i)).append(";").append(eol);
-        }
-        builder.append("}").append(eol);
-        return builder.toString();
+    @Override
+    public int compareTo(StyleRule o) {
+        return selector.compareTo(o.selector);
     }
 
     /**
@@ -192,7 +167,7 @@ public class StyleRule {
      */
     @Override
     public String toString() {
-        return format();
+        return Formatter.pretty().format(this);
     }
 
     /**
@@ -249,5 +224,15 @@ public class StyleRule {
 
         // API definition
         return child;
+    }
+
+    /**
+     * Create empty {@link StyleRule} with the specified selector.
+     * 
+     * @param selector
+     * @return
+     */
+    public static StyleRule create(String selector) {
+        return new StyleRule(selector);
     }
 }
