@@ -23,6 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
 import kiss.I;
+import stylist.util.Formatter;
 import stylist.util.HierarchicalNaming;
 
 /**
@@ -107,7 +108,7 @@ public class Stylist {
      * @return
      */
     public static final Path writeTo(String path) {
-        return writeTo(Paths.get(path));
+        return writeTo(Paths.get(path), Formatter.pretty());
     }
 
     /**
@@ -116,11 +117,11 @@ public class Stylist {
      * @param path
      * @return
      */
-    public static final Path writeTo(Path path) {
+    public static final Path writeTo(Path path, Formatter formatter) {
         StringBuilder builder = new StringBuilder();
 
         I.signal(managed.keySet()).as(Style.class).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
-            builder.append(e).append("\r\n");
+            formatter.format(e, builder);
         });
 
         try {
