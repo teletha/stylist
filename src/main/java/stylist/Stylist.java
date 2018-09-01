@@ -17,6 +17,7 @@ import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
@@ -118,7 +119,7 @@ public class Stylist {
     public static final Path writeTo(Path path) {
         StringBuilder builder = new StringBuilder();
 
-        managed.keySet().stream().map(e -> StyleRule.create((Style) e)).sorted().forEach(e -> {
+        I.signal(managed.keySet()).as(Style.class).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
             builder.append(e).append("\r\n");
         });
 

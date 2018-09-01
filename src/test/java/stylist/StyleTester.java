@@ -11,6 +11,7 @@ package stylist;
 
 import static java.lang.Integer.*;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import kiss.I;
@@ -21,8 +22,18 @@ import stylist.value.Color;
  */
 public class StyleTester extends StyleDSL {
 
+    /** The selector field. */
+    private static final Field selectorField;
+
     static {
         I.load(StyleTester.class, false);
+
+        try {
+            selectorField = StyleRule.class.getField("selector");
+            selectorField.setAccessible(true);
+        } catch (Exception e) {
+            throw I.quiet(e);
+        }
     }
 
     /**
@@ -50,13 +61,29 @@ public class StyleTester extends StyleDSL {
      * @return
      */
     protected final StyleRule writeStyle(String selector, Style style) {
-        StyleRule rule = new StyleRule(selector);
-        StyleRule soruce = StyleRule.create(style);
+        StyleRule root = StyleRule.create(style);
 
-        for (int i = 0; i < soruce.properties.size(); i++) {
-            rule.properties.add(soruce.properties.key(i), soruce.properties.value(i));
+        try {
+            update(root, (String) selectorField.get(root), selector);
+        } catch (Exception e) {
+            throw I.quiet(e);
         }
-        return rule;
+        return root;
+    }
+
+    /**
+     * Force to set the selector.
+     */
+    private void update(StyleRule rule, String root, String replacer) {
+        try {
+            selectorField.set(rule, ((String) selectorField.get(rule)).replace(root, replacer));
+
+            for (StyleRule child : rule.children) {
+                update(child, root, replacer);
+            }
+        } catch (Exception e) {
+            throw I.quiet(e);
+        }
     }
 
     /**

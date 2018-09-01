@@ -22,10 +22,6 @@ class FormatterTest extends StyleTester {
     StyleRule empty = writeStyle("#empty", () -> {
     });
 
-    StyleRule one = writeStyle("#one", () -> {
-        display.block();
-    });
-
     @Test
     void selector() {
         Formatter formatter = Formatter.compact().selector(" ", " ");
@@ -42,10 +38,14 @@ class FormatterTest extends StyleTester {
 
     @Test
     void endBrace() {
-        Formatter formatter = Formatter.compact().endBrace("\r\n");
+        Formatter formatter = Formatter.compact().endBrace("\r\n", "");
 
         assert formatter.format(empty).equals("#empty{\r\n}");
     }
+
+    StyleRule one = writeStyle("#one", () -> {
+        display.block();
+    });
 
     @Test
     void propertyName() {
@@ -66,5 +66,31 @@ class FormatterTest extends StyleTester {
         Formatter formatter = Formatter.compact().propertyLine("\r\n");
 
         assert formatter.format(one).equals("#one{display:block;\r\n}");
+    }
+
+    StyleRule two = writeStyle("#two", () -> {
+        display.block().width(10, px);
+    });
+
+    @Test
+    void properties() {
+        Formatter formatter = Formatter.compact().propertyName(" ", "");
+
+        assert formatter.format(two).equals("#two{ display:block; width:10px;}");
+    }
+
+    StyleRule nest = writeStyle("#nest", () -> {
+        display.width(10, px);
+
+        hover(() -> {
+            display.width(20, px);
+        });
+    });
+
+    @Test
+    void nest() {
+        Formatter formatter = Formatter.compact().endBrace("", " ");
+
+        assert formatter.format(nest).equals("#nest{width:10px;} #nest:hover{width:20px;} ");
     }
 }

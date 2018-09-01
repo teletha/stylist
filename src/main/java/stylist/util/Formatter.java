@@ -10,6 +10,9 @@
 package stylist.util;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 import kiss.I;
 import stylist.StyleRule;
@@ -17,7 +20,7 @@ import stylist.StyleRule;
 /**
  * @version 2018/09/01 20:13:22
  */
-public class Formatter {
+public final class Formatter {
 
     /** The format style. */
     private String beforeSelector = "";
@@ -30,6 +33,9 @@ public class Formatter {
 
     /** The format style. */
     private String beforeEndBrace = "";
+
+    /** The format style. */
+    private String afterEndBrace = "";
 
     /** The format style. */
     private String beforePropertyName = "";
@@ -45,6 +51,9 @@ public class Formatter {
 
     /** The format style. */
     private String afterPropertyLine = "";
+
+    /** The manager of post processors. */
+    private final List<Consumer<StyleRule>> posts = new ArrayList();
 
     /**
      * Hide constructor.
@@ -90,9 +99,13 @@ public class Formatter {
      * @param after An after decoration.
      * @return Chainable API.
      */
-    public Formatter endBrace(String before) {
+    public Formatter endBrace(String before, String after) {
         if (before != null) {
             this.beforeEndBrace = before;
+        }
+
+        if (after != null) {
+            this.afterEndBrace = after;
         }
         return this;
     }
@@ -147,12 +160,25 @@ public class Formatter {
     }
 
     /**
+     * Set the post-processor.
+     * 
+     * @param processor
+     * @return
+     */
+    public Formatter postProcessor(Consumer<StyleRule> processor) {
+        if (processor != null) {
+            posts.add(processor);
+        }
+        return this;
+    }
+
+    /**
      * Format the specified {@link StyleRule}.
      * 
      * @param rule A target to format.
      * @return A formatted text.
      */
-    public final String format(StyleRule rule) {
+    public String format(StyleRule rule) {
         StringBuilder builder = new StringBuilder();
         format(rule, builder);
         return builder.toString();
@@ -162,7 +188,7 @@ public class Formatter {
      * @param rule
      * @param appendable
      */
-    public final void format(StyleRule rule, Appendable appendable) {
+    public void format(StyleRule rule, Appendable appendable) {
         try {
             appendable.append(beforeSelector).append(rule.selector).append(afterSelector).append('{').append(afterStartBrace);
 
@@ -177,7 +203,11 @@ public class Formatter {
                         .append(';')
                         .append(afterPropertyLine);
             }
-            appendable.append(beforeEndBrace).append('}');
+            appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
+
+            for (StyleRule child : rule.children) {
+                format(child, appendable);
+            }
         } catch (IOException e) {
             throw I.quiet(e);
         }
@@ -194,7 +224,7 @@ public class Formatter {
                 .propertyName("\t", "")
                 .propertyValue(" ", "")
                 .propertyLine("\r\n")
-                .endBrace("");
+                .endBrace("", "\r\n");
     }
 
     /**
