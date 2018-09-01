@@ -192,6 +192,10 @@ public final class Formatter {
      */
     public void format(StyleRule rule, Appendable appendable) {
         try {
+            for (Consumer<Properties> processor : posts) {
+                processor.accept(rule.properties);
+            }
+
             appendable.append(beforeSelector).append(rule.selector).append(afterSelector).append('{').append(afterStartBrace);
 
             for (int i = 0, size = rule.properties.size(); i < size; i++) {

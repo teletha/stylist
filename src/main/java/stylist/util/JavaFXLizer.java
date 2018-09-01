@@ -12,6 +12,7 @@ package stylist.util;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import kiss.Variable;
 import stylist.Vendor;
 
 /**
@@ -19,8 +20,11 @@ import stylist.Vendor;
  */
 public class JavaFXLizer implements Consumer<Properties> {
 
-    /** The special mapping properties. */
-    private static final Map<String, String> specialMapping = Map.of("width", "pref-width", "height", "pref-height");
+    /** The property name mapping. */
+    private static final Map<String, String> propertyNames = Map.of("width", "pref-width", "height", "pref-height");
+
+    /** The property value mapping. */
+    private static final Map<String, String> cursor = Map.of("pointer", "hand");
 
     /**
      * {@inheritDoc}
@@ -28,8 +32,14 @@ public class JavaFXLizer implements Consumer<Properties> {
     @Override
     public void accept(Properties properties) {
         properties.compactTo("padding", "0", "padding-top", "padding-right", "padding-bottom", "padding-left");
+        properties.value("cursor", value -> cursor.getOrDefault(value, value));
+
+        Variable<String> variable = properties.get("border-bottom");
+        if (variable.isPresent()) {
+            System.out.println(variable);
+        }
 
         // assign prefix and map special name
-        properties.keys(key -> Vendor.JavaFX + specialMapping.getOrDefault(key, key));
+        properties.keys(key -> Vendor.JavaFX + propertyNames.getOrDefault(key, key));
     }
 }

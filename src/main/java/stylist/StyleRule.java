@@ -142,10 +142,10 @@ public class StyleRule implements Comparable<StyleRule> {
                     case 2: // append
                         Variable<String> current = this.properties.get(resolvedName);
 
-                        if (current.isPresent()) {
-                            this.properties.set(resolvedName, current.get() + separator + value);
-                        } else {
+                        if (current.isAbsent()) {
                             this.properties.add(resolvedName, value);
+                        } else {
+                            this.properties.set(resolvedName, current.get() + separator + value);
                         }
                         break;
                     }

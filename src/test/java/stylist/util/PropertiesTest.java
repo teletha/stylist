@@ -37,7 +37,15 @@ class PropertiesTest {
     }
 
     @Test
-    void mappingKey() {
+    void compactWithAllNone() {
+        Properties properties = new Properties();
+
+        properties.compactTo("compact", "default", "1", "2", "3");
+        assert properties.get("compact").isAbsent();
+    }
+
+    @Test
+    void mappingKeys() {
         Properties properties = new Properties();
         properties.add("a", "a");
         properties.add("b", "b");
@@ -46,5 +54,21 @@ class PropertiesTest {
         assert properties.size() == 2;
         assert properties.get("A").is("a");
         assert properties.get("B").is("b");
+    }
+
+    @Test
+    void mappingValue() {
+        Properties properties = new Properties();
+        properties.add("a", "a");
+        properties.add("b", "b");
+
+        properties.value("a", String::toUpperCase);
+        assert properties.size() == 2;
+        assert properties.get("a").is("A");
+        assert properties.get("b").is("b");
+
+        // null
+        properties.value("c", String::toUpperCase);
+        assert properties.size() == 2;
     }
 }

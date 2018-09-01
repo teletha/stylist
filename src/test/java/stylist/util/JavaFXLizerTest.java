@@ -12,7 +12,7 @@ package stylist.util;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.util.JavaFXLizer;
+import stylist.value.Color;
 
 /**
  * @version 2018/09/01 22:21:23
@@ -63,5 +63,32 @@ class JavaFXLizerTest extends StyleTester {
             padding.top(10, px).left(5, px);
         }, fxlizer);
         assert style.property("-fx-padding", "10px 0 0 5px");
+    }
+
+    @Test
+    void curosr() {
+        ValidatableStyle style = writeStyle(() -> {
+            cursor.pointer();
+        }, fxlizer);
+        assert style.property("-fx-cursor", "hand");
+
+        style = writeStyle(() -> {
+            cursor.waiting();
+        }, fxlizer);
+        assert style.property("-fx-cursor", "wait");
+
+        style = writeStyle(() -> {
+            cursor.text();
+        }, fxlizer);
+        assert style.property("-fx-cursor", "text");
+    }
+
+    @Test
+    void borderWidth() {
+        ValidatableStyle style = writeStyle(() -> {
+            border.bottom.width(2, px).solid().color(Color.Black);
+        }, fxlizer);
+        System.out.println(style);
+        assert style.property("-fx-border-width", "0 0 2px 0");
     }
 }

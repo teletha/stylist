@@ -22,9 +22,9 @@ public class BorderTest extends StyleTester {
     @Test
     public void top() {
         ValidatableStyle parsed = writeStyle(() -> {
-            border.top.solid().color(Color.Black).width(1, px);
+            border.top.width(1, px).solid().color(Color.Black);
         });
-        assert parsed.property("border-top", "solid black 1px");
+        assert parsed.property("border-top", "1px solid black");
     }
 
     @Test
@@ -46,17 +46,17 @@ public class BorderTest extends StyleTester {
     @Test
     public void right() {
         ValidatableStyle parsed = writeStyle(() -> {
-            border.right.groove().width(1, px);
+            border.right.width(1, px).groove();
         });
-        assert parsed.property("border-right", "groove 1px");
+        assert parsed.property("border-right", "1px groove");
     }
 
     @Test
     public void all() {
         ValidatableStyle parsed = writeStyle(() -> {
-            border.color(Color.White).solid().width(1, px);
+            border.width(1, px).solid().color(Color.White);
         });
-        assert parsed.property("border", "white solid 1px");
+        assert parsed.property("border", "1px solid white");
     }
 
     @Test

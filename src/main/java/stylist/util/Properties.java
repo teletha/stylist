@@ -254,6 +254,25 @@ public class Properties {
 
     /**
      * <p>
+     * Mapping values.
+     * </p>
+     * 
+     * @param mapper A value mapper.
+     * @return Chainable API
+     */
+    public Properties value(String key, Function<String, String> mapper) {
+        if (mapper != null) {
+            Variable<String> value = get(key);
+
+            if (value.isPresent()) {
+                set(key, value.map(mapper).v);
+            }
+        }
+        return this;
+    }
+
+    /**
+     * <p>
      * Retrieve value list.
      * </p>
      * 
@@ -289,12 +308,24 @@ public class Properties {
      * @param removers
      */
     public void compactTo(String compactName, String defaultValue, String... removers) {
-        List<String> removed = new ArrayList();
+        if (removers != null && removers.length != 0) {
+            int[] count = new int[] {0};
 
-        for (int i = 0; i < removers.length; i++) {
-            removed.add(remove(removers[i]).or(defaultValue).v);
+            List<String> compacting = I.signal(removers).map(e -> {
+                Variable<String> removed = remove(e);
+
+                if (removed.isAbsent()) {
+                    return defaultValue;
+                } else {
+                    count[0] = count[0] + 1;
+                    return removed.v;
+                }
+            }).toList();
+
+            if (0 < count[0]) {
+                set(compactName, I.join(" ", compacting));
+            }
         }
-        set(compactName, I.join(" ", removed));
     }
 
     /**
