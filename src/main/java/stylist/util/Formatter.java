@@ -18,7 +18,7 @@ import kiss.I;
 import stylist.StyleRule;
 
 /**
- * @version 2018/09/01 20:13:22
+ * @version 2018/09/01 21:17:27
  */
 public final class Formatter {
 
@@ -53,7 +53,7 @@ public final class Formatter {
     private String afterPropertyLine = "";
 
     /** The manager of post processors. */
-    private final List<Consumer<StyleRule>> posts = new ArrayList();
+    private final List<Consumer<Properties>> posts = new ArrayList();
 
     /**
      * Hide constructor.
@@ -160,12 +160,12 @@ public final class Formatter {
     }
 
     /**
-     * Set the post-processor.
+     * Add the post-processor.
      * 
      * @param processor
      * @return
      */
-    public Formatter postProcessor(Consumer<StyleRule> processor) {
+    public Formatter postProcessor(Consumer<Properties> processor) {
         if (processor != null) {
             posts.add(processor);
         }
@@ -185,8 +185,10 @@ public final class Formatter {
     }
 
     /**
-     * @param rule
-     * @param appendable
+     * Format the specified {@link StyleRule}.
+     * 
+     * @param rule A target to format.
+     * @param appendable An output for the formatted text.
      */
     public void format(StyleRule rule, Appendable appendable) {
         try {
@@ -224,7 +226,7 @@ public final class Formatter {
                 .propertyName("\t", "")
                 .propertyValue(" ", "")
                 .propertyLine("\r\n")
-                .endBrace("", "\r\n");
+                .endBrace("", "\r\n\r\n");
     }
 
     /**

@@ -11,18 +11,21 @@ package stylist.util;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.function.Function;
+
+import kiss.I;
+import kiss.Variable;
 
 /**
- * @version 2018/08/30 18:17:46
+ * @version 2018/09/01 21:31:58
  */
-public class DualList<K, V> {
+public class Properties {
 
     /** The key list. */
-    private final ArrayList<K> keys = new ArrayList();
+    private final ArrayList<String> keys = new ArrayList();
 
     /** The value list. */
-    private final ArrayList<V> values = new ArrayList();
+    private final ArrayList<String> values = new ArrayList();
 
     /**
      * <p>
@@ -32,13 +35,13 @@ public class DualList<K, V> {
      * @param key A key.
      * @return A first matched value.
      */
-    public Optional<V> get(K key) {
+    public Variable<String> get(String key) {
         int index = keys.indexOf(key);
 
         if (index == -1) {
-            return Optional.empty();
+            return Variable.empty();
         } else {
-            return Optional.of(values.get(index));
+            return Variable.of(values.get(index));
         }
     }
 
@@ -50,8 +53,8 @@ public class DualList<K, V> {
      * @param key A key.
      * @return A list of all matched values.
      */
-    public List<V> getAll(K key) {
-        List<V> matched = new ArrayList();
+    public List<String> getAll(String key) {
+        List<String> matched = new ArrayList();
 
         for (int i = 0, length = keys.size(); i < length; i++) {
             if (keys.get(i).equals(key)) {
@@ -68,9 +71,9 @@ public class DualList<K, V> {
      * 
      * @param key A key.
      * @param value A value.
-     * @return An updated {@link DualList}.
+     * @return An updated {@link Properties}.
      */
-    public DualList<K, V> add(K key, V value) {
+    public Properties add(String key, String value) {
         keys.add(key);
         values.add(value);
 
@@ -84,9 +87,9 @@ public class DualList<K, V> {
      * 
      * @param key A key.
      * @param value A value to update.
-     * @return An updated {@link DualList}.
+     * @return An updated {@link Properties}.
      */
-    public DualList<K, V> set(K key, V value) {
+    public Properties set(String key, String value) {
         int index = keys.indexOf(key);
 
         if (index == -1) {
@@ -104,16 +107,34 @@ public class DualList<K, V> {
      * </p>
      * 
      * @param key A key to remove.
-     * @return An updated {@link DualList}.
+     * @return An updated {@link Properties}.
      */
-    public DualList<K, V> remove(K key) {
+    public Variable<String> remove(String key) {
         int index = keys.indexOf(key);
 
         if (index != -1) {
             keys.remove(index);
-            values.remove(index);
+            return Variable.of(values.remove(index));
+        } else {
+            return Variable.empty();
         }
-        return this;
+    }
+
+    /**
+     * <p>
+     * Remove the first matched item by the specified keys.
+     * </p>
+     * 
+     * @param key A key to remove.
+     * @return An updated {@link Properties}.
+     */
+    public Variable<String>[] remove(String... keys) {
+        Variable<String>[] values = new Variable[keys.length];
+
+        for (int i = 0; i < keys.length; i++) {
+            values[i] = remove(keys[i]);
+        }
+        return values;
     }
 
     /**
@@ -122,9 +143,9 @@ public class DualList<K, V> {
      * </p>
      * 
      * @param key A key to remove.
-     * @return An updated {@link DualList}.
+     * @return An updated {@link Properties}.
      */
-    public DualList<K, V> removeAll(K key) {
+    public Properties removeAll(String key) {
         for (int i = keys.size() - 1; 0 <= i; i--) {
             if (keys.get(i).equals(key)) {
                 keys.remove(i);
@@ -163,7 +184,7 @@ public class DualList<K, V> {
      * @param index A index to find.
      * @return A indexed key.
      */
-    public K key(int index) {
+    public String key(int index) {
         return keys.get(index);
     }
 
@@ -175,7 +196,7 @@ public class DualList<K, V> {
      * @param key A key to find.
      * @return A index for the specified key.
      */
-    public int key(K key) {
+    public int key(String key) {
         return keys.indexOf(key);
     }
 
@@ -186,8 +207,25 @@ public class DualList<K, V> {
      * 
      * @return
      */
-    public List<K> keys() {
+    public List<String> keys() {
         return keys;
+    }
+
+    /**
+     * <p>
+     * Mapping key.
+     * </p>
+     * 
+     * @param mapper A key mapper.
+     * @return Chainable API
+     */
+    public Properties keys(Function<String, String> mapper) {
+        if (mapper != null) {
+            for (int i = 0; i < keys.size(); i++) {
+                keys.set(i, mapper.apply(keys.get(i)));
+            }
+        }
+        return this;
     }
 
     /**
@@ -198,7 +236,7 @@ public class DualList<K, V> {
      * @param index A index to find.
      * @return A indexed value.
      */
-    public V value(int index) {
+    public String value(int index) {
         return values.get(index);
     }
 
@@ -210,7 +248,7 @@ public class DualList<K, V> {
      * @param value A value to find.
      * @return A index for the specified value.
      */
-    public int value(V value) {
+    public int value(String value) {
         return values.indexOf(value);
     }
 
@@ -221,7 +259,7 @@ public class DualList<K, V> {
      * 
      * @return
      */
-    public List<V> values() {
+    public List<String> values() {
         return values;
     }
 
@@ -241,6 +279,22 @@ public class DualList<K, V> {
             return false;
         }
         return values.get(index).equals(value);
+    }
+
+    /**
+     * Compact properties.
+     * 
+     * @param compactName
+     * @param defaultValue
+     * @param removers
+     */
+    public void compactTo(String compactName, String defaultValue, String... removers) {
+        List<String> removed = new ArrayList();
+
+        for (int i = 0; i < removers.length; i++) {
+            removed.add(remove(removers[i]).or(defaultValue).v);
+        }
+        set(compactName, I.join(" ", removed));
     }
 
     /**

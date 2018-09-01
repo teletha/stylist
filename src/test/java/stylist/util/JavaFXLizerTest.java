@@ -7,30 +7,19 @@
  *
  *          http://opensource.org/licenses/mit-license.php
  */
-package stylist.property;
+package stylist.util;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.Stylist;
-import stylist.Vendor;
+import stylist.util.JavaFXLizer;
 
 /**
- * @version 2018/09/01 20:24:59
+ * @version 2018/09/01 22:21:23
  */
-class JavaFXPropertyTest extends StyleTester {
+class JavaFXLizerTest extends StyleTester {
 
-    @BeforeAll
-    static void init() {
-        Stylist.setCurrentVendor(Vendor.JavaFX);
-    }
-
-    @AfterAll
-    static void restore() {
-        Stylist.setCurrentVendor(Vendor.Standard);
-    }
+    JavaFXLizer fxlizer = new JavaFXLizer();
 
     @Test
     void width() {
@@ -38,7 +27,8 @@ class JavaFXPropertyTest extends StyleTester {
             display.width(10, px);
             display.maxWidth(10, px);
             display.minWidth(10, px);
-        });
+        }, fxlizer);
+
         assert style.property("-fx-pref-width", "10px");
         assert style.property("-fx-max-width", "10px");
         assert style.property("-fx-min-width", "10px");
@@ -50,9 +40,28 @@ class JavaFXPropertyTest extends StyleTester {
             display.height(10, px);
             display.maxHeight(10, px);
             display.minHeight(10, px);
-        });
+        }, fxlizer);
+
         assert style.property("-fx-pref-height", "10px");
         assert style.property("-fx-max-height", "10px");
         assert style.property("-fx-min-height", "10px");
+    }
+
+    @Test
+    void padding() {
+        ValidatableStyle style = writeStyle(() -> {
+            padding.size(10, px);
+        }, fxlizer);
+        assert style.property("-fx-padding", "10px 10px 10px 10px");
+
+        style = writeStyle(() -> {
+            padding.horizontal(10, px);
+        }, fxlizer);
+        assert style.property("-fx-padding", "0 10px 0 10px");
+
+        style = writeStyle(() -> {
+            padding.top(10, px).left(5, px);
+        }, fxlizer);
+        assert style.property("-fx-padding", "10px 0 0 5px");
     }
 }

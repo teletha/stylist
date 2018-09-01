@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Map;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
@@ -26,9 +25,6 @@ import stylist.util.Strings;
  * @version 2018/08/30 22:24:09
  */
 public class PropertyDefinition<T> {
-
-    /** The special property name mapping for JavaFX. */
-    private static final Map<String, String> specialMappingForJavaFX = Map.of("width", "pref-width", "height", "pref-height");
 
     /** The current processing property holder. */
     protected static StyleRule properties;
@@ -206,23 +202,9 @@ public class PropertyDefinition<T> {
     protected final T value(EnumSet<Vendor> vendors, String name, List values, String separator, int writeMode) {
         vendors.addAll(this.vendors);
 
-        properties.property(replace(name), values, separator, writeMode, vendors);
+        properties.property(name, values, separator, writeMode, vendors);
 
         return context;
-    }
-
-    /**
-     * Map property name for JavaFx support.
-     * 
-     * @param name
-     * @return
-     */
-    private final String replace(String name) {
-        if (Vendor.isFX() == false) {
-            return name;
-        } else {
-            return Vendor.JavaFX + specialMappingForJavaFX.getOrDefault(name, name);
-        }
     }
 
     /**

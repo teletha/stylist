@@ -14,11 +14,11 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.Optional;
 
 import kiss.I;
-import stylist.util.DualList;
+import kiss.Variable;
 import stylist.util.Formatter;
+import stylist.util.Properties;
 
 /**
  * <p>
@@ -33,7 +33,7 @@ public class StyleRule implements Comparable<StyleRule> {
     public final String selector;
 
     /** The property list. */
-    public final DualList<String, String> properties;
+    public final Properties properties;
 
     /** The sub rules. */
     public final ArrayList<StyleRule> children = new ArrayList();
@@ -47,7 +47,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     StyleRule(String selector) {
         this.selector = selector;
-        this.properties = new DualList();
+        this.properties = new Properties();
     }
 
     /**
@@ -140,7 +140,7 @@ public class StyleRule implements Comparable<StyleRule> {
                         break;
 
                     case 2: // append
-                        Optional<String> current = this.properties.get(resolvedName);
+                        Variable<String> current = this.properties.get(resolvedName);
 
                         if (current.isPresent()) {
                             this.properties.set(resolvedName, current.get() + separator + value);

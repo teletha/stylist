@@ -13,12 +13,14 @@ import static java.lang.Integer.*;
 
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.function.Consumer;
 
 import kiss.I;
+import stylist.util.Properties;
 import stylist.value.Color;
 
 /**
- * @version 2018/08/30 18:32:21
+ * @version 2018/09/01 22:21:35
  */
 public class StyleTester extends StyleDSL {
 
@@ -42,7 +44,7 @@ public class StyleTester extends StyleDSL {
      * @param style A test style.
      * @return
      */
-    protected final ValidatableStyle writeStyle(Style style) {
+    protected final ValidatableStyle writeStyle(Style style, Consumer<Properties>... postProcessors) {
         // empty style sheet
         StyleRule rule = StyleRule.create("$", style, false);
 
@@ -50,6 +52,10 @@ public class StyleTester extends StyleDSL {
         String name = "." + style.name();
 
         assert rule.selector.equals(name);
+
+        for (Consumer<Properties> processor : postProcessors) {
+            processor.accept(rule.properties);
+        }
         return new ValidatableStyle(rule);
     }
 
