@@ -237,7 +237,6 @@ public final class Formatter {
                         .append(afterPropertyValue)
                         .append(';')
                         .append(afterPropertyLine);
-                System.out.println(rule.properties.key(i) + "  " + rule.properties.value(i) + "  " + rule.properties.value(i).getClass());
             }
             appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
 
