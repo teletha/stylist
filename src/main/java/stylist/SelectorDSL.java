@@ -14,9 +14,41 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * @version 2016/09/18 19:02:07
+ * @version 2018/09/03 1:05:52
  */
-public abstract class SelectorDSL {
+public final class SelectorDSL {
+
+    /** The root selector. */
+    private SelectorDSL root = this;
+
+    /** The child selector. */
+    private SelectorDSL child;
+
+    /** The style creation processor. */
+    private final Consumer<StyleRule> processor;
+
+    /** The simple selector list. */
+    private List<CharSequence> selectors = new ArrayList();
+
+    /** The combinator. */
+    private String combinator;
+
+    /** The pseudo element. */
+    private String pseudoElement;
+
+    /** The pseudo class list. */
+    private List<CharSequence> pseudoClasses = new ArrayList();
+
+    /**
+     * <p>
+     * Create new selector.
+     * </p>
+     * 
+     * @param processor
+     */
+    private SelectorDSL(Consumer<StyleRule> processor) {
+        this.processor = processor;
+    }
 
     // ===============================================================
     // Basic Selectors
@@ -107,7 +139,11 @@ public abstract class SelectorDSL {
      * @param selector A selector expression.
      * @return Chainable API.
      */
-    abstract SelectorDSL basic(String selector);
+    SelectorDSL basic(String selector) {
+        selectors.add(selector);
+
+        return this;
+    }
 
     // ===============================================================
     // Combinators
@@ -338,7 +374,19 @@ public abstract class SelectorDSL {
      * @param forward A direction.
      * @return
      */
-    abstract SelectorDSL combine(String type, boolean forward);
+    SelectorDSL combine(String type, boolean forward) {
+        SelectorDSL created = new SelectorDSL(processor);
+
+        if (forward) {
+            child = created;
+            combinator = type;
+            created.root = root;
+        } else {
+            created.child = this;
+            created.combinator = type;
+        }
+        return created;
+    }
 
     // ===============================================================
     // Pseudo Elements
@@ -1174,7 +1222,14 @@ public abstract class SelectorDSL {
      * @param name A pseudo name.
      * @return Chainable API.
      */
-    abstract SelectorDSL pseudo(boolean element, String name);
+    SelectorDSL pseudo(boolean element, String name) {
+        if (element) {
+            pseudoElement = name;
+        } else {
+            pseudoClasses.add(name);
+        }
+        return this;
+    }
 
     /**
      * <p>
@@ -1183,7 +1238,55 @@ public abstract class SelectorDSL {
      * 
      * @param style A style declaration.
      */
-    abstract void declare(Style style);
+    void declare(Style style) {
+        if (style != null) {
+            StyleRule rule = PropertyDefinition.createSubRule(toString(), style);
+
+            if (root.processor != null) {
+                root.processor.accept(rule);
+            }
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return root.write();
+    }
+
+    /**
+     * <p>
+     * Write down this selector.
+     * </p>
+     * 
+     * @return A selector expression.
+     */
+    private String write() {
+        StringBuilder builder = new StringBuilder();
+
+        if (selectors.isEmpty()) {
+            builder.append("*");
+        } else {
+            for (CharSequence selector : selectors) {
+                builder.append(selector);
+            }
+        }
+
+        for (CharSequence pseudo : pseudoClasses) {
+            builder.append(":").append(pseudo);
+        }
+
+        if (pseudoElement != null) {
+            builder.append("::").append(pseudoElement);
+        }
+
+        if (combinator != null) {
+            builder.append(combinator).append(child.write());
+        }
+        return builder.toString();
+    }
 
     /**
      * <p>
@@ -1194,7 +1297,7 @@ public abstract class SelectorDSL {
      * @return A created selector builder.
      */
     public static final SelectorDSL create(Consumer<StyleRule> processor) {
-        return new Selector(processor).basic("$");
+        return new SelectorDSL(processor).basic("$");
     }
 
     /**
@@ -1494,150 +1597,6 @@ public abstract class SelectorDSL {
             builder.append("]");
 
             return parent.basic(builder.toString());
-        }
-    }
-
-    /**
-     * @version 2018/08/30 18:56:56
-     */
-    private static class Selector extends SelectorDSL {
-
-        /** The root selector. */
-        private Selector root = this;
-
-        /** The child selector. */
-        private Selector child;
-
-        /** The style creation processor. */
-        private final Consumer<StyleRule> processor;
-
-        /** The simple selector list. */
-        private List<CharSequence> selectors = new ArrayList();
-
-        /** The combinator. */
-        private String combinator;
-
-        /** The pseudo element. */
-        private String pseudoElement;
-
-        /** The pseudo class list. */
-        private List<CharSequence> pseudoClasses = new ArrayList();
-
-        /**
-         * <p>
-         * Create new selector.
-         * </p>
-         * 
-         * @param processor
-         */
-        private Selector(Consumer<StyleRule> processor) {
-            this.processor = processor;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        final SelectorDSL basic(String selector) {
-            selectors.add(selector);
-
-            return this;
-        }
-
-        /**
-         * <p>
-         * Write combinator.
-         * </p>
-         * 
-         * @param type A combinator type.
-         * @param forward A direction.
-         * @return
-         */
-        @Override
-        final SelectorDSL combine(String type, boolean forward) {
-            Selector created = new Selector(processor);
-
-            if (forward) {
-                child = created;
-                combinator = type;
-                created.root = root;
-            } else {
-                created.child = this;
-                created.combinator = type;
-            }
-            return created;
-        }
-
-        /**
-         * <p>
-         * Write pseudo class.
-         * </p>
-         * 
-         * @param name A pseudo class name.
-         * @return Chainable API.
-         */
-        @Override
-        final SelectorDSL pseudo(boolean isElement, String name) {
-            if (isElement) {
-                pseudoElement = name;
-            } else {
-                pseudoClasses.add(name);
-            }
-            return this;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        final void declare(Style style) {
-            if (style != null) {
-                StyleRule rule = PropertyDefinition.createSubRule(toString(), style);
-
-                if (root.processor != null) {
-                    root.processor.accept(rule);
-                }
-            }
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public String toString() {
-            return root.write();
-        }
-
-        /**
-         * <p>
-         * Write down this selector.
-         * </p>
-         * 
-         * @return A selector expression.
-         */
-        private String write() {
-            StringBuilder builder = new StringBuilder();
-
-            if (selectors.isEmpty()) {
-                builder.append("*");
-            } else {
-                for (CharSequence selector : selectors) {
-                    builder.append(selector);
-                }
-            }
-
-            for (CharSequence pseudo : pseudoClasses) {
-                builder.append(":").append(pseudo);
-            }
-
-            if (pseudoElement != null) {
-                builder.append("::").append(pseudoElement);
-            }
-
-            if (combinator != null) {
-                builder.append(combinator).append(child.write());
-            }
-            return builder.toString();
         }
     }
 }
