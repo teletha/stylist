@@ -357,6 +357,14 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
+        public String format(Formatter formatter) {
+            return before.format(formatter) + separator + after.format(formatter);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
         public int hashCode() {
             return Objects.hash(before, after);
         }

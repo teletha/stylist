@@ -12,6 +12,8 @@ package stylist.util;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import kiss.Variable;
+import stylist.CSSValue;
 import stylist.Vendor;
 import stylist.value.Color;
 
@@ -19,6 +21,16 @@ import stylist.value.Color;
  * @version 2018/09/01 21:21:24
  */
 public class JavaFXLizer implements Consumer<Properties> {
+
+    /** The special formatter for JavaFX. */
+    public static final Formatter pretty() {
+        return Formatter.pretty().color(Color::toRGB).postProcessor(new JavaFXLizer());
+    }
+
+    /** The special formatter for JavaFX. */
+    public static final Formatter compact() {
+        return Formatter.compact().color(Color::toRGB).postProcessor(new JavaFXLizer());
+    }
 
     /** The property name mapping. */
     private static final Map<String, String> propertyNames = Map.of("width", "pref-width", "height", "pref-height");
@@ -37,8 +49,37 @@ public class JavaFXLizer implements Consumer<Properties> {
         properties.compactTo("border-color", Color.Transparent, sides("border-*-color"));
         properties.value("cursor", cursorProperties);
 
+        alignment(properties);
+
         // assign prefix and map special name
         properties.keys(key -> Vendor.JavaFX + propertyNames.getOrDefault(key, key));
+    }
+
+    /**
+     * Configure alignment.
+     * 
+     * @param properties
+     */
+    private void alignment(Properties properties) {
+        Variable<CSSValue> horizontal = properties.remove("text-align");
+        Variable<CSSValue> vertical = properties.remove("vertical-align");
+
+        if (horizontal.isPresent() || vertical.isPresent()) {
+            String value = "";
+            String h = horizontal.or(CSSValue.of("left")).toString();
+            String v = vertical.or(CSSValue.of("center")).toString();
+
+            if (v == "middle") {
+                v = "center";
+            }
+
+            if (h == "center" && v == "center") {
+                value = "center";
+            } else {
+                value = v + "-" + h;
+            }
+            properties.add("alignment", CSSValue.of(value));
+        }
     }
 
     /**

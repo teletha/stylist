@@ -98,4 +98,27 @@ class JavaFXLizerTest extends StyleTester {
         }, fxlizer);
         assert style.property("-fx-border-color", "transparent transparent black transparent");
     }
+
+    @Test
+    void alignment() {
+        ValidatableStyle style = writeStyle(() -> {
+            text.align.center().verticalAlign.middle();
+        }, fxlizer);
+        assert style.property("-fx-alignment", "center");
+
+        style = writeStyle(() -> {
+            text.align.left();
+        }, fxlizer);
+        assert style.property("-fx-alignment", "center-left");
+
+        style = writeStyle(() -> {
+            text.align.right();
+        }, fxlizer);
+        assert style.property("-fx-alignment", "center-right");
+
+        style = writeStyle(() -> {
+            text.verticalAlign.middle();
+        }, fxlizer);
+        assert style.property("-fx-alignment", "center-left");
+    }
 }
