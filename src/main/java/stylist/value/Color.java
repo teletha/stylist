@@ -183,11 +183,64 @@ public class Color {
     }
 
     /**
+     * Compute HSL expression.
+     * 
+     * @return
+     */
+    public String toHSL() {
+        if (alpha == 1) {
+            return "hsl(" + hue + "," + saturation + "%," + lightness + "%)";
+        } else {
+            return "hsla(" + hue + "," + saturation + "%," + lightness + "%," + (alpha == 0 ? "0" : alpha) + ")";
+        }
+    }
+
+    /**
+     * Compute RGB expression.
+     * 
+     * @return
+     */
+    public String toRGB() {
+        double max = 2.55 * (lightness + (lightness < 50 ? lightness : 100 - lightness) * (saturation / 100d));
+        double min = 2.55 * (lightness - (lightness < 50 ? lightness : 100 - lightness) * (saturation / 100d));
+        double diff = max - min;
+        double[] rgb;
+
+        if (0 <= hue && hue < 60) {
+            rgb = new double[] {max, min + (max - min) * (hue / 60d), min};
+        } else if (60 <= hue && hue < 120) {
+            rgb = new double[] {((120 - hue) / 60d) * diff + min, max, min};
+        } else if (120 <= hue && hue < 180) {
+            rgb = new double[] {min, max, ((hue - 120) / 60d) * diff + min};
+        } else if (180 <= hue && hue < 240) {
+            rgb = new double[] {min, ((240 - hue) / 60d) * diff + min, max};
+        } else if (240 <= hue && hue < 300) {
+            rgb = new double[] {((hue - 240) / 60d) * diff + min, min, max};
+        } else {
+            rgb = new double[] {max, min, ((360 - hue) / 60d) * diff + min};
+        }
+
+        long[] rounded = new long[3];
+
+        for (int i = 0; i < rgb.length; i++) {
+            rounded[i] = Math.round(rgb[i]);
+        }
+
+        if (alpha == 1) {
+            return "rgb(" + rounded[0] + "," + rounded[1] + "," + rounded[2] + ")";
+        } else {
+            return "rgba(" + rounded[0] + "," + rounded[1] + "," + rounded[2] + "," + alpha + ")";
+        }
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public String toString() {
-        if (alpha == 1) {
+        if (alpha == 0) {
+            return "transparent";
+        } else if (alpha == 1) {
             if (hue == 0 && saturation == 0) {
                 if (lightness == 0) {
                     return "black";
@@ -195,10 +248,8 @@ public class Color {
                     return "white";
                 }
             }
-            return "hsl(" + hue + "," + saturation + "%," + lightness + "%)";
-        } else {
-            return "hsla(" + hue + "," + saturation + "%," + lightness + "%," + (alpha == 0 ? "0" : alpha) + ")";
         }
+        return toHSL();
     }
 
     /**

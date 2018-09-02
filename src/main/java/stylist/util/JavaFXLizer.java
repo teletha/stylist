@@ -12,8 +12,8 @@ package stylist.util;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import kiss.Variable;
 import stylist.Vendor;
+import stylist.value.Color;
 
 /**
  * @version 2018/09/01 21:21:24
@@ -31,15 +31,28 @@ public class JavaFXLizer implements Consumer<Properties> {
      */
     @Override
     public void accept(Properties properties) {
-        properties.compactTo("padding", "0", "padding-top", "padding-right", "padding-bottom", "padding-left");
+        properties.compactTo("padding", "0", sides("padding-*"));
+        properties.compactTo("border-width", "0", sides("border-*-width"));
+        properties.compactTo("border-style", "solid", sides("border-*-style"));
+        properties.compactTo("border-color", Color.Transparent, sides("border-*-color"));
         properties.value("cursor", value -> cursor.getOrDefault(value, value));
-
-        Variable<String> variable = properties.get("border-bottom");
-        if (variable.isPresent()) {
-            System.out.println(variable);
-        }
 
         // assign prefix and map special name
         properties.keys(key -> Vendor.JavaFX + propertyNames.getOrDefault(key, key));
+    }
+
+    /**
+     * Helper method to build side names.
+     * 
+     * @param template
+     * @return
+     */
+    private static String[] sides(String template) {
+        String[] sides = {"top", "right", "bottom", "left"};
+
+        for (int i = 0; i < sides.length; i++) {
+            sides[i] = template.replace("*", sides[i]);
+        }
+        return sides;
     }
 }

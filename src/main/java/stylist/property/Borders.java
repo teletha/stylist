@@ -116,7 +116,7 @@ public class Borders extends Border {
     }
 
     /**
-     * @version 2015/09/09 14:52:16
+     * @version 2018/09/02 7:06:31
      */
     private static class Each extends Border {
 
@@ -165,6 +165,7 @@ public class Borders extends Border {
         public Border width(Numeric size) {
             for (String side : sides) {
                 value("border-" + side, Arrays.asList(size), " ", 2);
+                value("border-" + side + "-width", size);
             }
             return this;
         }
@@ -176,6 +177,7 @@ public class Borders extends Border {
         public Border color(Color color) {
             for (String side : sides) {
                 value("border-" + side, Arrays.asList(color), " ", 2);
+                value("border-" + side + "-color", color);
             }
             return this;
         }
@@ -187,6 +189,7 @@ public class Borders extends Border {
         protected Border style(String style) {
             for (String side : sides) {
                 value("border-" + side, Arrays.asList(style), " ", 2);
+                value("border-" + side + "-style", style);
             }
             return this;
         }

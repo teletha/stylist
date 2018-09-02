@@ -307,7 +307,7 @@ public class Properties {
      * @param defaultValue
      * @param removers
      */
-    public void compactTo(String compactName, String defaultValue, String... removers) {
+    public void compactTo(String compactName, Object defaultValue, String... removers) {
         if (removers != null && removers.length != 0) {
             int[] count = new int[] {0};
 
@@ -315,7 +315,7 @@ public class Properties {
                 Variable<String> removed = remove(e);
 
                 if (removed.isAbsent()) {
-                    return defaultValue;
+                    return String.valueOf(defaultValue);
                 } else {
                     count[0] = count[0] + 1;
                     return removed.v;

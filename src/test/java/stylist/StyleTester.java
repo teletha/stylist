@@ -124,10 +124,6 @@ public class StyleTester extends StyleDSL {
                 if (value.startsWith("rgb(")) {
                     value = convertRGB(value);
                 }
-
-                if (value.startsWith("transparent")) {
-                    value = "hsla(0,0%,0%,0)";
-                }
                 assert matches.contains(value);
             }
             return true;

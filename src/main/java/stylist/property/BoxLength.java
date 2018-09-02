@@ -266,7 +266,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
     }
 
     /**
-     * @version 2014/10/28 15:19:58
+     * @version 2018/09/02 7:06:43
      */
     private static class Auto extends Numeric {
 

@@ -55,7 +55,7 @@ public class ColorTest extends StyleTester {
         ValidatableStyle style = writeStyle(() -> {
             font.color(255, 255, 255, 0);
         });
-        assert style.property("color", "hsla(0,0%,100%,0)");
+        assert style.property("color", "transparent");
     }
 
     @Test
@@ -93,5 +93,16 @@ public class ColorTest extends StyleTester {
 
         color = Color.rgb("#12");
         assert color == Color.Transparent;
+    }
+
+    @Test
+    void colorConversion() {
+        Color color = Color.rgb("#730D48");
+        assert color.toHSL().equals("hsl(325,80%,25%)");
+        assert color.toRGB().equals("rgb(115,13,72)");
+
+        color = Color.rgb("#2d539f");
+        assert color.toHSL().equals("hsl(220,56%,40%)");
+        assert color.toRGB().equals("rgb(45,83,159)");
     }
 }

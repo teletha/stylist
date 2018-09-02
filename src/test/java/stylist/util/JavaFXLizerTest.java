@@ -88,7 +88,14 @@ class JavaFXLizerTest extends StyleTester {
         ValidatableStyle style = writeStyle(() -> {
             border.bottom.width(2, px).solid().color(Color.Black);
         }, fxlizer);
-        System.out.println(style);
         assert style.property("-fx-border-width", "0 0 2px 0");
+    }
+
+    @Test
+    void borderColor() {
+        ValidatableStyle style = writeStyle(() -> {
+            border.bottom.width(2, px).solid().color(Color.Black);
+        }, fxlizer);
+        assert style.property("-fx-border-color", "transparent transparent black transparent");
     }
 }

@@ -465,7 +465,7 @@ public class Background extends Colorable<Background> {
     }
 
     /**
-     * @version 2014/10/27 22:43:16
+     * @version 2018/09/02 7:06:52
      */
     public static class BackgroundImage {
 
