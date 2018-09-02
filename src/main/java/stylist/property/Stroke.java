@@ -42,7 +42,7 @@ public class Stroke extends Colorable<Stroke> {
      */
     @Override
     public Stroke color(Color color) {
-        value("stroke", color.toString());
+        value("stroke", color);
 
         return this;
     }

@@ -64,7 +64,7 @@ public class Font extends Colorable<Font> {
      */
     @Override
     public Font color(Color color) {
-        value("color", color.toString());
+        value("color", color);
 
         return this;
     }

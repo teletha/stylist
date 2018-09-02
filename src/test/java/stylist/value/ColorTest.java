@@ -14,12 +14,12 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 
 /**
- * @version 2018/08/30 18:34:37
+ * @version 2018/09/02 16:04:47
  */
-public class ColorTest extends StyleTester {
+class ColorTest extends StyleTester {
 
     @Test
-    public void white() throws Exception {
+    void white() {
         ValidatableStyle style = writeStyle(() -> {
             font.color(255, 255, 255);
         });
@@ -27,7 +27,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void black() throws Exception {
+    void black() {
         ValidatableStyle style = writeStyle(() -> {
             font.color(0, 0, 0);
         });
@@ -35,7 +35,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void hsl() throws Exception {
+    void hsl() {
         ValidatableStyle style = writeStyle(() -> {
             font.color(255, 0, 0);
         });
@@ -43,7 +43,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void hsla() throws Exception {
+    void hsla() {
         ValidatableStyle style = writeStyle(() -> {
             font.color(255, 255, 255, 0.9);
         });
@@ -51,7 +51,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void zeroAlpha() throws Exception {
+    void zeroAlpha() {
         ValidatableStyle style = writeStyle(() -> {
             font.color(255, 255, 255, 0);
         });
@@ -59,13 +59,13 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void hex3() throws Exception {
+    void hex3() {
         Color color = Color.rgb("#d3a");
         assert color.equals(Color.rgb(221, 51, 170));
     }
 
     @Test
-    public void hex6() throws Exception {
+    void hex6() {
         Color color = Color.rgb("#459F2D");
         assert color.equals(Color.rgb(69, 159, 45));
         assert color.alpha == 1;
@@ -75,7 +75,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void withoutSharp() throws Exception {
+    void withoutSharp() {
         Color color = Color.rgb("459F2D");
         assert color.equals(Color.rgb(69, 159, 45));
 
@@ -84,7 +84,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    public void invalidHex() throws Exception {
+    void invalidHex() {
         Color color = Color.rgb("");
         assert color == Color.Transparent;
 
@@ -96,7 +96,7 @@ public class ColorTest extends StyleTester {
     }
 
     @Test
-    void colorConversion() {
+    void conversion() {
         Color color = Color.rgb("#730D48");
         assert color.toHSL().equals("hsl(325,80%,25%)");
         assert color.toRGB().equals("rgb(115,13,72)");
@@ -104,5 +104,9 @@ public class ColorTest extends StyleTester {
         color = Color.rgb("#2d539f");
         assert color.toHSL().equals("hsl(220,56%,40%)");
         assert color.toRGB().equals("rgb(45,83,159)");
+
+        color = Color.rgb(200, 155, 255);
+        assert color.toHSL().equals("hsl(267,100%,80%)");
+        assert color.toRGB().equals("rgb(199,153,255)");
     }
 }

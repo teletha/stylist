@@ -12,6 +12,8 @@ package stylist;
 import java.util.EnumSet;
 import java.util.Objects;
 
+import stylist.util.Formatter;
+
 /**
  * @version 2018/09/02 11:07:38
  */
@@ -89,6 +91,16 @@ public abstract class CSSValue {
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
+    }
+
+    /**
+     * Format this value.
+     * 
+     * @param formatter
+     * @return
+     */
+    public String format(Formatter formatter) {
+        return toString();
     }
 
     /**
@@ -281,6 +293,14 @@ public abstract class CSSValue {
         @Override
         protected String valueFor(Vendor vendor) {
             return value.valueFor(this.vendor);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public String format(Formatter formatter) {
+            return value.format(formatter);
         }
 
         /**

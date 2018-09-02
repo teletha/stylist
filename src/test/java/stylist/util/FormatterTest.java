@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleRule;
 import stylist.StyleTester;
+import stylist.value.Color;
 
 /**
  * @version 2018/09/01 19:26:08
@@ -92,5 +93,16 @@ class FormatterTest extends StyleTester {
         Formatter formatter = Formatter.compact().endBrace("", " ");
 
         assert formatter.format(nest).equals("#nest{width:10px;} #nest:hover{width:20px;} ");
+    }
+
+    StyleRule color = writeStyle("#color", () -> {
+        font.color("#111111");
+    });
+
+    @Test
+    void color() {
+        Formatter formatter = Formatter.compact().color(Color::toRGB);
+
+        assert formatter.format(color).equals("#color{color:rgb(18,18,18);}");
     }
 }

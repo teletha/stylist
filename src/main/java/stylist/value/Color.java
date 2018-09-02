@@ -11,6 +11,7 @@ package stylist.value;
 
 import stylist.CSSValue;
 import stylist.Vendor;
+import stylist.util.Formatter;
 
 /**
  * @version 2015/10/01 0:36:38
@@ -253,6 +254,14 @@ public class Color extends CSSValue {
             }
         }
         return toHSL();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String format(Formatter formatter) {
+        return formatter.color().apply(this);
     }
 
     /**

@@ -13,9 +13,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 import kiss.I;
+import stylist.CSSValue;
 import stylist.StyleRule;
+import stylist.value.Color;
 
 /**
  * @version 2018/09/01 21:17:27
@@ -51,6 +54,9 @@ public final class Formatter {
 
     /** The format style. */
     private String afterPropertyLine = "";
+
+    /** The format style. */
+    private Function<Color, String> color = Color::toString;
 
     /** The manager of post processors. */
     private final List<Consumer<Properties>> posts = new ArrayList();
@@ -160,6 +166,29 @@ public final class Formatter {
     }
 
     /**
+     * Format {@link CSSValue}.
+     * 
+     * @param value
+     * @return
+     */
+    public Function<Color, String> color() {
+        return color;
+    }
+
+    /**
+     * Add the color writer.
+     * 
+     * @param writer
+     * @return
+     */
+    public Formatter color(Function<Color, String> writer) {
+        if (writer != null) {
+            this.color = writer;
+        }
+        return this;
+    }
+
+    /**
      * Add the post-processor.
      * 
      * @param processor
@@ -204,7 +233,7 @@ public final class Formatter {
                         .append(afterPropertyName)
                         .append(':')
                         .append(beforePropertyValue)
-                        .append(rule.properties.value(i).toString())
+                        .append(rule.properties.value(i).format(this))
                         .append(afterPropertyValue)
                         .append(';')
                         .append(afterPropertyLine);
