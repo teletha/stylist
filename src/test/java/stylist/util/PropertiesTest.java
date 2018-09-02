@@ -23,7 +23,7 @@ class PropertiesTest {
         properties.add("2", "2");
 
         properties.compactTo("compact", "default", "1", "2");
-        assert properties.get("compact").is("1 2");
+        assert properties.get("compact").toString().equals("1 2");
     }
 
     @Test
@@ -33,7 +33,7 @@ class PropertiesTest {
         properties.add("2", "2");
 
         properties.compactTo("compact", "default", "1", "2", "3");
-        assert properties.get("compact").is("1 2 default");
+        assert properties.get("compact").toString().equals("1 2 default");
     }
 
     @Test
@@ -52,8 +52,8 @@ class PropertiesTest {
 
         properties.keys(String::toUpperCase);
         assert properties.size() == 2;
-        assert properties.get("A").is("a");
-        assert properties.get("B").is("b");
+        assert properties.get("A").toString().equals("a");
+        assert properties.get("B").toString().equals("b");
     }
 
     @Test

@@ -9,8 +9,12 @@
  */
 package stylist;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.List;
 import java.util.Objects;
+
+import kiss.I;
 
 /**
  * @version 2018/09/02 11:07:38
@@ -52,6 +56,27 @@ public abstract class CSSValue {
     }
 
     /**
+     * Test whether the specified value matches this {@link CSSValue}.
+     * 
+     * @param value
+     * @return
+     */
+    public boolean match(String value) {
+        return toString().equalsIgnoreCase(value);
+    }
+
+    /**
+     * Create joined {@link CSSValue}.
+     * 
+     * @param separator
+     * @param value
+     * @return
+     */
+    public final CSSValue join(String separator, CSSValue value) {
+        return new Joined(this, value, separator);
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -65,7 +90,7 @@ public abstract class CSSValue {
      * @param value
      * @return
      */
-    public static CSSValue of(String value) {
+    public static CSSValue of(Object value) {
         return new Value(value);
     }
 
@@ -79,18 +104,22 @@ public abstract class CSSValue {
         return new Digit(value);
     }
 
+    public static CSSValue of(String separator, List<CSSValue> values) {
+        return new Concated(separator);
+    }
+
     /**
      * @version 2018/09/02 11:05:46
      */
     private static class Value extends CSSValue {
 
         /** The actual value. */
-        private final String value;
+        private final Object value;
 
         /**
          * @param value
          */
-        private Value(String value) {
+        private Value(Object value) {
             this.value = Objects.requireNonNull(value);
         }
 
@@ -99,7 +128,7 @@ public abstract class CSSValue {
          */
         @Override
         protected String valueFor(Vendor vendor) {
-            return value;
+            return value.toString();
         }
     }
 
@@ -157,6 +186,97 @@ public abstract class CSSValue {
         @Override
         protected String valueFor(Vendor vendor) {
             return value.valueFor(this.vendor);
+        }
+    }
+
+    /**
+     * @version 2018/09/02 12:23:33
+     */
+    private static class Joined extends CSSValue {
+
+        /** The before value. */
+        private final CSSValue before;
+
+        /** The after value. */
+        private final CSSValue after;
+
+        /** The separator. */
+        private final String separator;
+
+        /**
+         * @param before
+         * @param after
+         * @param separator
+         */
+        private Joined(CSSValue before, CSSValue after, String separator) {
+            this.before = Objects.requireNonNull(before);
+            this.after = Objects.requireNonNull(after);
+            this.separator = separator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return before.valueFor(vendor) + separator + after.valueFor(vendor);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public boolean match(String value) {
+            return before.match(value) || after.match(value);
+        }
+    }
+
+    /**
+     * @version 2018/09/02 11:42:39
+     */
+    static class Concated extends CSSValue {
+
+        /** The value separator. */
+        private final String separator;
+
+        /** The actual values. */
+        final List<CSSValue> values;
+
+        /**
+         * @param separator
+         */
+        Concated(String separator) {
+            this.separator = separator;
+            this.values = new ArrayList();
+        }
+
+        /**
+         * @param separator
+         */
+        private Concated(String separator, List<CSSValue> values) {
+            this.separator = separator;
+            this.values = values;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return I.join(separator, values);
+        }
+
+        /**
+         * Add value.
+         * 
+         * @param value
+         * @return
+         */
+        protected Concated add(CSSValue value) {
+            if (value != null) {
+                values.add(value);
+            }
+            return this;
         }
     }
 }
