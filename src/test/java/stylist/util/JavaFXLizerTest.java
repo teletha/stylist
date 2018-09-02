@@ -121,4 +121,20 @@ class JavaFXLizerTest extends StyleTester {
         }, fxlizer);
         assert style.property("-fx-alignment", "center-left");
     }
+
+    @Test
+    void color() {
+        ValidatableStyle style = writeStyle(() -> {
+            font.color(rgb(0, 0, 0));
+        }, fxlizer);
+        assert style.property("-fx-text-fill", "black");
+    }
+
+    @Test
+    void strokeDashArray() {
+        ValidatableStyle style = writeStyle(() -> {
+            stroke.dashArray(1, 2);
+        }, fxlizer);
+        assert style.property("-fx-stroke-dash-array", "1 2");
+    }
 }

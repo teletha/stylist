@@ -137,12 +137,26 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(String name, float... values) {
-        List<String> list = new ArrayList();
+        return value(name, ",", values);
+    }
+
+    /**
+     * <p>
+     * Set property.
+     * </p>
+     * 
+     * @param name A property name.
+     * @param separator A value separator.
+     * @param values A list of property values.
+     * @return Chainable API.
+     */
+    protected final T value(String name, String separator, float... values) {
+        List<CSSValue> list = new ArrayList();
 
         for (int i = 0; i < values.length; i++) {
-            list.add(String.valueOf(values[i]));
+            list.add(CSSValue.of(values[i]));
         }
-        return value(name, list, ",");
+        return value(name, list, separator);
     }
 
     /**

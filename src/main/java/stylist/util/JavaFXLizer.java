@@ -33,7 +33,8 @@ public class JavaFXLizer implements Consumer<Properties> {
     }
 
     /** The property name mapping. */
-    private static final Map<String, String> propertyNames = Map.of("width", "pref-width", "height", "pref-height");
+    private static final Map<String, String> propertyNames = Map
+            .of("width", "pref-width", "height", "pref-height", "color", "text-fill", "stroke-dasharray", "stroke-dash-array");
 
     /** The property value mapping. */
     private static final Map<String, String> cursorProperties = Map.of("pointer", "hand");
