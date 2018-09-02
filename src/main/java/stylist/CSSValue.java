@@ -10,9 +10,10 @@
 package stylist;
 
 import java.util.EnumSet;
+import java.util.Objects;
 
 /**
- * @version 2018/08/30 17:58:31
+ * @version 2018/09/02 11:07:38
  */
 public abstract class CSSValue {
 
@@ -41,10 +42,121 @@ public abstract class CSSValue {
     protected abstract String valueFor(Vendor vendor);
 
     /**
+     * Create vendor fixed value.
+     * 
+     * @param vendor
+     * @return
+     */
+    final CSSValue fix(Vendor vendor) {
+        return new VendorFixed(vendor, this);
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public final String toString() {
         return valueFor(Vendor.Standard);
+    }
+
+    /**
+     * Create simple text {@link CSSValue}.
+     * 
+     * @param value
+     * @return
+     */
+    public static CSSValue of(String value) {
+        return new Value(value);
+    }
+
+    /**
+     * Create simple number {@link CSSValue}.
+     * 
+     * @param value
+     * @return
+     */
+    public static CSSValue of(Number value) {
+        return new Digit(value);
+    }
+
+    /**
+     * @version 2018/09/02 11:05:46
+     */
+    private static class Value extends CSSValue {
+
+        /** The actual value. */
+        private final String value;
+
+        /**
+         * @param value
+         */
+        private Value(String value) {
+            this.value = Objects.requireNonNull(value);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return value;
+        }
+    }
+
+    /**
+     * @version 2018/09/02 11:05:46
+     */
+    private static class Digit extends CSSValue {
+
+        /** The actual value. */
+        private final Number value;
+
+        /**
+         * @param value
+         */
+        private Digit(Number value) {
+            this.value = Objects.requireNonNull(value);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            if (value.intValue() == value.doubleValue()) {
+                return String.valueOf(value.intValue());
+            } else {
+                return value.toString();
+            }
+        }
+    }
+
+    /**
+     * @version 2018/09/02 11:30:14
+     */
+    private static class VendorFixed extends CSSValue {
+
+        /** The specified vendor. */
+        private final Vendor vendor;
+
+        /** The actual value. */
+        private final CSSValue value;
+
+        /**
+         * @param vendor
+         * @param value
+         */
+        private VendorFixed(Vendor vendor, CSSValue value) {
+            this.vendor = vendor;
+            this.value = value;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return value.valueFor(this.vendor);
+        }
     }
 }

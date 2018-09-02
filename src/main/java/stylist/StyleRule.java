@@ -76,7 +76,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     void property(String name, List values, String separator, int writeMode, EnumSet<Vendor> prefixes) {
         if (name != null && name.length() != 0 && values != null) {
-            EnumMap<Vendor, List<String>> properties = new EnumMap(Vendor.class);
+            EnumMap<Vendor, List<CSSValue>> properties = new EnumMap(Vendor.class);
 
             // calculate dependent vendors
             EnumSet<Vendor> vendors = EnumSet.copyOf(prefixes);
@@ -88,37 +88,23 @@ public class StyleRule implements Comparable<StyleRule> {
             }
 
             for (Vendor vendor : vendors) {
-                List<String> text = new ArrayList();
+                List<CSSValue> text = new ArrayList();
 
                 for (Object value : values) {
                     if (value != null) {
                         if (value instanceof CSSValue) {
-                            String vendered = ((CSSValue) value).valueFor(vendor);
-
-                            if (vendered != null && vendered.length() != 0) {
-                                text.add(vendered);
-                            }
+                            text.add(((CSSValue) value).fix(vendor));
                         } else if (value instanceof Number) {
-                            Number number = (Number) value;
-
-                            if (number.intValue() == number.doubleValue()) {
-                                text.add(String.valueOf(number.intValue()));
-                            } else {
-                                text.add(number.toString());
-                            }
+                            text.add(CSSValue.of((Number) value));
                         } else {
-                            String decoded = value.toString();
-
-                            if (decoded != null && decoded.length() != 0) {
-                                text.add(decoded);
-                            }
+                            text.add(CSSValue.of(value.toString()));
                         }
                     }
                 }
                 properties.put(vendor, text);
             }
 
-            for (Entry<Vendor, List<String>> property : properties.entrySet()) {
+            for (Entry<Vendor, List<CSSValue>> property : properties.entrySet()) {
                 String value = I.join(separator, property.getValue());
 
                 if (value.length() != 0) {
