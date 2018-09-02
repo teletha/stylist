@@ -15,7 +15,6 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map.Entry;
 
-import kiss.I;
 import kiss.Variable;
 import stylist.util.Formatter;
 import stylist.util.Properties;
@@ -76,7 +75,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     void property(String name, List values, String separator, int writeMode, EnumSet<Vendor> prefixes) {
         if (name != null && name.length() != 0 && values != null) {
-            EnumMap<Vendor, List<CSSValue>> properties = new EnumMap(Vendor.class);
+            EnumMap<Vendor, CSSValue> properties = new EnumMap(Vendor.class);
 
             // calculate dependent vendors
             EnumSet<Vendor> vendors = EnumSet.copyOf(prefixes);
@@ -88,53 +87,51 @@ public class StyleRule implements Comparable<StyleRule> {
             }
 
             for (Vendor vendor : vendors) {
-                List<CSSValue> text = new ArrayList();
+                CSSValue base = CSSValue.EMPTY;
 
                 for (Object value : values) {
                     if (value != null) {
                         if (value instanceof CSSValue) {
-                            text.add(((CSSValue) value).fix(vendor));
+                            base = base.join(separator, ((CSSValue) value).fix(vendor));
                         } else if (value instanceof Number) {
-                            text.add(CSSValue.of((Number) value));
+                            base = base.join(separator, CSSValue.of((Number) value));
                         } else {
-                            text.add(CSSValue.of(value.toString()));
+                            base = base.join(separator, CSSValue.of(value));
                         }
                     }
                 }
-                properties.put(vendor, text);
+                properties.put(vendor, base);
             }
 
-            for (Entry<Vendor, List<CSSValue>> property : properties.entrySet()) {
-                String value = I.join(separator, property.getValue());
+            for (Entry<Vendor, CSSValue> property : properties.entrySet()) {
+                CSSValue value = property.getValue();
 
-                if (value.length() != 0) {
-                    Vendor vendor = property.getKey();
+                Vendor vendor = property.getKey();
 
-                    if (!prefixes.contains(vendor)) {
-                        vendor = Vendor.Standard;
-                    }
+                if (!prefixes.contains(vendor)) {
+                    vendor = Vendor.Standard;
+                }
 
-                    String resolvedName = vendor + name;
+                String resolvedName = vendor + name;
 
-                    switch (writeMode) {
-                    case 0: // addition
+                switch (writeMode) {
+                case 0: // addition
+                    this.properties.add(resolvedName, value);
+                    break;
+
+                case 1: // override
+                    this.properties.set(resolvedName, value);
+                    break;
+
+                case 2: // append
+                    Variable<CSSValue> current = this.properties.get(resolvedName);
+
+                    if (current.isAbsent()) {
                         this.properties.add(resolvedName, value);
-                        break;
-
-                    case 1: // override
-                        this.properties.set(resolvedName, value);
-                        break;
-
-                    case 2: // append
-                        Variable<String> current = this.properties.get(resolvedName);
-
-                        if (current.isAbsent()) {
-                            this.properties.add(resolvedName, value);
-                        } else {
-                            this.properties.set(resolvedName, current.get() + separator + value);
-                        }
-                        break;
+                    } else {
+                        this.properties.set(resolvedName, current.v.join(separator, value));
                     }
+                    break;
                 }
             }
         }

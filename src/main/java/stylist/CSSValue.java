@@ -9,17 +9,16 @@
  */
 package stylist;
 
-import java.util.ArrayList;
 import java.util.EnumSet;
-import java.util.List;
 import java.util.Objects;
-
-import kiss.I;
 
 /**
  * @version 2018/09/02 11:07:38
  */
 public abstract class CSSValue {
+
+    /** The empty value. */
+    public static final CSSValue EMPTY = new Empty();
 
     /** For reuse. */
     protected static final EnumSet<Vendor> NoVendors = EnumSet.noneOf(Vendor.class);
@@ -72,8 +71,24 @@ public abstract class CSSValue {
      * @param value
      * @return
      */
-    public final CSSValue join(String separator, CSSValue value) {
+    public CSSValue join(String separator, CSSValue value) {
         return new Joined(this, value, separator);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     /**
@@ -104,8 +119,48 @@ public abstract class CSSValue {
         return new Digit(value);
     }
 
-    public static CSSValue of(String separator, List<CSSValue> values) {
-        return new Concated(separator);
+    /**
+     * @version 2018/09/02 13:17:12
+     */
+    private static class Empty extends CSSValue {
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public CSSValue join(String separator, CSSValue value) {
+            return value;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            // If this exception will be thrown, it is bug of this program. So we must rethrow the
+            // wrapped error in here.
+            throw new Error();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public int hashCode() {
+            // If this exception will be thrown, it is bug of this program. So we must rethrow the
+            // wrapped error in here.
+            throw new Error();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public boolean equals(Object obj) {
+            // If this exception will be thrown, it is bug of this program. So we must rethrow the
+            // wrapped error in here.
+            throw new Error();
+        }
     }
 
     /**
@@ -129,6 +184,26 @@ public abstract class CSSValue {
         @Override
         protected String valueFor(Vendor vendor) {
             return value.toString();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public int hashCode() {
+            return value.hashCode();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Value) {
+                return value.equals(((Value) obj).value);
+            } else {
+                return false;
+            }
         }
     }
 
@@ -156,6 +231,26 @@ public abstract class CSSValue {
                 return String.valueOf(value.intValue());
             } else {
                 return value.toString();
+            }
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public int hashCode() {
+            return value.hashCode();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof Digit) {
+                return value.equals(((Digit) obj).value);
+            } else {
+                return false;
             }
         }
     }
@@ -186,6 +281,22 @@ public abstract class CSSValue {
         @Override
         protected String valueFor(Vendor vendor) {
             return value.valueFor(this.vendor);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public int hashCode() {
+            return value.hashCode();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public boolean equals(Object obj) {
+            return value.equals(obj);
         }
     }
 
@@ -226,57 +337,8 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        public boolean match(String value) {
-            return before.match(value) || after.match(value);
-        }
-    }
-
-    /**
-     * @version 2018/09/02 11:42:39
-     */
-    static class Concated extends CSSValue {
-
-        /** The value separator. */
-        private final String separator;
-
-        /** The actual values. */
-        final List<CSSValue> values;
-
-        /**
-         * @param separator
-         */
-        Concated(String separator) {
-            this.separator = separator;
-            this.values = new ArrayList();
-        }
-
-        /**
-         * @param separator
-         */
-        private Concated(String separator, List<CSSValue> values) {
-            this.separator = separator;
-            this.values = values;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        protected String valueFor(Vendor vendor) {
-            return I.join(separator, values);
-        }
-
-        /**
-         * Add value.
-         * 
-         * @param value
-         * @return
-         */
-        protected Concated add(CSSValue value) {
-            if (value != null) {
-                values.add(value);
-            }
-            return this;
+        public int hashCode() {
+            return Objects.hash(before, after);
         }
     }
 }

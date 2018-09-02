@@ -11,10 +11,12 @@ package stylist.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 import kiss.I;
 import kiss.Variable;
+import stylist.CSSValue;
 
 /**
  * @version 2018/09/01 21:31:58
@@ -25,7 +27,7 @@ public class Properties {
     private final ArrayList<String> keys = new ArrayList();
 
     /** The value list. */
-    private final ArrayList<String> values = new ArrayList();
+    private final ArrayList<CSSValue> values = new ArrayList();
 
     /**
      * <p>
@@ -35,7 +37,7 @@ public class Properties {
      * @param key A key.
      * @return A first matched value.
      */
-    public Variable<String> get(String key) {
+    public Variable<CSSValue> get(String key) {
         int index = keys.indexOf(key);
 
         if (index == -1) {
@@ -53,8 +55,8 @@ public class Properties {
      * @param key A key.
      * @return A list of all matched values.
      */
-    public List<String> getAll(String key) {
-        List<String> matched = new ArrayList();
+    public List<CSSValue> getAll(String key) {
+        List<CSSValue> matched = new ArrayList();
 
         for (int i = 0, length = keys.size(); i < length; i++) {
             if (keys.get(i).equals(key)) {
@@ -74,6 +76,19 @@ public class Properties {
      * @return An updated {@link Properties}.
      */
     public Properties add(String key, String value) {
+        return add(key, CSSValue.of(value));
+    }
+
+    /**
+     * <p>
+     * Append the specified value by the specified key.
+     * </p>
+     * 
+     * @param key A key.
+     * @param value A value.
+     * @return An updated {@link Properties}.
+     */
+    public Properties add(String key, CSSValue value) {
         keys.add(key);
         values.add(value);
 
@@ -89,7 +104,7 @@ public class Properties {
      * @param value A value to update.
      * @return An updated {@link Properties}.
      */
-    public Properties set(String key, String value) {
+    public Properties set(String key, CSSValue value) {
         int index = keys.indexOf(key);
 
         if (index == -1) {
@@ -109,7 +124,7 @@ public class Properties {
      * @param key A key to remove.
      * @return An updated {@link Properties}.
      */
-    public Variable<String> remove(String key) {
+    public Variable<CSSValue> remove(String key) {
         int index = keys.indexOf(key);
 
         if (index != -1) {
@@ -128,8 +143,8 @@ public class Properties {
      * @param key A key to remove.
      * @return An updated {@link Properties}.
      */
-    public Variable<String>[] remove(String... keys) {
-        Variable<String>[] values = new Variable[keys.length];
+    public Variable<CSSValue>[] remove(String... keys) {
+        Variable<CSSValue>[] values = new Variable[keys.length];
 
         for (int i = 0; i < keys.length; i++) {
             values[i] = remove(keys[i]);
@@ -236,7 +251,7 @@ public class Properties {
      * @param index A index to find.
      * @return A indexed value.
      */
-    public String value(int index) {
+    public CSSValue value(int index) {
         return values.get(index);
     }
 
@@ -248,7 +263,7 @@ public class Properties {
      * @param value A value to find.
      * @return A index for the specified value.
      */
-    public int value(String value) {
+    public int value(CSSValue value) {
         return values.indexOf(value);
     }
 
@@ -260,9 +275,21 @@ public class Properties {
      * @param mapper A value mapper.
      * @return Chainable API
      */
-    public Properties value(String key, Function<String, String> mapper) {
+    public Properties value(String key, Map<String, String> mapper) {
+        return value(key, e -> CSSValue.of(mapper.getOrDefault(e.toString(), e.toString())));
+    }
+
+    /**
+     * <p>
+     * Mapping values.
+     * </p>
+     * 
+     * @param mapper A value mapper.
+     * @return Chainable API
+     */
+    public Properties value(String key, Function<CSSValue, CSSValue> mapper) {
         if (mapper != null) {
-            Variable<String> value = get(key);
+            Variable<CSSValue> value = get(key);
 
             if (value.isPresent()) {
                 set(key, value.map(mapper).v);
@@ -278,7 +305,7 @@ public class Properties {
      * 
      * @return
      */
-    public List<String> values() {
+    public List<CSSValue> values() {
         return values;
     }
 
@@ -297,7 +324,7 @@ public class Properties {
         if (index == -1) {
             return false;
         }
-        return values.get(index).equals(value);
+        return values.get(index).match(value);
     }
 
     /**
@@ -307,23 +334,34 @@ public class Properties {
      * @param defaultValue
      * @param removers
      */
-    public void compactTo(String compactName, Object defaultValue, String... removers) {
+    public void compactTo(String compactName, String defaultValue, String... removers) {
+        compactTo(compactName, CSSValue.of(defaultValue), removers);
+    }
+
+    /**
+     * Compact properties.
+     * 
+     * @param compactName
+     * @param defaultValue
+     * @param removers
+     */
+    public void compactTo(String compactName, CSSValue defaultValue, String... removers) {
         if (removers != null && removers.length != 0) {
             int[] count = new int[] {0};
 
-            List<String> compacting = I.signal(removers).map(e -> {
-                Variable<String> removed = remove(e);
+            CSSValue compacting = I.signal(removers).map(e -> {
+                Variable<CSSValue> removed = remove(e);
 
                 if (removed.isAbsent()) {
-                    return String.valueOf(defaultValue);
+                    return defaultValue;
                 } else {
                     count[0] = count[0] + 1;
                     return removed.v;
                 }
-            }).toList();
+            }).scanWith(CSSValue.EMPTY, (p, n) -> p.join(" ", n)).to().v;
 
             if (0 < count[0]) {
-                set(compactName, I.join(" ", compacting));
+                set(compactName, compacting);
             }
         }
     }
@@ -333,7 +371,7 @@ public class Properties {
      */
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder("DualList[");
+        StringBuilder builder = new StringBuilder("Properties[");
 
         for (int i = 0; i < keys.size(); i++) {
             builder.append(keys.get(i)).append("=").append(values.get(i));

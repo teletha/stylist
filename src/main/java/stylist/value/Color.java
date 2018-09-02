@@ -9,10 +9,13 @@
  */
 package stylist.value;
 
+import stylist.CSSValue;
+import stylist.Vendor;
+
 /**
  * @version 2015/10/01 0:36:38
  */
-public class Color {
+public class Color extends CSSValue {
 
     /** The frequently used color. */
     public static final Color White = new Color(0, 0, 100);
@@ -237,7 +240,7 @@ public class Color {
      * {@inheritDoc}
      */
     @Override
-    public String toString() {
+    protected String valueFor(Vendor vendor) {
         if (alpha == 0) {
             return "transparent";
         } else if (alpha == 1) {

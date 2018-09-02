@@ -204,7 +204,7 @@ public final class Formatter {
                         .append(afterPropertyName)
                         .append(':')
                         .append(beforePropertyValue)
-                        .append(rule.properties.value(i))
+                        .append(rule.properties.value(i).toString())
                         .append(afterPropertyValue)
                         .append(';')
                         .append(afterPropertyLine);

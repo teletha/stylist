@@ -117,16 +117,30 @@ public class StyleTester extends StyleDSL {
             assert values != null;
             assert values.length != 0;
 
-            List<String> matches = rules.properties.getAll(name);
+            List<CSSValue> matches = rules.properties.getAll(name);
             assert matches.size() == values.length;
 
             for (String value : values) {
                 if (value.startsWith("rgb(")) {
                     value = convertRGB(value);
                 }
-                assert matches.contains(value);
+                assert contains(matches, value);
             }
             return true;
+        }
+
+        /**
+         * @param values
+         * @param text
+         * @return
+         */
+        private boolean contains(List<CSSValue> values, String text) {
+            for (CSSValue value : values) {
+                if (value.match(text)) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /**

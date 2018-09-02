@@ -24,7 +24,7 @@ public class JavaFXLizer implements Consumer<Properties> {
     private static final Map<String, String> propertyNames = Map.of("width", "pref-width", "height", "pref-height");
 
     /** The property value mapping. */
-    private static final Map<String, String> cursor = Map.of("pointer", "hand");
+    private static final Map<String, String> cursorProperties = Map.of("pointer", "hand");
 
     /**
      * {@inheritDoc}
@@ -35,7 +35,7 @@ public class JavaFXLizer implements Consumer<Properties> {
         properties.compactTo("border-width", "0", sides("border-*-width"));
         properties.compactTo("border-style", "solid", sides("border-*-style"));
         properties.compactTo("border-color", Color.Transparent, sides("border-*-color"));
-        properties.value("cursor", value -> cursor.getOrDefault(value, value));
+        properties.value("cursor", cursorProperties);
 
         // assign prefix and map special name
         properties.keys(key -> Vendor.JavaFX + propertyNames.getOrDefault(key, key));

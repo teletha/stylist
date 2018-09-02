@@ -20,12 +20,11 @@ public class StyleRuleTest extends StyleTester {
     public void single() {
         Style style = () -> {
             display.block();
-
         };
 
         StyleRule rule = StyleRule.create("$", style, false);
         assert rule.selector.equals("." + style.name());
-        assert rule.properties.get("display").get().equals("block");
+        assert rule.properties.get("display").v.match("block");
     }
 
     @Test
@@ -40,11 +39,11 @@ public class StyleRuleTest extends StyleTester {
 
         StyleRule rule = StyleRule.create("$", style, false);
         assert rule.selector.equals("." + style.name());
-        assert rule.properties.get("display").get().equals("block");
+        assert rule.properties.get("display").v.match("block");
         assert rule.children.size() == 1;
 
         StyleRule child = rule.children.get(0);
         assert child.selector.equals("." + style.name() + ":hover");
-        assert child.properties.get("text-decoration").get().equals("underline");
+        assert child.properties.get("text-decoration").v.match("underline");
     }
 }

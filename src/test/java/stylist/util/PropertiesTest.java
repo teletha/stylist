@@ -11,6 +11,8 @@ package stylist.util;
 
 import org.junit.jupiter.api.Test;
 
+import stylist.CSSValue;
+
 /**
  * @version 2018/09/01 21:32:13
  */
@@ -62,13 +64,13 @@ class PropertiesTest {
         properties.add("a", "a");
         properties.add("b", "b");
 
-        properties.value("a", String::toUpperCase);
+        properties.value("a", e -> CSSValue.of(e.toString().toUpperCase()));
         assert properties.size() == 2;
-        assert properties.get("a").is("A");
-        assert properties.get("b").is("b");
+        assert properties.get("a").is(CSSValue.of("A"));
+        assert properties.get("b").is(CSSValue.of("b"));
 
         // null
-        properties.value("c", String::toUpperCase);
+        properties.value("c", e -> CSSValue.of(e.toString().toUpperCase()));
         assert properties.size() == 2;
     }
 }
