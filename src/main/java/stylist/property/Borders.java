@@ -11,7 +11,7 @@ package stylist.property;
 
 import java.util.Arrays;
 
-import stylist.value.Color;
+import stylist.CSSValue;
 import stylist.value.Numeric;
 
 /**
@@ -94,7 +94,7 @@ public class Borders extends Border {
      * {@inheritDoc}
      */
     @Override
-    public Border color(Color color) {
+    public Border color(CSSValue color) {
         return value("border", Arrays.asList(color), " ", 2);
     }
 
@@ -174,7 +174,7 @@ public class Borders extends Border {
          * {@inheritDoc}
          */
         @Override
-        public Border color(Color color) {
+        public Border color(CSSValue color) {
             for (String side : sides) {
                 value("border-" + side, Arrays.asList(color), " ", 2);
                 value("border-" + side + "-color", color);

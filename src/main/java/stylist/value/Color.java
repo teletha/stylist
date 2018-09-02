@@ -9,6 +9,8 @@
  */
 package stylist.value;
 
+import static java.lang.Integer.*;
+
 import stylist.CSSValue;
 import stylist.Vendor;
 import stylist.util.Formatter;
@@ -275,7 +277,7 @@ public class Color extends CSSValue {
      */
     public static Color rgb(String code) {
         if (code == null) {
-            return Transparent;
+            throw new IllegalArgumentException("Colot code is null.");
         }
 
         if (code.startsWith("#")) {
@@ -287,14 +289,13 @@ public class Color extends CSSValue {
             String red = "" + code.charAt(0) + code.charAt(0);
             String green = "" + code.charAt(1) + code.charAt(1);
             String blue = "" + code.charAt(2) + code.charAt(2);
-            return rgb(Integer.parseInt(red, 16), Integer.parseInt(green, 16), Integer.parseInt(blue, 16));
+            return rgb(parseInt(red, 16), parseInt(green, 16), parseInt(blue, 16));
 
         case 6:
-            return rgb(Integer.parseInt(code.substring(0, 2), 16), Integer.parseInt(code.substring(2, 4), 16), Integer
-                    .parseInt(code.substring(4), 16));
+            return rgb(parseInt(code.substring(0, 2), 16), parseInt(code.substring(2, 4), 16), parseInt(code.substring(4), 16));
 
         default:
-            return Transparent;
+            throw new IllegalArgumentException("[" + code + "] is not color code.");
         }
     }
 

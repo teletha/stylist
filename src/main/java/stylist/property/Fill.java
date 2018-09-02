@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import stylist.value.Color;
+import stylist.CSSValue;
 
 /**
  * @version 2018/08/30 18:25:29
@@ -20,7 +20,7 @@ public class Fill extends Colorable<Fill> {
      * {@inheritDoc}
      */
     @Override
-    public Fill color(Color color) {
+    public Fill color(CSSValue color) {
         value("fill", color);
 
         return this;

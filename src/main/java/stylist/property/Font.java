@@ -15,9 +15,9 @@ import java.net.URLConnection;
 import java.util.StringJoiner;
 
 import kiss.I;
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.util.Strings;
-import stylist.value.Color;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -63,7 +63,7 @@ public class Font extends Colorable<Font> {
      * {@inheritDoc}
      */
     @Override
-    public Font color(Color color) {
+    public Font color(CSSValue color) {
         value("color", color);
 
         return this;

@@ -9,6 +9,7 @@
  */
 package stylist.property;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.value.Color;
 
@@ -50,7 +51,7 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @param color
      * @return Chainable API.
      */
-    public abstract T color(Color color);
+    public abstract T color(CSSValue color);
 
     /**
      * <p>
@@ -65,7 +66,11 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @return Chainable API.
      */
     public T color(String colorCode) {
-        return color(Color.rgb(colorCode));
+        try {
+            return color(Color.rgb(colorCode));
+        } catch (IllegalArgumentException e) {
+            return color(CSSValue.of(colorCode));
+        }
     }
 
     /**

@@ -12,7 +12,7 @@ package stylist.property;
 import java.util.ArrayList;
 import java.util.List;
 
-import stylist.value.Color;
+import stylist.CSSValue;
 import stylist.value.LinearGradient;
 import stylist.value.Numeric;
 import stylist.value.Unit;
@@ -22,33 +22,11 @@ import stylist.value.Unit;
  */
 public class Background extends Colorable<Background> {
 
-    // /**
-    // * {@inheritDoc}
-    // */
-    // @Override
-    // public Color color() {
-    // Color backgroundColor = color;
-    //
-    // if (backgroundColor == null) {
-    // for (Object image : images) {
-    // if (image instanceof LinearGradient) {
-    // backgroundColor = ((LinearGradient) image).getEndColor();
-    // break;
-    // }
-    // }
-    // }
-    //
-    // if (backgroundColor == null) {
-    // backgroundColor = Color.Transparent;
-    // }
-    // return backgroundColor;
-    // }
-
     /**
      * {@inheritDoc}
      */
     @Override
-    public Background color(Color color) {
+    public Background color(CSSValue color) {
         return value("background-color", color);
     }
 

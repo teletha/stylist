@@ -22,7 +22,7 @@ import java.util.function.Function;
 import stylist.util.Strings;
 
 /**
- * @version 2018/08/30 22:24:09
+ * @version 2018/09/02 23:31:41
  */
 public class PropertyDefinition<T> {
 

@@ -32,7 +32,7 @@ public abstract class SelectorDSL {
      * @return Chainable API.
      */
     public final Attribute attr(String name) {
-        return new Attribute(name);
+        return new Attribute(this, name);
     }
 
     /**
@@ -1200,7 +1200,10 @@ public abstract class SelectorDSL {
     /**
      * @version 2018/08/30 18:56:47
      */
-    public final class Attribute {
+    public static final class Attribute {
+
+        /** The parent */
+        private final SelectorDSL parent;
 
         /** An attribute name. */
         private final String name;
@@ -1215,10 +1218,11 @@ public abstract class SelectorDSL {
          * 
          * @return Chainable API.
          */
-        private Attribute(String name) {
+        Attribute(SelectorDSL parent, String name) {
             if (name == null || name.equals("")) {
                 throw new IllegalArgumentException("Specify attribute name.");
             }
+            this.parent = parent;
             this.name = name;
         }
 
@@ -1489,7 +1493,7 @@ public abstract class SelectorDSL {
             }
             builder.append("]");
 
-            return basic(builder.toString());
+            return parent.basic(builder.toString());
         }
     }
 

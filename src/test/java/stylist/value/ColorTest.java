@@ -9,6 +9,8 @@
  */
 package stylist.value;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
@@ -85,14 +87,9 @@ class ColorTest extends StyleTester {
 
     @Test
     void invalidHex() {
-        Color color = Color.rgb("");
-        assert color == Color.Transparent;
-
-        color = Color.rgb("#123456789");
-        assert color == Color.Transparent;
-
-        color = Color.rgb("#12");
-        assert color == Color.Transparent;
+        assertThrows(IllegalArgumentException.class, () -> Color.rgb(""));
+        assertThrows(IllegalArgumentException.class, () -> Color.rgb("#123456789"));
+        assertThrows(IllegalArgumentException.class, () -> Color.rgb("#12"));
     }
 
     @Test

@@ -9,8 +9,8 @@
  */
 package stylist.property;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
-import stylist.value.Color;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -41,7 +41,7 @@ public class Stroke extends Colorable<Stroke> {
      * {@inheritDoc}
      */
     @Override
-    public Stroke color(Color color) {
+    public Stroke color(CSSValue color) {
         value("stroke", color);
 
         return this;

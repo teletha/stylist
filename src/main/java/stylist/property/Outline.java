@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import stylist.value.Color;
+import stylist.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -22,7 +22,7 @@ public class Outline extends Colorable<Outline> {
      * {@inheritDoc}
      */
     @Override
-    public Outline color(Color color) {
+    public Outline color(CSSValue color) {
         return value("outline-color", color);
     }
 
