@@ -56,7 +56,7 @@ public final class Formatter {
     private String afterPropertyLine = "";
 
     /** The format style. */
-    private Function<Color, String> color = Color::toString;
+    private Function<Color, String> color = Color::toHSL;
 
     /** The manager of post processors. */
     private final List<Consumer<Properties>> posts = new ArrayList();
