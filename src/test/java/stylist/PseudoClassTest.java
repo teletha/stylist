@@ -19,15 +19,15 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void interaction() {
         ValidatableStyle parsed = writeStyle(() -> {
-            hover(() -> {
+            $.hover(() -> {
                 font.size(1, px);
             });
 
-            focus(() -> {
+            $.focus(() -> {
                 font.size(2, px);
             });
 
-            active(() -> {
+            $.active(() -> {
                 font.size(3, px);
             });
         });
@@ -39,11 +39,11 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void Link() {
         ValidatableStyle parsed = writeStyle(() -> {
-            link(() -> {
+            $.link(() -> {
                 font.size(1, px);
             });
 
-            visited(() -> {
+            $.visited(() -> {
                 font.size(2, px);
             });
         });
@@ -54,35 +54,35 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void form() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            enabled(() -> {
+            $.enabled(() -> {
                 font.size(1, px);
             });
 
-            disabled(() -> {
+            $.disabled(() -> {
                 font.size(2, px);
             });
 
-            checked(() -> {
+            $.checked(() -> {
                 font.size(3, px);
             });
 
-            indeterminate(() -> {
+            $.indeterminate(() -> {
                 font.size(4, px);
             });
 
-            optional(() -> {
+            $.optional(() -> {
                 font.size(5, px);
             });
 
-            required(() -> {
+            $.required(() -> {
                 font.size(6, px);
             });
 
-            valid(() -> {
+            $.valid(() -> {
                 font.size(7, px);
             });
 
-            invalid(() -> {
+            $.invalid(() -> {
                 font.size(8, px);
             });
         });
@@ -100,7 +100,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void FirstChild() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            firstChild(() -> {
+            $.firstChild(() -> {
                 font.size(1, px);
             });
         });
@@ -110,7 +110,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void LastChild() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            lastChild(() -> {
+            $.lastChild(() -> {
                 font.size(1, px);
             });
         });
@@ -120,15 +120,15 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void nthChild() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            nthChild("1", () -> {
+            $.nthChild("1", () -> {
                 font.size(1, px);
             });
 
-            nthChild("2n", () -> {
+            $.nthChild("2n", () -> {
                 font.size(1, px);
             });
 
-            nthChild("odd", () -> {
+            $.nthChild("odd", () -> {
                 font.size(1, px);
             });
         });
@@ -141,15 +141,15 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void nthLastChild() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            nthLastChild("1", () -> {
+            $.nthLastChild("1", () -> {
                 font.size(1, px);
             });
 
-            nthLastChild("2n", () -> {
+            $.nthLastChild("2n", () -> {
                 font.size(1, px);
             });
 
-            nthLastChild("odd", () -> {
+            $.nthLastChild("odd", () -> {
                 font.size(1, px);
             });
         });
@@ -162,7 +162,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void FirstType() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            firstOfType(() -> {
+            $.firstOfType(() -> {
                 font.size(1, px);
             });
         });
@@ -173,7 +173,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void LastType() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            lastType(() -> {
+            $.lastType(() -> {
                 font.size(1, px);
             });
         });
@@ -184,15 +184,15 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void nthType() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            nthType("1", () -> {
+            $.nthType("1", () -> {
                 font.size(1, px);
             });
 
-            nthType("2n", () -> {
+            $.nthType("2n", () -> {
                 font.size(1, px);
             });
 
-            nthType("odd", () -> {
+            $.nthType("odd", () -> {
                 font.size(1, px);
             });
         });
@@ -205,15 +205,15 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void nthLastType() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            nthLastType("1", () -> {
+            $.nthLastType("1", () -> {
                 font.size(1, px);
             });
 
-            nthLastType("2n", () -> {
+            $.nthLastType("2n", () -> {
                 font.size(1, px);
             });
 
-            nthLastType("odd", () -> {
+            $.nthLastType("odd", () -> {
                 font.size(1, px);
             });
         });
@@ -226,7 +226,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void OnlyChild() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            onlyChild(() -> {
+            $.onlyChild(() -> {
                 font.size(1, px);
             });
         });
@@ -236,7 +236,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void OnlyType() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            onlyType(() -> {
+            $.onlyType(() -> {
                 font.size(1, px);
             });
         });
@@ -246,7 +246,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void Empty() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            empty(() -> {
+            $.empty(() -> {
                 font.size(1, px);
             });
         });
@@ -259,7 +259,7 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void not() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            not(E, () -> {
+            $.not(E, () -> {
                 font.size(1, px);
             });
         });
@@ -269,8 +269,8 @@ public class PseudoClassTest extends StyleTester {
     @Test
     public void nest() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            active(() -> {
-                invalid(() -> {
+            $.active(() -> {
+                $.invalid(() -> {
                     font.size(1, px);
                 });
             });

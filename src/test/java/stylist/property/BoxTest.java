@@ -66,7 +66,7 @@ public class BoxTest extends StyleTester {
     @Test
     public void shadowSingle() {
         ValidatableStyle parsed = writeStyle(() -> {
-            display.shadow(shadow().offset(2, 2, px).blurRadius(1, px).color(hsl(100, 100, 100)));
+            display.shadow($.shadow().offset(2, 2, px).blurRadius(1, px).color($.hsl(100, 100, 100)));
         });
         assert parsed.property("box-shadow", "2px 2px 1px hsl(100,100%,100%)");
     }
@@ -74,7 +74,7 @@ public class BoxTest extends StyleTester {
     @Test
     public void shadowMultiple() {
         ValidatableStyle parsed = writeStyle(() -> {
-            display.shadow(shadow().offset(2, 2, px), shadow().offset(1, 1, px));
+            display.shadow($.shadow().offset(2, 2, px), $.shadow().offset(1, 1, px));
         });
         assert parsed.property("box-shadow", "2px 2px,1px 1px");
     }

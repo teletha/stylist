@@ -12,6 +12,7 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+
 public class TransitionTest extends StyleTester {
 
     @Test
@@ -19,7 +20,7 @@ public class TransitionTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             display.width(10, px);
 
-            transit().duration(1, s).when().hover(() -> {
+            $.transit().duration(1, s).when().hover(() -> {
                 display.width(20, px);
             });
         });

@@ -9,6 +9,8 @@
  */
 package stylist.property;
 
+import static stylist.StyleDSL.*;
+
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;

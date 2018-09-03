@@ -60,7 +60,7 @@ class NamingTest extends StyleTester {
     /**
      * @version 2018/08/31 11:18:38
      */
-    private static class Member extends StyleDSL {
+    private static class Member implements StyleDSL {
 
         static Style style = () -> {
         };

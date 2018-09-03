@@ -16,7 +16,7 @@ import stylist.value.Color;
 /**
  * @version 2018/08/30 18:24:47
  */
-class BuiltinStyle extends StyleDSL {
+class BuiltinStyle implements StyleDSL {
 
     /**
      * Make text unselectable.
@@ -24,7 +24,7 @@ class BuiltinStyle extends StyleDSL {
     Style unselectable = () -> {
         cursor.defaults();
 
-        selection(() -> {
+        $.selection(() -> {
             background.color(Color.Transparent);
         });
     };

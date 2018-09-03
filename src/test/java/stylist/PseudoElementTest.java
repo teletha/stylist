@@ -21,10 +21,10 @@ public class PseudoElementTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             font.color(255, 255, 0);
 
-            before(() -> {
+            $.before(() -> {
                 font.color(0, 255, 0);
 
-                hover(() -> {
+                $.hover(() -> {
                     font.color(0, 0, 0);
                 });
             });
@@ -43,10 +43,10 @@ public class PseudoElementTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             font.color(255, 255, 0);
 
-            after(() -> {
+            $.after(() -> {
                 font.color(0, 255, 0);
 
-                hover(() -> {
+                $.hover(() -> {
                     font.color(0, 0, 0);
                 });
             });
@@ -63,11 +63,11 @@ public class PseudoElementTest extends StyleTester {
     @Test
     public void text() {
         ValidatableStyle style = writeStyle(() -> {
-            firstLetter(() -> {
+            $.firstLetter(() -> {
                 display.inline();
             });
 
-            firstLine(() -> {
+            $.firstLine(() -> {
                 display.inline();
             });
         });
@@ -79,7 +79,7 @@ public class PseudoElementTest extends StyleTester {
     @Test
     public void selection() {
         ValidatableStyle style = writeStyle(() -> {
-            selection(() -> {
+            $.selection(() -> {
                 display.inline();
             });
         });

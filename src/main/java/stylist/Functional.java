@@ -1,401 +1,25 @@
 /*
- * Copyright (C) 2018 stylist Development Team
+ * Copyright (C) 2017 Nameless Production Committee
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *          https://opensource.org/licenses/MIT
+ *          http://opensource.org/licenses/mit-license.php
  */
 package stylist;
 
-import static stylist.value.Color.*;
-
-import kiss.Extensible;
-import kiss.Manageable;
-import kiss.Singleton;
 import stylist.SelectorDSL.Attribute;
-import stylist.property.Animation;
-import stylist.property.Appearance;
-import stylist.property.Background;
-import stylist.property.Borders;
-import stylist.property.BoxLength;
-import stylist.property.Content;
-import stylist.property.Cursor;
-import stylist.property.Display;
-import stylist.property.Fill;
-import stylist.property.FlexItem;
-import stylist.property.Font;
-import stylist.property.Line;
-import stylist.property.ListStyle;
-import stylist.property.Outline;
-import stylist.property.Overflows;
-import stylist.property.PointerEvents;
-import stylist.property.Position;
-import stylist.property.Stroke;
-import stylist.property.Text;
-import stylist.property.Transform;
 import stylist.property.Transition;
-import stylist.property.Visibility;
 import stylist.value.Color;
 import stylist.value.LinearGradient;
-import stylist.value.Numeric;
 import stylist.value.RadialGradient;
 import stylist.value.Shadow;
-import stylist.value.Unit;
 
 /**
- * @version 2018/08/31 12:06:36
+ * @version 2018/09/03 19:39:55
  */
-@Manageable(lifestyle = Singleton.class)
-public interface StyleDSL extends Extensible {
-
-    Functional $ = new Functional();
-
-    /**
-     * <p>
-     * This unit represents the font-size of the root element (e.g. the font-size of the <html>
-     * element). When used on the font-size on this root element, it represents its initial value.
-     * </p>
-     */
-    public static Unit rem = Unit.rem;
-
-    /**
-     * <p>
-     * The 'em' unit is equal to the computed value of the 'font-size' property of the element on
-     * which it is used. The exception is when 'em' occurs in the value of the 'font-size' property
-     * itself, in which case it refers to the font size of the parent element. It may be used for
-     * vertical or horizontal measurement. (This unit is also sometimes called the quad-width in
-     * typographic texts.)
-     * </p>
-     */
-    public static Unit em = Unit.em;
-
-    /**
-     * <p>
-     * The 'ex' unit is defined by the element's first available font. The 'x-height' is so called
-     * because it is often equal to the height of the lowercase "x". However, an 'ex' is defined
-     * even for fonts that don't contain an "x".
-     * </p>
-     */
-    public static Unit ex = Unit.ex;
-
-    /**
-     * <p>
-     * The x-height of a font can be found in different ways. Some fonts contain reliable metrics
-     * for the x-height. If reliable font metrics are not available, UAs may determine the x-height
-     * from the height of a lowercase glyph. One possible heuristics is to look at how far the glyph
-     * for the lowercase "o" extends below the baseline, and subtract that value from the top of its
-     * bounding box. In the cases where it is impossible or impractical to determine the x-height, a
-     * value of 0.5em should be used.
-     * </p>
-     */
-    public static Unit px = Unit.px;
-
-    /**
-     * <p>
-     * The x-height of a font can be found in different ways. Some fonts contain reliable metrics
-     * for the x-height. If reliable font metrics are not available, UAs may determine the x-height
-     * from the height of a lowercase glyph. One possible heuristics is to look at how far the glyph
-     * for the lowercase "o" extends below the baseline, and subtract that value from the top of its
-     * bounding box. In the cases where it is impossible or impractical to determine the x-height, a
-     * value of 0.5em should be used.
-     * </p>
-     */
-    public static Unit in = Unit.in;
-
-    /**
-     * 1/100th of the width of the viewport.
-     */
-    public static Unit vh = Unit.vh;
-
-    /**
-     * 1/100th of the width of the viewport.
-     */
-    public static Unit vw = Unit.vw;
-
-    /**
-     * 1/100th of the minimum value between the height and the width of the viewport.
-     */
-    public static Unit vmin = Unit.vmin;
-
-    /**
-     * 1/100th of the maximum value between the height and the width of the viewport.
-     */
-    public static Unit vmax = Unit.vmax;
-
-    /**
-     * deg which represents an angle in degrees. One full circle is 360deg. E.g. 0deg, 90deg,
-     * 360deg.
-     */
-    public static Unit deg = Unit.deg;
-
-    /**
-     * <p>
-     * The x-height of a font can be found in different ways. Some fonts contain reliable metrics
-     * for the x-height. If reliable font metrics are not available, UAs may determine the x-height
-     * from the height of a lowercase glyph. One possible heuristics is to look at how far the glyph
-     * for the lowercase "o" extends below the baseline, and subtract that value from the top of its
-     * bounding box. In the cases where it is impossible or impractical to determine the x-height, a
-     * value of 0.5em should be used.
-     * </p>
-     */
-    public static Unit s = Unit.s;
-
-    /**
-     * <p>
-     * The x-height of a font can be found in different ways. Some fonts contain reliable metrics
-     * for the x-height. If reliable font metrics are not available, UAs may determine the x-height
-     * from the height of a lowercase glyph. One possible heuristics is to look at how far the glyph
-     * for the lowercase "o" extends below the baseline, and subtract that value from the top of its
-     * bounding box. In the cases where it is impossible or impractical to determine the x-height, a
-     * value of 0.5em should be used.
-     * </p>
-     */
-    public static Unit ms = Unit.ms;
-
-    /**
-     * <p>
-     * The format of a percentage value (denoted by <percentage> in this specification) is a
-     * <number> immediately followed by '%'.
-     * </p>
-     * <p>
-     * Percentage values are always relative to another value, for example a length. Each property
-     * that allows percentages also defines the value to which the percentage refers. The value may
-     * be that of another property for the same element, a property for an ancestor element, or a
-     * value of the formatting context (e.g., the width of a containing block). When a percentage
-     * value is set for a property of the root element and the percentage is defined as referring to
-     * the inherited value of some property, the resultant value is the percentage times the initial
-     * value of that property.
-     * </p>
-     */
-    public static Unit percent = Unit.percent;
-
-    public static Animation animation = new Animation();
-
-    /**
-     * <p>
-     * The appearance CSS property is used in Gecko (Firefox) to display an element using a
-     * platform-native styling based on the operating system's theme.
-     * </p>
-     */
-    public static Appearance appearance = new Appearance();
-
-    /**
-     * <p>
-     * The cursor CSS property specifies the mouse cursor displayed when the mouse pointer is over
-     * an element.
-     * </p>
-     */
-    public static Cursor cursor = new Cursor();
-
-    /**
-     * <p>
-     * The background CSS property is a shorthand for setting the individual background values in a
-     * single place in the style sheet. background can be used to set the values for one or more of:
-     * background-color, background-image, background-position, background-repeat, background-size,
-     * </p>
-     */
-    public static Background background = new Background();
-
-    /**
-     * <p>
-     * The border CSS property is a shorthand property for setting the individual border property
-     * values in a single place in the style sheet. border can be used to set the values for one or
-     * more of: border-width, border-style, border-color.
-     * </p>
-     */
-    public static Borders border = new Borders();
-
-    /**
-     * <p>
-     * The content CSS property is used with the ::before and ::after pseudo-elements to generate
-     * content in an element. Objects inserting using the content property are anonymous replaced
-     * elements.
-     * </p>
-     */
-    public static Content content = new Content();
-
-    /**
-     * <p>
-     * The display CSS property specifies the type of rendering box used for an element. In HTML,
-     * default display property values are taken from behaviors described in the HTML specifications
-     * or from the browser/user default stylesheet. The default value in XML is inline.
-     * </p>
-     * <p>
-     * In addition to the many different display box types, the value none lets you turn off the
-     * display of an element; when you use none, all child elements also have their display turned
-     * off. The document is rendered as though the element doesn't exist in the document tree.
-     * </p>
-     */
-    public static Display display = new Display();
-
-    /** The SVG property. */
-    public static Fill fill = new Fill();
-
-    /**
-     * <p>
-     * The flex CSS property is a shorthand property specifying the ability of a flex item to alter
-     * its dimensions to fill available space. Flex items can be stretched to use available space
-     * proportional to their flex grow factor or their flex shrink factor to prevent overflow.
-     * </p>
-     */
-    public static FlexItem flexItem = new FlexItem();
-
-    /**
-     * <p>
-     * The font CSS property is either a shorthand property for setting font-style, font-variant,
-     * font-weight, font-size, line-height and font-family, or a way to set the element's font to a
-     * system font, using specific keywords.
-     * </p>
-     */
-    public static Font font = new Font();
-
-    /**
-     * <p>
-     * On inline elements, the line-height CSS property specifies the height that is used in the
-     * calculation of the line box height. On block level elements, line-height specifies the
-     * minimal height of line boxes within the element.
-     * </p>
-     */
-    public static Line line = new Line();
-
-    /**
-     * <p>
-     * The list-style CSS property is a shorthand property for setting list-style-type,
-     * list-style-image and list-style-position.
-     * </p>
-     */
-    public static ListStyle listStyle = new ListStyle();
-
-    /**
-     * <p>
-     * The margin CSS property sets the margin for all four sides. It is a shorthand to avoid
-     * setting each side separately with the other margin properties: margin-top, margin-right,
-     * margin-bottom and margin-left. Negative value are also allowed.
-     * </p>
-     * <p>
-     * One single value applies to all four sides.
-     * </p>
-     */
-    public static BoxLength margin = new BoxLength("margin");
-
-    /**
-     * <p>
-     * The CSS outline property is a shorthand property for setting one or more of the individual
-     * outline properties outline-style, outline-width and outline-color in a single rule. In most
-     * cases the use of this shortcut is preferable and more convenient.
-     * </p>
-     * <p>
-     * Outlines differ from borders in the following ways:
-     * </p>
-     * <ul>
-     * <li>Outlines do not take up space, they are drawn above the content.</li>
-     * <li>Outlines may be non-rectangular. They are rectangular in Gecko/Firefox. But e.g. Opera
-     * draws a non-rectangular shape around a construct like this:</li>
-     * </ul>
-     */
-    public static Outline outline = new Outline();
-
-    /**
-     * <p>
-     * The overflow CSS property specifies whether to clip content, render scroll bars or display
-     * overflow content of a block-level element.
-     * </p>
-     * <p>
-     * Using the overflow property with a value different than visible, its default, will create a
-     * new block formatting context. This is technically necessary as if a float would intersect
-     * with the scrolling element it would force to rewrap the content of the scrollable element
-     * around intruding floats. The rewrap would happen after each scroll step and would be lead to
-     * a far too slow scrolling experience. Note that, by programmatically setting scrollTop to the
-     * relevant HTML element, even when overflow has the hidden value an element may need to scroll.
-     * </p>
-     */
-    public static Overflows overflow = new Overflows();
-
-    /**
-     * <p>
-     * The padding CSS property sets the required padding space on all sides of an element. The
-     * padding area is the space between the content of the element and its border. Negative values
-     * are not allowed.
-     * </p>
-     * <p>
-     * The padding property is a shorthand to avoid setting each side separately (padding-top,
-     * padding-right, padding-bottom, padding-left).
-     * </p>
-     */
-    public static BoxLength padding = new BoxLength("padding");
-
-    /**
-     * <p>
-     * The CSS property pointer-events allows authors to control under what circumstances (if any) a
-     * particular graphic element can become the target of mouse events. When this property is
-     * unspecified, the same characteristics of the visiblePainted value apply to SVG content.
-     * </p>
-     */
-    public static PointerEvents pointerEvents = new PointerEvents();
-
-    /**
-     * <p>
-     * The position CSS property chooses alternative rules for positioning elements, designed to be
-     * useful for scripted animation effects.
-     * </p>
-     */
-    public static Position position = new Position();
-
-    /** The SVG property. */
-    public static Stroke stroke = new Stroke();
-
-    /** The text related style. */
-    public static Text text = new Text();
-
-    /**
-     * <p>
-     * The CSS transform property lets you modify the coordinate space of the CSS visual formatting
-     * model. Using it, elements can be translated, rotated, scaled, and skewed according to the
-     * values set.
-     * </p>
-     * <p>
-     * If the property has a value different than none, a stacking context will be created. In that
-     * case the object will act as a containing block for position: fixed elements that it contains.
-     * </p>
-     */
-    public static Transform transform = new Transform();
-
-    /**
-     * <p>
-     * The visibility CSS property has two purposes:
-     * </p>
-     */
-    public static Visibility visibility = new Visibility();
-
-    /** The built-in style. */
-    public static Style NBox = () -> {
-    };
-
-    /** The built-in style. */
-    public static Style HBox = () -> {
-        display.flex();
-    };
-
-    /** The built-in style. */
-    public static Style VBox = () -> {
-        display.flex().direction.column();
-    };
-
-    /** The built-in style. */
-    public static Style SBox = () -> {
-        position.relative();
-
-        child(() -> {
-            position.absolute();
-        });
-    };
-
-    /** The built-in style. */
-    public static Style Hide = () -> {
-        display.none();
-    };
+public final class Functional {
 
     /**
      * <p>
@@ -410,7 +34,7 @@ public interface StyleDSL extends Extensible {
      *            will be round up to 0 or 255.
      * @return A new color.
      */
-    public static Color rgb(int red, int green, int blue) {
+    public Color rgb(int red, int green, int blue) {
         return Color.rgb(red, green, blue);
     }
 
@@ -427,7 +51,7 @@ public interface StyleDSL extends Extensible {
      *            will be round up to 0 or 255.
      * @return A new color.
      */
-    public static Color rgba(int red, int green, int blue, double alpha) {
+    public Color rgba(int red, int green, int blue, double alpha) {
         return Color.rgba(red, green, blue, alpha);
     }
 
@@ -443,7 +67,7 @@ public interface StyleDSL extends Extensible {
      * @param lightness The brightness relative to the brightness of a similarly illuminated white.
      * @return A new color.
      */
-    public static Color hsl(int hue, int saturation, int lightness) {
+    public Color hsl(int hue, int saturation, int lightness) {
         return hsla(hue, saturation, lightness, 1);
     }
 
@@ -460,7 +84,7 @@ public interface StyleDSL extends Extensible {
      * @param alpha The transparency.
      * @return A new color.
      */
-    public static Color hsla(int hue, int saturation, int lightness, double alpha) {
+    public Color hsla(int hue, int saturation, int lightness, double alpha) {
         return new Color(hue, saturation, lightness, alpha);
     }
 
@@ -475,7 +99,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return A new linear gradient image.
      */
-    public static LinearGradient linear() {
+    public LinearGradient linear() {
         return new LinearGradient();
     }
 
@@ -490,7 +114,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return A new linear gradient image.
      */
-    public static LinearGradient linear(Color start, Color end) {
+    public LinearGradient linear(Color start, Color end) {
         return new LinearGradient().color(start, end);
     }
 
@@ -503,7 +127,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return A new linear gradient image.
      */
-    public static RadialGradient radial() {
+    public RadialGradient radial() {
         return new RadialGradient();
     }
 
@@ -516,7 +140,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return A new linear gradient image.
      */
-    public static RadialGradient radial(Color start, Color end) {
+    public RadialGradient radial(Color start, Color end) {
         return new RadialGradient().color(start, end);
     }
 
@@ -527,7 +151,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return A new shadow.
      */
-    public static Shadow shadow() {
+    public Shadow shadow() {
         return new Shadow();
     }
 
@@ -538,7 +162,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return
      */
-    public static Transition transit() {
+    public Transition transit() {
         return new Transition();
     }
 
@@ -555,7 +179,7 @@ public interface StyleDSL extends Extensible {
      * @param name An attribute name.
      * @return Chainable API.
      */
-    public static Attribute attr(String name) {
+    public Attribute attr(String name) {
         return new Attribute(SelectorDSL.create(null), name);
     }
 
@@ -574,7 +198,7 @@ public interface StyleDSL extends Extensible {
      * @param name An attribute name.
      * @param A sub style rule.
      */
-    public static void attr(String name, Style sub) {
+    public void attr(String name, Style sub) {
         attr(name).exist(sub);
     }
 
@@ -594,7 +218,7 @@ public interface StyleDSL extends Extensible {
      * @param value An attribute value.
      * @param A sub style rule.
      */
-    public static void attr(String name, String value, Style sub) {
+    public void attr(String name, String value, Style sub) {
         attr(name).is(value, sub);
     }
 
@@ -607,7 +231,7 @@ public interface StyleDSL extends Extensible {
      * @param location A class location.
      * @return Chainable API.
      */
-    public static SelectorDSL with(Location location) {
+    public SelectorDSL with(Location location) {
         return basic("." + location.name());
     }
 
@@ -619,7 +243,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param location A class location.
      */
-    public static void with(Location location, Style sub) {
+    public void with(Location location, Style sub) {
         with(location).declare(sub);
     }
 
@@ -650,7 +274,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL ancestor() {
+    public SelectorDSL ancestor() {
         return combine(" ", false);
     }
 
@@ -665,7 +289,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param A sub style rule.
      */
-    public static void ancestor(Style sub) {
+    public void ancestor(Style sub) {
         ancestor().declare(sub);
     }
 
@@ -680,7 +304,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL descendant() {
+    public SelectorDSL descendant() {
         return combine(" ", true);
     }
 
@@ -695,7 +319,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void descendant(Style sub) {
+    public void descendant(Style sub) {
         descendant().declare(sub);
     }
 
@@ -710,7 +334,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL parent() {
+    public SelectorDSL parent() {
         return combine(">", false);
     }
 
@@ -725,7 +349,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void parent(Style sub) {
+    public void parent(Style sub) {
         parent().declare(sub);
     }
 
@@ -740,7 +364,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL child() {
+    public SelectorDSL child() {
         return combine(">", true);
     }
 
@@ -755,7 +379,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void child(Style sub) {
+    public void child(Style sub) {
         child().declare(sub);
     }
 
@@ -767,7 +391,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL prev() {
+    public SelectorDSL prev() {
         return combine("+", false);
     }
 
@@ -779,7 +403,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void prev(Style sub) {
+    public void prev(Style sub) {
         prev().declare(sub);
     }
 
@@ -791,7 +415,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL next() {
+    public SelectorDSL next() {
         return combine("+", true);
     }
 
@@ -803,7 +427,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void next(Style sub) {
+    public void next(Style sub) {
         next().declare(sub);
     }
 
@@ -815,7 +439,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL prevs() {
+    public SelectorDSL prevs() {
         return combine("~", false);
     }
 
@@ -827,7 +451,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void prevs(Style sub) {
+    public void prevs(Style sub) {
         prevs().declare(sub);
     }
 
@@ -839,7 +463,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL nexts() {
+    public SelectorDSL nexts() {
         return combine("~", true);
     }
 
@@ -851,7 +475,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void nexts(Style sub) {
+    public void nexts(Style sub) {
         nexts().declare(sub);
     }
 
@@ -881,7 +505,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void after(Style sub) {
+    public void after(Style sub) {
         pseudo(true, "after").declare(sub);
     }
 
@@ -894,7 +518,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void before(Style sub) {
+    public void before(Style sub) {
         pseudo(true, "before").declare(sub);
     }
 
@@ -906,7 +530,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void firstLetter(Style sub) {
+    public void firstLetter(Style sub) {
         pseudo(true, "first-letter").declare(sub);
     }
 
@@ -920,7 +544,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void firstLine(Style sub) {
+    public void firstLine(Style sub) {
         pseudo(true, "first-line").declare(sub);
     }
 
@@ -937,7 +561,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void selection(Style sub) {
+    public void selection(Style sub) {
         // Gecko is the only engine requiring the prefix. Due to the fact that the CSS parsing rules
         // require dropping the whole rule when encountering an invalid pseudo-element, two separate
         // rules must be written: ::-moz-selection, ::selection {...}. The rule would be dropped on
@@ -961,7 +585,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL active() {
+    public SelectorDSL active() {
         return pseudo(false, "active");
     }
 
@@ -977,7 +601,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void active(Style sub) {
+    public void active(Style sub) {
         active().declare(sub);
     }
 
@@ -992,7 +616,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL checked() {
+    public SelectorDSL checked() {
         return pseudo(false, "checked");
     }
 
@@ -1007,7 +631,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void checked(Style sub) {
+    public void checked(Style sub) {
         checked().declare(sub);
     }
 
@@ -1019,7 +643,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL defaults() {
+    public SelectorDSL defaults() {
         return pseudo(false, "default");
     }
 
@@ -1031,7 +655,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static void defaults(Style sub) {
+    public void defaults(Style sub) {
         defaults().declare(sub);
     }
 
@@ -1044,7 +668,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL disabled() {
+    public SelectorDSL disabled() {
         return pseudo(false, "disabled");
     }
 
@@ -1057,7 +681,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void disabled(Style sub) {
+    public void disabled(Style sub) {
         disabled().declare(sub);
     }
 
@@ -1070,7 +694,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL empty() {
+    public SelectorDSL empty() {
         return pseudo(false, "empty");
     }
 
@@ -1083,7 +707,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void empty(Style sub) {
+    public void empty(Style sub) {
         empty().declare(sub);
     }
 
@@ -1096,7 +720,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL enabled() {
+    public SelectorDSL enabled() {
         return pseudo(false, "enabled");
     }
 
@@ -1109,7 +733,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void enabled(Style sub) {
+    public void enabled(Style sub) {
         enabled().declare(sub);
     }
 
@@ -1121,7 +745,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL firstChild() {
+    public SelectorDSL firstChild() {
         return pseudo(false, "first-child");
     }
 
@@ -1133,7 +757,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void firstChild(Style sub) {
+    public void firstChild(Style sub) {
         firstChild().declare(sub);
     }
 
@@ -1145,7 +769,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL firstType() {
+    public SelectorDSL firstType() {
         return pseudo(false, "first-of-type");
     }
 
@@ -1157,7 +781,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void firstOfType(Style sub) {
+    public void firstOfType(Style sub) {
         firstType().declare(sub);
     }
 
@@ -1170,7 +794,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL focus() {
+    public SelectorDSL focus() {
         return pseudo(false, "focus");
     }
 
@@ -1183,7 +807,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void focus(Style sub) {
+    public void focus(Style sub) {
         focus().declare(sub);
     }
 
@@ -1199,7 +823,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL hover() {
+    public SelectorDSL hover() {
         return pseudo(false, "hover");
     }
 
@@ -1215,7 +839,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void hover(Style sub) {
+    public void hover(Style sub) {
         hover().declare(sub);
     }
 
@@ -1226,7 +850,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL indeterminate() {
+    public SelectorDSL indeterminate() {
         return pseudo(false, "indeterminate");
     }
 
@@ -1237,7 +861,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void indeterminate(Style sub) {
+    public void indeterminate(Style sub) {
         indeterminate().declare(sub);
     }
 
@@ -1250,7 +874,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL invalid() {
+    public SelectorDSL invalid() {
         return pseudo(false, "invalid");
     }
 
@@ -1263,7 +887,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void invalid(Style sub) {
+    public void invalid(Style sub) {
         invalid().declare(sub);
     }
 
@@ -1275,7 +899,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL lastChild() {
+    public SelectorDSL lastChild() {
         return pseudo(false, "last-child");
     }
 
@@ -1287,7 +911,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void lastChild(Style sub) {
+    public void lastChild(Style sub) {
         lastChild().declare(sub);
     }
 
@@ -1299,7 +923,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL lastType() {
+    public SelectorDSL lastType() {
         return pseudo(false, "last-of-type");
     }
 
@@ -1311,7 +935,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void lastType(Style sub) {
+    public void lastType(Style sub) {
         lastType().declare(sub);
     }
 
@@ -1327,7 +951,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL link() {
+    public SelectorDSL link() {
         return pseudo(false, "link");
     }
 
@@ -1343,7 +967,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void link(Style sub) {
+    public void link(Style sub) {
         link().declare(sub);
     }
 
@@ -1356,7 +980,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL not(SelectorDSL selector) {
+    public SelectorDSL not(SelectorDSL selector) {
         // not-pseudo-class accepts simple selector only
         return pseudo(false, "not(" + selector.toString().replaceAll("\\$", "") + ")");
     }
@@ -1370,7 +994,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void not(SelectorDSL selector, Style sub) {
+    public void not(SelectorDSL selector, Style sub) {
         not(selector).declare(sub);
     }
 
@@ -1383,7 +1007,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL not(Style selector) {
+    public SelectorDSL not(Style selector) {
         // not-pseudo-class accepts simple selector only
         return pseudo(false, "not(." + selector.name() + ")");
     }
@@ -1397,7 +1021,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void not(Style selector, Style sub) {
+    public void not(Style selector, Style sub) {
         not(selector).declare(sub);
     }
 
@@ -1409,7 +1033,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL nthChild(String pattern) {
+    public SelectorDSL nthChild(String pattern) {
         return pseudo(false, "nth-child(" + pattern + ")");
     }
 
@@ -1421,7 +1045,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void nthChild(String pattern, Style sub) {
+    public void nthChild(String pattern, Style sub) {
         nthChild(pattern).declare(sub);
     }
 
@@ -1434,7 +1058,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL nthLastChild(String pattern) {
+    public SelectorDSL nthLastChild(String pattern) {
         return pseudo(false, "nth-last-child(" + pattern + ")");
     }
 
@@ -1447,7 +1071,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void nthLastChild(String pattern, Style sub) {
+    public void nthLastChild(String pattern, Style sub) {
         nthLastChild(pattern).declare(sub);
     }
 
@@ -1463,7 +1087,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL nthType(String pattern) {
+    public SelectorDSL nthType(String pattern) {
         return pseudo(false, "nth-of-type(" + pattern + ")");
     }
 
@@ -1479,7 +1103,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void nthType(String pattern, Style sub) {
+    public void nthType(String pattern, Style sub) {
         nthType(pattern).declare(sub);
     }
 
@@ -1493,7 +1117,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL nthLastType(String pattern) {
+    public SelectorDSL nthLastType(String pattern) {
         return pseudo(false, "nth-last-of-type(" + pattern + ")");
     }
 
@@ -1507,7 +1131,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void nthLastType(String pattern, Style sub) {
+    public void nthLastType(String pattern, Style sub) {
         nthLastType(pattern).declare(sub);
     }
 
@@ -1520,7 +1144,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL onlyChild() {
+    public SelectorDSL onlyChild() {
         return pseudo(false, "only-child");
     }
 
@@ -1533,7 +1157,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void onlyChild(Style sub) {
+    public void onlyChild(Style sub) {
         onlyChild().declare(sub);
     }
 
@@ -1545,7 +1169,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL onlyType() {
+    public SelectorDSL onlyType() {
         return pseudo(false, "only-of-type");
     }
 
@@ -1557,7 +1181,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void onlyType(Style sub) {
+    public void onlyType(Style sub) {
         onlyType().declare(sub);
     }
 
@@ -1570,7 +1194,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL optional() {
+    public SelectorDSL optional() {
         return pseudo(false, "optional");
     }
 
@@ -1583,7 +1207,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void optional(Style sub) {
+    public void optional(Style sub) {
         optional().declare(sub);
     }
 
@@ -1596,7 +1220,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL required() {
+    public SelectorDSL required() {
         return pseudo(false, "required");
     }
 
@@ -1609,7 +1233,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void required(Style sub) {
+    public void required(Style sub) {
         required().declare(sub);
     }
 
@@ -1621,7 +1245,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL target() {
+    public SelectorDSL target() {
         return pseudo(false, "target");
     }
 
@@ -1633,7 +1257,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void target(Style sub) {
+    public void target(Style sub) {
         target().declare(sub);
     }
 
@@ -1646,7 +1270,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL valid() {
+    public SelectorDSL valid() {
         return pseudo(false, "valid");
     }
 
@@ -1659,7 +1283,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void valid(Style sub) {
+    public void valid(Style sub) {
         valid().declare(sub);
     }
 
@@ -1674,7 +1298,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @return Chainable API.
      */
-    public static SelectorDSL visited() {
+    public SelectorDSL visited() {
         return pseudo(false, "visited");
     }
 
@@ -1689,7 +1313,7 @@ public interface StyleDSL extends Extensible {
      * 
      * @param sub A sub style.
      */
-    public static void visited(Style sub) {
+    public void visited(Style sub) {
         visited().declare(sub);
     }
 
@@ -1698,83 +1322,5 @@ public interface StyleDSL extends Extensible {
      */
     private static SelectorDSL pseudo(boolean isElement, String name) {
         return SelectorDSL.create(null).pseudo(isElement, name);
-    }
-
-    /**
-     * <p>
-     * Apply bubble border box style.
-     * </p>
-     * 
-     * @param bubbleHeight
-     */
-    public static void createBottomBubble(int bubbleHeight, Numeric borderWidth, Color borderColor, Color boxBackColor) {
-        if (!position.isAbsolute() && !position.isRelative()) {
-            position.relative();
-        }
-
-        Numeric width = borderWidth.add(bubbleHeight);
-
-        // write bubble border color
-        before(() -> {
-            display.block().size(0, px);
-            content.text("");
-            position.absolute().left(50, percent).top(100, percent);
-            margin.left(width.opposite());
-            border.solid().color(Transparent).width(width);
-            border.top.color(borderColor);
-        });
-
-        // write bubble background color
-        if (borderWidth.size != 0) {
-            Numeric width2 = width.subtract(borderWidth.multiply(1.5));
-
-            after(() -> {
-                display.block().size(0, px);
-                content.text("");
-                position.absolute().left(50, percent).top(100, percent);
-                margin.left(width2.opposite());
-                border.solid().color(Transparent).width(width2);
-                border.top.color(boxBackColor.opacify(1));
-            });
-        }
-    }
-
-    /**
-     * <p>
-     * Apply bubble border box style.
-     * </p>
-     * 
-     * @param bubbleHeight
-     */
-    public static void createTopBubble(int bubbleHeight, Numeric borderWidth, Color borderColor, Color boxBackColor) {
-        if (!position.isAbsolute() && !position.isRelative()) {
-            position.relative();
-        }
-
-        Numeric width = borderWidth.add(bubbleHeight);
-
-        // write bubble border color
-        before(() -> {
-            display.block().size(0, px);
-            content.text("");
-            position.absolute().left(50, percent).bottom(100, percent);
-            margin.left(width.opposite());
-            border.solid().color(Transparent).width(width);
-            border.bottom.color(borderColor);
-        });
-
-        // write bubble background color
-        if (borderWidth.size != 0) {
-            Numeric borderWitdh = width.subtract(borderWidth.multiply(1.5));
-
-            after(() -> {
-                display.block().size(0, px);
-                content.text("");
-                position.absolute().left(50, percent).bottom(100, percent);
-                margin.left(borderWitdh.opposite());
-                border.solid().color(Transparent).width(borderWitdh);
-                border.bottom.color(boxBackColor.opacify(1));
-            });
-        }
     }
 }

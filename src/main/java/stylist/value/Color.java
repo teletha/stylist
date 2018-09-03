@@ -244,7 +244,18 @@ public class Color extends CSSValue {
      */
     @Override
     protected String valueFor(Vendor vendor) {
-        return toRGB();
+        if (alpha == 0) {
+            return "transparent";
+        } else if (alpha == 1) {
+            if (hue == 0 && saturation == 0) {
+                if (lightness == 0) {
+                    return "black";
+                } else if (lightness == 100) {
+                    return "white";
+                }
+            }
+        }
+        return toHSL();
     }
 
     /**

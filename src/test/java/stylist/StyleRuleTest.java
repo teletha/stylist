@@ -32,7 +32,7 @@ public class StyleRuleTest extends StyleTester {
         Style style = () -> {
             display.block();
 
-            hover(() -> {
+            $.hover(() -> {
                 text.decoration.underline();
             });
         };

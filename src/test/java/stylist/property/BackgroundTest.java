@@ -86,7 +86,7 @@ public class BackgroundTest extends StyleTester {
     @Test
     public void imageGradient() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            background.image(BackgroundImage.of(linear().color(Black, White)));
+            background.image(BackgroundImage.of($.linear().color(Black, White)));
         });
         assert parsed.property("background-image", "linear-gradient(black,white)", "-webkit-linear-gradient(black,white)");
     }
@@ -94,7 +94,7 @@ public class BackgroundTest extends StyleTester {
     @Test
     public void imageGradients() throws Exception {
         ValidatableStyle parsed = writeStyle(() -> {
-            background.image(BackgroundImage.of(linear().color(Black, White)), BackgroundImage.of(linear().color(White, Black)));
+            background.image(BackgroundImage.of($.linear().color(Black, White)), BackgroundImage.of($.linear().color(White, Black)));
         });
         assert parsed
                 .property("background-image", "linear-gradient(black,white),linear-gradient(white,black)", "-webkit-linear-gradient(black,white),-webkit-linear-gradient(white,black)");

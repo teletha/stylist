@@ -22,7 +22,7 @@ import stylist.value.Color;
 /**
  * @version 2018/09/01 22:21:35
  */
-public class StyleTester extends StyleDSL {
+public class StyleTester implements StyleDSL {
 
     /** The selector field. */
     private static final Field selectorField;

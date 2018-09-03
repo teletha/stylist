@@ -125,7 +125,7 @@ class JavaFXLizerTest extends StyleTester {
     @Test
     void color() {
         ValidatableStyle style = writeStyle(() -> {
-            font.color(rgb(0, 0, 0));
+            font.color($.rgb(0, 0, 0));
         }, fxlizer);
         assert style.property("-fx-text-fill", "black");
     }

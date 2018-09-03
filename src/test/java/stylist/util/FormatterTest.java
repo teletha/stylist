@@ -83,7 +83,7 @@ class FormatterTest extends StyleTester {
     StyleRule nest = writeStyle("#nest", () -> {
         display.width(10, px);
 
-        hover(() -> {
+        $.hover(() -> {
             display.width(20, px);
         });
     });
