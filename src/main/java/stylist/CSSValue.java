@@ -118,17 +118,13 @@ public abstract class CSSValue {
      * @return
      */
     public static CSSValue of(Object value) {
+        if (value instanceof CSSValue) {
+            return (CSSValue) value;
+        }
+        if (value instanceof Number) {
+            return new Digit((Number) value);
+        }
         return new Value(value);
-    }
-
-    /**
-     * Create simple number {@link CSSValue}.
-     * 
-     * @param value
-     * @return
-     */
-    public static CSSValue of(Number value) {
-        return new Digit(value);
     }
 
     /**

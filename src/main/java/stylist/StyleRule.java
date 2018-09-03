@@ -73,31 +73,23 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param override A flag for property override.
      * @param prefixes A list of vendors for property name.
      */
-    void property(String name, List values, String separator, int writeMode, EnumSet<Vendor> prefixes) {
+    void property(String name, List<? extends CSSValue> values, String separator, int writeMode, EnumSet<Vendor> prefixes) {
         if (name != null && name.length() != 0 && values != null) {
             EnumMap<Vendor, CSSValue> properties = new EnumMap(Vendor.class);
 
             // calculate dependent vendors
             EnumSet<Vendor> vendors = EnumSet.copyOf(prefixes);
 
-            for (Object value : values) {
-                if (value instanceof CSSValue) {
-                    vendors.addAll(((CSSValue) value).vendors());
-                }
+            for (CSSValue value : values) {
+                vendors.addAll(value.vendors());
             }
 
             for (Vendor vendor : vendors) {
                 CSSValue base = CSSValue.EMPTY;
 
-                for (Object value : values) {
+                for (CSSValue value : values) {
                     if (value != null) {
-                        if (value instanceof CSSValue) {
-                            base = base.join(separator, ((CSSValue) value).fix(vendor));
-                        } else if (value instanceof Number) {
-                            base = base.join(separator, CSSValue.of((Number) value));
-                        } else {
-                            base = base.join(separator, CSSValue.of(value));
-                        }
+                        base = base.join(separator, value.fix(vendor));
                     }
                 }
                 properties.put(vendor, base);

@@ -119,10 +119,10 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(String name, int... values) {
-        List<String> list = new ArrayList();
+        List<CSSValue> list = new ArrayList();
 
         for (int i = 0; i < values.length; i++) {
-            list.add(String.valueOf(values[i]));
+            list.add(CSSValue.of(values[i]));
         }
         return value(name, list, ",");
     }
@@ -169,7 +169,7 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(String name, Object value) {
-        return value(name, Arrays.asList(value), " ");
+        return value(name, Arrays.asList(CSSValue.of(value)), " ");
     }
 
     /**
@@ -182,7 +182,7 @@ public class PropertyDefinition<T> {
      * @param separator A value separator.
      * @return Chainable API.
      */
-    protected final T value(String name, List values, String separator) {
+    protected final T value(String name, List<? extends CSSValue> values, String separator) {
         return value(name, values, separator, 0);
     }
 
@@ -197,7 +197,7 @@ public class PropertyDefinition<T> {
      * @param writeMode A value write mechanism.
      * @return Chainable API.
      */
-    protected final T value(String name, List values, String separator, int writeMode) {
+    protected final T value(String name, List<? extends CSSValue> values, String separator, int writeMode) {
         return value(EnumSet.noneOf(Vendor.class), name, values, separator, writeMode);
     }
 
@@ -213,7 +213,7 @@ public class PropertyDefinition<T> {
      * @param writeMode A value write mechanism.
      * @return Chainable API.
      */
-    protected final T value(EnumSet<Vendor> vendors, String name, List values, String separator, int writeMode) {
+    protected final T value(EnumSet<Vendor> vendors, String name, List<? extends CSSValue> values, String separator, int writeMode) {
         vendors.addAll(this.vendors);
 
         properties.property(name, values, separator, writeMode, vendors);

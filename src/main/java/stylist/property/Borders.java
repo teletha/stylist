@@ -103,7 +103,7 @@ public class Borders extends Border {
      */
     @Override
     protected Border style(String style) {
-        return value("border", Arrays.asList(style), " ", 2);
+        return value("border", Arrays.asList(CSSValue.of(style)), " ", 2);
     }
 
     /**
@@ -112,7 +112,7 @@ public class Borders extends Border {
     @Override
     public Border initial() {
         value("border-radius", "initial");
-        return value("border", Arrays.asList("initial"), " ", 2);
+        return value("border", Arrays.asList(CSSValue.of("initial")), " ", 2);
     }
 
     /**
@@ -188,7 +188,7 @@ public class Borders extends Border {
         @Override
         protected Border style(String style) {
             for (String side : sides) {
-                value("border-" + side, Arrays.asList(style), " ", 2);
+                value("border-" + side, Arrays.asList(CSSValue.of(style)), " ", 2);
                 value("border-" + side + "-style", style);
             }
             return this;

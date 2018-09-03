@@ -117,10 +117,10 @@ public class Background extends Colorable<Background> {
      * </p>
      */
     private List collect(BackgroundImage[] images, int index) {
-        List values = new ArrayList();
+        List<CSSValue> values = new ArrayList();
 
         for (int i = 0; i < images.length; i++) {
-            values.add(images[i].properties[index]);
+            values.add(CSSValue.of(images[i].properties[index]));
         }
         return values;
     }
