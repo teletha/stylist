@@ -12,7 +12,6 @@ package stylist;
 import static stylist.Vendor.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.List;
@@ -169,7 +168,7 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(String name, Object value) {
-        return value(name, Arrays.asList(CSSValue.of(value)), " ");
+        return value(name, List.of(CSSValue.of(value)), " ");
     }
 
     /**
