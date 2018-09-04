@@ -19,7 +19,7 @@ import stylist.StyleTester;
 public class CursorTest extends StyleTester {
 
     @Test
-    public void rgb() {
+    public void cursor() {
         ValidatableStyle parsed = writeStyle(() -> {
             cursor.help();
         });
@@ -34,5 +34,15 @@ public class CursorTest extends StyleTester {
             cursor.copy();
         });
         assert parsed.property("cursor", "copy");
+
+        parsed = writeStyle(() -> {
+            cursor.grab();
+        });
+        assert parsed.property("cursor", "-webkit-grab", "grab");
+
+        parsed = writeStyle(() -> {
+            cursor.grabbing();
+        });
+        assert parsed.property("cursor", "-webkit-grabbing", "grabbing");
     }
 }

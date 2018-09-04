@@ -142,6 +142,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     @Override
     public String toString() {
+        System.out.println(this.properties);
         return Formatter.pretty().format(this);
     }
 

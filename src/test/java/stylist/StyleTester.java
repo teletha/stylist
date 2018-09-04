@@ -56,6 +56,7 @@ public class StyleTester implements StyleDSL {
         for (Consumer<Properties> processor : postProcessors) {
             processor.accept(rule.properties);
         }
+
         return new ValidatableStyle(rule);
     }
 

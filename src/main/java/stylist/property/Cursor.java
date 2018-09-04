@@ -10,6 +10,7 @@
 package stylist.property;
 
 import stylist.PropertyDefinition;
+import stylist.Vendor;
 
 /**
  * @version 2018/08/30 18:25:03
@@ -159,6 +160,24 @@ public class Cursor extends PropertyDefinition<Cursor> {
      */
     public Cursor copy() {
         return value("copy");
+    }
+
+    /**
+     * <p>
+     * Something can be grabbed (dragged to be moved).
+     * </p>
+     */
+    public Cursor grab() {
+        return value(new Vendored("grab").prefix(Vendor.Webkit));
+    }
+
+    /**
+     * <p>
+     * Something is being grabbed (dragged to be moved).
+     * </p>
+     */
+    public Cursor grabbing() {
+        return value(new Vendored("grabbing").prefix(Vendor.Webkit));
     }
 
     /**

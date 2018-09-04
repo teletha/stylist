@@ -100,7 +100,7 @@ public class PropertyDefinition<T> {
      * Set property.
      * </p>
      * 
-     * @param name A property name.
+     * @param value A property name.
      * @param value A property value.
      * @return Chainable API.
      */
@@ -281,6 +281,58 @@ public class PropertyDefinition<T> {
     }
 
     /**
+     * @version 2018/09/04 22:05:49
+     */
+    protected static class Vendored extends CSSValue {
+
+        private final String value;
+
+        /** The vendored values. */
+        private final EnumMap<Vendor, String> values = new EnumMap(Vendor.class);
+
+        /**
+         * @param value
+         */
+        public Vendored(String value) {
+            this.value = value;
+            values.put(Standard, value);
+        }
+
+        public Vendored prefix(Vendor... vendors) {
+            for (Vendor vendor : vendors) {
+                values.put(vendor, vendor + value);
+            }
+            return this;
+        }
+
+        public Vendored webkit(String value) {
+            values.put(Webkit, value);
+            return this;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected EnumSet<Vendor> vendors() {
+            return EnumSet.copyOf(values.keySet());
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            String value = values.get(vendor);
+
+            if (value != null) {
+                return value;
+            }
+            return values.get(Standard);
+        }
+    }
+
+    /**
      * @version 2018/08/30 22:22:50
      */
     protected static class PrefixAwareProperty {
@@ -305,7 +357,7 @@ public class PropertyDefinition<T> {
          * @param name
          * @param value
          */
-        protected PrefixAwareProperty(String name, String value, boolean namePrefix, boolean valuePrefix) {
+        public PrefixAwareProperty(String name, String value, boolean namePrefix, boolean valuePrefix) {
             this.namePrefix = namePrefix;
             this.valuePrefix = valuePrefix;
 
