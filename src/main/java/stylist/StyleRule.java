@@ -88,9 +88,7 @@ public class StyleRule implements Comparable<StyleRule> {
                 CSSValue base = CSSValue.EMPTY;
 
                 for (CSSValue value : values) {
-                    if (value != null) {
-                        base = base.join(separator, value.fix(vendor));
-                    }
+                    base = base.join(separator, value.fix(vendor));
                 }
                 properties.put(vendor, base);
             }

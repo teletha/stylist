@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 
 /**
- * @version 2018/08/30 18:37:07
+ * @version 2018/09/04 23:29:32
  */
 public class CursorTest extends StyleTester {
 

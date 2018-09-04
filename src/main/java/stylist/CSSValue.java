@@ -197,13 +197,6 @@ public abstract class CSSValue {
         }
 
         /**
-         * @param value
-         */
-        private Value(EnumMap<Vendor, String> values) {
-            this.values = Objects.requireNonNull(values);
-        }
-
-        /**
          * {@inheritDoc}
          */
         @Override
