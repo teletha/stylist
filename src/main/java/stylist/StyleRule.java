@@ -15,7 +15,6 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map.Entry;
 
-import kiss.Variable;
 import stylist.util.Formatter;
 import stylist.util.Properties;
 
@@ -111,17 +110,6 @@ public class StyleRule implements Comparable<StyleRule> {
 
                 case 1: // override
                     this.properties.set(resolvedName, value);
-                    break;
-
-                case 2: // append
-                    Variable<CSSValue> current = this.properties.get(resolvedName);
-                    System.out.println(resolvedName + "  " + current);
-
-                    if (current.isAbsent()) {
-                        this.properties.add(resolvedName, value);
-                    } else {
-                        this.properties.set(resolvedName, current.v.join(separator, value));
-                    }
                     break;
                 }
             }
