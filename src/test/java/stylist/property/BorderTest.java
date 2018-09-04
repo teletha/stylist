@@ -24,7 +24,8 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.top.width(1, px).solid().color(Color.Black);
         });
-        assert parsed.property("border-top", "1px solid black");
+        assert parsed.property("border-top-width", "1px");
+        assert parsed.property("border-top-style", "solid");
     }
 
     @Test
@@ -32,7 +33,8 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.bottom.width(1, px).doubles();
         });
-        assert parsed.property("border-bottom", "1px double");
+        assert parsed.property("border-bottom-width", "1px");
+        assert parsed.property("border-bottom-style", "double");
     }
 
     @Test
@@ -40,7 +42,8 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.left.width(1, px).dashed();
         });
-        assert parsed.property("border-left", "1px dashed");
+        assert parsed.property("border-left-width", "1px");
+        assert parsed.property("border-left-style", "dashed");
     }
 
     @Test
@@ -48,7 +51,8 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.right.width(1, px).groove();
         });
-        assert parsed.property("border-right", "1px groove");
+        assert parsed.property("border-right-width", "1px");
+        assert parsed.property("border-right-style", "groove");
     }
 
     @Test
@@ -56,7 +60,10 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.width(1, px).solid().color(Color.White);
         });
-        assert parsed.property("border", "1px solid white");
+        assert parsed.property("border-color", "white");
+        assert parsed.property("border-style", "solid");
+        assert parsed.property("border-width", "1px");
+
     }
 
     @Test
@@ -64,7 +71,7 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.width(2, px);
         });
-        assert parsed.property("border", "2px");
+        assert parsed.property("border-width", "2px");
     }
 
     @Test
@@ -72,7 +79,7 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.solid();
         });
-        assert parsed.property("border", "solid");
+        assert parsed.property("border-style", "solid");
     }
 
     @Test
@@ -80,7 +87,7 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.color(Color.White);
         });
-        assert parsed.property("border", "white");
+        assert parsed.property("border-color", "white");
     }
 
     @Test
@@ -88,8 +95,10 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.vertical.width(1, em).inset();
         });
-        assert parsed.property("border-top", "1em inset");
-        assert parsed.property("border-bottom", "1em inset");
+        assert parsed.property("border-top-width", "1em");
+        assert parsed.property("border-top-style", "inset");
+        assert parsed.property("border-bottom-width", "1em");
+        assert parsed.property("border-bottom-style", "inset");
     }
 
     @Test
@@ -97,8 +106,10 @@ public class BorderTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             border.horizontal.width(1, ex).outset();
         });
-        assert parsed.property("border-right", "1ex outset");
-        assert parsed.property("border-left", "1ex outset");
+        assert parsed.property("border-left-width", "1ex");
+        assert parsed.property("border-left-style", "outset");
+        assert parsed.property("border-right-width", "1ex");
+        assert parsed.property("border-right-style", "outset");
     }
 
     @Test

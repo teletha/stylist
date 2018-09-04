@@ -115,6 +115,7 @@ public class StyleRule implements Comparable<StyleRule> {
 
                 case 2: // append
                     Variable<CSSValue> current = this.properties.get(resolvedName);
+                    System.out.println(resolvedName + "  " + current);
 
                     if (current.isAbsent()) {
                         this.properties.add(resolvedName, value);

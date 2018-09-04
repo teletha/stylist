@@ -81,6 +81,25 @@ public class PropertyDefinition<T> {
 
     /**
      * <p>
+     * The inherit CSS keyword causes the element for which it is specified to take the computed
+     * value of the property from its parent element. It can be applied to any CSS property,
+     * including the CSS shorthand all.
+     * </p>
+     * <p>
+     * For inherited properties, this reinforces the default behavior, and is only needed to
+     * override another rule. For non-inherited properties, this specifies a behavior that typically
+     * makes relatively little sense and you may consider using initial instead, or unset on the all
+     * property.
+     * </p>
+     * 
+     * @return
+     */
+    public T inherit() {
+        return value("inherit");
+    }
+
+    /**
+     * <p>
      * The initial CSS keyword applies the initial value of a property to an element. It is allowed
      * on every CSS property and causes the element for which it is specified to use the initial
      * value of the property.
@@ -90,6 +109,20 @@ public class PropertyDefinition<T> {
      */
     public T initial() {
         return value("initial");
+    }
+
+    /**
+     * <p>
+     * The unset CSS keyword resets a property to its inherited value if it inherits from its
+     * parent, and to its initial value if not. In other words, it behaves like the inherit keyword
+     * in the first case, and like the initial keyword in the second case. It can be applied to any
+     * CSS property, including the CSS shorthand all.
+     * </p>
+     * 
+     * @return
+     */
+    public T unset() {
+        return value("unset");
     }
 
     /**

@@ -9,8 +9,6 @@
  */
 package stylist.property;
 
-import java.util.Arrays;
-
 import stylist.CSSValue;
 import stylist.value.Numeric;
 
@@ -87,7 +85,7 @@ public class Borders extends Border {
      */
     @Override
     public Border width(Numeric size) {
-        return value("border", Arrays.asList(size), " ", 2);
+        return value("border-width", size);
     }
 
     /**
@@ -95,7 +93,7 @@ public class Borders extends Border {
      */
     @Override
     public Border color(CSSValue color) {
-        return value("border", Arrays.asList(color), " ", 2);
+        return value("border-color", color);
     }
 
     /**
@@ -103,7 +101,7 @@ public class Borders extends Border {
      */
     @Override
     protected Border style(String style) {
-        return value("border", Arrays.asList(CSSValue.of(style)), " ", 2);
+        return value("border-style", style);
     }
 
     /**
@@ -112,7 +110,7 @@ public class Borders extends Border {
     @Override
     public Border initial() {
         value("border-radius", "initial");
-        return value("border", Arrays.asList(CSSValue.of("initial")), " ", 2);
+        return value("border", "initial");
     }
 
     /**
@@ -164,7 +162,6 @@ public class Borders extends Border {
         @Override
         public Border width(Numeric size) {
             for (String side : sides) {
-                value("border-" + side, Arrays.asList(size), " ", 2);
                 value("border-" + side + "-width", size);
             }
             return this;
@@ -176,7 +173,6 @@ public class Borders extends Border {
         @Override
         public Border color(CSSValue color) {
             for (String side : sides) {
-                value("border-" + side, Arrays.asList(color), " ", 2);
                 value("border-" + side + "-color", color);
             }
             return this;
@@ -188,7 +184,6 @@ public class Borders extends Border {
         @Override
         protected Border style(String style) {
             for (String side : sides) {
-                value("border-" + side, Arrays.asList(CSSValue.of(style)), " ", 2);
                 value("border-" + side + "-style", style);
             }
             return this;

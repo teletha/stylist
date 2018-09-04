@@ -81,22 +81,6 @@ public abstract class CSSValue {
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    /**
      * Format this value.
      * 
      * @param formatter
