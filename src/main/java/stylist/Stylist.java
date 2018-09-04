@@ -31,6 +31,9 @@ import stylist.util.HierarchicalNaming;
  */
 public class Stylist {
 
+    /** The default {@link Vendor} in the current environment. */
+    private static Vendor vendor = Vendor.Standard;
+
     /** The naming strategy. */
     private static Function<Field, String> naming = new HierarchicalNaming("≫");
 
@@ -73,15 +76,6 @@ public class Stylist {
         if (strategy != null) {
             naming = strategy;
             load();
-        }
-    }
-
-    /**
-     * Set the default {@link Vendor}.
-     */
-    public static final void setCurrentVendor(Vendor vendor) {
-        if (vendor != null) {
-            Vendor.Current = vendor;
         }
     }
 

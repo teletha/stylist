@@ -79,7 +79,7 @@ public class PropertyDefinition<T> {
 
         this.name = name;
         this.context = context;
-        this.vendors = EnumSet.of(Standard, vendors);
+        this.vendors = EnumSet.of(Vendor.Now, vendors);
     }
 
     /**
@@ -338,7 +338,7 @@ public class PropertyDefinition<T> {
          * @return
          */
         public PrefixAwareProperty ie(String name, String value) {
-            set(IE, name, value);
+            set(MS, name, value);
 
             return this;
         }

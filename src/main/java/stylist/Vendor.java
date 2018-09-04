@@ -10,12 +10,12 @@
 package stylist;
 
 /**
- * @version 2018/08/30 17:54:48
+ * @version 2018/09/04 13:48:13
  */
 public enum Vendor {
 
     /** Internet Explorer */
-    IE("-ms-"),
+    MS("-ms-"),
 
     /** Mozilla */
     Mozilla("-moz-"),
@@ -32,26 +32,26 @@ public enum Vendor {
     /** Standard */
     Standard("");
 
-    /** The current vendor in this environment. */
-    static Vendor Current = Standard;
+    /** The default {@link Vendor} in the current environment. */
+    public static final Vendor Now = valueOf(System.getProperty(Vendor.class.getName(), Standard.name()));
 
     /** The current vendor state in this environment. */
     public static final boolean isMozilla() {
-        return Current == Mozilla;
+        return Now == Mozilla;
     }
 
     /** The current vendor state in this environment. */
     public static final boolean isWebkit() {
-        return Current == Webkit;
+        return Now == Webkit;
     }
 
     /** The current vendor state in this environment. */
     public static final boolean isFX() {
-        return Current == JavaFX;
+        return Now == JavaFX;
     }
 
     /** The prefix. */
-    public final String prefix;
+    private final String prefix;
 
     /**
      * @param prefix

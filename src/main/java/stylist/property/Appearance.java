@@ -21,7 +21,7 @@ public class Appearance extends PropertyDefinition<Appearance> {
      * 
      */
     public Appearance() {
-        super("appearance", null, Vendor.Mozilla, Vendor.Webkit, Vendor.IE);
+        super("appearance", null, Vendor.Mozilla, Vendor.Webkit, Vendor.MS);
     }
 
     /**
