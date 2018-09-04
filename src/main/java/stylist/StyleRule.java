@@ -109,6 +109,7 @@ public class StyleRule implements Comparable<StyleRule> {
                     break;
 
                 case 1: // override
+                    System.out.println(this.properties + "  " + value);
                     this.properties.set(resolvedName, value);
                     break;
                 }
