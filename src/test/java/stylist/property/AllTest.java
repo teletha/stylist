@@ -16,7 +16,7 @@ import stylist.StyleTester;
 /**
  * @version 2018/09/05 1:31:04
  */
-class AllPropertyTest extends StyleTester {
+class AllTest extends StyleTester {
 
     @Test
     void inherit() {
