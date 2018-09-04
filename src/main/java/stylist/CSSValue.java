@@ -9,6 +9,9 @@
  */
 package stylist;
 
+import static stylist.Vendor.*;
+
+import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Objects;
 
@@ -117,14 +120,14 @@ public abstract class CSSValue {
      * @param value
      * @return
      */
-    public static CSSValue of(Object value) {
+    public static CSSValue of(Object value, Vendor... vendors) {
         if (value instanceof CSSValue) {
             return (CSSValue) value;
         }
         if (value instanceof Number) {
             return new Digit((Number) value);
         }
-        return new Value(value);
+        return new Value(value, vendors);
     }
 
     /**
@@ -176,14 +179,36 @@ public abstract class CSSValue {
      */
     private static class Value extends CSSValue {
 
-        /** The actual value. */
-        private final Object value;
+        /** The vendored values. */
+        private final EnumMap<Vendor, String> values;
+
+        /**
+         * @param value
+         * @param vendors
+         */
+        private Value(Object value, Vendor... vendors) {
+            String v = String.valueOf(value);
+
+            this.values = new EnumMap(Vendor.class);
+            this.values.put(Standard, v);
+            for (Vendor vendor : vendors) {
+                this.values.put(vendor, vendor + v);
+            }
+        }
 
         /**
          * @param value
          */
-        private Value(Object value) {
-            this.value = Objects.requireNonNull(value);
+        private Value(EnumMap<Vendor, String> values) {
+            this.values = Objects.requireNonNull(values);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected EnumSet<Vendor> vendors() {
+            return EnumSet.copyOf(values.keySet());
         }
 
         /**
@@ -191,7 +216,12 @@ public abstract class CSSValue {
          */
         @Override
         protected String valueFor(Vendor vendor) {
-            return value.toString();
+            String value = values.get(vendor);
+
+            if (value != null) {
+                return value;
+            }
+            return values.get(Standard);
         }
 
         /**
@@ -199,7 +229,7 @@ public abstract class CSSValue {
          */
         @Override
         public int hashCode() {
-            return value.hashCode();
+            return values.hashCode();
         }
 
         /**
@@ -208,7 +238,7 @@ public abstract class CSSValue {
         @Override
         public boolean equals(Object obj) {
             if (obj instanceof Value) {
-                return value.equals(((Value) obj).value);
+                return values.equals(((Value) obj).values);
             } else {
                 return false;
             }

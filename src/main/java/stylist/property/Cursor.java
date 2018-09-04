@@ -9,6 +9,7 @@
  */
 package stylist.property;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.Vendor;
 
@@ -168,7 +169,7 @@ public class Cursor extends PropertyDefinition<Cursor> {
      * </p>
      */
     public Cursor grab() {
-        return value(new Vendored("grab").prefix(Vendor.Webkit));
+        return value(CSSValue.of("grab", Vendor.Webkit));
     }
 
     /**
@@ -177,7 +178,7 @@ public class Cursor extends PropertyDefinition<Cursor> {
      * </p>
      */
     public Cursor grabbing() {
-        return value(new Vendored("grabbing").prefix(Vendor.Webkit));
+        return value(CSSValue.of("grabbing", Vendor.Webkit));
     }
 
     /**
