@@ -274,7 +274,7 @@ public class Numeric extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected EnumSet<Vendor> vendors() {
+    public EnumSet<Vendor> vendors() {
         if (calculated) {
             return EnumSet.of(Standard, Webkit);
         } else {

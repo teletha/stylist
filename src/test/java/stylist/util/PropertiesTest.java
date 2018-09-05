@@ -21,8 +21,8 @@ class PropertiesTest {
     @Test
     void compact() {
         Properties properties = new Properties();
-        properties.add("1", "1");
-        properties.add("2", "2");
+        properties.set("1", "1");
+        properties.set("2", "2");
 
         properties.compactTo("compact", "default", "1", "2");
         assert properties.get("compact").toString().equals("1 2");
@@ -31,8 +31,8 @@ class PropertiesTest {
     @Test
     void compactWithNone() {
         Properties properties = new Properties();
-        properties.add("1", "1");
-        properties.add("2", "2");
+        properties.set("1", "1");
+        properties.set("2", "2");
 
         properties.compactTo("compact", "default", "1", "2", "3");
         assert properties.get("compact").toString().equals("1 2 default");
@@ -49,10 +49,10 @@ class PropertiesTest {
     @Test
     void mappingKeys() {
         Properties properties = new Properties();
-        properties.add("a", "a");
-        properties.add("b", "b");
+        properties.set("a", "a");
+        properties.set("b", "b");
 
-        properties.keys(String::toUpperCase);
+        properties.rename(name -> CSSValue.of(name.toString().toUpperCase()));
         assert properties.size() == 2;
         assert properties.get("A").toString().equals("a");
         assert properties.get("B").toString().equals("b");
@@ -61,16 +61,16 @@ class PropertiesTest {
     @Test
     void mappingValue() {
         Properties properties = new Properties();
-        properties.add("a", "a");
-        properties.add("b", "b");
+        properties.set("a", "a");
+        properties.set("b", "b");
 
-        properties.value("a", e -> CSSValue.of(e.toString().toUpperCase()));
+        properties.revalue("a", e -> CSSValue.of(e.toString().toUpperCase()));
         assert properties.size() == 2;
         assert properties.get("a").is(CSSValue.of("A"));
         assert properties.get("b").is(CSSValue.of("b"));
 
         // null
-        properties.value("c", e -> CSSValue.of(e.toString().toUpperCase()));
+        properties.revalue("c", e -> CSSValue.of(e.toString().toUpperCase()));
         assert properties.size() == 2;
     }
 }

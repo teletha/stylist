@@ -18,7 +18,7 @@ import stylist.Vendor;
 import stylist.value.Color;
 
 /**
- * @version 2018/09/01 21:21:24
+ * @version 2018/09/05 13:36:50
  */
 public class JavaFXLizer implements Consumer<Properties> {
 
@@ -48,12 +48,24 @@ public class JavaFXLizer implements Consumer<Properties> {
         properties.compactTo("border-width", "0", sides("border-*-width"));
         properties.compactTo("border-style", "solid", sides("border-*-style"));
         properties.compactTo("border-color", Color.Transparent, sides("border-*-color"));
-        properties.value("cursor", cursorProperties);
+        properties.revalue("cursor", cursorProperties);
 
         alignment(properties);
 
         // assign prefix and map special name
-        properties.keys(key -> Vendor.JavaFX + propertyNames.getOrDefault(key, key));
+        properties.rename(this::rename);
+    }
+
+    /**
+     * Rename property names for JavaFX.
+     * 
+     * @param name
+     * @return
+     */
+    private CSSValue rename(CSSValue propertyName) {
+        String name = propertyName.toString();
+        String renamed = propertyNames.getOrDefault(name, name);
+        return CSSValue.of(Vendor.JavaFX + renamed);
     }
 
     /**
@@ -79,7 +91,7 @@ public class JavaFXLizer implements Consumer<Properties> {
             } else {
                 value = v + "-" + h;
             }
-            properties.add("alignment", CSSValue.of(value));
+            properties.set("alignment", CSSValue.of(value));
         }
     }
 

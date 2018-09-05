@@ -134,7 +134,7 @@ public class AnimationFrames {
 
             builder.append("{");
             for (int i = 0; i < style.properties.size(); i++) {
-                builder.append(style.properties.key(i)).append(":").append(style.properties.value(i)).append(";");
+                builder.append(style.properties.name(i)).append(":").append(style.properties.value(i)).append(";");
             }
             builder.append("}");
 

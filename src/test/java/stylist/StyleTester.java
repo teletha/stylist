@@ -141,10 +141,10 @@ public class StyleTester implements StyleDSL {
             assert vendoredName != null;
             assert vendoredValue != null;
 
-            int index = rules.properties.key(name);
+            int index = rules.properties.name(name);
             assert index != -1;
 
-            CSSValue key = rules.properties.key(index);
+            CSSValue key = rules.properties.name(index);
             assert key.valueFor(vendor).equals(vendoredName);
 
             CSSValue value = rules.properties.value(index);

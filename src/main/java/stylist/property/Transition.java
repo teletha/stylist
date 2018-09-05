@@ -168,10 +168,10 @@ public class Transition extends PropertyDefinition<Transition> {
      */
     public SelectorDSL when() {
         return SelectorDSL.create(rule -> {
-            value("transition-property", join(rule.properties.keys(), v -> v));
-            value("transition-duration", join(rule.properties.keys(), v -> duration));
-            value("transition-delay", join(rule.properties.keys(), v -> delay));
-            value("transition-timing-function", join(rule.properties.keys(), v -> timing));
+            value("transition-property", join(rule.properties.names(), v -> v));
+            value("transition-duration", join(rule.properties.names(), v -> duration));
+            value("transition-delay", join(rule.properties.names(), v -> delay));
+            value("transition-timing-function", join(rule.properties.names(), v -> timing));
         });
     }
 

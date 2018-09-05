@@ -154,7 +154,7 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected EnumSet<Vendor> vendors() {
+    public EnumSet<Vendor> vendors() {
         return EnumSet.of(Standard, Webkit);
     }
 

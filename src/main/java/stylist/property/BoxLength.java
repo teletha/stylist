@@ -281,7 +281,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
          * {@inheritDoc}
          */
         @Override
-        protected EnumSet<Vendor> vendors() {
+        public EnumSet<Vendor> vendors() {
             return NoVendors;
         }
 

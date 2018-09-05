@@ -29,13 +29,11 @@ public abstract class CSSValue {
     protected static final EnumSet<Vendor> NoVendors = EnumSet.noneOf(Vendor.class);
 
     /**
-     * <p>
-     * Detect dependent vendors.
-     * </p>
+     * Get all required vendors.
      * 
      * @return
      */
-    protected EnumSet<Vendor> vendors() {
+    public EnumSet<Vendor> vendors() {
         return NoVendors;
     }
 
@@ -109,6 +107,16 @@ public abstract class CSSValue {
      * @return
      */
     public static CSSValue of(Object value, Vendor... vendors) {
+        return of(value, EnumSet.of(Standard, vendors));
+    }
+
+    /**
+     * Create simple text {@link CSSValue}.
+     * 
+     * @param value
+     * @return
+     */
+    public static CSSValue of(Object value, EnumSet<Vendor> vendors) {
         if (value instanceof CSSValue) {
             return (CSSValue) value;
         }
@@ -151,7 +159,7 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        protected EnumSet<Vendor> vendors() {
+        public EnumSet<Vendor> vendors() {
             return EnumSet.copyOf(values.keySet());
         }
 
@@ -266,7 +274,7 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        protected EnumSet<Vendor> vendors() {
+        public EnumSet<Vendor> vendors() {
             EnumSet<Vendor> set = EnumSet.copyOf(before.vendors());
             set.addAll(after.vendors());
 

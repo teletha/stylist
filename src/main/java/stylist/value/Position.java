@@ -56,7 +56,7 @@ public class Position extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected EnumSet<Vendor> vendors() {
+    public EnumSet<Vendor> vendors() {
         EnumSet<Vendor> set = EnumSet.noneOf(Vendor.class);
 
         if (x != null) {

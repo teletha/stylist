@@ -558,7 +558,7 @@ public class Transform extends PropertyDefinition<Transform> {
          * {@inheritDoc}
          */
         @Override
-        protected EnumSet<Vendor> vendors() {
+        public EnumSet<Vendor> vendors() {
             return super.vendors();
         }
 
@@ -599,7 +599,7 @@ public class Transform extends PropertyDefinition<Transform> {
          * {@inheritDoc}
          */
         @Override
-        protected EnumSet<Vendor> vendors() {
+        public EnumSet<Vendor> vendors() {
             EnumSet<Vendor> vendors = EnumSet.noneOf(Vendor.class);
 
             for (Parameter parameter : parameters) {

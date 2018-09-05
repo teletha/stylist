@@ -21,97 +21,60 @@ import stylist.CSSValue;
 /**
  * @version 2018/09/05 10:42:06
  */
-public class Properties {
+public final class Properties {
 
     /** The key list. */
-    private final ArrayList<CSSValue> keys = new ArrayList();
+    private final ArrayList<CSSValue> names = new ArrayList();
 
     /** The value list. */
     private final ArrayList<CSSValue> values = new ArrayList();
 
     /**
-     * <p>
-     * Retrieve the first matched value by the specified key.
-     * </p>
+     * Get the propety value of the specified name.
      * 
-     * @param key A key.
-     * @return A first matched value.
+     * @param name A property name.
+     * @return The matched value.
      */
-    public Variable<CSSValue> get(String key) {
-        int index = key(key);
+    public Variable<CSSValue> get(String name) {
+        int index = name(name);
 
         return index == -1 ? Variable.empty() : Variable.of(values.get(index));
     }
 
     /**
-     * <p>
-     * Append the specified value by the specified key.
-     * </p>
+     * Set the property.
      * 
-     * @param key A key.
-     * @param value A value.
+     * @param name A property name.
+     * @param value A property value..
      * @return An updated {@link Properties}.
      */
-    public Properties add(String key, String value) {
-        return add(key, CSSValue.of(value));
+    public Properties set(String name, String value) {
+        return set(CSSValue.of(name), CSSValue.of(value));
     }
 
     /**
-     * <p>
-     * Append the specified value by the specified key.
-     * </p>
+     * Set the property.
      * 
-     * @param key A key.
-     * @param value A value.
+     * @param name A property name.
+     * @param value A property value..
      * @return An updated {@link Properties}.
      */
-    public Properties add(String key, CSSValue value) {
-        return add(CSSValue.of(key), value);
+    public Properties set(String name, CSSValue value) {
+        return set(CSSValue.of(name), value);
     }
 
     /**
-     * <p>
-     * Append the specified value by the specified key.
-     * </p>
+     * Set the property.
      * 
-     * @param key A key.
-     * @param value A value.
+     * @param name A property name.
+     * @param value A property value..
      * @return An updated {@link Properties}.
      */
-    public Properties add(CSSValue key, CSSValue value) {
-        keys.add(key);
-        values.add(value);
-
-        return this;
-    }
-
-    /**
-     * <p>
-     * Update the specified value by the specified key.
-     * </p>
-     * 
-     * @param key A key.
-     * @param value A value to update.
-     * @return An updated {@link Properties}.
-     */
-    public Properties set(String key, CSSValue value) {
-        return set(CSSValue.of(key), value);
-    }
-
-    /**
-     * <p>
-     * Update the specified value by the specified key.
-     * </p>
-     * 
-     * @param key A key.
-     * @param value A value to update.
-     * @return An updated {@link Properties}.
-     */
-    public Properties set(CSSValue key, CSSValue value) {
-        int index = key(key);
+    public Properties set(CSSValue name, CSSValue value) {
+        int index = name(name);
 
         if (index == -1) {
-            keys.add(CSSValue.of(key));
+            names.add(CSSValue.of(name));
             values.add(value);
         } else {
             values.set(index, value);
@@ -121,17 +84,17 @@ public class Properties {
 
     /**
      * <p>
-     * Remove the first matched item by the specified key.
+     * Remove the matched property by the specified name.
      * </p>
      * 
-     * @param key A key to remove.
+     * @param name A property name to remove.
      * @return An updated {@link Properties}.
      */
-    public Variable<CSSValue> remove(String key) {
-        int index = key(key);
+    public Variable<CSSValue> remove(String name) {
+        int index = name(name);
 
         if (index != -1) {
-            keys.remove(index);
+            names.remove(index);
             return Variable.of(values.remove(index));
         } else {
             return Variable.empty();
@@ -140,95 +103,34 @@ public class Properties {
 
     /**
      * <p>
-     * Remove the first matched item by the specified keys.
+     * Get the property size.
      * </p>
      * 
-     * @param key A key to remove.
-     * @return An updated {@link Properties}.
-     */
-    public Variable<CSSValue>[] remove(String... keys) {
-        Variable<CSSValue>[] values = new Variable[keys.length];
-
-        for (int i = 0; i < keys.length; i++) {
-            values[i] = remove(keys[i]);
-        }
-        return values;
-    }
-
-    /**
-     * <p>
-     * Remove the first matched item by the specified key.
-     * </p>
-     * 
-     * @param key A key to remove.
-     * @return An updated {@link Properties}.
-     */
-    public Properties removeAll(String key) {
-        for (int i = keys.size() - 1; 0 <= i; i--) {
-            if (keys.get(i).match(key)) {
-                keys.remove(i);
-                values.remove(i);
-            }
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * Remove all items.
-     * </p>
-     */
-    public void clear() {
-        keys.clear();
-        values.clear();
-    }
-
-    /**
-     * <p>
-     * Compute the current item size.
-     * </p>
-     * 
-     * @return A current item size.
+     * @return A number of properties.
      */
     public int size() {
-        return keys.size();
+        return names.size();
     }
 
     /**
-     * <p>
-     * Retrieve the key by the specified index.
-     * </p>
+     * Get the property name by index.
      * 
-     * @param index A index to find.
-     * @return A indexed key.
+     * @param index A property name index.
+     * @return A property name.
      */
-    public CSSValue key(int index) {
-        return keys.get(index);
+    public CSSValue name(int index) {
+        return names.get(index);
     }
 
     /**
-     * <p>
-     * Retrieve the index by the specified key.
-     * </p>
+     * Get the index of property name.
      * 
-     * @param key A key to find.
-     * @return A index for the specified key.
+     * @param name A property name to find.
+     * @return A index for the specified property name.
      */
-    public int key(String key) {
-        return key(CSSValue.of(key));
-    }
-
-    /**
-     * <p>
-     * Retrieve the index by the specified key.
-     * </p>
-     * 
-     * @param key A key to find.
-     * @return A index for the specified key.
-     */
-    public int key(CSSValue key) {
-        for (int i = 0; i < keys.size(); i++) {
-            if (keys.get(i).toString().equals(key.toString())) {
+    public int name(String key) {
+        for (int i = 0; i < names.size(); i++) {
+            if (names.get(i).match(key)) {
                 return i;
             }
         }
@@ -236,28 +138,34 @@ public class Properties {
     }
 
     /**
-     * <p>
-     * Retrieve key list.
-     * </p>
+     * Get the index of property name.
      * 
-     * @return
+     * @param name A property name to find.
+     * @return A index for the specified property name.
      */
-    public List<CSSValue> keys() {
-        return keys;
+    public int name(CSSValue name) {
+        return name(name.toString());
     }
 
     /**
-     * <p>
-     * Mapping key.
-     * </p>
+     * Get all property names.
      * 
-     * @param mapper A key mapper.
+     * @return A list of property names.
+     */
+    public List<CSSValue> names() {
+        return names;
+    }
+
+    /**
+     * Rename property names.
+     * 
+     * @param renamer A processor to rename property names.
      * @return Chainable API
      */
-    public Properties keys(Function<String, String> mapper) {
-        if (mapper != null) {
-            for (int i = 0; i < keys.size(); i++) {
-                keys.set(i, CSSValue.of(mapper.apply(keys.get(i).toString())));
+    public Properties rename(Function<CSSValue, CSSValue> renamer) {
+        if (renamer != null) {
+            for (int i = 0; i < names.size(); i++) {
+                names.set(i, renamer.apply(names.get(i)));
             }
         }
         return this;
@@ -265,7 +173,7 @@ public class Properties {
 
     /**
      * <p>
-     * Retrieve the value by the specified index.
+     * Get the value by the specified index.
      * </p>
      * 
      * @param index A index to find.
@@ -276,54 +184,43 @@ public class Properties {
     }
 
     /**
-     * <p>
-     * Retrieve the index by the specified value.
-     * </p>
+     * Revalue property value of the specified proeprty name.
      * 
-     * @param value A value to find.
-     * @return A index for the specified value.
+     * @param name A target property name to revalue.
+     * @param mapper A processor to revalue property values.
+     * @return Chainable API
      */
-    public int value(CSSValue value) {
-        return values.indexOf(value);
+    public Properties revalue(String name, Map<String, String> mapper) {
+        return revalue(name, propertyValue -> {
+            String value = propertyValue.toString();
+            value = mapper.getOrDefault(value, value);
+
+            return CSSValue.of(value, propertyValue.vendors());
+        });
     }
 
     /**
-     * <p>
-     * Mapping values.
-     * </p>
+     * Revalue property value of the specified proeprty name.
      * 
-     * @param mapper A value mapper.
+     * @param name A target property name to revalue.
+     * @param mapper A processor to revalue property values.
      * @return Chainable API
      */
-    public Properties value(String key, Map<String, String> mapper) {
-        return value(key, e -> CSSValue.of(mapper.getOrDefault(e.toString(), e.toString())));
-    }
-
-    /**
-     * <p>
-     * Mapping values.
-     * </p>
-     * 
-     * @param mapper A value mapper.
-     * @return Chainable API
-     */
-    public Properties value(String key, Function<CSSValue, CSSValue> mapper) {
+    public Properties revalue(String name, Function<CSSValue, CSSValue> mapper) {
         if (mapper != null) {
-            Variable<CSSValue> value = get(key);
+            Variable<CSSValue> value = get(name);
 
             if (value.isPresent()) {
-                set(key, value.map(mapper).v);
+                set(name, mapper.apply(value.v));
             }
         }
         return this;
     }
 
     /**
-     * <p>
-     * Retrieve value list.
-     * </p>
+     * Get all property values.
      * 
-     * @return
+     * @return A list of property values.
      */
     public List<CSSValue> values() {
         return values;
@@ -339,8 +236,8 @@ public class Properties {
      * @return
      */
     public boolean contains(String key, String value) {
-        for (int i = 0; i < keys.size(); i++) {
-            if (keys.get(i).match(key)) {
+        for (int i = 0; i < names.size(); i++) {
+            if (names.get(i).match(key)) {
                 return values.get(i).match(value);
             }
         }
@@ -393,10 +290,10 @@ public class Properties {
     public String toString() {
         StringBuilder builder = new StringBuilder("Properties[");
 
-        for (int i = 0; i < keys.size(); i++) {
-            builder.append(keys.get(i)).append("=").append(values.get(i));
+        for (int i = 0; i < names.size(); i++) {
+            builder.append(names.get(i)).append("=").append(values.get(i));
 
-            if (i != keys.size() - 1) {
+            if (i != names.size() - 1) {
                 builder.append(", ");
             }
         }
