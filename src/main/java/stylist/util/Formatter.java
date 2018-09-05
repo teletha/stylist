@@ -225,7 +225,7 @@ public final class Formatter {
                 processor.accept(rule.properties);
             }
 
-            appendable.append(beforeSelector).append(rule.selector).append(afterSelector).append('{').append(afterStartBrace);
+            appendable.append(beforeSelector).append(rule.selector.toString()).append(afterSelector).append('{').append(afterStartBrace);
 
             for (int i = 0, size = rule.properties.size(); i < size; i++) {
                 appendable.append(beforePropertyName)

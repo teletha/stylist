@@ -47,7 +47,7 @@ public class StyleTester implements StyleDSL {
         // search specified rule
         String name = "." + style.name();
 
-        assert rule.selector.equals(name);
+        assert rule.selector.match(name);
 
         for (Consumer<Properties> processor : postProcessors) {
             processor.accept(rule.properties);
@@ -67,7 +67,7 @@ public class StyleTester implements StyleDSL {
         StyleRule root = StyleRule.create(style);
 
         try {
-            update(root, (String) selectorField.get(root), selector);
+            update(root, (CSSValue) selectorField.get(root), selector);
         } catch (Exception e) {
             throw I.quiet(e);
         }
@@ -77,9 +77,9 @@ public class StyleTester implements StyleDSL {
     /**
      * Force to set the selector.
      */
-    private void update(StyleRule rule, String root, String replacer) {
+    private void update(StyleRule rule, CSSValue root, String replacer) {
         try {
-            selectorField.set(rule, ((String) selectorField.get(rule)).replace(root, replacer));
+            selectorField.set(rule, CSSValue.of(((CSSValue) selectorField.get(rule)).toString().replace(root.toString(), replacer)));
 
             for (StyleRule child : rule.children) {
                 update(child, root, replacer);
@@ -184,7 +184,7 @@ public class StyleTester implements StyleDSL {
          * @return A result.
          */
         private ValidatableStyle find(StyleRule rule, String combinator, String pseudo) {
-            if (rule.selector.equals(combinator) || rule.selector.equals(pseudo)) {
+            if (rule.selector.match(combinator) || rule.selector.match(pseudo)) {
                 return new ValidatableStyle(rule);
             }
 

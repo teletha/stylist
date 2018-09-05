@@ -19,7 +19,7 @@ class NamingTest extends StyleTester {
     @Test
     void implementation() {
         StyleRule rule = StyleRule.create(new Implementation());
-        assert rule.selector.matches("\\.AT\\d+");
+        assert rule.selector.toString().matches("\\.AT\\d+");
     }
 
     /**
@@ -39,7 +39,7 @@ class NamingTest extends StyleTester {
     void inlineLambda() {
         StyleRule rule = StyleRule.create(() -> {
         });
-        assert rule.selector.matches("\\.AT\\d+");
+        assert rule.selector.toString().matches("\\.AT\\d+");
     }
 
     static Style fieldLambda = () -> {
@@ -48,13 +48,13 @@ class NamingTest extends StyleTester {
     @Test
     void fieldLambda() {
         StyleRule rule = StyleRule.create(fieldLambda);
-        assert rule.selector.matches(".NamingTest≫fieldLambda");
+        assert rule.selector.match(".NamingTest≫fieldLambda");
     }
 
     @Test
     void fieldLambdaInMemberCLass() {
         StyleRule rule = StyleRule.create(Member.style);
-        assert rule.selector.equals(".NamingTest≫Member≫style");
+        assert rule.selector.match(".NamingTest≫Member≫style");
     }
 
     /**

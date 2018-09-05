@@ -24,7 +24,7 @@ import stylist.util.Properties;
 public class StyleRule implements Comparable<StyleRule> {
 
     /** The selector. */
-    public final String selector;
+    public final CSSValue selector;
 
     /** The property list. */
     public final Properties properties;
@@ -40,7 +40,7 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param name An actual selector.
      */
     StyleRule(String selector) {
-        this.selector = selector;
+        this.selector = CSSValue.of(selector);
         this.properties = new Properties();
     }
 
@@ -49,7 +49,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     @Override
     public int compareTo(StyleRule o) {
-        return selector.compareTo(o.selector);
+        return selector.toString().compareTo(o.selector.toString());
     }
 
     /**
@@ -88,14 +88,15 @@ public class StyleRule implements Comparable<StyleRule> {
         } else {
             // check pseudo element
             String pseudo;
-            int index = parent.selector.indexOf("::");
+            String parentSelector = parent.selector.toString();
+            int index = parentSelector.indexOf("::");
 
             if (index == -1) {
-                selector = parent.selector;
+                selector = parentSelector;
                 pseudo = "";
             } else {
-                selector = parent.selector.substring(0, index);
-                pseudo = parent.selector.substring(index);
+                selector = parentSelector.substring(0, index);
+                pseudo = parentSelector.substring(index);
             }
             selector = template.replace("$", selector) + pseudo;
         }
