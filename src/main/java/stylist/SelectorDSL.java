@@ -28,16 +28,16 @@ public final class SelectorDSL {
     private final Consumer<StyleRule> processor;
 
     /** The simple selector list. */
-    private List<CharSequence> selectors = new ArrayList();
+    private List<CSSValue> selectors = new ArrayList();
 
     /** The combinator. */
     private String combinator;
 
     /** The pseudo element. */
-    private String pseudoElement;
+    private CSSValue pseudoElement;
 
     /** The pseudo class list. */
-    private List<CharSequence> pseudoClasses = new ArrayList();
+    private List<CSSValue> pseudoClasses = new ArrayList();
 
     /**
      * <p>
@@ -140,7 +140,7 @@ public final class SelectorDSL {
      * @return Chainable API.
      */
     SelectorDSL basic(String selector) {
-        selectors.add(selector);
+        selectors.add(CSSValue.of(selector));
 
         return this;
     }
@@ -1224,9 +1224,9 @@ public final class SelectorDSL {
      */
     SelectorDSL pseudo(boolean element, String name) {
         if (element) {
-            pseudoElement = name;
+            pseudoElement = CSSValue.of(name);
         } else {
-            pseudoClasses.add(name);
+            pseudoClasses.add(CSSValue.of(name));
         }
         return this;
     }
@@ -1253,7 +1253,7 @@ public final class SelectorDSL {
      */
     @Override
     public String toString() {
-        return root.write();
+        return root.write().toString();
     }
 
     /**
@@ -1263,29 +1263,29 @@ public final class SelectorDSL {
      * 
      * @return A selector expression.
      */
-    private String write() {
-        StringBuilder builder = new StringBuilder();
+    private CSSValue write() {
+        CSSValue base = CSSValue.EMPTY;
 
         if (selectors.isEmpty()) {
-            builder.append("*");
+            base = base.join("", CSSValue.of("*"));
         } else {
-            for (CharSequence selector : selectors) {
-                builder.append(selector);
+            for (CSSValue selector : selectors) {
+                base = base.join("", selector);
             }
         }
 
-        for (CharSequence pseudo : pseudoClasses) {
-            builder.append(":").append(pseudo);
+        for (CSSValue pseudo : pseudoClasses) {
+            base = base.join(":", pseudo);
         }
 
         if (pseudoElement != null) {
-            builder.append("::").append(pseudoElement);
+            base = base.join("::", pseudoElement);
         }
 
         if (combinator != null) {
-            builder.append(combinator).append(child.write());
+            base = base.join(combinator, child.write());
         }
-        return builder.toString();
+        return base;
     }
 
     /**
