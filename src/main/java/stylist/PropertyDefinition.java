@@ -15,10 +15,11 @@ import java.util.List;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
+import stylist.CSSValue.Value;
 import stylist.util.Strings;
 
 /**
- * @version 2018/09/04 23:30:50
+ * @version 2018/09/05 12:03:44
  */
 public class PropertyDefinition<T> {
 
@@ -31,7 +32,7 @@ public class PropertyDefinition<T> {
     /** The context property. */
     private final T context;
 
-    private final EnumSet<Vendor> vendors;
+    private final EnumSet<Vendor> requiredVendorsForNames;
 
     /**
      * <p>
@@ -76,7 +77,7 @@ public class PropertyDefinition<T> {
 
         this.name = name;
         this.context = context;
-        this.vendors = EnumSet.of(Vendor.Now, vendors);
+        this.requiredVendorsForNames = EnumSet.of(Vendor.Now, vendors);
     }
 
     /**
@@ -202,9 +203,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
-     * Set property.
-     * </p>
+     * Declare the property.
      * 
      * @param name A property name.
      * @param values A list of property values.
@@ -212,23 +211,18 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(String name, List<? extends CSSValue> values, String separator) {
-        return value(name, values, separator, 0);
-    }
+        // create property name and value
+        CSSValue propertyName = new Value(name, requiredVendorsForNames);
+        CSSValue propertyValue = CSSValue.EMPTY;
 
-    /**
-     * <p>
-     * Set property.
-     * </p>
-     * 
-     * @param name A property name.
-     * @param values A list of property values.
-     * @param separator A value separator.
-     * @param writeMode A value write mechanism.
-     * @return Chainable API.
-     */
-    protected final T value(String name, List<? extends CSSValue> values, String separator, int writeMode) {
-        properties.property(name, values, separator, writeMode, this.vendors);
+        for (CSSValue value : values) {
+            propertyValue = propertyValue.join(separator, value);
+        }
 
+        // declare property
+        properties.properties.set(propertyName, propertyValue);
+
+        // API definition
         return context;
     }
 

@@ -10,10 +10,7 @@
 package stylist;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
 
-import stylist.CSSValue.Value;
 import stylist.util.Formatter;
 import stylist.util.Properties;
 
@@ -22,7 +19,7 @@ import stylist.util.Properties;
  * This class is CSSStyleRule which represents a single CSS style rule.
  * </p>
  * 
- * @version 2018/08/30 18:18:24
+ * @version 2018/09/05 12:03:58
  */
 public class StyleRule implements Comparable<StyleRule> {
 
@@ -58,28 +55,6 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     boolean is(String name, String value) {
         return properties.contains(name, value);
-    }
-
-    /**
-     * <p>
-     * Declare the specified property.
-     * </p>
-     * 
-     * @param name A property name.
-     * @param values A list of property values.
-     * @param separator A value separator.
-     * @param override A flag for property override.
-     * @param prefixes A list of vendors for property name.
-     */
-    void property(String name, List<? extends CSSValue> values, String separator, int writeMode, EnumSet<Vendor> requiredVendorsForNames) {
-        if (name != null && name.length() != 0 && values != null) {
-            CSSValue concated = CSSValue.EMPTY;
-
-            for (CSSValue value : values) {
-                concated = concated.join(separator, value);
-            }
-            this.properties.set(new Value(name, requiredVendorsForNames), concated);
-        }
     }
 
     /**

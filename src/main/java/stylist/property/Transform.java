@@ -64,7 +64,7 @@ public class Transform extends PropertyDefinition<Transform> {
         functions.addAll(transform.functions);
         functions.add(function);
 
-        value("transform", functions, " ", 1);
+        value("transform", functions, " ");
     }
 
     /**
