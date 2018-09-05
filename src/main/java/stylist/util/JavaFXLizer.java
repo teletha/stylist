@@ -27,11 +27,6 @@ public class JavaFXLizer implements Consumer<Properties> {
         return Formatter.pretty().color(Color::toRGB).postProcessor(new JavaFXLizer());
     }
 
-    /** The special formatter for JavaFX. */
-    public static final Formatter compact() {
-        return Formatter.compact().color(Color::toRGB).postProcessor(new JavaFXLizer());
-    }
-
     /** The property name mapping. */
     private static final Map<String, String> propertyNames = Map
             .of("width", "pref-width", "height", "pref-height", "color", "text-fill", "stroke-dasharray", "stroke-dash-array");

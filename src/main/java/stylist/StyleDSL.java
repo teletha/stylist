@@ -10,8 +10,6 @@
 package stylist;
 
 import kiss.Extensible;
-import kiss.Manageable;
-import kiss.Singleton;
 import stylist.property.Animation;
 import stylist.property.Appearance;
 import stylist.property.Background;
@@ -32,21 +30,16 @@ import stylist.property.Position;
 import stylist.property.Stroke;
 import stylist.property.Text;
 import stylist.property.Transform;
-import stylist.property.Transition;
 import stylist.property.Visibility;
-import stylist.value.Color;
-import stylist.value.LinearGradient;
-import stylist.value.RadialGradient;
-import stylist.value.Shadow;
 import stylist.value.Unit;
 
 /**
- * @version 2018/08/31 12:06:36
+ * @version 2018/09/05 14:36:02
  */
-@Manageable(lifestyle = Singleton.class)
 public interface StyleDSL extends Extensible {
 
-    Functional $ = new Functional();
+    /** A set of css functions. */
+    CSSFunctions $ = new CSSFunctions();
 
     /**
      * <p>
@@ -54,7 +47,7 @@ public interface StyleDSL extends Extensible {
      * element). When used on the font-size on this root element, it represents its initial value.
      * </p>
      */
-    public static Unit rem = Unit.rem;
+    Unit rem = Unit.rem;
 
     /**
      * <p>
@@ -65,7 +58,7 @@ public interface StyleDSL extends Extensible {
      * typographic texts.)
      * </p>
      */
-    public static Unit em = Unit.em;
+    Unit em = Unit.em;
 
     /**
      * <p>
@@ -74,7 +67,7 @@ public interface StyleDSL extends Extensible {
      * even for fonts that don't contain an "x".
      * </p>
      */
-    public static Unit ex = Unit.ex;
+    Unit ex = Unit.ex;
 
     /**
      * <p>
@@ -86,7 +79,7 @@ public interface StyleDSL extends Extensible {
      * value of 0.5em should be used.
      * </p>
      */
-    public static Unit px = Unit.px;
+    Unit px = Unit.px;
 
     /**
      * <p>
@@ -98,33 +91,33 @@ public interface StyleDSL extends Extensible {
      * value of 0.5em should be used.
      * </p>
      */
-    public static Unit in = Unit.in;
+    Unit in = Unit.in;
 
     /**
      * 1/100th of the width of the viewport.
      */
-    public static Unit vh = Unit.vh;
+    Unit vh = Unit.vh;
 
     /**
      * 1/100th of the width of the viewport.
      */
-    public static Unit vw = Unit.vw;
+    Unit vw = Unit.vw;
 
     /**
      * 1/100th of the minimum value between the height and the width of the viewport.
      */
-    public static Unit vmin = Unit.vmin;
+    Unit vmin = Unit.vmin;
 
     /**
      * 1/100th of the maximum value between the height and the width of the viewport.
      */
-    public static Unit vmax = Unit.vmax;
+    Unit vmax = Unit.vmax;
 
     /**
      * deg which represents an angle in degrees. One full circle is 360deg. E.g. 0deg, 90deg,
      * 360deg.
      */
-    public static Unit deg = Unit.deg;
+    Unit deg = Unit.deg;
 
     /**
      * <p>
@@ -136,7 +129,7 @@ public interface StyleDSL extends Extensible {
      * value of 0.5em should be used.
      * </p>
      */
-    public static Unit s = Unit.s;
+    Unit s = Unit.s;
 
     /**
      * <p>
@@ -148,7 +141,7 @@ public interface StyleDSL extends Extensible {
      * value of 0.5em should be used.
      * </p>
      */
-    public static Unit ms = Unit.ms;
+    Unit ms = Unit.ms;
 
     /**
      * <p>
@@ -165,9 +158,9 @@ public interface StyleDSL extends Extensible {
      * value of that property.
      * </p>
      */
-    public static Unit percent = Unit.percent;
+    Unit percent = Unit.percent;
 
-    public static Animation animation = new Animation();
+    Animation animation = new Animation();
 
     /**
      * <p>
@@ -176,7 +169,7 @@ public interface StyleDSL extends Extensible {
      * stylesheet origin.
      * </p>
      */
-    public static PropertyDefinition all = new PropertyDefinition("all");
+    PropertyDefinition all = new PropertyDefinition("all");
 
     /**
      * <p>
@@ -184,7 +177,7 @@ public interface StyleDSL extends Extensible {
      * platform-native styling based on the operating system's theme.
      * </p>
      */
-    public static Appearance appearance = new Appearance();
+    Appearance appearance = new Appearance();
 
     /**
      * <p>
@@ -192,7 +185,7 @@ public interface StyleDSL extends Extensible {
      * an element.
      * </p>
      */
-    public static Cursor cursor = new Cursor();
+    Cursor cursor = new Cursor();
 
     /**
      * <p>
@@ -201,7 +194,7 @@ public interface StyleDSL extends Extensible {
      * background-color, background-image, background-position, background-repeat, background-size,
      * </p>
      */
-    public static Background background = new Background();
+    Background background = new Background();
 
     /**
      * <p>
@@ -210,7 +203,7 @@ public interface StyleDSL extends Extensible {
      * more of: border-width, border-style, border-color.
      * </p>
      */
-    public static Borders border = new Borders();
+    Borders border = new Borders();
 
     /**
      * <p>
@@ -219,7 +212,7 @@ public interface StyleDSL extends Extensible {
      * elements.
      * </p>
      */
-    public static Content content = new Content();
+    Content content = new Content();
 
     /**
      * <p>
@@ -233,10 +226,10 @@ public interface StyleDSL extends Extensible {
      * off. The document is rendered as though the element doesn't exist in the document tree.
      * </p>
      */
-    public static Display display = new Display();
+    Display display = new Display();
 
     /** The SVG property. */
-    public static Fill fill = new Fill();
+    Fill fill = new Fill();
 
     /**
      * <p>
@@ -245,7 +238,7 @@ public interface StyleDSL extends Extensible {
      * proportional to their flex grow factor or their flex shrink factor to prevent overflow.
      * </p>
      */
-    public static FlexItem flexItem = new FlexItem();
+    FlexItem flexItem = new FlexItem();
 
     /**
      * <p>
@@ -254,7 +247,7 @@ public interface StyleDSL extends Extensible {
      * system font, using specific keywords.
      * </p>
      */
-    public static Font font = new Font();
+    Font font = new Font();
 
     /**
      * <p>
@@ -263,7 +256,7 @@ public interface StyleDSL extends Extensible {
      * minimal height of line boxes within the element.
      * </p>
      */
-    public static Line line = new Line();
+    Line line = new Line();
 
     /**
      * <p>
@@ -271,7 +264,7 @@ public interface StyleDSL extends Extensible {
      * list-style-image and list-style-position.
      * </p>
      */
-    public static ListStyle listStyle = new ListStyle();
+    ListStyle listStyle = new ListStyle();
 
     /**
      * <p>
@@ -283,7 +276,7 @@ public interface StyleDSL extends Extensible {
      * One single value applies to all four sides.
      * </p>
      */
-    public static BoxLength margin = new BoxLength("margin");
+    BoxLength margin = new BoxLength("margin");
 
     /**
      * <p>
@@ -300,7 +293,7 @@ public interface StyleDSL extends Extensible {
      * draws a non-rectangular shape around a construct like this:</li>
      * </ul>
      */
-    public static Outline outline = new Outline();
+    Outline outline = new Outline();
 
     /**
      * <p>
@@ -316,7 +309,7 @@ public interface StyleDSL extends Extensible {
      * relevant HTML element, even when overflow has the hidden value an element may need to scroll.
      * </p>
      */
-    public static Overflows overflow = new Overflows();
+    Overflows overflow = new Overflows();
 
     /**
      * <p>
@@ -329,7 +322,7 @@ public interface StyleDSL extends Extensible {
      * padding-right, padding-bottom, padding-left).
      * </p>
      */
-    public static BoxLength padding = new BoxLength("padding");
+    BoxLength padding = new BoxLength("padding");
 
     /**
      * <p>
@@ -338,7 +331,7 @@ public interface StyleDSL extends Extensible {
      * unspecified, the same characteristics of the visiblePainted value apply to SVG content.
      * </p>
      */
-    public static PointerEvents pointerEvents = new PointerEvents();
+    PointerEvents pointerEvents = new PointerEvents();
 
     /**
      * <p>
@@ -346,13 +339,13 @@ public interface StyleDSL extends Extensible {
      * useful for scripted animation effects.
      * </p>
      */
-    public static Position position = new Position();
+    Position position = new Position();
 
     /** The SVG property. */
-    public static Stroke stroke = new Stroke();
+    Stroke stroke = new Stroke();
 
     /** The text related style. */
-    public static Text text = new Text();
+    Text text = new Text();
 
     /**
      * <p>
@@ -365,185 +358,12 @@ public interface StyleDSL extends Extensible {
      * case the object will act as a containing block for position: fixed elements that it contains.
      * </p>
      */
-    public static Transform transform = new Transform();
+    Transform transform = new Transform();
 
     /**
      * <p>
      * The visibility CSS property has two purposes:
      * </p>
      */
-    public static Visibility visibility = new Visibility();
-
-    /** The built-in style. */
-    public static Style NBox = () -> {
-    };
-
-    /** The built-in style. */
-    public static Style HBox = () -> {
-        display.flex();
-    };
-
-    /** The built-in style. */
-    public static Style VBox = () -> {
-        display.flex().direction.column();
-    };
-
-    /** The built-in style. */
-    public static Style SBox = () -> {
-        position.relative();
-
-        $.child(() -> {
-            position.absolute();
-        });
-    };
-
-    /** The built-in style. */
-    public static Style Hide = () -> {
-        display.none();
-    };
-
-    /**
-     * <p>
-     * Create Color without alpha channel.
-     * </p>
-     * 
-     * @param red A red component in the range 0-255. If the specified value is out of range, it
-     *            will be round up to 0 or 255.
-     * @param green A green component in the range 0-255. If the specified value is out of range, it
-     *            will be round up to 0 or 255.
-     * @param blue A blue component in the range 0-255. If the specified value is out of range, it
-     *            will be round up to 0 or 255.
-     * @return A new color.
-     */
-    public static Color rgb(int red, int green, int blue) {
-        return Color.rgb(red, green, blue);
-    }
-
-    /**
-     * <p>
-     * Create Color with alpha channel.
-     * </p>
-     * 
-     * @param red A red component in the range 0-255. If the specified value is out of range, it
-     *            will be round up to 0 or 255.
-     * @param green A green component in the range 0-255. If the specified value is out of range, it
-     *            will be round up to 0 or 255.
-     * @param blue A blue component in the range 0-255. If the specified value is out of range, it
-     *            will be round up to 0 or 255.
-     * @return A new color.
-     */
-    public static Color rgba(int red, int green, int blue, double alpha) {
-        return Color.rgba(red, green, blue, alpha);
-    }
-
-    /**
-     * <p>
-     * Create Color without alpha channel.
-     * </p>
-     * 
-     * @param hue The attribute of a visual sensation according to which an area appears to be
-     *            similar to one of the perceived colors: red, yellow, green, and blue, or to a
-     *            combination of two of them .
-     * @param saturation The colorfulness of a stimulus relative to its own brightness.
-     * @param lightness The brightness relative to the brightness of a similarly illuminated white.
-     * @return A new color.
-     */
-    public static Color hsl(int hue, int saturation, int lightness) {
-        return hsla(hue, saturation, lightness, 1);
-    }
-
-    /**
-     * <p>
-     * Create Color without alpha channel.
-     * </p>
-     * 
-     * @param hue The attribute of a visual sensation according to which an area appears to be
-     *            similar to one of the perceived colors: red, yellow, green, and blue, or to a
-     *            combination of two of them .
-     * @param saturation The colorfulness of a stimulus relative to its own brightness.
-     * @param lightness The brightness relative to the brightness of a similarly illuminated white.
-     * @param alpha The transparency.
-     * @return A new color.
-     */
-    public static Color hsla(int hue, int saturation, int lightness, double alpha) {
-        return new Color(hue, saturation, lightness, alpha);
-    }
-
-    /**
-     * <p>
-     * The CSS linear-gradient() function creates an <image> which represents a linear gradient of
-     * colors. The result of this function is an object of the CSS <gradient> data type. Like any
-     * other gradient, a CSS linear gradient is not a CSS <color> but an image with no intrinsic
-     * dimensions; that is, it has no natural or preferred size, nor ratio. Its concrete size will
-     * match the one of the element it applies to.
-     * </p>
-     * 
-     * @return A new linear gradient image.
-     */
-    public static LinearGradient linear() {
-        return new LinearGradient();
-    }
-
-    /**
-     * <p>
-     * The CSS linear-gradient() function creates an <image> which represents a linear gradient of
-     * colors. The result of this function is an object of the CSS <gradient> data type. Like any
-     * other gradient, a CSS linear gradient is not a CSS <color> but an image with no intrinsic
-     * dimensions; that is, it has no natural or preferred size, nor ratio. Its concrete size will
-     * match the one of the element it applies to.
-     * </p>
-     * 
-     * @return A new linear gradient image.
-     */
-    public static LinearGradient linear(Color start, Color end) {
-        return new LinearGradient().color(start, end);
-    }
-
-    /**
-     * <p>
-     * The CSS radial-gradient() function creates an <image> which represents a gradient of colors
-     * radiating from an origin, the center of the gradient. The result of this function is an
-     * object of the CSS <gradient> data type.
-     * </p>
-     * 
-     * @return A new linear gradient image.
-     */
-    public static RadialGradient radial() {
-        return new RadialGradient();
-    }
-
-    /**
-     * <p>
-     * The CSS radial-gradient() function creates an <image> which represents a gradient of colors
-     * radiating from an origin, the center of the gradient. The result of this function is an
-     * object of the CSS <gradient> data type.
-     * </p>
-     * 
-     * @return A new linear gradient image.
-     */
-    public static RadialGradient radial(Color start, Color end) {
-        return new RadialGradient().color(start, end);
-    }
-
-    /**
-     * <p>
-     * The CSS shadow function creates an generic shadow representation.
-     * </p>
-     * 
-     * @return A new shadow.
-     */
-    public static Shadow shadow() {
-        return new Shadow();
-    }
-
-    /**
-     * <p>
-     * Create transitable style rule.
-     * </p>
-     * 
-     * @return
-     */
-    public static Transition transit() {
-        return new Transition();
-    }
+    Visibility visibility = new Visibility();
 }

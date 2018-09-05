@@ -27,12 +27,9 @@ import stylist.util.Formatter;
 import stylist.util.HierarchicalNaming;
 
 /**
- * @version 2018/08/31 10:24:08
+ * @version 2018/09/05 14:04:35
  */
 public class Stylist {
-
-    /** The default {@link Vendor} in the current environment. */
-    private static Vendor vendor = Vendor.Standard;
 
     /** The naming strategy. */
     private static Function<Field, String> naming = new HierarchicalNaming("≫");

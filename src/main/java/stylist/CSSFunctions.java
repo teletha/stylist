@@ -19,7 +19,7 @@ import stylist.value.Shadow;
 /**
  * @version 2018/09/03 19:39:55
  */
-public final class Functional {
+public final class CSSFunctions {
 
     /**
      * <p>

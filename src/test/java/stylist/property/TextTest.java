@@ -9,8 +9,6 @@
  */
 package stylist.property;
 
-import static stylist.StyleDSL.*;
-
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
@@ -71,7 +69,7 @@ public class TextTest extends StyleTester {
     @Test
     public void shadowSingle() {
         ValidatableStyle parsed = writeStyle(() -> {
-            text.shadow(shadow().offset(2, 2, px).blurRadius(1, px).color(hsl(100, 100, 100)));
+            text.shadow($.shadow().offset(2, 2, px).blurRadius(1, px).color($.hsl(100, 100, 100)));
         });
         assert parsed.property("text-shadow", "2px 2px 1px hsl(100,100%,100%)");
     }
@@ -79,7 +77,7 @@ public class TextTest extends StyleTester {
     @Test
     public void shadowMultiple() {
         ValidatableStyle parsed = writeStyle(() -> {
-            text.shadow(shadow().offset(2, 2, px), shadow().offset(1, 1, px));
+            text.shadow($.shadow().offset(2, 2, px), $.shadow().offset(1, 1, px));
         });
         assert parsed.property("text-shadow", "2px 2px,1px 1px");
     }
