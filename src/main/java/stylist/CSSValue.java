@@ -39,10 +39,6 @@ public abstract class CSSValue {
         return NoVendors;
     }
 
-    public EnumSet<Vendor> aaa() {
-        return vendors();
-    }
-
     /**
      * <p>
      * Write vendor specific value. Returning <code>null</code> or empty string, {@link StyleRule}
