@@ -18,7 +18,7 @@ import java.util.Objects;
 import stylist.util.Formatter;
 
 /**
- * @version 2018/09/02 11:07:38
+ * @version 2018/09/05 12:55:50
  */
 public abstract class CSSValue {
 
@@ -41,11 +41,10 @@ public abstract class CSSValue {
 
     /**
      * <p>
-     * Write vendor specific value. Returning <code>null</code> or empty string, {@link StyleRule}
-     * will omit the target property.
+     * Compute the vendor specific value.
      * </p>
      * 
-     * @param vendor A target vendor.
+     * @param vendor A target {@link Vendor}.
      */
     protected abstract String valueFor(Vendor vendor);
 
@@ -81,7 +80,9 @@ public abstract class CSSValue {
     }
 
     /**
-     * {@inheritDoc}
+     * Returns {@link Vendor#Standard} value.
+     * 
+     * @return A {@link Vendor#Standard} value.
      */
     @Override
     public final String toString() {
