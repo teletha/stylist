@@ -26,7 +26,7 @@ public abstract class CSSValue {
     public static final CSSValue EMPTY = new Value("");
 
     /** For reuse. */
-    protected static final EnumSet<Vendor> NoVendors = EnumSet.noneOf(Vendor.class);
+    protected static final EnumSet<Vendor> NoVendors = EnumSet.of(Vendor.Standard);
 
     /**
      * Get all required vendors.

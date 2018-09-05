@@ -45,19 +45,6 @@ public class StyleRule implements Comparable<StyleRule> {
     }
 
     /**
-     * <p>
-     * Check the current value.
-     * </p>
-     * 
-     * @param name A property name.
-     * @param value A property value you want.
-     * @return
-     */
-    boolean is(String name, String value) {
-        return properties.contains(name, value);
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -91,7 +78,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     public static StyleRule create(String template, Style style, boolean root) {
         // store parent rule
-        StyleRule parent = PropertyDefinition.properties;
+        StyleRule parent = PropertyDefinition.rule;
 
         // compute selector
         String selector;
@@ -117,9 +104,9 @@ public class StyleRule implements Comparable<StyleRule> {
         StyleRule child = new StyleRule(selector);
 
         // swap context rule and execute it
-        PropertyDefinition.properties = child;
+        PropertyDefinition.rule = child;
         style.style();
-        PropertyDefinition.properties = parent;
+        PropertyDefinition.rule = parent;
 
         if (parent != null) {
             parent.children.add(child);

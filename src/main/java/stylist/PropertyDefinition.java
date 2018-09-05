@@ -19,12 +19,12 @@ import stylist.CSSValue.Value;
 import stylist.util.Strings;
 
 /**
- * @version 2018/09/05 12:03:44
+ * @version 2018/09/05 14:01:22
  */
 public class PropertyDefinition<T> {
 
     /** The current processing property holder. */
-    protected static StyleRule properties;
+    protected static StyleRule rule;
 
     /** The property name. */
     private final String name;
@@ -220,28 +220,24 @@ public class PropertyDefinition<T> {
         }
 
         // declare property
-        properties.properties.set(propertyName, propertyValue);
+        rule.properties.set(propertyName, propertyValue);
 
         // API definition
         return context;
     }
 
     /**
-     * <p>
      * Check the current value.
-     * </p>
      * 
      * @param value A property value you want.
      * @return A result.
      */
     protected final boolean is(String value) {
-        return properties.is(name, value);
+        return rule.properties.contains(name, value);
     }
 
     /**
-     * <p>
      * Join all values.
-     * </p>
      * 
      * @param images
      * @param index
@@ -257,9 +253,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
      * Join all values.
-     * </p>
      * 
      * @param images
      * @param index
