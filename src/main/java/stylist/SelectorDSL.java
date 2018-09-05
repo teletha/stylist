@@ -1240,7 +1240,7 @@ public final class SelectorDSL {
      */
     void declare(Style style) {
         if (style != null) {
-            StyleRule rule = PropertyDefinition.createSubRule(toString(), style);
+            StyleRule rule = StyleRule.create(toString(), style);
 
             if (root.processor != null) {
                 root.processor.accept(rule);

@@ -42,7 +42,7 @@ public class StyleTester implements StyleDSL {
      */
     protected final ValidatableStyle writeStyle(Style style, Consumer<Properties>... postProcessors) {
         // empty style sheet
-        StyleRule rule = StyleRule.create("$", style, false);
+        StyleRule rule = StyleRule.create("$", style);
 
         // search specified rule
         String name = "." + style.name();

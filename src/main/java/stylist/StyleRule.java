@@ -67,7 +67,7 @@ public class StyleRule implements Comparable<StyleRule> {
      * @return A create new {@link StyleRule}.
      */
     public static StyleRule create(Style style) {
-        return create("$", style, true);
+        return create("$", style);
     }
 
     /**
@@ -76,14 +76,14 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param object A style description.
      * @return A create new {@link StyleRule}.
      */
-    public static StyleRule create(String template, Style style, boolean root) {
+    public static StyleRule create(String template, Style style) {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
 
         // compute selector
         String selector;
 
-        if (parent == null || root) {
+        if (parent == null) {
             selector = "." + style.name();
         } else {
             // check pseudo element

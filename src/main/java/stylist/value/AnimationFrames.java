@@ -115,7 +115,7 @@ public class AnimationFrames {
          */
         private Frame(Style style, int... progress) {
             this.progress = progress;
-            this.style = StyleRule.create("$", style, true);
+            this.style = StyleRule.create("$", style);
         }
 
         /**

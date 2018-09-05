@@ -262,16 +262,4 @@ public class PropertyDefinition<T> {
         }
         return joiner.toString();
     }
-
-    /**
-     * <p>
-     * Create sub rule.
-     * </p>
-     * 
-     * @param template A selector template.
-     * @param sub A sub style descriptor.
-     */
-    protected static final StyleRule createSubRule(String template, Style sub) {
-        return StyleRule.create(template, sub, false);
-    }
 }

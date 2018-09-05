@@ -22,7 +22,7 @@ public class StyleRuleTest extends StyleTester {
             display.block();
         };
 
-        StyleRule rule = StyleRule.create("$", style, false);
+        StyleRule rule = StyleRule.create("$", style);
         assert rule.selector.match("." + style.name());
         assert rule.properties.get("display").v.match("block");
     }
@@ -37,7 +37,7 @@ public class StyleRuleTest extends StyleTester {
             });
         };
 
-        StyleRule rule = StyleRule.create("$", style, false);
+        StyleRule rule = StyleRule.create("$", style);
         assert rule.selector.match("." + style.name());
         assert rule.properties.get("display").v.match("block");
         assert rule.children.size() == 1;
