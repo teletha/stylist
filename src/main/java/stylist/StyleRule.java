@@ -10,10 +10,8 @@
 package stylist;
 
 import java.util.ArrayList;
-import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Map.Entry;
 
 import stylist.util.Formatter;
 import stylist.util.Properties;
@@ -80,34 +78,20 @@ public class StyleRule implements Comparable<StyleRule> {
                 concated = concated.join(separator, value);
             }
 
-            EnumMap<Vendor, CSSValue> properties = new EnumMap(Vendor.class);
-
             // calculate dependent vendors
             EnumSet<Vendor> vendors = EnumSet.copyOf(requiredVendorsForNames);
             vendors.addAll(concated.vendors());
 
             for (Vendor vendor : vendors) {
-                properties.put(vendor, concated.fix(vendor));
-            }
-
-            for (Entry<Vendor, CSSValue> property : properties.entrySet()) {
-                CSSValue value = property.getValue();
-
-                Vendor vendor = property.getKey();
-
-                if (!requiredVendorsForNames.contains(vendor)) {
-                    vendor = Vendor.Standard;
-                }
-
-                String resolvedName = vendor + name;
+                String resolvedName = requiredVendorsForNames.contains(vendor) ? vendor + name : name;
 
                 switch (writeMode) {
                 case 0: // addition
-                    this.properties.add(resolvedName, value);
+                    this.properties.add(resolvedName, concated.fix(vendor));
                     break;
 
                 case 1: // override
-                    this.properties.set(resolvedName, value);
+                    this.properties.set(resolvedName, concated.fix(vendor));
                     break;
                 }
             }
