@@ -28,7 +28,7 @@ public final class SelectorDSL {
     private final Consumer<StyleRule> processor;
 
     /** The simple selector list. */
-    private List<CSSValue> selectors = new ArrayList();
+    private StringBuilder selectors = new StringBuilder();
 
     /** The combinator. */
     private String combinator;
@@ -140,7 +140,7 @@ public final class SelectorDSL {
      * @return Chainable API.
      */
     SelectorDSL basic(String selector) {
-        selectors.add(CSSValue.of(selector));
+        selectors.append(selector);
 
         return this;
     }
@@ -1264,28 +1264,20 @@ public final class SelectorDSL {
      * @return A selector expression.
      */
     private CSSValue write() {
-        CSSValue base = CSSValue.EMPTY;
-
-        if (selectors.isEmpty()) {
-            base = base.join("", CSSValue.of("*"));
-        } else {
-            for (CSSValue selector : selectors) {
-                base = base.join("", selector);
-            }
-        }
+        CSSValue selector = CSSValue.of(selectors.length() == 0 ? "*" : selectors.toString());
 
         for (CSSValue pseudo : pseudoClasses) {
-            base = base.join(":", pseudo);
+            selector = selector.join(":", pseudo);
         }
 
         if (pseudoElement != null) {
-            base = base.join("::", pseudoElement);
+            selector = selector.join("::", pseudoElement);
         }
 
         if (combinator != null) {
-            base = base.join(combinator, child.write());
+            selector = selector.join(combinator, child.write());
         }
-        return base;
+        return selector;
     }
 
     /**
