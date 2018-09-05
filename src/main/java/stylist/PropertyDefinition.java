@@ -227,24 +227,7 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(String name, List<? extends CSSValue> values, String separator, int writeMode) {
-        return value(EnumSet.noneOf(Vendor.class), name, values, separator, writeMode);
-    }
-
-    /**
-     * <p>
-     * Set property.
-     * </p>
-     * 
-     * @param vendors A list of {@link Vendor} for the specified property name.
-     * @param name A property name.
-     * @param values A list of property values.
-     * @param separator A value separator.
-     * @param writeMode A value write mechanism.
-     * @return Chainable API.
-     */
-    protected final T value(EnumSet<Vendor> vendors, String name, List<? extends CSSValue> values, String separator, int writeMode) {
-
-        properties.property(name, values, separator, writeMode, this.vendors, vendors);
+        properties.property(name, values, separator, writeMode, this.vendors);
 
         return context;
     }
