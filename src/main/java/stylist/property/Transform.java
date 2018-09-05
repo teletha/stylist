@@ -59,6 +59,8 @@ public class Transform extends PropertyDefinition<Transform> {
      * @param function
      */
     private Transform(Transform transform, Function function) {
+        super("transform", null, Webkit);
+
         functions.addAll(transform.functions);
         functions.add(function);
 

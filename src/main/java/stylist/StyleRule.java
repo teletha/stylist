@@ -72,12 +72,13 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param override A flag for property override.
      * @param prefixes A list of vendors for property name.
      */
-    void property(String name, List<? extends CSSValue> values, String separator, int writeMode, EnumSet<Vendor> prefixes) {
+    void property(String name, List<? extends CSSValue> values, String separator, int writeMode, EnumSet<Vendor> requiredVendorsForNames, EnumSet<Vendor> requiredVendorsForValues) {
         if (name != null && name.length() != 0 && values != null) {
             EnumMap<Vendor, CSSValue> properties = new EnumMap(Vendor.class);
 
             // calculate dependent vendors
-            EnumSet<Vendor> vendors = EnumSet.copyOf(prefixes);
+            EnumSet<Vendor> vendors = EnumSet.copyOf(requiredVendorsForNames);
+            vendors.addAll(requiredVendorsForValues);
 
             for (CSSValue value : values) {
                 vendors.addAll(value.vendors());
@@ -97,7 +98,7 @@ public class StyleRule implements Comparable<StyleRule> {
 
                 Vendor vendor = property.getKey();
 
-                if (!prefixes.contains(vendor)) {
+                if (!requiredVendorsForNames.contains(vendor)) {
                     vendor = Vendor.Standard;
                 }
 
@@ -109,7 +110,6 @@ public class StyleRule implements Comparable<StyleRule> {
                     break;
 
                 case 1: // override
-                    System.out.println(this.properties + "  " + value);
                     this.properties.set(resolvedName, value);
                     break;
                 }

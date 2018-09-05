@@ -243,9 +243,8 @@ public class PropertyDefinition<T> {
      * @return Chainable API.
      */
     protected final T value(EnumSet<Vendor> vendors, String name, List<? extends CSSValue> values, String separator, int writeMode) {
-        vendors.addAll(this.vendors);
 
-        properties.property(name, values, separator, writeMode, vendors);
+        properties.property(name, values, separator, writeMode, this.vendors, vendors);
 
         return context;
     }

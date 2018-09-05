@@ -73,7 +73,6 @@ public class FlexAlignContentTest extends StyleTester {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.stretch();
         });
-
         assert style.property("align-content", "stretch");
         assert style.property("-webkit-align-content", "stretch");
     }
