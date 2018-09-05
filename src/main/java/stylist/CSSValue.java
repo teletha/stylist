@@ -39,6 +39,10 @@ public abstract class CSSValue {
         return NoVendors;
     }
 
+    public EnumSet<Vendor> aaa() {
+        return vendors();
+    }
+
     /**
      * <p>
      * Write vendor specific value. Returning <code>null</code> or empty string, {@link StyleRule}
@@ -346,6 +350,17 @@ public abstract class CSSValue {
             this.before = Objects.requireNonNull(before);
             this.after = Objects.requireNonNull(after);
             this.separator = separator;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected EnumSet<Vendor> vendors() {
+            EnumSet<Vendor> set = EnumSet.copyOf(before.vendors());
+            set.addAll(after.vendors());
+
+            return set;
         }
 
         /**

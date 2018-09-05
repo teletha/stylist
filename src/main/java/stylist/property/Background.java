@@ -75,13 +75,13 @@ public class Background extends Colorable<Background> {
      * @param images
      */
     public Background image(BackgroundImage image) {
-        if (!image.properties[0].equals("none")) value("background-image", image.properties[0]);
-        if (!image.properties[1].equals("scroll")) value("background-attachment", image.properties[1]);
-        if (!image.properties[2].equals("0%") || !image.properties[3].equals("0%"))
+        if (!image.properties[0].match("none")) value("background-image", image.properties[0]);
+        if (!image.properties[1].match("scroll")) value("background-attachment", image.properties[1]);
+        if (!image.properties[2].match("0%") || !image.properties[3].match("0%"))
             value("background-position", image.properties[2] + " " + image.properties[3]);
-        if (!image.properties[4].equals("repeat")) value("background-repeat", image.properties[4]);
-        if (!image.properties[5].equals("auto")) value("background-size", image.properties[5]);
-        if (!image.properties[6].equals("padding-box")) value("background-origin", image.properties[6]);
+        if (!image.properties[4].match("repeat")) value("background-repeat", image.properties[4]);
+        if (!image.properties[5].match("auto")) value("background-size", image.properties[5]);
+        if (!image.properties[6].match("padding-box")) value("background-origin", image.properties[6]);
 
         return this;
     }
@@ -120,7 +120,7 @@ public class Background extends Colorable<Background> {
         List<CSSValue> values = new ArrayList();
 
         for (int i = 0; i < images.length; i++) {
-            values.add(CSSValue.of(images[i].properties[index]));
+            values.add(images[i].properties[index]);
         }
         return values;
     }
@@ -459,14 +459,15 @@ public class Background extends Colorable<Background> {
          * <li>[6] Origin</li>
          * </ul>
          */
-        private Object[] properties = {"none", "scroll", "0%", "0%", "repeat", "auto", "padding-box"};
+        private CSSValue[] properties = {CSSValue.of("none"), CSSValue.of("scroll"), CSSValue.of("0%"), CSSValue.of("0%"),
+                CSSValue.of("repeat"), CSSValue.of("auto"), CSSValue.of("padding-box")};
 
         /**
          * @return
          */
         public static BackgroundImage none() {
             BackgroundImage created = new BackgroundImage();
-            created.properties[0] = "none";
+            created.properties[0] = CSSValue.of("none");
 
             return created;
         }
@@ -506,7 +507,7 @@ public class Background extends Colorable<Background> {
          */
         public static final BackgroundImage url(String image) {
             BackgroundImage created = new BackgroundImage();
-            created.properties[0] = normalizeURL(image);
+            created.properties[0] = CSSValue.of(normalizeURL(image));
 
             return created;
         }
@@ -518,7 +519,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage top() {
-            properties[3] = "0%";
+            properties[3] = CSSValue.of("0%");
 
             return this;
         }
@@ -530,7 +531,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage bottom() {
-            properties[3] = "100%";
+            properties[3] = CSSValue.of("100%");
 
             return this;
         }
@@ -564,7 +565,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage left() {
-            properties[2] = "0%";
+            properties[2] = CSSValue.of("0%");
 
             return this;
         }
@@ -576,7 +577,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage right() {
-            properties[2] = "100%";
+            properties[2] = CSSValue.of("100%");
 
             return this;
         }
@@ -634,7 +635,7 @@ public class Background extends Colorable<Background> {
          * @return
          */
         public BackgroundImage size(Numeric size) {
-            properties[5] = size.toString();
+            properties[5] = size;
 
             return this;
         }
@@ -654,7 +655,7 @@ public class Background extends Colorable<Background> {
          * @return
          */
         public BackgroundImage cover() {
-            properties[5] = "cover";
+            properties[5] = CSSValue.of("cover");
 
             return this;
         }
@@ -674,7 +675,7 @@ public class Background extends Colorable<Background> {
          * @return
          */
         public BackgroundImage contain() {
-            properties[5] = "contain";
+            properties[5] = CSSValue.of("contain");
 
             return this;
         }
@@ -691,7 +692,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage scroll() {
-            properties[1] = "scroll";
+            properties[1] = CSSValue.of("scroll");
 
             return this;
         }
@@ -708,7 +709,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage fixed() {
-            properties[1] = "fixed";
+            properties[1] = CSSValue.of("fixed");
 
             return this;
         }
@@ -725,7 +726,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage local() {
-            properties[1] = "local";
+            properties[1] = CSSValue.of("local");
 
             return this;
         }
@@ -741,7 +742,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage repeatX() {
-            properties[4] = "repeat-x";
+            properties[4] = CSSValue.of("repeat-x");
 
             return this;
         }
@@ -757,7 +758,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage repeatY() {
-            properties[4] = "repeat-y";
+            properties[4] = CSSValue.of("repeat-y");
 
             return this;
         }
@@ -773,7 +774,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage repeat() {
-            properties[4] = "repeat";
+            properties[4] = CSSValue.of("repeat");
 
             return this;
         }
@@ -789,7 +790,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage space() {
-            properties[4] = "space";
+            properties[4] = CSSValue.of("space");
 
             return this;
         }
@@ -805,7 +806,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage round() {
-            properties[4] = "round";
+            properties[4] = CSSValue.of("round");
 
             return this;
         }
@@ -821,7 +822,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage noRepeat() {
-            properties[4] = "no-repeat";
+            properties[4] = CSSValue.of("no-repeat");
 
             return this;
         }
@@ -833,7 +834,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage borderBox() {
-            properties[6] = "border-box";
+            properties[6] = CSSValue.of("border-box");
 
             return this;
         }
@@ -845,7 +846,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage paddingBox() {
-            properties[6] = "padding-box";
+            properties[6] = CSSValue.of("padding-box");
 
             return this;
         }
@@ -856,7 +857,7 @@ public class Background extends Colorable<Background> {
          * </p>
          */
         public BackgroundImage contentBox() {
-            properties[6] = "content-box";
+            properties[6] = CSSValue.of("content-box");
 
             return this;
         }

@@ -74,22 +74,20 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     void property(String name, List<? extends CSSValue> values, String separator, int writeMode, EnumSet<Vendor> requiredVendorsForNames) {
         if (name != null && name.length() != 0 && values != null) {
+            CSSValue concated = CSSValue.EMPTY;
+
+            for (CSSValue value : values) {
+                concated = concated.join(separator, value);
+            }
+
             EnumMap<Vendor, CSSValue> properties = new EnumMap(Vendor.class);
 
             // calculate dependent vendors
             EnumSet<Vendor> vendors = EnumSet.copyOf(requiredVendorsForNames);
-
-            for (CSSValue value : values) {
-                vendors.addAll(value.vendors());
-            }
+            vendors.addAll(concated.vendors());
 
             for (Vendor vendor : vendors) {
-                CSSValue base = CSSValue.EMPTY;
-
-                for (CSSValue value : values) {
-                    base = base.join(separator, value.fix(vendor));
-                }
-                properties.put(vendor, base);
+                properties.put(vendor, concated.fix(vendor));
             }
 
             for (Entry<Vendor, CSSValue> property : properties.entrySet()) {
