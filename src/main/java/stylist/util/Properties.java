@@ -45,25 +45,6 @@ public class Properties {
 
     /**
      * <p>
-     * Retrieve all matched values by the specified key.
-     * </p>
-     * 
-     * @param key A key.
-     * @return A list of all matched values.
-     */
-    public List<CSSValue> getAll(String key) {
-        List<CSSValue> matched = new ArrayList();
-
-        for (int i = 0, length = keys.size(); i < length; i++) {
-            if (keys.get(i).match(key)) {
-                matched.add(values.get(i));
-            }
-        }
-        return matched;
-    }
-
-    /**
-     * <p>
      * Append the specified value by the specified key.
      * </p>
      * 

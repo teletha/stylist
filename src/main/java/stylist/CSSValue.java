@@ -50,16 +50,6 @@ public abstract class CSSValue {
     protected abstract String valueFor(Vendor vendor);
 
     /**
-     * Create vendor fixed value.
-     * 
-     * @param vendor
-     * @return
-     */
-    final CSSValue fix(Vendor vendor) {
-        return new VendorFixed(vendor, this);
-    }
-
-    /**
      * Test whether the specified value matches this {@link CSSValue}.
      * 
      * @param value
@@ -274,59 +264,6 @@ public abstract class CSSValue {
             } else {
                 return false;
             }
-        }
-    }
-
-    /**
-     * @version 2018/09/02 11:30:14
-     */
-    private static class VendorFixed extends CSSValue {
-
-        /** The specified vendor. */
-        private final Vendor vendor;
-
-        /** The actual value. */
-        private final CSSValue value;
-
-        /**
-         * @param vendor
-         * @param value
-         */
-        private VendorFixed(Vendor vendor, CSSValue value) {
-            this.vendor = vendor;
-            this.value = value;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        protected String valueFor(Vendor vendor) {
-            return value.valueFor(this.vendor);
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public String format(Formatter formatter) {
-            return value.format(formatter);
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public int hashCode() {
-            return value.hashCode();
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public boolean equals(Object obj) {
-            return value.equals(obj);
         }
     }
 
