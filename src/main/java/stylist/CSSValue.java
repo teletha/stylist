@@ -23,7 +23,7 @@ import stylist.util.Formatter;
 public abstract class CSSValue {
 
     /** The empty value. */
-    public static final CSSValue EMPTY = new Empty();
+    public static final CSSValue EMPTY = new Value("");
 
     /** For reuse. */
     protected static final EnumSet<Vendor> NoVendors = EnumSet.noneOf(Vendor.class);
@@ -59,14 +59,27 @@ public abstract class CSSValue {
     }
 
     /**
-     * Create joined {@link CSSValue}.
+     * Join this value and the specified {@link CSSValue} by whitespace.
      * 
-     * @param separator
-     * @param value
-     * @return
+     * @param other A target to join.
+     * @return A joined {@link CSSValue}.
      */
-    public CSSValue join(String separator, CSSValue value) {
-        return new Joined(this, value, separator);
+    public final CSSValue join(CSSValue other) {
+        return join(" ", other);
+    }
+
+    /**
+     * Join this value and the specified {@link CSSValue} by the specified separator.
+     * 
+     * @param separator A separator value.
+     * @param other A target to join.
+     * @return A joined {@link CSSValue}.
+     */
+    public final CSSValue join(String separator, CSSValue other) {
+        if (this == EMPTY) {
+            return other;
+        }
+        return new Joined(this, other, separator);
     }
 
     /**
@@ -103,50 +116,6 @@ public abstract class CSSValue {
             return new Digit((Number) value);
         }
         return new Value(value, vendors);
-    }
-
-    /**
-     * @version 2018/09/02 13:17:12
-     */
-    private static class Empty extends CSSValue {
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public CSSValue join(String separator, CSSValue value) {
-            return value;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        protected String valueFor(Vendor vendor) {
-            // If this exception will be thrown, it is bug of this program. So we must rethrow the
-            // wrapped error in here.
-            throw new Error();
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public int hashCode() {
-            // If this exception will be thrown, it is bug of this program. So we must rethrow the
-            // wrapped error in here.
-            throw new Error();
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public boolean equals(Object obj) {
-            // If this exception will be thrown, it is bug of this program. So we must rethrow the
-            // wrapped error in here.
-            throw new Error();
-        }
     }
 
     /**
