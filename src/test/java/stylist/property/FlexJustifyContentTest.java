@@ -12,59 +12,60 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:37:48
+ * @version 2018/09/05 11:20:14
  */
-public class FlexJustifyContentTest extends StyleTester {
+class FlexJustifyContentTest extends StyleTester {
 
     @Test
-    public void start() throws Exception {
+    void start() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().justifyContent.start();
         });
 
         assert style.property("justify-content", "flex-start");
-        assert style.property("-webkit-justify-content", "flex-start");
+        assert style.property("justify-content", Vendor.Webkit, "-webkit-justify-content", "flex-start");
     }
 
     @Test
-    public void end() throws Exception {
+    void end() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().justifyContent.end();
         });
 
         assert style.property("justify-content", "flex-end");
-        assert style.property("-webkit-justify-content", "flex-end");
+        assert style.property("justify-content", Vendor.Webkit, "-webkit-justify-content", "flex-end");
     }
 
     @Test
-    public void center() throws Exception {
+    void center() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().justifyContent.center();
         });
 
         assert style.property("justify-content", "center");
-        assert style.property("-webkit-justify-content", "center");
+        assert style.property("justify-content", Vendor.Webkit, "-webkit-justify-content", "center");
     }
 
     @Test
-    public void spaceAround() throws Exception {
+    void spaceAround() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().justifyContent.spaceAround();
         });
 
         assert style.property("justify-content", "space-around");
-        assert style.property("-webkit-justify-content", "space-around");
+        assert style.property("justify-content", Vendor.Webkit, "-webkit-justify-content", "space-around");
     }
 
     @Test
-    public void spaceBetween() throws Exception {
+    void spaceBetween() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().justifyContent.spaceBetween();
         });
 
         assert style.property("justify-content", "space-between");
-        assert style.property("-webkit-justify-content", "space-between");
+        assert style.property("justify-content", Vendor.Webkit, "-webkit-justify-content", "space-between");
     }
 }

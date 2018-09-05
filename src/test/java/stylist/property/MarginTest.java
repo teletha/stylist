@@ -11,18 +11,17 @@ package stylist.property;
 
 import org.junit.jupiter.api.Test;
 
-import antibug.powerassert.PowerAssertOff;
 import stylist.StyleTester;
+import stylist.Vendor;
 import stylist.value.Numeric;
 
 /**
- * @version 2018/08/30 18:38:35
+ * @version 2018/09/05 11:23:42
  */
-@PowerAssertOff
-public class MarginTest extends StyleTester {
+class MarginTest extends StyleTester {
 
     @Test
-    public void each() {
+    void each() {
         ValidatableStyle parsed = writeStyle(() -> {
             margin.top(10, em);
             margin.bottom(20, px);
@@ -36,7 +35,7 @@ public class MarginTest extends StyleTester {
     }
 
     @Test
-    public void auto() {
+    void auto() {
         ValidatableStyle parsed = writeStyle(() -> {
             margin.auto();
         });
@@ -45,7 +44,7 @@ public class MarginTest extends StyleTester {
     }
 
     @Test
-    public void shorthand() {
+    void shorthand() {
         ValidatableStyle parsed = writeStyle(() -> {
             margin.horizontal(1, em);
         });
@@ -68,16 +67,20 @@ public class MarginTest extends StyleTester {
     }
 
     @Test
-    public void calc() {
+    void calc() {
         Numeric one = new Numeric(1, em);
         Numeric two = new Numeric(2, px);
 
         ValidatableStyle parsed = writeStyle(() -> {
             margin.size(one.add(two));
         });
-        assert parsed.property("margin-left", "calc(1em + 2px)", "-webkit-calc(1em + 2px)");
-        assert parsed.property("margin-right", "calc(1em + 2px)", "-webkit-calc(1em + 2px)");
-        assert parsed.property("margin-top", "calc(1em + 2px)", "-webkit-calc(1em + 2px)");
-        assert parsed.property("margin-bottom", "calc(1em + 2px)", "-webkit-calc(1em + 2px)");
+        assert parsed.property("margin-left", "calc(1em + 2px)");
+        assert parsed.property("margin-left", Vendor.Webkit, "margin-left", "-webkit-calc(1em + 2px)");
+        assert parsed.property("margin-right", "calc(1em + 2px)");
+        assert parsed.property("margin-right", Vendor.Webkit, "margin-right", "-webkit-calc(1em + 2px)");
+        assert parsed.property("margin-top", "calc(1em + 2px)");
+        assert parsed.property("margin-top", Vendor.Webkit, "margin-top", "-webkit-calc(1em + 2px)");
+        assert parsed.property("margin-bottom", "calc(1em + 2px)");
+        assert parsed.property("margin-bottom", Vendor.Webkit, "margin-bottom", "-webkit-calc(1em + 2px)");
     }
 }

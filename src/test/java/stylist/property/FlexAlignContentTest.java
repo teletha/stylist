@@ -12,68 +12,69 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:37:26
+ * @version 2018/09/05 11:18:01
  */
-public class FlexAlignContentTest extends StyleTester {
+class FlexAlignContentTest extends StyleTester {
 
     @Test
-    public void start() throws Exception {
+    void start() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.start();
         });
 
         assert style.property("align-content", "flex-start");
-        assert style.property("-webkit-align-content", "flex-start");
+        assert style.property("align-content", Vendor.Webkit, "-webkit-align-content", "flex-start");
     }
 
     @Test
-    public void end() throws Exception {
+    void end() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.end();
         });
 
         assert style.property("align-content", "flex-end");
-        assert style.property("-webkit-align-content", "flex-end");
+        assert style.property("align-content", Vendor.Webkit, "-webkit-align-content", "flex-end");
     }
 
     @Test
-    public void center() throws Exception {
+    void center() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.center();
         });
 
         assert style.property("align-content", "center");
-        assert style.property("-webkit-align-content", "center");
+        assert style.property("align-content", Vendor.Webkit, "-webkit-align-content", "center");
     }
 
     @Test
-    public void spaceAround() throws Exception {
+    void spaceAround() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.spaceAround();
         });
 
         assert style.property("align-content", "space-around");
-        assert style.property("-webkit-align-content", "space-around");
+        assert style.property("align-content", Vendor.Webkit, "-webkit-align-content", "space-around");
     }
 
     @Test
-    public void spaceBetween() throws Exception {
+    void spaceBetween() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.spaceBetween();
         });
 
         assert style.property("align-content", "space-between");
-        assert style.property("-webkit-align-content", "space-between");
+        assert style.property("align-content", Vendor.Webkit, "-webkit-align-content", "space-between");
     }
 
     @Test
-    public void stretch() throws Exception {
+    void stretch() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignContent.stretch();
         });
         assert style.property("align-content", "stretch");
-        assert style.property("-webkit-align-content", "stretch");
+        assert style.property("align-content", Vendor.Webkit, "-webkit-align-content", "stretch");
     }
 }

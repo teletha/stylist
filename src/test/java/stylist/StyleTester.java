@@ -9,18 +9,14 @@
  */
 package stylist;
 
-import static java.lang.Integer.*;
-
 import java.lang.reflect.Field;
-import java.util.List;
 import java.util.function.Consumer;
 
 import kiss.I;
 import stylist.util.Properties;
-import stylist.value.Color;
 
 /**
- * @version 2018/09/01 22:21:35
+ * @version 2018/09/05 11:54:37
  */
 public class StyleTester implements StyleDSL {
 
@@ -109,50 +105,52 @@ public class StyleTester implements StyleDSL {
         }
 
         /**
+         * Check the property which is specialized for {@link Vendor#Standard}.
+         * 
          * @param name
          * @param value
          * @return
          */
-        public boolean property(String name, String... values) {
-            assert name != null;
-            assert values != null;
-            assert values.length != 0;
-
-            List<CSSValue> matches = rules.properties.getAll(name);
-            assert matches.size() == values.length;
-
-            for (String value : values) {
-                if (value.startsWith("rgb(")) {
-                    value = convertRGB(value);
-                }
-                assert contains(matches, value);
-            }
-            return true;
+        public boolean property(String name, String value) {
+            return property(name, Vendor.Standard, name, value);
         }
 
         /**
-         * @param values
-         * @param text
+         * Check the property which is specialized for {@link Vendor}.
+         * 
+         * @param name
+         * @param vendor
+         * @param vendoredValue
          * @return
          */
-        private boolean contains(List<CSSValue> values, String text) {
-            for (CSSValue value : values) {
-                if (value.match(text)) {
-                    return true;
-                }
-            }
-            return false;
+        public boolean property(String name, Vendor vendor, String vendoredValue) {
+            return property(name, vendor, name, vendoredValue);
         }
 
         /**
-         * <p>
-         * Convert color expression.
-         * </p>
+         * Check the property which is specialized for {@link Vendor}.
+         * 
+         * @param name
+         * @param vendor
+         * @param vendoredName
+         * @param vendoredValue
+         * @return
          */
-        private String convertRGB(String value) {
-            String[] v = value.substring(4, value.length() - 1).split(",");
+        public boolean property(String name, Vendor vendor, String vendoredName, String vendoredValue) {
+            assert name != null;
+            assert vendoredName != null;
+            assert vendoredValue != null;
 
-            return Color.rgb(parseInt(v[0].trim()), parseInt(v[1].trim()), parseInt(v[2].trim())).toString();
+            int index = rules.properties.key(name);
+            assert index != -1;
+
+            CSSValue key = rules.properties.key(index);
+            assert key.valueFor(vendor).equals(vendoredName);
+
+            CSSValue value = rules.properties.value(index);
+            assert value.valueFor(vendor).equals(vendoredValue);
+
+            return true;
         }
 
         /**

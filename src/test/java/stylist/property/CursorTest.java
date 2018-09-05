@@ -12,14 +12,15 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/09/04 23:29:32
+ * @version 2018/09/05 11:47:49
  */
-public class CursorTest extends StyleTester {
+class CursorTest extends StyleTester {
 
     @Test
-    public void cursor() {
+    void cursor() {
         ValidatableStyle parsed = writeStyle(() -> {
             cursor.help();
         });
@@ -38,11 +39,13 @@ public class CursorTest extends StyleTester {
         parsed = writeStyle(() -> {
             cursor.grab();
         });
-        assert parsed.property("cursor", "-webkit-grab", "grab");
+        assert parsed.property("cursor", "grab");
+        assert parsed.property("cursor", Vendor.Webkit, "cursor", "-webkit-grab");
 
         parsed = writeStyle(() -> {
             cursor.grabbing();
         });
-        assert parsed.property("cursor", "-webkit-grabbing", "grabbing");
+        assert parsed.property("cursor", "grabbing");
+        assert parsed.property("cursor", Vendor.Webkit, "cursor", "-webkit-grabbing");
     }
 }

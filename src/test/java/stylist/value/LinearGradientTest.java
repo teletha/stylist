@@ -12,12 +12,13 @@ package stylist.value;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 import stylist.property.Background.BackgroundImage;
 
 /**
- * @version 2018/08/30 18:34:47
+ * @version 2018/09/05 11:42:58
  */
-public class LinearGradientTest extends StyleTester {
+class LinearGradientTest extends StyleTester {
 
     private static final Color black = Color.Black;
 
@@ -28,52 +29,56 @@ public class LinearGradientTest extends StyleTester {
     private static final Numeric two = new Numeric(20, em);
 
     @Test
-    public void base() throws Exception {
+    void base() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new LinearGradient().color(black, white)));
         });
-        assert style.property("background-image", "linear-gradient(black,white)", "-webkit-linear-gradient(black,white)");
+        assert style.property("background-image", "linear-gradient(black,white)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(black,white)");
     }
 
     @Test
-    public void angle() throws Exception {
+    void angle() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new LinearGradient().angle(10, deg).color(black, white)));
         });
-        assert style.property("background-image", "linear-gradient(10deg,black,white)", "-webkit-linear-gradient(280deg,black,white)");
+        assert style.property("background-image", "linear-gradient(10deg,black,white)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(280deg,black,white)");
     }
 
     @Test
-    public void colors() throws Exception {
+    void colors() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new LinearGradient().color(black, white, black)));
         });
-        assert style.property("background-image", "linear-gradient(black,white,black)", "-webkit-linear-gradient(black,white,black)");
+        assert style.property("background-image", "linear-gradient(black,white,black)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(black,white,black)");
     }
 
     @Test
-    public void percentage() throws Exception {
+    void percentage() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new LinearGradient().color(black, 10).color(white, 90)));
         });
-        assert style.property("background-image", "linear-gradient(black 10%,white 90%)", "-webkit-linear-gradient(black 10%,white 90%)");
+        assert style.property("background-image", "linear-gradient(black 10%,white 90%)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(black 10%,white 90%)");
     }
 
     @Test
-    public void length() throws Exception {
+    void length() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new LinearGradient().color(black, one).color(white, two)));
         });
-        assert style
-                .property("background-image", "linear-gradient(black 10px,white 20em)", "-webkit-linear-gradient(black 10px,white 20em)");
+        assert style.property("background-image", "linear-gradient(black 10px,white 20em)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(black 10px,white 20em)");
     }
 
     @Test
-    public void repeat() throws Exception {
+    void repeat() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new LinearGradient().repeat().color(black, white)));
         });
-        assert style
-                .property("background-image", "repeating-linear-gradient(black,white)", "-webkit-repeating-linear-gradient(black,white)");
+        assert style.property("background-image", "repeating-linear-gradient(black,white)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-repeating-linear-gradient(black,white)");
     }
 }

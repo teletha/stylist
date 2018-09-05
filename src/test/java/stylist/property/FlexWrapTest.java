@@ -12,38 +12,39 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:40:11
+ * @version 2018/09/05 11:22:06
  */
-public class FlexWrapTest extends StyleTester {
+class FlexWrapTest extends StyleTester {
 
     @Test
-    public void noWrap() throws Exception {
+    void noWrap() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().wrap.disable();
         });
 
         assert style.property("flex-wrap", "nowrap");
-        assert style.property("-webkit-flex-wrap", "nowrap");
+        assert style.property("flex-wrap", Vendor.Webkit, "-webkit-flex-wrap", "nowrap");
     }
 
     @Test
-    public void wrap() throws Exception {
+    void wrap() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().wrap.enable();
         });
         assert style.property("flex-wrap", "wrap");
-        assert style.property("-webkit-flex-wrap", "wrap");
+        assert style.property("flex-wrap", Vendor.Webkit, "-webkit-flex-wrap", "wrap");
     }
 
     @Test
-    public void wrapReverse() throws Exception {
+    void wrapReverse() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().wrap.reverse();
         });
 
         assert style.property("flex-wrap", "wrap-reverse");
-        assert style.property("-webkit-flex-wrap", "wrap-reverse");
+        assert style.property("flex-wrap", Vendor.Webkit, "-webkit-flex-wrap", "wrap-reverse");
     }
 }

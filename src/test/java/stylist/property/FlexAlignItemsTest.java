@@ -12,59 +12,60 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:37:33
+ * @version 2018/09/05 11:19:08
  */
-public class FlexAlignItemsTest extends StyleTester {
+class FlexAlignItemsTest extends StyleTester {
 
     @Test
-    public void start() throws Exception {
+    void start() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignItems.start();
         });
 
         assert style.property("align-items", "flex-start");
-        assert style.property("-webkit-align-items", "flex-start");
+        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "flex-start");
     }
 
     @Test
-    public void end() throws Exception {
+    void end() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignItems.end();
         });
 
         assert style.property("align-items", "flex-end");
-        assert style.property("-webkit-align-items", "flex-end");
+        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "flex-end");
     }
 
     @Test
-    public void center() throws Exception {
+    void center() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignItems.center();
         });
 
         assert style.property("align-items", "center");
-        assert style.property("-webkit-align-items", "center");
+        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "center");
     }
 
     @Test
-    public void baseline() throws Exception {
+    void baseline() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignItems.baseline();
         });
 
         assert style.property("align-items", "baseline");
-        assert style.property("-webkit-align-items", "baseline");
+        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "baseline");
     }
 
     @Test
-    public void stretch() throws Exception {
+    void stretch() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().alignItems.stretch();
         });
 
         assert style.property("align-items", "stretch");
-        assert style.property("-webkit-align-items", "stretch");
+        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "stretch");
     }
 }

@@ -12,14 +12,15 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:36:59
+ * @version 2018/09/05 11:40:00
  */
-public class DisplayTest extends StyleTester {
+class DisplayTest extends StyleTester {
 
     @Test
-    public void block() throws Exception {
+    void block() {
         ValidatableStyle style = writeStyle(() -> {
             display.block();
         });
@@ -27,7 +28,7 @@ public class DisplayTest extends StyleTester {
     }
 
     @Test
-    public void inline() throws Exception {
+    void inline() {
         ValidatableStyle style = writeStyle(() -> {
             display.inline();
         });
@@ -35,7 +36,7 @@ public class DisplayTest extends StyleTester {
     }
 
     @Test
-    public void inlineBlock() throws Exception {
+    void inlineBlock() {
         ValidatableStyle style = writeStyle(() -> {
             display.inlineBlock();
         });
@@ -43,18 +44,20 @@ public class DisplayTest extends StyleTester {
     }
 
     @Test
-    public void flex() throws Exception {
+    void flex() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex();
         });
-        assert style.property("display", "flex", "-webkit-flex");
+        assert style.property("display", "flex");
+        assert style.property("display", Vendor.Webkit, "display", "-webkit-flex");
     }
 
     @Test
-    public void inlineFlex() throws Exception {
+    void inlineFlex() {
         ValidatableStyle style = writeStyle(() -> {
             display.inlineFlex();
         });
-        assert style.property("display", "inline-flex", "-webkit-inline-flex");
+        assert style.property("display", "inline-flex");
+        assert style.property("display", Vendor.Webkit, "display", "-webkit-inline-flex");
     }
 }

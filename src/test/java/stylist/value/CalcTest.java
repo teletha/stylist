@@ -12,18 +12,19 @@ package stylist.value;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:34:27
+ * @version 2018/09/05 11:46:51
  */
-public class CalcTest extends StyleTester {
+class CalcTest extends StyleTester {
 
     private static final Numeric one = new Numeric(1, px);
 
     private static final Numeric two = new Numeric(2, em);
 
     @Test
-    public void normal() throws Exception {
+    void normal() {
         ValidatableStyle style = writeStyle(() -> {
             display.width(one);
         });
@@ -31,28 +32,29 @@ public class CalcTest extends StyleTester {
     }
 
     @Test
-    public void add() throws Exception {
+    void add() {
         ValidatableStyle style = writeStyle(() -> {
             display.width(one.add(two));
         });
-        assert style.property("width", "calc(1px + 2em)", "-webkit-calc(1px + 2em)");
+        assert style.property("width", "calc(1px + 2em)");
+        assert style.property("width", Vendor.Webkit, "width", "-webkit-calc(1px + 2em)");
     }
 
     @Test
-    public void inPrefixedProperty() throws Exception {
+    void inPrefixedProperty() {
         ValidatableStyle style = writeStyle(() -> {
             transform.translateY(one.add(two));
         });
-        assert style.property("-webkit-transform", "translateY(-webkit-calc(1px + 2em))");
         assert style.property("transform", "translateY(calc(1px + 2em))");
+        assert style.property("transform", Vendor.Webkit, "-webkit-transform", "translateY(-webkit-calc(1px + 2em))");
     }
 
     @Test
-    public void noneInPrefixedProperty() throws Exception {
+    void noneInPrefixedProperty() {
         ValidatableStyle style = writeStyle(() -> {
             transform.translateY(one);
         });
-        assert style.property("-webkit-transform", "translateY(1px)");
         assert style.property("transform", "translateY(1px)");
+        assert style.property("transform", Vendor.Webkit, "-webkit-transform", "translateY(1px)");
     }
 }

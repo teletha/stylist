@@ -12,49 +12,50 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 
 /**
- * @version 2018/08/30 18:38:01
+ * @version 2018/09/05 11:21:17
  */
-public class FlexDirectionTest extends StyleTester {
+class FlexDirectionTest extends StyleTester {
 
     @Test
-    public void row() throws Exception {
+    void row() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().direction.row();
         });
 
         assert style.property("flex-direction", "row");
-        assert style.property("-webkit-flex-direction", "row");
+        assert style.property("flex-direction", Vendor.Webkit, "-webkit-flex-direction", "row");
     }
 
     @Test
-    public void rowReverse() throws Exception {
+    void rowReverse() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().direction.rowReverse();
         });
 
         assert style.property("flex-direction", "row-reverse");
-        assert style.property("-webkit-flex-direction", "row-reverse");
+        assert style.property("flex-direction", Vendor.Webkit, "-webkit-flex-direction", "row-reverse");
     }
 
     @Test
-    public void colmun() throws Exception {
+    void colmun() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().direction.column();
         });
 
         assert style.property("flex-direction", "column");
-        assert style.property("-webkit-flex-direction", "column");
+        assert style.property("flex-direction", Vendor.Webkit, "-webkit-flex-direction", "column");
     }
 
     @Test
-    public void colmunReverse() throws Exception {
+    void colmunReverse() {
         ValidatableStyle style = writeStyle(() -> {
             display.flex().direction.columnReverse();
         });
 
         assert style.property("flex-direction", "column-reverse");
-        assert style.property("-webkit-flex-direction", "column-reverse");
+        assert style.property("flex-direction", Vendor.Webkit, "-webkit-flex-direction", "column-reverse");
     }
 }

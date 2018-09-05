@@ -12,12 +12,12 @@ package stylist;
 import org.junit.jupiter.api.Test;
 
 /**
- * @version 2018/08/30 18:33:07
+ * @version 2018/09/05 11:53:49
  */
-public class PseudoElementTest extends StyleTester {
+class PseudoElementTest extends StyleTester {
 
     @Test
-    public void before() {
+    void before() {
         ValidatableStyle parsed = writeStyle(() -> {
             font.color(255, 255, 0);
 
@@ -29,17 +29,17 @@ public class PseudoElementTest extends StyleTester {
                 });
             });
         });
-        assert parsed.property("color", "rgb(255,255,0)");
+        assert parsed.property("color", "hsl(60,100%,50%)");
 
         ValidatableStyle before = parsed.sub("before");
-        assert before.property("color", "rgb(0,255,0)");
+        assert before.property("color", "hsl(120,100%,50%)");
 
         ValidatableStyle beforeHover = parsed.sub("hover::before");
-        assert beforeHover.property("color", "rgb(0,0,0)");
+        assert beforeHover.property("color", "black");
     }
 
     @Test
-    public void after() {
+    void after() {
         ValidatableStyle parsed = writeStyle(() -> {
             font.color(255, 255, 0);
 
@@ -51,17 +51,17 @@ public class PseudoElementTest extends StyleTester {
                 });
             });
         });
-        assert parsed.property("color", "rgb(255,255,0)");
+        assert parsed.property("color", "hsl(60,100%,50%)");
 
         ValidatableStyle after = parsed.sub("after");
-        assert after.property("color", "rgb(0,255,0)");
+        assert after.property("color", "hsl(120,100%,50%)");
 
         ValidatableStyle afterHover = parsed.sub("hover::after");
-        assert afterHover.property("color", "rgb(0,0,0)");
+        assert afterHover.property("color", "black");
     }
 
     @Test
-    public void text() {
+    void text() {
         ValidatableStyle style = writeStyle(() -> {
             $.firstLetter(() -> {
                 display.inline();
@@ -77,7 +77,7 @@ public class PseudoElementTest extends StyleTester {
     }
 
     @Test
-    public void selection() {
+    void selection() {
         ValidatableStyle style = writeStyle(() -> {
             $.selection(() -> {
                 display.inline();

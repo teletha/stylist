@@ -12,12 +12,13 @@ package stylist.value;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 import stylist.property.Background.BackgroundImage;
 
 /**
- * @version 2018/08/30 18:35:21
+ * @version 2018/09/05 11:44:47
  */
-public class RadialGradientTest extends StyleTester {
+class RadialGradientTest extends StyleTester {
 
     private static final Color black = Color.Black;
 
@@ -30,53 +31,56 @@ public class RadialGradientTest extends StyleTester {
     private static final Position pos = new Position(one, two);
 
     @Test
-    public void base() throws Exception {
+    void base() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new RadialGradient().color(black, white)));
         });
-        assert style.property("background-image", "radial-gradient(black,white)", "-webkit-radial-gradient(black,white)");
+        assert style.property("background-image", "radial-gradient(black,white)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-radial-gradient(black,white)");
     }
 
     @Test
-    public void colors() throws Exception {
+    void colors() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new RadialGradient().color(black, white, black)));
         });
-        assert style.property("background-image", "radial-gradient(black,white,black)", "-webkit-radial-gradient(black,white,black)");
+        assert style.property("background-image", "radial-gradient(black,white,black)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-radial-gradient(black,white,black)");
     }
 
     @Test
-    public void percentage() throws Exception {
+    void percentage() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new RadialGradient().color(black, 10).color(white, 90)));
         });
-        assert style.property("background-image", "radial-gradient(black 10%,white 90%)", "-webkit-radial-gradient(black 10%,white 90%)");
+        assert style.property("background-image", "radial-gradient(black 10%,white 90%)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-radial-gradient(black 10%,white 90%)");
     }
 
     @Test
-    public void length() throws Exception {
+    void length() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new RadialGradient().color(black, one).color(white, two)));
         });
-        assert style
-                .property("background-image", "radial-gradient(black 10px,white 20em)", "-webkit-radial-gradient(black 10px,white 20em)");
+        assert style.property("background-image", "radial-gradient(black 10px,white 20em)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-radial-gradient(black 10px,white 20em)");
     }
 
     @Test
-    public void repeat() throws Exception {
+    void repeat() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new RadialGradient().repeat().color(black, white)));
         });
-        assert style
-                .property("background-image", "repeating-radial-gradient(black,white)", "-webkit-repeating-radial-gradient(black,white)");
+        assert style.property("background-image", "repeating-radial-gradient(black,white)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-repeating-radial-gradient(black,white)");
     }
 
     @Test
-    public void position() throws Exception {
+    void position() {
         ValidatableStyle style = writeStyle(() -> {
             background.image(BackgroundImage.of(new RadialGradient().position(pos).color(black, white)));
         });
-        assert style
-                .property("background-image", "radial-gradient(at 10px 20em,black,white)", "-webkit-radial-gradient(10px 20em,black,white)");
+        assert style.property("background-image", "radial-gradient(at 10px 20em,black,white)");
+        assert style.property("background-image", Vendor.Webkit, "background-image", "-webkit-radial-gradient(10px 20em,black,white)");
     }
 }

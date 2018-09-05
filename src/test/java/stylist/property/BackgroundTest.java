@@ -14,23 +14,24 @@ import static stylist.value.Color.*;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.Vendor;
 import stylist.property.Background.BackgroundImage;
 
 /**
- * @version 2018/08/30 18:36:15
+ * @version 2018/09/05 11:51:47
  */
-public class BackgroundTest extends StyleTester {
+class BackgroundTest extends StyleTester {
 
     @Test
-    public void color() {
+    void color() {
         ValidatableStyle parsed = writeStyle(() -> {
             background.color(255, 0, 0);
         });
-        assert parsed.property("background-color", "rgb(255,0,0)");
+        assert parsed.property("background-color", "hsl(0,100%,50%)");
     }
 
     @Test
-    public void origin() {
+    void origin() {
         ValidatableStyle parsed = writeStyle(() -> {
             background.contentBox();
         });
@@ -48,7 +49,7 @@ public class BackgroundTest extends StyleTester {
     }
 
     @Test
-    public void imageSingle() {
+    void imageSingle() {
         ValidatableStyle parsed = writeStyle(() -> {
             background.image("test").fixed().cover().repeatX();
         });
@@ -59,7 +60,7 @@ public class BackgroundTest extends StyleTester {
     }
 
     @Test
-    public void image() {
+    void image() {
         ValidatableStyle parsed = writeStyle(() -> {
             background.image(BackgroundImage.url("test").top().left().fixed().repeat().cover());
         });
@@ -69,7 +70,7 @@ public class BackgroundTest extends StyleTester {
     }
 
     @Test
-    public void images() {
+    void images() {
         ValidatableStyle parsed = writeStyle(() -> {
             BackgroundImage one = BackgroundImage.url("one").bottom().right();
             BackgroundImage two = BackgroundImage.url("two").horizontal(1, em).vertical(2, percent).noRepeat().contain().local();
@@ -84,19 +85,21 @@ public class BackgroundTest extends StyleTester {
     }
 
     @Test
-    public void imageGradient() throws Exception {
+    void imageGradient() {
         ValidatableStyle parsed = writeStyle(() -> {
             background.image(BackgroundImage.of($.linear().color(Black, White)));
         });
-        assert parsed.property("background-image", "linear-gradient(black,white)", "-webkit-linear-gradient(black,white)");
+        assert parsed.property("background-image", "linear-gradient(black,white)");
+        assert parsed.property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(black,white)");
     }
 
     @Test
-    public void imageGradients() throws Exception {
+    void imageGradients() {
         ValidatableStyle parsed = writeStyle(() -> {
             background.image(BackgroundImage.of($.linear().color(Black, White)), BackgroundImage.of($.linear().color(White, Black)));
         });
+        assert parsed.property("background-image", "linear-gradient(black,white),linear-gradient(white,black)");
         assert parsed
-                .property("background-image", "linear-gradient(black,white),linear-gradient(white,black)", "-webkit-linear-gradient(black,white),-webkit-linear-gradient(white,black)");
+                .property("background-image", Vendor.Webkit, "background-image", "-webkit-linear-gradient(black,white),-webkit-linear-gradient(white,black)");
     }
 }

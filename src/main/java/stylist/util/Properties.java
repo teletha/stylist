@@ -85,7 +85,20 @@ public class Properties {
      * @return An updated {@link Properties}.
      */
     public Properties add(String key, CSSValue value) {
-        keys.add(CSSValue.of(key));
+        return add(CSSValue.of(key), value);
+    }
+
+    /**
+     * <p>
+     * Append the specified value by the specified key.
+     * </p>
+     * 
+     * @param key A key.
+     * @param value A value.
+     * @return An updated {@link Properties}.
+     */
+    public Properties add(CSSValue key, CSSValue value) {
+        keys.add(key);
         values.add(value);
 
         return this;
@@ -101,6 +114,19 @@ public class Properties {
      * @return An updated {@link Properties}.
      */
     public Properties set(String key, CSSValue value) {
+        return set(CSSValue.of(key), value);
+    }
+
+    /**
+     * <p>
+     * Update the specified value by the specified key.
+     * </p>
+     * 
+     * @param key A key.
+     * @param value A value to update.
+     * @return An updated {@link Properties}.
+     */
+    public Properties set(CSSValue key, CSSValue value) {
         int index = key(key);
 
         if (index == -1) {
@@ -208,8 +234,20 @@ public class Properties {
      * @return A index for the specified key.
      */
     public int key(String key) {
+        return key(CSSValue.of(key));
+    }
+
+    /**
+     * <p>
+     * Retrieve the index by the specified key.
+     * </p>
+     * 
+     * @param key A key to find.
+     * @return A index for the specified key.
+     */
+    public int key(CSSValue key) {
         for (int i = 0; i < keys.size(); i++) {
-            if (keys.get(i).match(key)) {
+            if (keys.get(i).toString().equals(key.toString())) {
                 return i;
             }
         }

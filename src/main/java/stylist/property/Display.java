@@ -9,7 +9,9 @@
  */
 package stylist.property;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
+import stylist.Vendor;
 import stylist.value.Numeric;
 import stylist.value.Shadow;
 import stylist.value.Unit;
@@ -94,8 +96,7 @@ public final class Display extends PropertyDefinition<Display> {
      * model.
      */
     public Flex flex() {
-        value("flex");
-        value("-webkit-flex");
+        value(CSSValue.of("flex", Vendor.Webkit));
 
         return new Flex();
     }
@@ -105,8 +106,7 @@ public final class Display extends PropertyDefinition<Display> {
      * model.
      */
     public Flex inlineFlex() {
-        value("inline-flex");
-        value("-webkit-inline-flex");
+        value(CSSValue.of("inline-flex", Vendor.Webkit));
 
         return new Flex();
     }

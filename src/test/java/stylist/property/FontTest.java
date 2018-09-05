@@ -14,20 +14,20 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 
 /**
- * @version 2018/08/30 18:38:41
+ * @version 2018/09/05 11:52:22
  */
-public class FontTest extends StyleTester {
+class FontTest extends StyleTester {
 
     @Test
-    public void rgb() {
+    void rgb() {
         ValidatableStyle parsed = writeStyle(() -> {
             font.color(255, 0, 0);
         });
-        assert parsed.property("color", "rgb(255,0,0)");
+        assert parsed.property("color", "hsl(0,100%,50%)");
     }
 
     @Test
-    public void family() {
+    void family() {
         ValidatableStyle parsed = writeStyle(() -> {
             font.family("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600", stylist.value.Font.Serif);
         });
