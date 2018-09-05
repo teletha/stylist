@@ -161,7 +161,7 @@ public abstract class CSSValue {
     /**
      * @version 2018/09/02 11:05:46
      */
-    private static class Value extends CSSValue {
+    static class Value extends CSSValue {
 
         /** The vendored values. */
         private final EnumMap<Vendor, String> values;
@@ -170,11 +170,18 @@ public abstract class CSSValue {
          * @param value
          * @param vendors
          */
-        private Value(Object value, Vendor... vendors) {
+        Value(Object value, Vendor... vendors) {
+            this(value, EnumSet.of(Standard, vendors));
+        }
+
+        /**
+         * @param value
+         * @param vendors
+         */
+        Value(Object value, EnumSet<Vendor> vendors) {
             String v = String.valueOf(value);
 
             this.values = new EnumMap(Vendor.class);
-            this.values.put(Standard, v);
             for (Vendor vendor : vendors) {
                 this.values.put(vendor, vendor + v);
             }

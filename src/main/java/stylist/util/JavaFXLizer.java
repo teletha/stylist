@@ -70,11 +70,11 @@ public class JavaFXLizer implements Consumer<Properties> {
             String h = horizontal.or(CSSValue.of("left")).toString();
             String v = vertical.or(CSSValue.of("center")).toString();
 
-            if (v == "middle") {
+            if (v.equals("middle")) {
                 v = "center";
             }
 
-            if (h == "center" && v == "center") {
+            if (h.equals("center") && v.equals("center")) {
                 value = "center";
             } else {
                 value = v + "-" + h;

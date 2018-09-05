@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+import stylist.CSSValue.Value;
 import stylist.util.Formatter;
 import stylist.util.Properties;
 
@@ -81,6 +82,8 @@ public class StyleRule implements Comparable<StyleRule> {
             // calculate dependent vendors
             EnumSet<Vendor> vendors = EnumSet.copyOf(requiredVendorsForNames);
             vendors.addAll(concated.vendors());
+
+            CSSValue nnn = new Value(name, requiredVendorsForNames);
 
             for (Vendor vendor : vendors) {
                 String resolvedName = requiredVendorsForNames.contains(vendor) ? vendor + name : name;
