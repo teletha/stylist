@@ -229,7 +229,7 @@ public final class Formatter {
 
             for (int i = 0, size = rule.properties.size(); i < size; i++) {
                 appendable.append(beforePropertyName)
-                        .append(rule.properties.key(i))
+                        .append(rule.properties.key(i).toString())
                         .append(afterPropertyName)
                         .append(':')
                         .append(beforePropertyValue)

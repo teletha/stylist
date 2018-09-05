@@ -19,12 +19,12 @@ import kiss.Variable;
 import stylist.CSSValue;
 
 /**
- * @version 2018/09/01 21:31:58
+ * @version 2018/09/05 10:42:06
  */
 public class Properties {
 
     /** The key list. */
-    private final ArrayList<String> keys = new ArrayList();
+    private final ArrayList<CSSValue> keys = new ArrayList();
 
     /** The value list. */
     private final ArrayList<CSSValue> values = new ArrayList();
@@ -38,13 +38,9 @@ public class Properties {
      * @return A first matched value.
      */
     public Variable<CSSValue> get(String key) {
-        int index = keys.indexOf(key);
+        int index = key(key);
 
-        if (index == -1) {
-            return Variable.empty();
-        } else {
-            return Variable.of(values.get(index));
-        }
+        return index == -1 ? Variable.empty() : Variable.of(values.get(index));
     }
 
     /**
@@ -59,7 +55,7 @@ public class Properties {
         List<CSSValue> matched = new ArrayList();
 
         for (int i = 0, length = keys.size(); i < length; i++) {
-            if (keys.get(i).equals(key)) {
+            if (keys.get(i).match(key)) {
                 matched.add(values.get(i));
             }
         }
@@ -89,7 +85,7 @@ public class Properties {
      * @return An updated {@link Properties}.
      */
     public Properties add(String key, CSSValue value) {
-        keys.add(key);
+        keys.add(CSSValue.of(key));
         values.add(value);
 
         return this;
@@ -105,10 +101,10 @@ public class Properties {
      * @return An updated {@link Properties}.
      */
     public Properties set(String key, CSSValue value) {
-        int index = keys.indexOf(key);
+        int index = key(key);
 
         if (index == -1) {
-            keys.add(key);
+            keys.add(CSSValue.of(key));
             values.add(value);
         } else {
             values.set(index, value);
@@ -125,7 +121,7 @@ public class Properties {
      * @return An updated {@link Properties}.
      */
     public Variable<CSSValue> remove(String key) {
-        int index = keys.indexOf(key);
+        int index = key(key);
 
         if (index != -1) {
             keys.remove(index);
@@ -162,7 +158,7 @@ public class Properties {
      */
     public Properties removeAll(String key) {
         for (int i = keys.size() - 1; 0 <= i; i--) {
-            if (keys.get(i).equals(key)) {
+            if (keys.get(i).match(key)) {
                 keys.remove(i);
                 values.remove(i);
             }
@@ -199,7 +195,7 @@ public class Properties {
      * @param index A index to find.
      * @return A indexed key.
      */
-    public String key(int index) {
+    public CSSValue key(int index) {
         return keys.get(index);
     }
 
@@ -212,7 +208,12 @@ public class Properties {
      * @return A index for the specified key.
      */
     public int key(String key) {
-        return keys.indexOf(key);
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.get(i).match(key)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -222,7 +223,7 @@ public class Properties {
      * 
      * @return
      */
-    public List<String> keys() {
+    public List<CSSValue> keys() {
         return keys;
     }
 
@@ -237,7 +238,7 @@ public class Properties {
     public Properties keys(Function<String, String> mapper) {
         if (mapper != null) {
             for (int i = 0; i < keys.size(); i++) {
-                keys.set(i, mapper.apply(keys.get(i)));
+                keys.set(i, CSSValue.of(mapper.apply(keys.get(i).toString())));
             }
         }
         return this;
@@ -319,12 +320,12 @@ public class Properties {
      * @return
      */
     public boolean contains(String key, String value) {
-        int index = keys.indexOf(key);
-
-        if (index == -1) {
-            return false;
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.get(i).match(key)) {
+                return values.get(i).match(value);
+            }
         }
-        return values.get(index).match(value);
+        return false;
     }
 
     /**
