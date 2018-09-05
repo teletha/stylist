@@ -12,6 +12,7 @@ package stylist;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
@@ -32,52 +33,46 @@ public class PropertyDefinition<T> {
     /** The context property. */
     private final T context;
 
+    /** The required vendors for property name. */
     private final EnumSet<Vendor> requiredVendorsForNames;
 
     /**
-     * <p>
      * Property definition.
-     * </p>
      */
     protected PropertyDefinition() {
         this(null, null);
     }
 
     /**
-     * <p>
      * Property definition.
-     * </p>
+     * 
+     * @param name A property name.
      */
     protected PropertyDefinition(String name) {
         this(name, null);
     }
 
     /**
-     * <p>
      * Property definition.
-     * </p>
+     * 
+     * @param name A property name.
+     * @param context The chainable context object.
      */
     protected PropertyDefinition(String name, T context) {
         this(name, context, Vendor.Standard);
     }
 
     /**
-     * <p>
      * Property definition.
-     * </p>
+     * 
+     * @param name A property name.
+     * @param context The chainable context object.
+     * @param vendors The required vendors.
      */
     protected PropertyDefinition(String name, T context, Vendor... vendors) {
-        if (name == null) {
-            name = Strings.hyphenate(getClass().getSimpleName());
-        }
-
-        if (context == null) {
-            context = (T) this;
-        }
-
-        this.name = name;
-        this.context = context;
-        this.requiredVendorsForNames = EnumSet.of(Vendor.Now, vendors);
+        this.name = Objects.requireNonNullElse(name, Strings.hyphenate(getClass().getSimpleName()));
+        this.context = Objects.requireNonNullElse(context, (T) this);
+        this.requiredVendorsForNames = EnumSet.of(Vendor.Standard, vendors);
     }
 
     /**
