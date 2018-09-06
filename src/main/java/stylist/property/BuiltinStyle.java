@@ -14,14 +14,14 @@ import stylist.StyleDSL;
 import stylist.value.Color;
 
 /**
- * @version 2018/08/30 18:24:47
+ * @version 2018/09/06 14:12:19
  */
 class BuiltinStyle implements StyleDSL {
 
     /**
      * Make text unselectable.
      */
-    Style unselectable = () -> {
+    static Style unselectable = () -> {
         cursor.defaults();
 
         $.selection(() -> {

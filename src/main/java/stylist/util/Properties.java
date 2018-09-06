@@ -12,14 +12,13 @@ package stylist.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
-import kiss.I;
-import kiss.Variable;
 import stylist.CSSValue;
 
 /**
- * @version 2018/09/05 10:42:06
+ * @version 2018/09/06 13:52:44
  */
 public final class Properties {
 
@@ -35,10 +34,10 @@ public final class Properties {
      * @param name A property name.
      * @return The matched value.
      */
-    public Variable<CSSValue> get(String name) {
+    public Optional<CSSValue> get(String name) {
         int index = name(name);
 
-        return index == -1 ? Variable.empty() : Variable.of(values.get(index));
+        return index == -1 ? Optional.empty() : Optional.of(values.get(index));
     }
 
     /**
@@ -90,14 +89,14 @@ public final class Properties {
      * @param name A property name to remove.
      * @return An updated {@link Properties}.
      */
-    public Variable<CSSValue> remove(String name) {
+    public Optional<CSSValue> remove(String name) {
         int index = name(name);
 
         if (index != -1) {
             names.remove(index);
-            return Variable.of(values.remove(index));
+            return Optional.of(values.remove(index));
         } else {
-            return Variable.empty();
+            return Optional.empty();
         }
     }
 
@@ -208,10 +207,10 @@ public final class Properties {
      */
     public Properties revalue(String name, Function<CSSValue, CSSValue> mapper) {
         if (mapper != null) {
-            Variable<CSSValue> value = get(name);
+            Optional<CSSValue> value = get(name);
 
             if (value.isPresent()) {
-                set(name, mapper.apply(value.v));
+                set(name, mapper.apply(value.get()));
             }
         }
         return this;
@@ -265,17 +264,18 @@ public final class Properties {
     public void compactTo(String compactName, CSSValue defaultValue, String... removers) {
         if (removers != null && removers.length != 0) {
             int[] count = new int[] {0};
+            CSSValue compacting = CSSValue.EMPTY;
 
-            CSSValue compacting = I.signal(removers).map(e -> {
-                Variable<CSSValue> removed = remove(e);
+            for (String remover : removers) {
+                Optional<CSSValue> removed = remove(remover);
 
-                if (removed.isAbsent()) {
-                    return defaultValue;
+                if (removed.isPresent() == false) {
+                    compacting = compacting.join(defaultValue);
                 } else {
                     count[0] = count[0] + 1;
-                    return removed.v;
+                    compacting = compacting.join(removed.get());
                 }
-            }).scanWith(CSSValue.EMPTY, (p, n) -> p.join(" ", n)).to().v;
+            }
 
             if (0 < count[0]) {
                 set(compactName, compacting);

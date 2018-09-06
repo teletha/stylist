@@ -81,6 +81,20 @@ public class StyleTester implements StyleDSL {
         }
 
         /**
+         * Check the property which is specialized for vendors.
+         * 
+         * @param name
+         * @param value
+         * @return
+         */
+        public boolean property(String name, String value, Vendor... vendors) {
+            for (Vendor vendor : vendors) {
+                assert property(name, vendor, vendor + name, value);
+            }
+            return property(name, Vendor.Standard, name, value);
+        }
+
+        /**
          * Check the property which is specialized for {@link Vendor}.
          * 
          * @param name

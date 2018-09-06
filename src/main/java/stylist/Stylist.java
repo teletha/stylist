@@ -11,6 +11,7 @@ package stylist;
 
 import static java.nio.charset.StandardCharsets.*;
 
+import java.io.IOError;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -121,7 +122,7 @@ public class Stylist {
             }
             Files.write(path, builder.toString().getBytes(UTF_8));
         } catch (IOException e) {
-            throw I.quiet(e);
+            throw new IOError(e);
         }
         return path;
     }

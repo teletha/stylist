@@ -14,7 +14,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.StringJoiner;
 
-import kiss.I;
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.util.Strings;
@@ -22,7 +21,7 @@ import stylist.value.Numeric;
 import stylist.value.Unit;
 
 /**
- * @version 2018/08/30 18:26:05
+ * @version 2018/09/06 13:44:25
  */
 public class Font extends Colorable<Font> {
 
@@ -458,7 +457,7 @@ public class Font extends Colorable<Font> {
     }
 
     /**
-     * @version 2014/10/29 0:40:24
+     * @version 2018/09/06 13:44:17
      */
     private static class FontInfo {
 
@@ -475,7 +474,7 @@ public class Font extends Colorable<Font> {
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 URLConnection connection = new URL(uri).openConnection();
                 connection.connect();
-                I.copy(connection.getInputStream(), out, true);
+                connection.getInputStream().transferTo(out);
 
                 String contents = out.toString();
                 int start = contents.indexOf("font-family");
@@ -493,7 +492,7 @@ public class Font extends Colorable<Font> {
 
                 return name;
             } catch (Exception e) {
-                throw I.quiet(e);
+                throw new Error(e);
             }
         }
     }

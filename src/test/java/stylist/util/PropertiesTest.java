@@ -25,7 +25,7 @@ class PropertiesTest {
         properties.set("2", "2");
 
         properties.compactTo("compact", "default", "1", "2");
-        assert properties.get("compact").toString().equals("1 2");
+        assert properties.get("compact").get().match("1 2");
     }
 
     @Test
@@ -35,7 +35,7 @@ class PropertiesTest {
         properties.set("2", "2");
 
         properties.compactTo("compact", "default", "1", "2", "3");
-        assert properties.get("compact").toString().equals("1 2 default");
+        assert properties.get("compact").get().match("1 2 default");
     }
 
     @Test
@@ -43,7 +43,7 @@ class PropertiesTest {
         Properties properties = new Properties();
 
         properties.compactTo("compact", "default", "1", "2", "3");
-        assert properties.get("compact").isAbsent();
+        assert properties.get("compact").isPresent() == false;
     }
 
     @Test
@@ -54,8 +54,8 @@ class PropertiesTest {
 
         properties.rename(name -> CSSValue.of(name.toString().toUpperCase()));
         assert properties.size() == 2;
-        assert properties.get("A").toString().equals("a");
-        assert properties.get("B").toString().equals("b");
+        assert properties.get("A").get().match("a");
+        assert properties.get("B").get().match("b");
     }
 
     @Test
@@ -66,8 +66,8 @@ class PropertiesTest {
 
         properties.revalue("a", e -> CSSValue.of(e.toString().toUpperCase()));
         assert properties.size() == 2;
-        assert properties.get("a").is(CSSValue.of("A"));
-        assert properties.get("b").is(CSSValue.of("b"));
+        assert properties.get("a").get().match("A");
+        assert properties.get("b").get().match("b");
 
         // null
         properties.revalue("c", e -> CSSValue.of(e.toString().toUpperCase()));

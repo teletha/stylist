@@ -16,11 +16,10 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
-import stylist.CSSValue.Value;
 import stylist.util.Strings;
 
 /**
- * @version 2018/09/05 14:01:22
+ * @version 2018/09/06 14:10:24
  */
 public class PropertyDefinition<T> {
 
@@ -143,7 +142,7 @@ public class PropertyDefinition<T> {
      * @param values A list of property values.
      * @return Chainable API.
      */
-    protected final T value(String name, int... values) {
+    protected final T value(Object name, int... values) {
         List<CSSValue> list = new ArrayList();
 
         for (int i = 0; i < values.length; i++) {
@@ -161,7 +160,7 @@ public class PropertyDefinition<T> {
      * @param values A list of property values.
      * @return Chainable API.
      */
-    protected final T value(String name, float... values) {
+    protected final T value(Object name, float... values) {
         return value(name, ",", values);
     }
 
@@ -175,7 +174,7 @@ public class PropertyDefinition<T> {
      * @param values A list of property values.
      * @return Chainable API.
      */
-    protected final T value(String name, String separator, float... values) {
+    protected final T value(Object name, String separator, float... values) {
         List<CSSValue> list = new ArrayList();
 
         for (int i = 0; i < values.length; i++) {
@@ -193,7 +192,7 @@ public class PropertyDefinition<T> {
      * @param value A property value.
      * @return Chainable API.
      */
-    protected final T value(String name, Object value) {
+    protected final T value(Object name, Object value) {
         return value(name, List.of(CSSValue.of(value)), " ");
     }
 
@@ -205,9 +204,9 @@ public class PropertyDefinition<T> {
      * @param separator A value separator.
      * @return Chainable API.
      */
-    protected final T value(String name, List<? extends CSSValue> values, String separator) {
+    protected final T value(Object name, List<? extends CSSValue> values, String separator) {
         // create property name and value
-        CSSValue propertyName = new Value(name, requiredVendorsForNames);
+        CSSValue propertyName = CSSValue.of(name, requiredVendorsForNames);
         CSSValue propertyValue = CSSValue.EMPTY;
 
         for (CSSValue value : values) {

@@ -24,7 +24,7 @@ public class StyleRuleTest extends StyleTester {
 
         StyleRule rule = StyleRule.create(style);
         assert rule.selector.toString().equals("." + style.name());
-        assert rule.properties.get("display").v.match("block");
+        assert rule.properties.get("display").get().match("block");
     }
 
     @Test
@@ -39,11 +39,11 @@ public class StyleRuleTest extends StyleTester {
 
         StyleRule rule = StyleRule.create(style);
         assert rule.selector.toString().equals("." + style.name());
-        assert rule.properties.get("display").v.match("block");
+        assert rule.properties.get("display").get().match("block");
         assert rule.children.size() == 1;
 
         StyleRule child = rule.children.get(0);
         assert child.selector.toString().equals("." + style.name() + ":hover");
-        assert child.properties.get("text-decoration").v.match("underline");
+        assert child.properties.get("text-decoration").get().match("underline");
     }
 }

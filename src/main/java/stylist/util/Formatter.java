@@ -9,13 +9,13 @@
  */
 package stylist.util;
 
+import java.io.IOError;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import kiss.I;
 import stylist.CSSValue;
 import stylist.StyleRule;
 import stylist.value.Color;
@@ -244,7 +244,7 @@ public final class Formatter {
                 format(child, appendable);
             }
         } catch (IOException e) {
-            throw I.quiet(e);
+            throw new IOError(e);
         }
     }
 

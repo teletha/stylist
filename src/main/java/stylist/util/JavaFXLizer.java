@@ -10,9 +10,9 @@
 package stylist.util;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
 
-import kiss.Variable;
 import stylist.CSSValue;
 import stylist.Vendor;
 import stylist.value.Color;
@@ -69,13 +69,13 @@ public class JavaFXLizer implements Consumer<Properties> {
      * @param properties
      */
     private void alignment(Properties properties) {
-        Variable<CSSValue> horizontal = properties.remove("text-align");
-        Variable<CSSValue> vertical = properties.remove("vertical-align");
+        Optional<CSSValue> horizontal = properties.remove("text-align");
+        Optional<CSSValue> vertical = properties.remove("vertical-align");
 
         if (horizontal.isPresent() || vertical.isPresent()) {
             String value = "";
-            String h = horizontal.or(CSSValue.of("left")).toString();
-            String v = vertical.or(CSSValue.of("center")).toString();
+            String h = horizontal.orElse(CSSValue.of("left")).toString();
+            String v = vertical.orElse(CSSValue.of("center")).toString();
 
             if (v.equals("middle")) {
                 v = "center";

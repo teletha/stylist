@@ -9,9 +9,10 @@
  */
 package stylist.property;
 
+import static stylist.Vendor.*;
 import static stylist.value.Unit.*;
 
-import kiss.I;
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.value.Color;
 import stylist.value.Numeric;
@@ -19,7 +20,7 @@ import stylist.value.Shadow;
 import stylist.value.Unit;
 
 /**
- * @version 2018/08/30 18:28:52
+ * @version 2018/09/06 14:13:27
  */
 public class Text extends PropertyDefinition<Text> {
 
@@ -150,12 +151,9 @@ public class Text extends PropertyDefinition<Text> {
      * </p>
      */
     public Text unselectable() {
-        value("user-select", "none");
-        value("-moz-user-select", "none");
-        value("-ms-user-select", "none");
-        value("-webkit-user-select", "none");
+        value(CSSValue.of("user-select", Mozilla, MS, Webkit), "none");
 
-        I.make(BuiltinStyle.class).unselectable.style();
+        BuiltinStyle.unselectable.style();
 
         return this;
     }
