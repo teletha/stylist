@@ -10,7 +10,7 @@
 package stylist;
 
 /**
- * @version 2018/09/04 13:48:13
+ * @version 2018/09/06 16:31:21
  */
 public enum Vendor {
 
@@ -31,24 +31,6 @@ public enum Vendor {
 
     /** Standard */
     Standard("");
-
-    /** The default {@link Vendor} in the current environment. */
-    public static final Vendor Now = valueOf(System.getProperty(Vendor.class.getName(), Standard.name()));
-
-    /** The current vendor state in this environment. */
-    public static final boolean isMozilla() {
-        return Now == Mozilla;
-    }
-
-    /** The current vendor state in this environment. */
-    public static final boolean isWebkit() {
-        return Now == Webkit;
-    }
-
-    /** The current vendor state in this environment. */
-    public static final boolean isFX() {
-        return Now == JavaFX;
-    }
 
     /** The prefix. */
     private final String prefix;
