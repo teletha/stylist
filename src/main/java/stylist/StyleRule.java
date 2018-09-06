@@ -24,7 +24,9 @@ import stylist.util.Properties;
 public class StyleRule implements Comparable<StyleRule> {
 
     /** The selector. */
-    public final SelectorDSL selector;
+    public final CSSValue selector;
+
+    private final SelectorDSL internal;
 
     /** The property list. */
     public final Properties properties;
@@ -40,7 +42,8 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param name An actual selector.
      */
     StyleRule(SelectorDSL selector) {
-        this.selector = selector;
+        this.selector = selector.selector();
+        this.internal = selector;
         this.properties = new Properties();
     }
 
@@ -83,10 +86,10 @@ public class StyleRule implements Comparable<StyleRule> {
         if (parent == null) {
             selector.selector = "." + style.name();
         } else {
-            selector.selector = parent.selector.selector;
-            selector.pseudoClasses.addAll(0, parent.selector.pseudoClasses);
-            if (parent.selector.pseudoElement != null) {
-                selector.pseudoElement = parent.selector.pseudoElement;
+            selector.selector = parent.internal.selector;
+            selector.pseudoClasses.addAll(0, parent.internal.pseudoClasses);
+            if (parent.internal.pseudoElement != null) {
+                selector.pseudoElement = parent.internal.pseudoElement;
             }
         }
 

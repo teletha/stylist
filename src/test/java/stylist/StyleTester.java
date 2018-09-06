@@ -9,7 +9,6 @@
  */
 package stylist;
 
-import java.lang.reflect.Field;
 import java.util.function.Consumer;
 
 import kiss.I;
@@ -20,20 +19,8 @@ import stylist.util.Properties;
  */
 public class StyleTester implements StyleDSL {
 
-    /** The selector field. */
-    private static final Field selectorField;
-
-    private static final String StyleDSL = null;
-
     static {
         I.load(StyleTester.class, false);
-
-        try {
-            selectorField = StyleRule.class.getField("selector");
-            selectorField.setAccessible(true);
-        } catch (Exception e) {
-            throw I.quiet(e);
-        }
     }
 
     /**
@@ -59,53 +46,27 @@ public class StyleTester implements StyleDSL {
     }
 
     /**
-     * Helper method to write test style with the specified selector.
-     * 
-     * @param selector
-     * @param style
-     * @return
-     */
-    protected final StyleRule writeStyle(String selector, Style style) {
-        StyleRule root = StyleRule.create(style);
-
-        try {
-            update(root, (SelectorDSL) selectorField.get(root), selector);
-        } catch (Exception e) {
-            throw I.quiet(e);
-        }
-        return root;
-    }
-
-    /**
-     * Force to set the selector.
-     */
-    private void update(StyleRule rule, SelectorDSL root, String replacer) {
-        try {
-            SelectorDSL dsl = (SelectorDSL) selectorField.get(rule);
-            dsl.selector = replacer;
-            selectorField.set(rule, dsl);
-
-            for (StyleRule child : rule.children) {
-                update(child, root, replacer);
-            }
-        } catch (Exception e) {
-            throw I.quiet(e);
-        }
-    }
-
-    /**
      * @version 2018/09/06 10:47:04
      */
     public static class ValidatableStyle {
 
         /** The target to validate. */
-        private final StyleRule rules;
+        public final StyleRule rules;
 
         /**
          * @param rules
          */
         private ValidatableStyle(StyleRule rules) {
             this.rules = rules;
+        }
+
+        /**
+         * Calculate the selector.
+         * 
+         * @return
+         */
+        public String selector() {
+            return rules.selector.toString();
         }
 
         /**
@@ -172,7 +133,7 @@ public class StyleTester implements StyleDSL {
             ValidatableStyle found = find(rules, combinator, pseudo);
 
             if (found != null) {
-                CSSValue dsl = found.rules.selector.selector();
+                CSSValue dsl = found.rules.selector;
 
                 for (Vendor vendor : vendors) {
                     assert dsl.vendors().contains(vendor);
