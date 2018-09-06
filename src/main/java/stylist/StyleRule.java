@@ -76,22 +76,22 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param object A style description.
      * @return A create new {@link StyleRule}.
      */
-    static StyleRule create(SelectorDSL current, Style style) {
+    static StyleRule create(SelectorDSL selector, Style style) {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
 
         if (parent == null) {
-            current.selectors = "." + style.name();
+            selector.selector = "." + style.name();
         } else {
-            current.selectors = parent.selector.selectors;
-            current.pseudoClasses.addAll(0, parent.selector.pseudoClasses);
+            selector.selector = parent.selector.selector;
+            selector.pseudoClasses.addAll(0, parent.selector.pseudoClasses);
             if (parent.selector.pseudoElement != null) {
-                current.pseudoElement = parent.selector.pseudoElement;
+                selector.pseudoElement = parent.selector.pseudoElement;
             }
         }
 
         // create child rule
-        StyleRule child = new StyleRule(current);
+        StyleRule child = new StyleRule(selector);
 
         // swap context rule and execute it
         PropertyDefinition.rule = child;

@@ -28,7 +28,7 @@ public final class SelectorDSL {
     private final Consumer<StyleRule> processor;
 
     /** The simple selector list. */
-    String selectors = "";
+    String selector = "";
 
     /** The combinator. */
     private String combinator;
@@ -140,7 +140,7 @@ public final class SelectorDSL {
      * @return Chainable API.
      */
     SelectorDSL basic(String selector) {
-        this.selectors += selector;
+        this.selector += selector;
 
         return this;
     }
@@ -1250,26 +1250,26 @@ public final class SelectorDSL {
 
     /**
      * <p>
-     * Write down this selector.
+     * Create the selector expression as {@link CSSValue}.
      * </p>
      * 
      * @return A selector expression.
      */
-    CSSValue value() {
-        CSSValue selector = CSSValue.of(selectors.length() == 0 ? "*" : selectors);
+    CSSValue selector() {
+        CSSValue base = CSSValue.of(selector.length() == 0 ? "*" : selector);
 
         for (CSSValue pseudo : pseudoClasses) {
-            selector = selector.join(":", pseudo);
+            base = base.join(":", pseudo);
         }
 
         if (pseudoElement != null) {
-            selector = selector.join("::", pseudoElement);
+            base = base.join("::", pseudoElement);
         }
 
         if (combinator != null) {
-            selector = selector.join(combinator, child.value());
+            base = base.join(combinator, child.selector());
         }
-        return selector;
+        return base;
     }
 
     /**
@@ -1277,7 +1277,7 @@ public final class SelectorDSL {
      */
     @Override
     public String toString() {
-        return root.value().valueFor(Vendor.Standard);
+        return root.selector().valueFor(Vendor.Standard);
     }
 
     /**
@@ -1590,11 +1590,5 @@ public final class SelectorDSL {
 
             return parent.basic(builder.toString());
         }
-    }
-
-    /**
-     * @param selector
-     */
-    public void merge(SelectorDSL selector) {
     }
 }

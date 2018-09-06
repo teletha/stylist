@@ -82,7 +82,7 @@ public class StyleTester implements StyleDSL {
     private void update(StyleRule rule, SelectorDSL root, String replacer) {
         try {
             SelectorDSL dsl = (SelectorDSL) selectorField.get(rule);
-            dsl.selectors = replacer;
+            dsl.selector = replacer;
             selectorField.set(rule, dsl);
 
             for (StyleRule child : rule.children) {
@@ -172,7 +172,7 @@ public class StyleTester implements StyleDSL {
             ValidatableStyle found = find(rules, combinator, pseudo);
 
             if (found != null) {
-                CSSValue dsl = found.rules.selector.value();
+                CSSValue dsl = found.rules.selector.selector();
 
                 for (Vendor vendor : vendors) {
                     assert dsl.vendors().contains(vendor);
