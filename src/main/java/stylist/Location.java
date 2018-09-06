@@ -58,11 +58,11 @@ public interface Location extends Serializable {
                     }
                 }
             }
-            return clazz.getSimpleName() + "$" + lambda.getImplMethodName();
+            return className(clazz) + lambda.getImplMethodName();
         } catch (Throwable e) {
             // ignore
         }
-        return "";
+        return String.valueOf(hashCode());
     }
 
     /**

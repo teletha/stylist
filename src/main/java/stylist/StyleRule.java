@@ -15,11 +15,9 @@ import stylist.util.Formatter;
 import stylist.util.Properties;
 
 /**
- * <p>
  * This class is CSSStyleRule which represents a single CSS style rule.
- * </p>
  * 
- * @version 2018/09/05 12:03:58
+ * @version 2018/09/06 16:35:10
  */
 public class StyleRule implements Comparable<StyleRule> {
 
@@ -29,6 +27,7 @@ public class StyleRule implements Comparable<StyleRule> {
     /** The description. */
     public final String description;
 
+    /** The internal selector. */
     private final SelectorDSL internal;
 
     /** The property list. */
@@ -73,16 +72,16 @@ public class StyleRule implements Comparable<StyleRule> {
      * @return A create new {@link StyleRule}.
      */
     public static StyleRule create(Style style) {
-        return create(SelectorDSL.create(null), style);
+        return create(style, SelectorDSL.create(null));
     }
 
     /**
      * Create {@link StyleRule} from the specified {@link Style}.
-     * 
      * @param object A style description.
+     * 
      * @return A create new {@link StyleRule}.
      */
-    static StyleRule create(SelectorDSL selector, Style style) {
+    static StyleRule create(Style style, SelectorDSL selector) {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
 

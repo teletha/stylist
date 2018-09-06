@@ -1240,7 +1240,7 @@ public final class SelectorDSL {
      */
     void declare(Style style) {
         if (style != null) {
-            StyleRule rule = StyleRule.create(this, style);
+            StyleRule rule = StyleRule.create(style, this);
 
             if (root.processor != null) {
                 root.processor.accept(rule);
