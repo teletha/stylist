@@ -10,7 +10,6 @@
 package stylist;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -1249,27 +1248,6 @@ public final class SelectorDSL {
         }
     }
 
-    EnumSet<Vendor> vendors() {
-        EnumSet<Vendor> vendors = EnumSet.of(Vendor.Standard);
-
-        if (pseudoElement != null) {
-            vendors.addAll(pseudoElement.vendors());
-        }
-
-        for (CSSValue pseudoClass : pseudoClasses) {
-            vendors.addAll(pseudoClass.vendors());
-        }
-        return vendors;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return root.write().toString();
-    }
-
     /**
      * <p>
      * Write down this selector.
@@ -1277,7 +1255,7 @@ public final class SelectorDSL {
      * 
      * @return A selector expression.
      */
-    private CSSValue write() {
+    CSSValue value() {
         CSSValue selector = CSSValue.of(selectors.length() == 0 ? "*" : selectors);
 
         for (CSSValue pseudo : pseudoClasses) {
@@ -1289,9 +1267,17 @@ public final class SelectorDSL {
         }
 
         if (combinator != null) {
-            selector = selector.join(combinator, child.write());
+            selector = selector.join(combinator, child.value());
         }
         return selector;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return root.value().valueFor(Vendor.Standard);
     }
 
     /**

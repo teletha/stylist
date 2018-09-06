@@ -94,7 +94,7 @@ public class StyleTester implements StyleDSL {
     }
 
     /**
-     * @version 2018/08/30 22:22:37
+     * @version 2018/09/06 10:47:04
      */
     public static class ValidatableStyle {
 
@@ -165,35 +165,19 @@ public class StyleTester implements StyleDSL {
          * @param selector
          * @return
          */
-        public ValidatableStyle sub(String selector) {
+        public ValidatableStyle sub(String selector, Vendor... vendors) {
             String combinator = rules.selector + ":" + selector;
             String pseudo = rules.selector + "::" + selector;
 
             ValidatableStyle found = find(rules, combinator, pseudo);
 
             if (found != null) {
-                return found;
-            }
-            throw new AssertionError("The rule[" + combinator + "] or [" + pseudo + "] is not found.");
-        }
+                CSSValue dsl = found.rules.selector.value();
 
-        /**
-         * <p>
-         * Helper method to find {@link StyleRule} for the specified combinator or pseudo selector.
-         * </p>
-         * 
-         * @param selector
-         * @return
-         */
-        public ValidatableStyle sub(String selector, Vendor vendor, String vendored) {
-            String combinator = rules.selector + ":" + selector;
-            String pseudo = rules.selector + "::" + selector;
-
-            ValidatableStyle found = find(rules, combinator, pseudo);
-
-            if (found != null) {
-                assert found.rules.selector.vendors().contains(vendor);
-
+                for (Vendor vendor : vendors) {
+                    assert dsl.vendors().contains(vendor);
+                    assert dsl.valueFor(vendor).equals(dsl.valueFor(Vendor.Standard)) == false;
+                }
                 return found;
             }
             throw new AssertionError("The rule[" + combinator + "] or [" + pseudo + "] is not found.");
