@@ -19,33 +19,31 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import kiss.I;
 import stylist.util.Formatter;
-import stylist.util.HierarchicalNaming;
 
 /**
- * @version 2018/09/05 14:04:35
+ * @version 2018/09/06 16:29:18
  */
 public class Stylist {
 
-    /** The naming strategy. */
-    private static Function<Field, String> naming = new HierarchicalNaming("≫");
+    /** 1byte charset. */
+    private static final char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
+
+    /** The start index. */
+    private static final int base = chars.length;
 
     /** The managed locations. */
-    private static final Map<Location, String> managed = new ConcurrentHashMap();
+    private static final Map<Location, String> id = new HashMap();
+
+    /** The id manager. */
+    private static final AtomicInteger counter = new AtomicInteger();
 
     static {
-        load();
-    }
-
-    /**
-     * Load all styles eargerly.
-     */
-    private static void load() {
         for (Class domain : I.findAs(StyleDSL.class)) {
             for (Field field : domain.getDeclaredFields()) {
                 try {
@@ -55,7 +53,7 @@ public class Stylist {
                         Location located = (Location) field.get(null);
 
                         if (located != null) {
-                            managed.put(located, naming.apply(field));
+                            located.name();
                         }
                     }
                 } catch (Throwable e) {
@@ -66,31 +64,27 @@ public class Stylist {
     }
 
     /**
-     * Set the class name strategy.
+     * Compute identifier for the specified {@link Location}.
      * 
-     * @param strategy
+     * @param location A target location.
+     * @return An identifier.
      */
-    public static final void setNamingStrategy(Function<Field, String> strategy) {
-        if (strategy != null) {
-            naming = strategy;
-            load();
-        }
-    }
+    static String id(Location location) {
+        return id.computeIfAbsent(location, key -> {
+            int id = counter.getAndIncrement();
 
-    /**
-     * Compute the location name.
-     * 
-     * @param location
-     * @return
-     */
-    static String compute(Location location) {
-        String name = managed.get(location);
+            if (id == 0) {
+                return String.valueOf(chars[0]);
+            }
 
-        if (name != null) {
-            return name;
-        } else {
-            return "AT" + location.hashCode();
-        }
+            StringBuilder builder = new StringBuilder();
+
+            while (id != 0) {
+                builder.append(chars[id % base]);
+                id /= base;
+            }
+            return builder.toString();
+        });
     }
 
     /**
@@ -112,7 +106,7 @@ public class Stylist {
     public static final Path writeTo(Path path, Formatter formatter) {
         StringBuilder builder = new StringBuilder();
 
-        I.signal(managed.keySet()).as(Style.class).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
+        I.signal(id.keySet()).as(Style.class).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
             formatter.format(e, builder);
         });
 

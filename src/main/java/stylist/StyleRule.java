@@ -26,6 +26,9 @@ public class StyleRule implements Comparable<StyleRule> {
     /** The selector. */
     public final CSSValue selector;
 
+    /** The description. */
+    public final String description;
+
     private final SelectorDSL internal;
 
     /** The property list. */
@@ -35,14 +38,14 @@ public class StyleRule implements Comparable<StyleRule> {
     public final ArrayList<StyleRule> children = new ArrayList();
 
     /**
-     * <p>
      * Define style rule.
-     * </p>
      * 
      * @param name An actual selector.
+     * @param description A description of style.
      */
-    StyleRule(SelectorDSL selector) {
+    private StyleRule(SelectorDSL selector, String description) {
         this.selector = selector.selector();
+        this.description = description;
         this.internal = selector;
         this.properties = new Properties();
     }
@@ -52,7 +55,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     @Override
     public int compareTo(StyleRule o) {
-        return selector.toString().compareTo(o.selector.toString());
+        return description.compareTo(o.description);
     }
 
     /**
@@ -94,7 +97,7 @@ public class StyleRule implements Comparable<StyleRule> {
         }
 
         // create child rule
-        StyleRule child = new StyleRule(selector);
+        StyleRule child = new StyleRule(selector, style.detail());
 
         // swap context rule and execute it
         PropertyDefinition.rule = child;

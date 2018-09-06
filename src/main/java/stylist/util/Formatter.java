@@ -58,6 +58,9 @@ public final class Formatter {
     /** The format style. */
     private Function<Color, String> color = Color::toHSL;
 
+    /** The format style. */
+    private boolean comment = false;
+
     /** The manager of post processors. */
     private final List<Consumer<Properties>> posts = new ArrayList();
 
@@ -189,6 +192,17 @@ public final class Formatter {
     }
 
     /**
+     * Accept comment.
+     * 
+     * @param comment
+     * @return
+     */
+    public Formatter comment(boolean comment) {
+        this.comment = comment;
+        return this;
+    }
+
+    /**
      * Add the post-processor.
      * 
      * @param processor
@@ -225,7 +239,12 @@ public final class Formatter {
                 processor.accept(rule.properties);
             }
 
-            appendable.append(beforeSelector).append(rule.selector.toString()).append(afterSelector).append('{').append(afterStartBrace);
+            appendable.append(beforeSelector)
+                    .append(comment(rule.description))
+                    .append(rule.selector.toString())
+                    .append(afterSelector)
+                    .append('{')
+                    .append(afterStartBrace);
 
             for (int i = 0, size = rule.properties.size(); i < size; i++) {
                 appendable.append(beforePropertyName)
@@ -249,12 +268,26 @@ public final class Formatter {
     }
 
     /**
+     * Write comment.
+     * 
+     * @param message
+     */
+    private String comment(String message) {
+        if (comment && message != null && message.length() != 0) {
+            return "/* " + message + " */";
+        } else {
+            return "";
+        }
+    }
+
+    /**
      * Default human-readable formatter.
      * 
      * @return
      */
     public static final Formatter pretty() {
-        return new Formatter().selector("", " ")
+        return new Formatter().comment(true)
+                .selector("", " ")
                 .startBrace("\r\n")
                 .propertyName("\t", "")
                 .propertyValue(" ", "")
