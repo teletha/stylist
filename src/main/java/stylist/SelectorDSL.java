@@ -10,6 +10,7 @@
 package stylist;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -28,16 +29,16 @@ public final class SelectorDSL {
     private final Consumer<StyleRule> processor;
 
     /** The simple selector list. */
-    private StringBuilder selectors = new StringBuilder();
+    String selectors = "";
 
     /** The combinator. */
     private String combinator;
 
     /** The pseudo element. */
-    private CSSValue pseudoElement;
+    CSSValue pseudoElement;
 
     /** The pseudo class list. */
-    private List<CSSValue> pseudoClasses = new ArrayList();
+    final List<CSSValue> pseudoClasses = new ArrayList();
 
     /**
      * <p>
@@ -140,7 +141,7 @@ public final class SelectorDSL {
      * @return Chainable API.
      */
     SelectorDSL basic(String selector) {
-        selectors.append(selector);
+        this.selectors += selector;
 
         return this;
     }
@@ -462,7 +463,7 @@ public final class SelectorDSL {
         // require dropping the whole rule when encountering an invalid pseudo-element, two separate
         // rules must be written: ::-moz-selection, ::selection {...}. The rule would be dropped on
         // non-Gecko browsers as ::-moz-selection is invalid on them.
-        pseudo(true, Vendor.isMozilla() ? "-moz-selection" : "selection").declare(sub);
+        pseudo(true, CSSValue.of("selection", Vendor.Mozilla)).declare(sub);
     }
 
     // ===============================================================
@@ -1222,7 +1223,7 @@ public final class SelectorDSL {
      * @param name A pseudo name.
      * @return Chainable API.
      */
-    SelectorDSL pseudo(boolean element, String name) {
+    SelectorDSL pseudo(boolean element, Object name) {
         if (element) {
             pseudoElement = CSSValue.of(name);
         } else {
@@ -1240,12 +1241,25 @@ public final class SelectorDSL {
      */
     void declare(Style style) {
         if (style != null) {
-            StyleRule rule = StyleRule.create(toString(), style);
+            StyleRule rule = StyleRule.create(this, style);
 
             if (root.processor != null) {
                 root.processor.accept(rule);
             }
         }
+    }
+
+    EnumSet<Vendor> vendors() {
+        EnumSet<Vendor> vendors = EnumSet.of(Vendor.Standard);
+
+        if (pseudoElement != null) {
+            vendors.addAll(pseudoElement.vendors());
+        }
+
+        for (CSSValue pseudoClass : pseudoClasses) {
+            vendors.addAll(pseudoClass.vendors());
+        }
+        return vendors;
     }
 
     /**
@@ -1264,7 +1278,7 @@ public final class SelectorDSL {
      * @return A selector expression.
      */
     private CSSValue write() {
-        CSSValue selector = CSSValue.of(selectors.length() == 0 ? "*" : selectors.toString());
+        CSSValue selector = CSSValue.of(selectors.length() == 0 ? "*" : selectors);
 
         for (CSSValue pseudo : pseudoClasses) {
             selector = selector.join(":", pseudo);
@@ -1590,5 +1604,11 @@ public final class SelectorDSL {
 
             return parent.basic(builder.toString());
         }
+    }
+
+    /**
+     * @param selector
+     */
+    public void merge(SelectorDSL selector) {
     }
 }

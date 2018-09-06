@@ -22,8 +22,8 @@ public class StyleRuleTest extends StyleTester {
             display.block();
         };
 
-        StyleRule rule = StyleRule.create("$", style);
-        assert rule.selector.match("." + style.name());
+        StyleRule rule = StyleRule.create(style);
+        assert rule.selector.toString().equals("." + style.name());
         assert rule.properties.get("display").v.match("block");
     }
 
@@ -37,13 +37,13 @@ public class StyleRuleTest extends StyleTester {
             });
         };
 
-        StyleRule rule = StyleRule.create("$", style);
-        assert rule.selector.match("." + style.name());
+        StyleRule rule = StyleRule.create(style);
+        assert rule.selector.toString().equals("." + style.name());
         assert rule.properties.get("display").v.match("block");
         assert rule.children.size() == 1;
 
         StyleRule child = rule.children.get(0);
-        assert child.selector.match("." + style.name() + ":hover");
+        assert child.selector.toString().equals("." + style.name() + ":hover");
         assert child.properties.get("text-decoration").v.match("underline");
     }
 }

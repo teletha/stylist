@@ -48,13 +48,13 @@ class NamingTest extends StyleTester {
     @Test
     void fieldLambda() {
         StyleRule rule = StyleRule.create(fieldLambda);
-        assert rule.selector.match(".NamingTest≫fieldLambda");
+        assert rule.selector.toString().equals(".NamingTest≫fieldLambda");
     }
 
     @Test
     void fieldLambdaInMemberCLass() {
         StyleRule rule = StyleRule.create(Member.style);
-        assert rule.selector.match(".NamingTest≫Member≫style");
+        assert rule.selector.toString().equals(".NamingTest≫Member≫style");
     }
 
     /**

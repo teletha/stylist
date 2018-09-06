@@ -566,7 +566,7 @@ public final class CSSFunctions {
         // require dropping the whole rule when encountering an invalid pseudo-element, two separate
         // rules must be written: ::-moz-selection, ::selection {...}. The rule would be dropped on
         // non-Gecko browsers as ::-moz-selection is invalid on them.
-        pseudo(true, Vendor.isMozilla() ? "-moz-selection" : "selection").declare(sub);
+        pseudo(true, CSSValue.of("selection", Vendor.Mozilla)).declare(sub);
     }
 
     // ===============================================================
@@ -1320,7 +1320,7 @@ public final class CSSFunctions {
     /**
      * {@inheritDoc}
      */
-    private static SelectorDSL pseudo(boolean isElement, String name) {
+    private static SelectorDSL pseudo(boolean isElement, Object name) {
         return SelectorDSL.create(null).pseudo(isElement, name);
     }
 }

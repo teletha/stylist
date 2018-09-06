@@ -23,6 +23,8 @@ public class StyleTester implements StyleDSL {
     /** The selector field. */
     private static final Field selectorField;
 
+    private static final String StyleDSL = null;
+
     static {
         I.load(StyleTester.class, false);
 
@@ -42,12 +44,12 @@ public class StyleTester implements StyleDSL {
      */
     protected final ValidatableStyle writeStyle(Style style, Consumer<Properties>... postProcessors) {
         // empty style sheet
-        StyleRule rule = StyleRule.create("$", style);
+        StyleRule rule = StyleRule.create(style);
 
         // search specified rule
         String name = "." + style.name();
 
-        assert rule.selector.match(name);
+        assert rule.selector.toString().equals(name);
 
         for (Consumer<Properties> processor : postProcessors) {
             processor.accept(rule.properties);
@@ -67,7 +69,7 @@ public class StyleTester implements StyleDSL {
         StyleRule root = StyleRule.create(style);
 
         try {
-            update(root, (CSSValue) selectorField.get(root), selector);
+            update(root, (SelectorDSL) selectorField.get(root), selector);
         } catch (Exception e) {
             throw I.quiet(e);
         }
@@ -77,9 +79,11 @@ public class StyleTester implements StyleDSL {
     /**
      * Force to set the selector.
      */
-    private void update(StyleRule rule, CSSValue root, String replacer) {
+    private void update(StyleRule rule, SelectorDSL root, String replacer) {
         try {
-            selectorField.set(rule, CSSValue.of(((CSSValue) selectorField.get(rule)).toString().replace(root.toString(), replacer)));
+            SelectorDSL dsl = (SelectorDSL) selectorField.get(rule);
+            dsl.selectors = replacer;
+            selectorField.set(rule, dsl);
 
             for (StyleRule child : rule.children) {
                 update(child, root, replacer);
@@ -178,13 +182,35 @@ public class StyleTester implements StyleDSL {
          * Helper method to find {@link StyleRule} for the specified combinator or pseudo selector.
          * </p>
          * 
+         * @param selector
+         * @return
+         */
+        public ValidatableStyle sub(String selector, Vendor vendor, String vendored) {
+            String combinator = rules.selector + ":" + selector;
+            String pseudo = rules.selector + "::" + selector;
+
+            ValidatableStyle found = find(rules, combinator, pseudo);
+
+            if (found != null) {
+                assert found.rules.selector.vendors().contains(vendor);
+
+                return found;
+            }
+            throw new AssertionError("The rule[" + combinator + "] or [" + pseudo + "] is not found.");
+        }
+
+        /**
+         * <p>
+         * Helper method to find {@link StyleRule} for the specified combinator or pseudo selector.
+         * </p>
+         * 
          * @param rule A target {@link StyleRule}.
          * @param combinator A selector pattern.
          * @param pseudo A selector pattern.
          * @return A result.
          */
         private ValidatableStyle find(StyleRule rule, String combinator, String pseudo) {
-            if (rule.selector.match(combinator) || rule.selector.match(pseudo)) {
+            if (rule.selector.toString().equals(combinator) || rule.selector.toString().equals(pseudo)) {
                 return new ValidatableStyle(rule);
             }
 

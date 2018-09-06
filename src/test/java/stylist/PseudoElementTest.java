@@ -84,7 +84,7 @@ class PseudoElementTest extends StyleTester {
             });
         });
         assert style.sub("selection").property("display", "inline");
-        assert style.sub("-moz-selection").property("display", "inline");
+        assert style.sub("selection", Vendor.Mozilla, "-moz-selection").property("display", "inline");
     }
 
 }

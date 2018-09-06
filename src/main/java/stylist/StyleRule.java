@@ -24,7 +24,7 @@ import stylist.util.Properties;
 public class StyleRule implements Comparable<StyleRule> {
 
     /** The selector. */
-    public final CSSValue selector;
+    public final SelectorDSL selector;
 
     /** The property list. */
     public final Properties properties;
@@ -39,8 +39,8 @@ public class StyleRule implements Comparable<StyleRule> {
      * 
      * @param name An actual selector.
      */
-    StyleRule(String selector) {
-        this.selector = CSSValue.of(selector);
+    StyleRule(SelectorDSL selector) {
+        this.selector = selector;
         this.properties = new Properties();
     }
 
@@ -67,7 +67,7 @@ public class StyleRule implements Comparable<StyleRule> {
      * @return A create new {@link StyleRule}.
      */
     public static StyleRule create(Style style) {
-        return create("$", style);
+        return create(SelectorDSL.create(null), style);
     }
 
     /**
@@ -76,33 +76,22 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param object A style description.
      * @return A create new {@link StyleRule}.
      */
-    public static StyleRule create(String template, Style style) {
+    static StyleRule create(SelectorDSL current, Style style) {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
 
-        // compute selector
-        String selector;
-
         if (parent == null) {
-            selector = "." + style.name();
+            current.selectors = "." + style.name();
         } else {
-            // check pseudo element
-            String pseudo;
-            String parentSelector = parent.selector.toString();
-            int index = parentSelector.indexOf("::");
-
-            if (index == -1) {
-                selector = parentSelector;
-                pseudo = "";
-            } else {
-                selector = parentSelector.substring(0, index);
-                pseudo = parentSelector.substring(index);
+            current.selectors = parent.selector.selectors;
+            current.pseudoClasses.addAll(0, parent.selector.pseudoClasses);
+            if (parent.selector.pseudoElement != null) {
+                current.pseudoElement = parent.selector.pseudoElement;
             }
-            selector = template.replace("$", selector) + pseudo;
         }
 
         // create child rule
-        StyleRule child = new StyleRule(selector);
+        StyleRule child = new StyleRule(current);
 
         // swap context rule and execute it
         PropertyDefinition.rule = child;
@@ -115,15 +104,5 @@ public class StyleRule implements Comparable<StyleRule> {
 
         // API definition
         return child;
-    }
-
-    /**
-     * Create empty {@link StyleRule} with the specified selector.
-     * 
-     * @param selector
-     * @return
-     */
-    public static StyleRule create(String selector) {
-        return new StyleRule(selector);
     }
 }
