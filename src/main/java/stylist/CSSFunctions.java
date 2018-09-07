@@ -16,7 +16,7 @@ import stylist.value.RadialGradient;
 import stylist.value.Shadow;
 
 /**
- * @version 2018/09/03 19:39:55
+ * @version 2018/09/07 13:50:11
  */
 public final class CSSFunctions extends SelectorDSL {
 
@@ -173,43 +173,20 @@ public final class CSSFunctions extends SelectorDSL {
     }
 
     /**
-     * <p>
-     * Write basic selector.
-     * </p>
-     * 
-     * @param selector A selector expression.
-     * @return Chainable API.
+     * {@inheritDoc}
      */
     @Override
     SelectorDSL basic(String selector) {
         return SelectorDSL.create(null).basic(selector);
     }
 
-    // ===============================================================
-    // Combinators
-    // ===============================================================
-
     /**
-     * <p>
-     * Write combinator.
-     * </p>
-     * 
-     * @param type A combinator type.
-     * @param forward A direction.
-     * @return
+     * {@inheritDoc}
      */
     @Override
     SelectorDSL combine(String type, boolean forward) {
         return SelectorDSL.create(null).combine(type, forward);
     }
-
-    // ===============================================================
-    // Pseudo Elements
-    // ===============================================================
-
-    // ===============================================================
-    // Pseudo Classes
-    // ===============================================================
 
     /**
      * {@inheritDoc}
