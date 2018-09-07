@@ -77,8 +77,8 @@ public class StyleRule implements Comparable<StyleRule> {
 
     /**
      * Create {@link StyleRule} from the specified {@link Style}.
-     * @param object A style description.
      * 
+     * @param object A style description.
      * @return A create new {@link StyleRule}.
      */
     static StyleRule create(Style style, SelectorDSL selector) {
@@ -88,11 +88,7 @@ public class StyleRule implements Comparable<StyleRule> {
         if (parent == null) {
             selector.selector = "." + style.name();
         } else {
-            selector.selector = parent.internal.selector;
-            selector.pseudoClasses.addAll(0, parent.internal.pseudoClasses);
-            if (parent.internal.pseudoElement != null) {
-                selector.pseudoElement = parent.internal.pseudoElement;
-            }
+            selector.replace(parent.internal);
         }
 
         // create child rule

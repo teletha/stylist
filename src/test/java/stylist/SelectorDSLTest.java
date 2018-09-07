@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 import org.junit.jupiter.api.Test;
 
 /**
- * @version 2018/08/30 18:32:58
+ * @version 2018/09/07 12:01:05
  */
 public class SelectorDSLTest {
 
@@ -25,7 +25,10 @@ public class SelectorDSLTest {
         test(selector().next(), "$+*");
         test(selector().next().disabled(), "$+*:disabled");
         test(selector().child(), "$>*");
+        test(selector().descendant(), "$ *");
+        test(selector().ancestor(), "* $");
         test(selector().parent(), "*>$");
+        test(selector().parent().enabled(), "*:enabled>$");
         test(selector().prevs(), "*~$");
         test(selector().nexts(), "$~*");
     }
@@ -111,6 +114,7 @@ public class SelectorDSLTest {
     /**
      * @version 2016/09/18 21:30:20
      */
+    @SuppressWarnings("serial")
     private static final class NamedLocation implements Location {
 
         private final String name;

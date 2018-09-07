@@ -34,10 +34,10 @@ public final class SelectorDSL {
     private String combinator;
 
     /** The pseudo element. */
-    CSSValue pseudoElement;
+    private CSSValue pseudoElement;
 
     /** The pseudo class list. */
-    final List<CSSValue> pseudoClasses = new ArrayList();
+    private final List<CSSValue> pseudoClasses = new ArrayList();
 
     /**
      * <p>
@@ -1249,13 +1249,20 @@ public final class SelectorDSL {
     }
 
     /**
-     * <p>
      * Create the selector expression as {@link CSSValue}.
-     * </p>
      * 
      * @return A selector expression.
      */
     CSSValue selector() {
+        return root.computeSelector();
+    }
+
+    /**
+     * Compute the selector of this {@link SelectorDSL}.
+     * 
+     * @return A selector expression.
+     */
+    private CSSValue computeSelector() {
         CSSValue base = CSSValue.of(selector.length() == 0 ? "*" : selector);
 
         for (CSSValue pseudo : pseudoClasses) {
@@ -1267,9 +1274,32 @@ public final class SelectorDSL {
         }
 
         if (combinator != null) {
-            base = base.join(combinator, child.selector());
+            base = base.join(combinator, child.computeSelector());
         }
         return base;
+    }
+
+    /**
+     * Replace selector items by the parent selector.
+     * 
+     * @param parent
+     */
+    void replace(SelectorDSL parent) {
+        // replace placeholder by parent selector
+        SelectorDSL now = root;
+
+        while (now != null) {
+            now.selector = now.selector.replace("$", parent.selector);
+            now = now.child;
+        }
+
+        // assign pseudo classes
+        pseudoClasses.addAll(0, parent.pseudoClasses);
+
+        // replace pseudo element
+        if (parent.pseudoElement != null) {
+            pseudoElement = parent.pseudoElement;
+        }
     }
 
     /**
@@ -1277,7 +1307,7 @@ public final class SelectorDSL {
      */
     @Override
     public String toString() {
-        return root.selector().valueFor(Vendor.Standard);
+        return selector().valueFor(Vendor.Standard);
     }
 
     /**
