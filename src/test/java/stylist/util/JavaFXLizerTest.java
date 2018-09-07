@@ -145,4 +145,12 @@ class JavaFXLizerTest extends StyleTester {
         }, fxlizer);
         assert style.property("-fx-label-padding", "0 0 0 10px");
     }
+
+    @Test
+    void select() {
+        ValidatableStyle style = writeStyle(() -> {
+            text.unselectable();
+        }, fxlizer);
+        assert style.property("-fx-focus-traversable", "false");
+    }
 }

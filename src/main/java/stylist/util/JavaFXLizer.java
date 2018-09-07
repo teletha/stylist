@@ -47,6 +47,7 @@ public class JavaFXLizer implements Consumer<Properties> {
 
         alignment(properties);
         textIndent(properties);
+        userSelect(properties);
 
         // assign prefix and map special name
         properties.rename(this::rename);
@@ -101,6 +102,19 @@ public class JavaFXLizer implements Consumer<Properties> {
 
         if (indent.isPresent()) {
             properties.set("label-padding", CSSValue.of("0 0 0").join(indent.get()));
+        }
+    }
+
+    /**
+     * Configure user-select.
+     * 
+     * @param properties
+     */
+    private void userSelect(Properties properties) {
+        Optional<CSSValue> value = properties.remove("user-select");
+
+        if (value.isPresent()) {
+            properties.set("focus-traversable", CSSValue.of(!value.get().match("none")));
         }
     }
 
