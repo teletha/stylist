@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * @version 2018/09/03 1:05:52
+ * @version 2018/09/07 13:45:42
  */
-public final class SelectorDSL {
+public class SelectorDSL {
 
     /** The root selector. */
     private SelectorDSL root = this;
@@ -46,7 +46,7 @@ public final class SelectorDSL {
      * 
      * @param processor
      */
-    private SelectorDSL(Consumer<StyleRule> processor) {
+    SelectorDSL(Consumer<StyleRule> processor) {
         this.processor = processor;
     }
 
@@ -192,23 +192,6 @@ public final class SelectorDSL {
      */
     public final SelectorDSL descendant() {
         return combine(" ", true);
-    }
-
-    /**
-     * <p>
-     * A descendant combinator — typically represented by a single space ( ) character in the form
-     * of selector₁ selector₂ — combines two selectors such that elements matched by the second
-     * selector (selector₂) are selected if they have an ancestor element matching the first
-     * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
-     * selectors.
-     * </p>
-     * 
-     * @return Chainable API.
-     */
-    public SelectorDSL descendant(String selector) {
-        SelectorDSL child = combine(" ", true);
-        child.selector = selector;
-        return child;
     }
 
     /**
@@ -1250,12 +1233,29 @@ public final class SelectorDSL {
 
     /**
      * <p>
+     * A descendant combinator — typically represented by a single space ( ) character in the form
+     * of selector₁ selector₂ — combines two selectors such that elements matched by the second
+     * selector (selector₂) are selected if they have an ancestor element matching the first
+     * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+     * selectors.
+     * </p>
+     * 
+     * @return Chainable API.
+     */
+    public final SelectorDSL select(String selector) {
+        SelectorDSL child = combine(" ", true);
+        child.selector = selector;
+        return child;
+    }
+
+    /**
+     * <p>
      * Declare the specified new style with this selector expression.
      * </p>
      * 
      * @param style A style declaration.
      */
-    void declare(Style style) {
+    private void declare(Style style) {
         if (style != null) {
             StyleRule rule = StyleRule.create(style, this);
 
@@ -1270,7 +1270,7 @@ public final class SelectorDSL {
      * 
      * @return A selector expression.
      */
-    CSSValue selector() {
+    final CSSValue selector() {
         return root.computeSelector();
     }
 
@@ -1301,7 +1301,7 @@ public final class SelectorDSL {
      * 
      * @param parent
      */
-    void replace(SelectorDSL parent) {
+    final void replace(SelectorDSL parent) {
         // replace placeholder by parent selector
         SelectorDSL now = root;
 
@@ -1323,7 +1323,7 @@ public final class SelectorDSL {
      * {@inheritDoc}
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return selector().valueFor(Vendor.Standard);
     }
 
