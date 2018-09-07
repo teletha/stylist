@@ -46,6 +46,7 @@ public class JavaFXLizer implements Consumer<Properties> {
         properties.revalue("cursor", cursorProperties);
 
         alignment(properties);
+        textIndent(properties);
 
         // assign prefix and map special name
         properties.rename(this::rename);
@@ -87,6 +88,19 @@ public class JavaFXLizer implements Consumer<Properties> {
                 value = v + "-" + h;
             }
             properties.set("alignment", CSSValue.of(value));
+        }
+    }
+
+    /**
+     * Configure text-indent.
+     * 
+     * @param properties
+     */
+    private void textIndent(Properties properties) {
+        Optional<CSSValue> indent = properties.remove("text-indent");
+
+        if (indent.isPresent()) {
+            properties.set("label-padding", CSSValue.of("0 0 0").join(indent.get()));
         }
     }
 

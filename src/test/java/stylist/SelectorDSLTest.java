@@ -26,6 +26,7 @@ public class SelectorDSLTest {
         test(selector().next().disabled(), "$+*:disabled");
         test(selector().child(), "$>*");
         test(selector().descendant(), "$ *");
+        test(selector().descendant("#id"), "$ #id");
         test(selector().ancestor(), "* $");
         test(selector().parent(), "*>$");
         test(selector().parent().enabled(), "*:enabled>$");

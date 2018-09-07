@@ -137,4 +137,12 @@ class JavaFXLizerTest extends StyleTester {
         }, fxlizer);
         assert style.property("-fx-stroke-dash-array", "1 2");
     }
+
+    @Test
+    void textIndent() {
+        ValidatableStyle style = writeStyle(() -> {
+            text.indent(10, px);
+        }, fxlizer);
+        assert style.property("-fx-label-padding", "0 0 0 10px");
+    }
 }
