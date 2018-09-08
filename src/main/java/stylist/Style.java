@@ -9,8 +9,11 @@
  */
 package stylist;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
- * @version 2018/08/31 9:54:42
+ * @version 2018/09/08 18:05:56
  */
 public interface Style extends Location {
 
@@ -35,5 +38,15 @@ public interface Style extends Location {
      */
     default Style with(Style style) {
         return MultipleStyle.of(this, style);
+    }
+
+    /**
+     * Returns all members of the group to which this {@link Style} belongs. Usually this
+     * {@link Style} only.
+     * 
+     * @return All members of the group to which this {@link Style} belongs.
+     */
+    default Collection<Style> group() {
+        return List.of(this);
     }
 }

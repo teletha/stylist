@@ -9,13 +9,10 @@
  */
 package stylist;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @version 2018/09/08 16:30:57
+ * @version 2018/09/08 18:18:37
  */
 public interface ValueStyle<V> {
 
@@ -36,19 +33,9 @@ public interface ValueStyle<V> {
         if (value == null) {
             return Style.Empty;
         }
+
         return ValuedStyle.cache //
                 .computeIfAbsent(this, styles -> new ConcurrentHashMap())
                 .computeIfAbsent(value, key -> new ValuedStyle(this, key));
-    }
-
-    /**
-     * Enumerate all members.
-     * 
-     * @return
-     */
-    default Collection<Style> member() {
-        Map<Object, Style> styles = ValuedStyle.cache.get(this);
-
-        return styles == null ? Collections.EMPTY_SET : Collections.unmodifiableCollection(styles.values());
     }
 }

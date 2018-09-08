@@ -29,7 +29,7 @@ import kiss.I;
 import stylist.util.Formatter;
 
 /**
- * @version 2018/09/06 16:29:18
+ * @version 2018/09/08 17:22:21
  */
 public class Stylist {
 

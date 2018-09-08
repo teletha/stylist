@@ -62,7 +62,7 @@ class ValueStyleTest extends StyleTester {
         Style b = enumed.of(One);
         Style c = enumed.of(Two);
 
-        Collection<Style> member = enumed.member();
+        Collection<Style> member = a.group();
         assert member.size() == 3;
         assert member.contains(a);
         assert member.contains(b);

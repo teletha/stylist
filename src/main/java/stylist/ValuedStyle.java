@@ -9,6 +9,8 @@
  */
 package stylist;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,5 +50,13 @@ class ValuedStyle<V> implements Style {
     @Override
     public void style() {
         base.style(value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Collection<Style> group() {
+        return Collections.unmodifiableCollection(cache.get(base).values());
     }
 }
