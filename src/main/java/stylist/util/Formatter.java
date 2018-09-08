@@ -21,7 +21,7 @@ import stylist.StyleRule;
 import stylist.value.Color;
 
 /**
- * @version 2018/09/01 21:17:27
+ * @version 2018/09/08 23:23:36
  */
 public final class Formatter {
 
@@ -60,6 +60,9 @@ public final class Formatter {
 
     /** The format style. */
     private boolean comment = false;
+
+    /** The format style. */
+    private boolean showEmptyStyle = false;
 
     /** The manager of post processors. */
     private final List<Consumer<Properties>> posts = new ArrayList();
@@ -203,6 +206,17 @@ public final class Formatter {
     }
 
     /**
+     * Show empty style.
+     * 
+     * @param showEmptyStyle
+     * @return
+     */
+    public Formatter showEmptyStyle(boolean showEmptyStyle) {
+        this.showEmptyStyle = showEmptyStyle;
+        return this;
+    }
+
+    /**
      * Add the post-processor.
      * 
      * @param processor
@@ -234,6 +248,10 @@ public final class Formatter {
      * @param appendable An output for the formatted text.
      */
     public void format(StyleRule rule, Appendable appendable) {
+        if (showEmptyStyle == false && rule.properties.size() == 0) {
+            return;
+        }
+
         try {
             for (Consumer<Properties> processor : posts) {
                 processor.accept(rule.properties);
