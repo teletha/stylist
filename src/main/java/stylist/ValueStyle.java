@@ -9,12 +9,13 @@
  */
 package stylist;
 
+import java.io.Serializable;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @version 2018/09/08 18:18:37
+ * @version 2018/09/08 21:35:44
  */
-public interface ValueStyle<V> {
+public interface ValueStyle<V> extends Serializable {
 
     /**
      * Declare styles for the specified value.

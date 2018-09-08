@@ -18,7 +18,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 /**
- * @version 2018/09/08 16:54:22
+ * @version 2018/09/08 22:01:36
  */
 class ValueStyleTest extends StyleTester {
 
@@ -67,5 +67,22 @@ class ValueStyleTest extends StyleTester {
         assert member.contains(a);
         assert member.contains(b);
         assert member.contains(c);
+    }
+
+    @Test
+    void detail() {
+        assert enumed.of(Zero).detail().equals(ValueStyleTest.class.getName() + "#enumed(Number#Zero)");
+    }
+
+    static ValueStyle<Number> nested = value -> {
+        $.child(() -> {
+            display.block();
+        });
+    };
+
+    @Test
+    void detailNest() {
+        ValidatableStyle sub = writeStyle(nested.of(Zero)).sub(">*");
+        assert sub.detail().equals(ValueStyleTest.class.getName() + "#nested(Number#Zero)");
     }
 }

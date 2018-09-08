@@ -84,15 +84,18 @@ public class StyleRule implements Comparable<StyleRule> {
     static StyleRule create(Style style, SelectorDSL selector) {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
+        String description;
 
         if (parent == null) {
             selector.selector = "." + style.name();
+            description = style.detail();
         } else {
             selector.replace(parent.internal);
+            description = parent.description;
         }
 
         // create child rule
-        StyleRule child = new StyleRule(selector, style.detail());
+        StyleRule child = new StyleRule(selector, description);
 
         // swap context rule and execute it
         PropertyDefinition.rule = child;

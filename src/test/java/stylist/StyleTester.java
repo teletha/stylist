@@ -15,7 +15,7 @@ import kiss.I;
 import stylist.util.Properties;
 
 /**
- * @version 2018/09/05 11:54:37
+ * @version 2018/09/08 22:39:50
  */
 public class StyleTester implements StyleDSL {
 
@@ -46,7 +46,7 @@ public class StyleTester implements StyleDSL {
     }
 
     /**
-     * @version 2018/09/06 10:47:04
+     * @version 2018/09/08 22:39:55
      */
     public static class ValidatableStyle {
 
@@ -58,6 +58,15 @@ public class StyleTester implements StyleDSL {
          */
         private ValidatableStyle(StyleRule rules) {
             this.rules = rules;
+        }
+
+        /**
+         * Calculate the selector description.
+         * 
+         * @return
+         */
+        public String detail() {
+            return rules.description;
         }
 
         /**
@@ -141,10 +150,11 @@ public class StyleTester implements StyleDSL {
          * @return
          */
         public ValidatableStyle sub(String selector, Vendor... vendors) {
-            String combinator = rules.selector + ":" + selector;
-            String pseudo = rules.selector + "::" + selector;
+            String childSelector = rules.selector + selector;
+            String pseudoClass = rules.selector + ":" + selector;
+            String pseudoElement = rules.selector + "::" + selector;
 
-            ValidatableStyle found = find(rules, combinator, pseudo);
+            ValidatableStyle found = find(rules, childSelector, pseudoClass, pseudoElement);
 
             if (found != null) {
                 CSSValue dsl = found.rules.selector;
@@ -155,7 +165,7 @@ public class StyleTester implements StyleDSL {
                 }
                 return found;
             }
-            throw new AssertionError("The rule[" + combinator + "] or [" + pseudo + "] is not found.");
+            throw new AssertionError("The rule [" + childSelector + "], [" + pseudoClass + "] or [" + pseudoElement + "] is not found.");
         }
 
         /**
@@ -164,17 +174,18 @@ public class StyleTester implements StyleDSL {
          * </p>
          * 
          * @param rule A target {@link StyleRule}.
-         * @param combinator A selector pattern.
-         * @param pseudo A selector pattern.
+         * @param selector A selector pattern.
+         * @param pseudoClass A selector pattern for pseudo class.
+         * @param pseudoElement A selector pattern for pseudo element.
          * @return A result.
          */
-        private ValidatableStyle find(StyleRule rule, String combinator, String pseudo) {
-            if (rule.selector.toString().equals(combinator) || rule.selector.toString().equals(pseudo)) {
+        private ValidatableStyle find(StyleRule rule, String selector, String pseudoClass, String pseudoElement) {
+            if (rule.selector.match(selector) || rule.selector.match(pseudoClass) || rule.selector.match(pseudoElement)) {
                 return new ValidatableStyle(rule);
             }
 
             for (int i = 0; i < rule.children.size(); i++) {
-                ValidatableStyle found = find(rule.children.get(i), combinator, pseudo);
+                ValidatableStyle found = find(rule.children.get(i), selector, pseudoClass, pseudoElement);
 
                 if (found != null) {
                     return found;

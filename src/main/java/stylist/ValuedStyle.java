@@ -9,6 +9,11 @@
  */
 package stylist;
 
+import java.io.Serializable;
+import java.lang.invoke.SerializedLambda;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,7 +25,7 @@ import java.util.Map;
  * @version 2018/09/08 16:30:51
  */
 @SuppressWarnings("serial")
-class ValuedStyle<V> implements Style {
+final class ValuedStyle<V> implements Style {
 
     /** The cache repository. */
     static final Map<ValueStyle, Map<Object, Style>> cache = new HashMap();
@@ -58,5 +63,57 @@ class ValuedStyle<V> implements Style {
     @Override
     public Collection<Style> group() {
         return Collections.unmodifiableCollection(cache.get(base).values());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String detail() {
+        if (value instanceof Enum) {
+            Enum e = (Enum) value;
+            return locate(base) + "(" + e.getDeclaringClass().getSimpleName() + "#" + e.name() + ")";
+        } else {
+            return value.toString();
+        }
+    }
+
+    /**
+     * Compute locationa info.
+     * 
+     * @return
+     */
+    static String locate(Object o) {
+        try {
+            Method serializer = o.getClass().getDeclaredMethod("writeReplace");
+            serializer.setAccessible(true);
+            SerializedLambda lambda = (SerializedLambda) serializer.invoke(o);
+            Class clazz = Class.forName(lambda.getCapturingClass().replace('/', '.'));
+            for (Field field : clazz.getDeclaredFields()) {
+                field.setAccessible(true);
+
+                if (Modifier.isStatic(field.getModifiers()) && Serializable.class.isAssignableFrom(field.getType())) {
+                    if (field.get(null) == o) {
+                        return clazz.getCanonicalName() + "#" + field.getName();
+                    }
+                }
+            }
+            return clazz.getCanonicalName() + "#" + lambda.getImplMethodName();
+        } catch (Throwable e) {
+            // ignore
+        }
+        return String.valueOf(o.hashCode());
+    }
+
+    /**
+     * Compute name from class tree.
+     * 
+     * @param clazz
+     * @return
+     */
+    private static String className(Class clazz) {
+        Class parent = clazz.getEnclosingClass();
+
+        return (parent == null ? "" : className(parent)) + clazz.getSimpleName() + "≫";
     }
 }
