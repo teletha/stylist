@@ -9,17 +9,18 @@
  */
 package stylist;
 
-import java.util.HashMap;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @version 2018/08/30 18:07:09
+ * @version 2018/09/08 16:30:57
  */
-public interface ValueStyle<V> extends Location {
+public interface ValueStyle<V> {
 
     /**
-     * <p>
      * Declare styles for the specified value.
-     * </p>
      */
     void style(V value);
 
@@ -33,9 +34,21 @@ public interface ValueStyle<V> extends Location {
      */
     default Style of(V value) {
         if (value == null) {
-            return () -> {
-            };
+            return Style.Empty;
         }
-        return ValuedStyle.cache.computeIfAbsent(this, style -> new HashMap()).computeIfAbsent(value, key -> new ValuedStyle(this, key));
+        return ValuedStyle.cache //
+                .computeIfAbsent(this, styles -> new ConcurrentHashMap())
+                .computeIfAbsent(value, key -> new ValuedStyle(this, key));
+    }
+
+    /**
+     * Enumerate all members.
+     * 
+     * @return
+     */
+    default Collection<Style> member() {
+        Map<Object, Style> styles = ValuedStyle.cache.get(this);
+
+        return styles == null ? Collections.EMPTY_SET : Collections.unmodifiableCollection(styles.values());
     }
 }

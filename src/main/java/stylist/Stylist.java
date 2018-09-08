@@ -15,6 +15,8 @@ import java.io.IOError;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -47,13 +49,35 @@ public class Stylist {
         for (Class domain : I.findAs(StyleDSL.class)) {
             for (Field field : domain.getDeclaredFields()) {
                 try {
-                    if (Location.class.isAssignableFrom(field.getType()) && Modifier.isStatic(field.getModifiers())) {
+                    if (Modifier.isStatic(field.getModifiers())) {
                         field.setAccessible(true);
 
-                        Location located = (Location) field.get(null);
+                        if (Location.class.isAssignableFrom(field.getType())) {
 
-                        if (located != null) {
-                            located.name();
+                            Location located = (Location) field.get(null);
+
+                            if (located != null) {
+                                located.name();
+                            }
+                        } else if (ValueStyle.class.isAssignableFrom(field.getType())) {
+                            Type type = field.getGenericType();
+
+                            if (type instanceof ParameterizedType) {
+                                ParameterizedType parameterized = (ParameterizedType) type;
+                                Type[] args = parameterized.getActualTypeArguments();
+
+                                if (args.length == 1 && args[0] instanceof Class) {
+                                    Class param = (Class) args[0];
+
+                                    if (param.isEnum()) {
+                                        ValueStyle style = (ValueStyle) field.get(null);
+
+                                        for (Object constant : param.getEnumConstants()) {
+                                            style.of(constant).name();
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 } catch (Throwable e) {

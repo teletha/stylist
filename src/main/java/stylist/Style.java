@@ -14,6 +14,10 @@ package stylist;
  */
 public interface Style extends Location {
 
+    /** The empty {@link Style} for reuse. */
+    Style Empty = () -> {
+    };
+
     /**
      * <p>
      * Define the style declaration.
