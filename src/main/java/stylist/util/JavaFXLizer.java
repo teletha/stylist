@@ -40,6 +40,7 @@ public class JavaFXLizer implements Consumer<Properties> {
     @Override
     public void accept(Properties properties) {
         properties.compactTo("padding", "0", sides("padding-*"));
+        properties.compactTo("margin", "0", sides("margin-*"));
         properties.compactTo("border-width", "0", sides("border-*-width"));
         properties.compactTo("border-style", "solid", sides("border-*-style"));
         properties.compactTo("border-color", Color.Transparent, sides("border-*-color"));
