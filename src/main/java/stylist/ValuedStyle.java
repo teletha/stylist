@@ -104,16 +104,4 @@ final class ValuedStyle<V> implements Style {
         }
         return String.valueOf(o.hashCode());
     }
-
-    /**
-     * Compute name from class tree.
-     * 
-     * @param clazz
-     * @return
-     */
-    private static String className(Class clazz) {
-        Class parent = clazz.getEnclosingClass();
-
-        return (parent == null ? "" : className(parent)) + clazz.getSimpleName() + "≫";
-    }
 }
