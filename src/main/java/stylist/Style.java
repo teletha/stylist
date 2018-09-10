@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * @version 2018/09/08 18:05:56
+ * @version 2018/09/10 18:39:34
  */
 public interface Style extends Location, Consumer {
 
@@ -56,6 +56,6 @@ public interface Style extends Location, Consumer {
      */
     @Override
     default void accept(Object context) {
-        System.out.println(context + "  at Style");
+        // do nothing
     }
 }
