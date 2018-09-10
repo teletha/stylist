@@ -11,11 +11,12 @@ package stylist;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * @version 2018/09/08 18:05:56
  */
-public interface Style extends Location {
+public interface Style extends Location, Consumer {
 
     /** The empty {@link Style} for reuse. */
     Style Empty = () -> {
@@ -48,5 +49,13 @@ public interface Style extends Location {
      */
     default Collection<Style> group() {
         return List.of(this);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    default void accept(Object context) {
+        System.out.println(context + "  at Style");
     }
 }

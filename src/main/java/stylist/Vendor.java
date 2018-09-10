@@ -10,7 +10,7 @@
 package stylist;
 
 /**
- * @version 2018/09/06 16:31:21
+ * @version 2018/09/10 11:28:42
  */
 public enum Vendor {
 
@@ -25,9 +25,6 @@ public enum Vendor {
 
     /** Webkit */
     Webkit("-webkit-"),
-
-    /** JavaFX */
-    JavaFX("-fx-"),
 
     /** Standard */
     Standard("");
