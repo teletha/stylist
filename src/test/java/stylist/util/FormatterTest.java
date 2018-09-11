@@ -15,7 +15,7 @@ import stylist.StyleTester;
 import stylist.value.Color;
 
 /**
- * @version 2018/09/06 13:20:32
+ * @version 2018/09/11 14:17:43
  */
 class FormatterTest extends StyleTester {
 
@@ -24,21 +24,21 @@ class FormatterTest extends StyleTester {
 
     @Test
     void selector() {
-        Formatter formatter = Formatter.compact().selector(" ", " ");
+        Formatter formatter = Formatter.compact().showEmptyStyle(true).selector(" ", " ");
 
         assert formatter.format(empty.rules).equals(" " + empty.selector() + " {}");
     }
 
     @Test
     void startBrace() {
-        Formatter formatter = Formatter.compact().startBrace("\r\n");
+        Formatter formatter = Formatter.compact().showEmptyStyle(true).startBrace("\r\n");
 
         assert formatter.format(empty.rules).equals(empty.selector() + "{\r\n}");
     }
 
     @Test
     void endBrace() {
-        Formatter formatter = Formatter.compact().endBrace("\r\n", "");
+        Formatter formatter = Formatter.compact().showEmptyStyle(true).endBrace("\r\n", "");
 
         assert formatter.format(empty.rules).equals(empty.selector() + "{\r\n}");
     }

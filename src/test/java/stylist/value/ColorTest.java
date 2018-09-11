@@ -93,17 +93,24 @@ class ColorTest extends StyleTester {
     }
 
     @Test
-    void conversion() {
-        Color color = Color.rgb("#730D48");
-        assert color.toHSL().equals("hsl(325,80%,25%)");
-        assert color.toRGB().equals("rgb(115,13,72)");
+    void toRGB() {
+        assert new Color(0, 0, 0, 1).toRGB().equals("rgb(0,0,0)");
+        assert new Color(1, 2, 3, 1).toRGB().equals("rgb(8,8,7)");
+        assert new Color(10, 20, 30, 0).toRGB().equals("rgb(92,66,61,0)");
+        assert new Color(150, 55, 70, 0.5).toRGB().equals("rgb(136,221,179,.5)");
+        assert new Color(222, 4, 92).toRGB().equals("rgb(234,234,235)");
+        assert new Color(341, 76, 13).toRGB().equals("rgb(58,8,24)");
+    }
 
-        color = Color.rgb("#2d539f");
-        assert color.toHSL().equals("hsl(220,56%,40%)");
-        assert color.toRGB().equals("rgb(45,83,159)");
-
-        color = Color.rgb(200, 155, 255);
-        assert color.toHSL().equals("hsl(267,100%,80%)");
-        assert color.toRGB().equals("rgb(199,153,255)");
+    @Test
+    void toInvalidRGB() {
+        assertThrows(IllegalArgumentException.class, () -> new Color(-1, 0, 0, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(361, 0, 0, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(0, -1, 0, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(0, 101, 0, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(0, 0, -1, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(0, 0, 101, 1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(0, 0, 0, -1));
+        assertThrows(IllegalArgumentException.class, () -> new Color(0, 0, 0, 1.1));
     }
 }

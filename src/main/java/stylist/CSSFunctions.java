@@ -90,7 +90,7 @@ public final class CSSFunctions extends SelectorDSL {
      * @param alpha The transparency.
      * @return A new color.
      */
-    public Color hsla(int hue, int saturation, int lightness, double alpha) {
+    public Color hsla(int hue, int saturation, int lightness, float alpha) {
         return new Color(hue, saturation, lightness, alpha);
     }
 

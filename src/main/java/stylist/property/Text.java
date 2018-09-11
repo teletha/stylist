@@ -119,7 +119,7 @@ public class Text extends PropertyDefinition<Text> {
      * @param transparency A transparency of shadow.
      * @return
      */
-    public Text shadow(Color color, double transparency) {
+    public Text shadow(Color color, float transparency) {
         color = new Color(0, 0, color.lightness < 50 ? 100 : 0, transparency);
         Shadow shadow1 = new Shadow().offset(1, 0, px).color(color);
         Shadow shadow2 = new Shadow().offset(0, 1, px).color(color);
@@ -135,7 +135,7 @@ public class Text extends PropertyDefinition<Text> {
      * @param transparency A transparency of shadow.
      * @return
      */
-    public Text outline(Color color, double transparency) {
+    public Text outline(Color color, float transparency) {
         color = new Color(0, 0, color.lightness < 50 ? 100 : 0, transparency);
         Shadow shadow1 = new Shadow().offset(1, 0, px).color(color);
         Shadow shadow2 = new Shadow().offset(0, 1, px).color(color);

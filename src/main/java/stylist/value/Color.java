@@ -11,6 +11,9 @@ package stylist.value;
 
 import static java.lang.Integer.*;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import stylist.CSSValue;
 import stylist.Vendor;
 import stylist.util.Formatter;
@@ -19,6 +22,10 @@ import stylist.util.Formatter;
  * @version 2015/10/01 0:36:38
  */
 public class Color extends CSSValue {
+
+    private static final String number = "\\s*([+-]?[\\d\\.]+)[\\s,]*";
+
+    private static final Pattern Code = Pattern.compile("(?:(rgb|hs[lvb])a?)\\s*\\(" + number + number + number + "(?:" + number + ")?\\)");
 
     /** The frequently used color. */
     public static final Color White = new Color(0, 0, 100);
@@ -54,7 +61,7 @@ public class Color extends CSSValue {
     /**
      * The transparency.
      */
-    public final float alpha;
+    public final double alpha;
 
     /**
      * <p>
@@ -84,10 +91,42 @@ public class Color extends CSSValue {
      * @param alpha The transparency.
      */
     public Color(int hue, int saturation, int lightness, double alpha) {
-        this.hue = hue % 360;
-        this.saturation = (int) range(saturation, 100);
-        this.lightness = (int) range(lightness, 100);
-        this.alpha = range((float) alpha, 1);
+        this.hue = checkRange(0, hue, 360);
+        this.saturation = checkRange(0, saturation, 100);
+        this.lightness = checkRange(0, lightness, 100);
+        this.alpha = checkRange(0, alpha, 1);
+    }
+
+    /**
+     * Validate number range.
+     * 
+     * @param from Start point.
+     * @param target A target number to check.
+     * @param to End point.
+     * @return A result.
+     */
+    private int checkRange(int from, int target, int to) {
+        if (from <= target && target <= to) {
+            return target;
+        } else {
+            throw new IllegalArgumentException("Color code[" + target + "] must be between " + from + " and " + to + ".");
+        }
+    }
+
+    /**
+     * Validate number range.
+     * 
+     * @param from Start point.
+     * @param target A target number to check.
+     * @param to End point.
+     * @return A result.
+     */
+    private double checkRange(double from, double target, double to) {
+        if (from <= target && target <= to) {
+            return target;
+        } else {
+            throw new IllegalArgumentException("Color code[" + target + "] must be between " + from + " and " + to + ".");
+        }
     }
 
     /**
@@ -135,7 +174,7 @@ public class Color extends CSSValue {
      * @param amount An amount of transparency.
      * @return A new color.
      */
-    public Color opacify(double amount) {
+    public Color opacify(float amount) {
         return new Color(hue, saturation, lightness, alpha + amount);
     }
 
@@ -232,11 +271,14 @@ public class Color extends CSSValue {
             rounded[i] = Math.round(rgb[i]);
         }
 
-        if (alpha == 1) {
-            return "rgb(" + rounded[0] + "," + rounded[1] + "," + rounded[2] + ")";
-        } else {
-            return "rgba(" + rounded[0] + "," + rounded[1] + "," + rounded[2] + "," + alpha + ")";
+        StringBuilder builder = new StringBuilder("rgb(").append(rounded[0]).append(',').append(rounded[1]).append(',').append(rounded[2]);
+
+        if (alpha != 1) {
+            builder.append(',').append(formatDecimal(alpha));
         }
+        builder.append(")");
+
+        return builder.toString();
     }
 
     /**
@@ -330,7 +372,7 @@ public class Color extends CSSValue {
      * @return A new color.
      */
     public static Color rgba(int red, int green, int blue, double alpha) {
-        return color(range(red, 255), range(green, 255), range(blue, 255), range((float) alpha, 1));
+        return color(range(red, 255), range(green, 255), range(blue, 255), alpha);
     }
 
     /**
@@ -346,7 +388,7 @@ public class Color extends CSSValue {
      *            will be round up to 0 or 255.
      * @return A new color.
      */
-    private static Color color(float red, float green, float blue, float alpha) {
+    private static Color color(float red, float green, float blue, double alpha) {
         red = red / 255;
         green = green / 255;
         blue = blue / 255;
@@ -388,5 +430,82 @@ public class Color extends CSSValue {
      */
     private static float range(float value, float max) {
         return value < 0 ? 0 : max < value ? max : value;
+    }
+
+    /**
+     * Parse any color code.
+     * 
+     * @param code A color colde (any type).
+     * @return A parsed color.
+     */
+    public static Color of(String code) {
+        // normalize code
+        if (code == null) code = "";
+
+        Matcher matcher = Code.matcher(code.toLowerCase());
+
+        if (matcher.matches()) {
+            boolean hasAlpha = matcher.groupCount() == 6;
+            String type = matcher.group(1);
+            String first = matcher.group(2);
+            String second = matcher.group(3);
+            String third = matcher.group(4);
+            float alpha = hasAlpha ? Float.parseFloat(matcher.group(5)) : 1;
+
+            switch (type) {
+            case "rgb":
+                return rgba(integerOrPercentage(first), integerOrPercentage(second), integerOrPercentage(third), alpha);
+
+            case "hsl":
+                return new Color(hue(first), percentage(second), percentage(third), alpha);
+            default:
+                break;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Parse as integer or percentage number.
+     * 
+     * @param number
+     * @return
+     */
+    private static int integerOrPercentage(String number) {
+        if (number.endsWith("%")) {
+            return (int) (Integer.parseInt(number.substring(0, number.length() - 2)) * 2.55);
+        } else {
+            return Integer.parseInt(number);
+        }
+    }
+
+    private static int hue(String number) {
+        return 1;
+    }
+
+    private static int percentage(String number) {
+        return 1;
+    }
+
+    /**
+     * Format decimal.
+     * 
+     * @param decimal
+     * @return
+     */
+    private static String formatDecimal(double decimal) {
+        int number = (int) decimal;
+
+        if (decimal == number) {
+            return Integer.toString(number);
+        } else {
+            String text = Double.toString(decimal);
+
+            if (text.startsWith("0.")) {
+                return text.substring(1);
+            } else {
+                return text;
+            }
+        }
     }
 }
