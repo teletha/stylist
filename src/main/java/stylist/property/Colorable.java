@@ -67,7 +67,7 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      */
     public T color(String colorCode) {
         try {
-            return color(Color.rgb(colorCode));
+            return color(Color.of(colorCode));
         } catch (IllegalArgumentException e) {
             return color(CSSValue.of(colorCode));
         }
@@ -106,6 +106,6 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @return Chainable API.
      */
     public T color(int red, int green, int blue, double alpha) {
-        return color(Color.rgba(red, green, blue, alpha));
+        return color(Color.rgb(red, green, blue, alpha));
     }
 }

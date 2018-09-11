@@ -9,8 +9,6 @@
  */
 package stylist.value;
 
-import static java.lang.Integer.*;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,28 +17,29 @@ import stylist.Vendor;
 import stylist.util.Formatter;
 
 /**
- * @version 2015/10/01 0:36:38
+ * @version 2018/09/11 15:53:19
  */
 public class Color extends CSSValue {
 
-    private static final String number = "\\s*([+-]?[\\d\\.]+)[\\s,]*";
+    private static final String number = "\\s*([+-]?[\\d\\.%]+)[\\s,]*";
 
-    private static final Pattern Code = Pattern.compile("(?:(rgb|hs[lvb])a?)\\s*\\(" + number + number + number + "(?:" + number + ")?\\)");
-
-    /** The frequently used color. */
-    public static final Color White = new Color(0, 0, 100);
+    private static final Pattern ColorSpace = Pattern
+            .compile("\\s*(?:(rgb|hs[lvb])a?)\\s*\\(" + number + number + number + "(?:" + number + ")?\\)\\s*");
 
     /** The frequently used color. */
-    public static final Color Whity = new Color(0, 0, 97);
+    public static final Color White = hsl(0, 0, 100);
 
     /** The frequently used color. */
-    public static final Color WhiteGray = new Color(0, 0, 93);
+    public static final Color Whity = hsl(0, 0, 97);
 
     /** The frequently used color. */
-    public static final Color Black = new Color(0, 0, 0);
+    public static final Color WhiteGray = hsl(0, 0, 93);
 
     /** The frequently used color. */
-    public static final Color Transparent = new Color(0, 0, 0, 0);
+    public static final Color Black = hsl(0, 0, 0);
+
+    /** The frequently used color. */
+    public static final Color Transparent = hsl(0, 0, 0, 0);
 
     /**
      * The attribute of a visual sensation according to which an area appears to be similar to one
@@ -73,24 +72,9 @@ public class Color extends CSSValue {
      *            combination of two of them .
      * @param saturation The colorfulness of a stimulus relative to its own brightness.
      * @param lightness The brightness relative to the brightness of a similarly illuminated white.
-     */
-    public Color(int hue, int saturation, int lightness) {
-        this(hue, saturation, lightness, 1);
-    }
-
-    /**
-     * <p>
-     * Create new color.
-     * </p>
-     * 
-     * @param hue The attribute of a visual sensation according to which an area appears to be
-     *            similar to one of the perceived colors: red, yellow, green, and blue, or to a
-     *            combination of two of them .
-     * @param saturation The colorfulness of a stimulus relative to its own brightness.
-     * @param lightness The brightness relative to the brightness of a similarly illuminated white.
      * @param alpha The transparency.
      */
-    public Color(int hue, int saturation, int lightness, double alpha) {
+    private Color(int hue, int saturation, int lightness, double alpha) {
         this.hue = checkRange(0, hue, 360);
         this.saturation = checkRange(0, saturation, 100);
         this.lightness = checkRange(0, lightness, 100);
@@ -105,7 +89,7 @@ public class Color extends CSSValue {
      * @param to End point.
      * @return A result.
      */
-    private int checkRange(int from, int target, int to) {
+    private static int checkRange(int from, int target, int to) {
         if (from <= target && target <= to) {
             return target;
         } else {
@@ -121,7 +105,7 @@ public class Color extends CSSValue {
      * @param to End point.
      * @return A result.
      */
-    private double checkRange(double from, double target, double to) {
+    private static double checkRange(double from, double target, double to) {
         if (from <= target && target <= to) {
             return target;
         } else {
@@ -310,35 +294,33 @@ public class Color extends CSSValue {
 
     /**
      * <p>
-     * Create Color from hex color code.
+     * Create new color.
      * </p>
      * 
-     * @param code A hex color code (accpect "#" prefix). A illegal color code will return
-     *            {@value #Transparent}.
-     * @return A new color.
+     * @param hue The attribute of a visual sensation according to which an area appears to be
+     *            similar to one of the perceived colors: red, yellow, green, and blue, or to a
+     *            combination of two of them .
+     * @param saturation The colorfulness of a stimulus relative to its own brightness.
+     * @param lightness The brightness relative to the brightness of a similarly illuminated white.
      */
-    public static Color rgb(String code) {
-        if (code == null) {
-            throw new IllegalArgumentException("Colot code is null.");
-        }
+    public static Color hsl(int hue, int saturation, int lightness) {
+        return hsl(hue, saturation, lightness, 1);
+    }
 
-        if (code.startsWith("#")) {
-            code = code.substring(1);
-        }
-
-        switch (code.length()) {
-        case 3:
-            String red = "" + code.charAt(0) + code.charAt(0);
-            String green = "" + code.charAt(1) + code.charAt(1);
-            String blue = "" + code.charAt(2) + code.charAt(2);
-            return rgb(parseInt(red, 16), parseInt(green, 16), parseInt(blue, 16));
-
-        case 6:
-            return rgb(parseInt(code.substring(0, 2), 16), parseInt(code.substring(2, 4), 16), parseInt(code.substring(4), 16));
-
-        default:
-            throw new IllegalArgumentException("[" + code + "] is not color code.");
-        }
+    /**
+     * <p>
+     * Create new color.
+     * </p>
+     * 
+     * @param hue The attribute of a visual sensation according to which an area appears to be
+     *            similar to one of the perceived colors: red, yellow, green, and blue, or to a
+     *            combination of two of them .
+     * @param saturation The colorfulness of a stimulus relative to its own brightness.
+     * @param lightness The brightness relative to the brightness of a similarly illuminated white.
+     * @param alpha The transparency.
+     */
+    public static Color hsl(int hue, int saturation, int lightness, double alpha) {
+        return new Color(hue, saturation, lightness, alpha);
     }
 
     /**
@@ -355,7 +337,7 @@ public class Color extends CSSValue {
      * @return A new color.
      */
     public static Color rgb(int red, int green, int blue) {
-        return rgba(red, green, blue, 1);
+        return rgb(red, green, blue, 1);
     }
 
     /**
@@ -371,8 +353,8 @@ public class Color extends CSSValue {
      *            will be round up to 0 or 255.
      * @return A new color.
      */
-    public static Color rgba(int red, int green, int blue, double alpha) {
-        return color(range(red, 255), range(green, 255), range(blue, 255), alpha);
+    public static Color rgb(int red, int green, int blue, double alpha) {
+        return rgb2hsl(checkRange(0, red, 255), checkRange(0, green, 255), checkRange(0, blue, 255), alpha);
     }
 
     /**
@@ -388,7 +370,7 @@ public class Color extends CSSValue {
      *            will be round up to 0 or 255.
      * @return A new color.
      */
-    private static Color color(float red, float green, float blue, double alpha) {
+    private static Color rgb2hsl(float red, float green, float blue, double alpha) {
         red = red / 255;
         green = green / 255;
         blue = blue / 255;
@@ -423,46 +405,83 @@ public class Color extends CSSValue {
     }
 
     /**
-     * Helper method to check range.
-     * 
-     * @param value
-     * @return
-     */
-    private static float range(float value, float max) {
-        return value < 0 ? 0 : max < value ? max : value;
-    }
-
-    /**
      * Parse any color code.
      * 
      * @param code A color colde (any type).
      * @return A parsed color.
      */
-    public static Color of(String code) {
-        // normalize code
-        if (code == null) code = "";
+    public static Color of(String color) {
+        if (color == null) color = "";
+        color = color.toLowerCase().trim();
 
-        Matcher matcher = Code.matcher(code.toLowerCase());
+        Matcher matcher = ColorSpace.matcher(color);
 
         if (matcher.matches()) {
-            boolean hasAlpha = matcher.groupCount() == 6;
             String type = matcher.group(1);
             String first = matcher.group(2);
             String second = matcher.group(3);
             String third = matcher.group(4);
-            float alpha = hasAlpha ? Float.parseFloat(matcher.group(5)) : 1;
+            String fouth = matcher.group(5);
+            double alpha = fouth != null ? decimalOrPercentage(fouth) : 1;
 
             switch (type) {
             case "rgb":
-                return rgba(integerOrPercentage(first), integerOrPercentage(second), integerOrPercentage(third), alpha);
+                return rgb(integerOrPercentageAs255(first), integerOrPercentageAs255(second), integerOrPercentageAs255(third), alpha);
 
             case "hsl":
-                return new Color(hue(first), percentage(second), percentage(third), alpha);
+                return hsl(Integer.parseInt(first), percentage(second), percentage(third), alpha);
+
             default:
-                break;
+                throw new IllegalArgumentException("Color code [" + color + "] is invalid.");
             }
         }
-        return null;
+
+        if (color.startsWith("#")) {
+            color = color.substring(1);
+            String red, green, blue, alpha = "FF";
+
+            switch (color.length()) {
+            case 4:
+                alpha = color.substring(3, 4) + color.substring(3, 4);
+
+            case 3:
+                red = color.substring(0, 1) + color.substring(0, 1);
+                green = color.substring(1, 2) + color.substring(1, 2);
+                blue = color.substring(2, 3) + color.substring(2, 3);
+                break;
+
+            case 8:
+                alpha = color.substring(6, 8);
+
+            case 6:
+                red = color.substring(0, 2);
+                green = color.substring(2, 4);
+                blue = color.substring(4, 6);
+                break;
+
+            default:
+                throw new IllegalArgumentException("Color code [" + color + "] is invalid.");
+            }
+            return rgb(Integer.parseInt(red, 16), Integer.parseInt(green, 16), Integer
+                    .parseInt(blue, 16), Integer.parseInt(alpha, 16) / 255d);
+        }
+        throw new IllegalArgumentException("Color code [" + color + "] is invalid.");
+    }
+
+    /**
+     * Parse as percentage number.
+     * 
+     * @param number
+     * @return
+     */
+    private static int percentage(String number) {
+        if (number.equals("0")) {
+            return 0;
+        } else if (number.endsWith("%")) {
+            return Integer.parseInt(number.substring(0, number.length() - 1));
+        } else {
+            throw new IllegalArgumentException("Color code [" + number + "] is invalid.");
+        }
     }
 
     /**
@@ -471,20 +490,26 @@ public class Color extends CSSValue {
      * @param number
      * @return
      */
-    private static int integerOrPercentage(String number) {
+    private static int integerOrPercentageAs255(String number) {
         if (number.endsWith("%")) {
-            return (int) (Integer.parseInt(number.substring(0, number.length() - 2)) * 2.55);
+            return (int) (Integer.parseInt(number.substring(0, number.length() - 1)) * 2.55);
         } else {
             return Integer.parseInt(number);
         }
     }
 
-    private static int hue(String number) {
-        return 1;
-    }
-
-    private static int percentage(String number) {
-        return 1;
+    /**
+     * Parse as decimal or percentage number.
+     * 
+     * @param number
+     * @return
+     */
+    private static double decimalOrPercentage(String number) {
+        if (number.endsWith("%")) {
+            return Integer.parseInt(number.substring(0, number.length() - 1)) / 100d;
+        } else {
+            return Double.parseDouble(number);
+        }
     }
 
     /**

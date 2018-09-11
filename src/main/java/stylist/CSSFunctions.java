@@ -58,7 +58,7 @@ public final class CSSFunctions extends SelectorDSL {
      * @return A new color.
      */
     public Color rgba(int red, int green, int blue, double alpha) {
-        return Color.rgba(red, green, blue, alpha);
+        return Color.rgb(red, green, blue, alpha);
     }
 
     /**
@@ -90,8 +90,8 @@ public final class CSSFunctions extends SelectorDSL {
      * @param alpha The transparency.
      * @return A new color.
      */
-    public Color hsla(int hue, int saturation, int lightness, float alpha) {
-        return new Color(hue, saturation, lightness, alpha);
+    public Color hsla(int hue, int saturation, int lightness, double alpha) {
+        return Color.hsl(hue, saturation, lightness, alpha);
     }
 
     /**
