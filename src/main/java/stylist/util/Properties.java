@@ -12,9 +12,9 @@ package stylist.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Function;
 
+import kiss.Variable;
 import stylist.CSSValue;
 
 /**
@@ -29,15 +29,26 @@ public final class Properties {
     private final ArrayList<CSSValue> values = new ArrayList();
 
     /**
+     * Test property value literally.
+     * 
+     * @param name A property name.
+     * @param value A property value.
+     * @return A result.
+     */
+    public boolean is(String name, String value) {
+        return get(name).is(v -> v.match(value));
+    }
+
+    /**
      * Get the propety value of the specified name.
      * 
      * @param name A property name.
      * @return The matched value.
      */
-    public Optional<CSSValue> get(String name) {
+    public Variable<CSSValue> get(String name) {
         int index = name(name);
 
-        return index == -1 ? Optional.empty() : Optional.of(values.get(index));
+        return index == -1 ? Variable.empty() : Variable.of(values.get(index));
     }
 
     /**
@@ -89,14 +100,14 @@ public final class Properties {
      * @param name A property name to remove.
      * @return An updated {@link Properties}.
      */
-    public Optional<CSSValue> remove(String name) {
+    public Variable<CSSValue> remove(String name) {
         int index = name(name);
 
         if (index != -1) {
             names.remove(index);
-            return Optional.of(values.remove(index));
+            return Variable.of(values.remove(index));
         } else {
-            return Optional.empty();
+            return Variable.empty();
         }
     }
 
@@ -207,7 +218,7 @@ public final class Properties {
      */
     public Properties revalue(String name, Function<CSSValue, CSSValue> mapper) {
         if (mapper != null) {
-            Optional<CSSValue> value = get(name);
+            Variable<CSSValue> value = get(name);
 
             if (value.isPresent()) {
                 set(name, mapper.apply(value.get()));
@@ -267,7 +278,7 @@ public final class Properties {
             CSSValue compacting = CSSValue.EMPTY;
 
             for (String remover : removers) {
-                Optional<CSSValue> removed = remove(remover);
+                Variable<CSSValue> removed = remove(remover);
 
                 if (removed.isPresent() == false) {
                     compacting = compacting.join(defaultValue);
