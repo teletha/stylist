@@ -11,6 +11,8 @@ package stylist.util;
 
 import java.io.IOError;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -18,6 +20,7 @@ import java.util.function.Function;
 
 import stylist.CSSValue;
 import stylist.StyleRule;
+import stylist.Stylist;
 import stylist.value.Color;
 
 /**
@@ -283,6 +286,26 @@ public final class Formatter {
         } catch (IOException e) {
             throw new IOError(e);
         }
+    }
+
+    /**
+     * Format all managed {@link Style}s and write out to the specified file.
+     * 
+     * @param file A path to file.
+     * @return A created file.
+     */
+    public Path format(String file) {
+        return format(Paths.get(file));
+    }
+
+    /**
+     * Format all managed {@link Style}s and write out to the specified file.
+     * 
+     * @param file A path to file.
+     * @return A created file.
+     */
+    public Path format(Path file) {
+        return Stylist.writeTo(file, this);
     }
 
     /**
