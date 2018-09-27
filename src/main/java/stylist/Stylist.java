@@ -136,6 +136,7 @@ public class Stylist {
 
         try {
             if (Files.notExists(path)) {
+                Files.createDirectories(path.getParent());
                 Files.createFile(path);
             }
             Files.write(path, builder.toString().getBytes(UTF_8));
