@@ -9,7 +9,7 @@
  */
 package stylist;
 
-import static java.nio.charset.StandardCharsets.*;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.IOError;
 import java.io.IOException;

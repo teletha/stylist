@@ -24,7 +24,7 @@ import stylist.Stylist;
 import stylist.value.Color;
 
 /**
- * @version 2018/09/08 23:23:36
+ * @version 2018/12/08 11:36:03
  */
 public final class Formatter {
 
@@ -252,6 +252,9 @@ public final class Formatter {
      */
     public void format(StyleRule rule, Appendable appendable) {
         if (showEmptyStyle == false && rule.properties.size() == 0) {
+            for (StyleRule child : rule.children) {
+                format(child, appendable);
+            }
             return;
         }
 
