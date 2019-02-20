@@ -9,8 +9,6 @@
  */
 package stylist;
 
-import static java.nio.charset.StandardCharsets.*;
-
 import java.io.IOError;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -50,43 +48,7 @@ public class Stylist {
 
     static {
         for (Class domain : I.findAs(StyleDSL.class)) {
-            for (Field field : domain.getDeclaredFields()) {
-                try {
-                    if (Modifier.isStatic(field.getModifiers())) {
-                        field.setAccessible(true);
-
-                        if (Location.class.isAssignableFrom(field.getType())) {
-
-                            Location located = (Location) field.get(null);
-
-                            if (located != null) {
-                                located.name();
-                            }
-                        } else if (ValueStyle.class.isAssignableFrom(field.getType())) {
-                            Type type = field.getGenericType();
-
-                            if (type instanceof ParameterizedType) {
-                                ParameterizedType parameterized = (ParameterizedType) type;
-                                Type[] args = parameterized.getActualTypeArguments();
-
-                                if (args.length == 1 && args[0] instanceof Class) {
-                                    Class param = (Class) args[0];
-
-                                    if (param.isEnum()) {
-                                        ValueStyle style = (ValueStyle) field.get(null);
-
-                                        for (Object constant : param.getEnumConstants()) {
-                                            style.of(constant).name();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } catch (Throwable e) {
-                    throw I.quiet(e);
-                }
-            }
+            styles(domain).forEach(Style::name);
         }
     }
 
@@ -131,18 +93,12 @@ public class Stylist {
      * @return
      */
     public static final Path writeTo(Path path, Formatter formatter) {
-        StringBuilder builder = new StringBuilder();
-
-        I.signal(id.keySet()).as(Style.class).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
-            formatter.format(e, builder);
-        });
-
         try {
             if (Files.notExists(path)) {
                 Files.createDirectories(path.getParent());
                 Files.createFile(path);
             }
-            Files.write(path, builder.toString().getBytes(UTF_8));
+            Files.writeString(path, write(formatter, I.signal(id.keySet()).as(Style.class).toList()));
         } catch (IOException e) {
             throw new IOError(e);
         }
@@ -150,13 +106,33 @@ public class Stylist {
     }
 
     /**
-     * Write out all styles in the specified style definition with your {@link Formatter}.
+     * Write out all styles in the specified style definitio with {@link Formatter#pretty()}.
      * 
-     * @param styles A style definition.
-     * @param formatter A style formatter.
+     * @param definitions The style definitions.
      * @return A stylesheet representation.
      */
-    public static String write(Class definition, Formatter formatter) {
+    public static String write(Class... definitions) {
+        return write(null, definitions);
+    }
+
+    /**
+     * Write out all styles in the specified style definition with your {@link Formatter}.
+     * 
+     * @param formatter A style formatter.
+     * @param definitions The style definitions.
+     * @return A stylesheet representation.
+     */
+    public static String write(Formatter formatter, Class... definitions) {
+        Set<Style> styles = new HashSet();
+
+        for (Class definition : definitions) {
+            styles.addAll(styles(definition));
+        }
+
+        return write(formatter, styles.toArray(new Style[styles.size()]));
+    }
+
+    private static Set<Style> styles(Class definition) {
         Set<Style> styles = new HashSet();
 
         for (Field field : definition.getDeclaredFields()) {
@@ -195,49 +171,38 @@ public class Stylist {
                 throw I.quiet(e);
             }
         }
-
-        return write(styles, formatter);
+        return styles;
     }
 
     /**
      * Write out the specified {@link Style} with {@link Formatter#pretty()}.
      * 
-     * @param style A style definition.
+     * @param styles The style definitions.
      * @return A stylesheet representation.
      */
-    public static String write(Style style) {
-        return write(style, null);
+    public static String write(Style... styles) {
+        return write(null, styles);
     }
 
     /**
      * Write out the specified {@link Style} with your {@link Formatter}.
      * 
-     * @param style A style definition.
      * @param formatter A style formatter.
+     * @param styles The style definitions.
      * @return A stylesheet representation.
      */
-    public static String write(Style style, Formatter formatter) {
-        return write(List.of(style), formatter);
-    }
-
-    /**
-     * Write out the specified {@link Style} with {@link Formatter#pretty()}.
-     * 
-     * @param style The style definitions.
-     * @return A stylesheet representation.
-     */
-    public static String write(Iterable<Style> styles) {
-        return write(styles, null);
+    public static String write(Formatter formatter, Style... styles) {
+        return write(formatter, List.of(styles));
     }
 
     /**
      * Write out the specified {@link Style} with your {@link Formatter}.
      * 
-     * @param style The style definitions.
      * @param formatter A style formatter.
+     * @param styles The style definitions.
      * @return A stylesheet representation.
      */
-    public static String write(Iterable<Style> styles, Formatter formatter) {
+    private static String write(Formatter formatter, Iterable<Style> styles) {
         Formatter format = formatter == null ? Formatter.pretty() : formatter;
 
         StringBuilder builder = new StringBuilder();
