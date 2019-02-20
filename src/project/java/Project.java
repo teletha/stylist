@@ -10,7 +10,7 @@
 public class Project extends bee.api.Project {
 
     {
-        product("com.github.teletha", "stylist", "0.1");
+        product("com.github.teletha", "stylist", "0.2");
 
         require("com.github.teletha", "sinobu", "LATEST");
         require("com.github.teletha", "antibug", "LATEST").atTest();

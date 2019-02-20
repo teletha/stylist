@@ -9,7 +9,7 @@
  */
 package stylist;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.charset.StandardCharsets.*;
 
 import java.io.IOError;
 import java.io.IOException;
@@ -22,7 +22,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import kiss.I;
@@ -144,5 +147,105 @@ public class Stylist {
             throw new IOError(e);
         }
         return path;
+    }
+
+    /**
+     * Write out all styles in the specified style definition with your {@link Formatter}.
+     * 
+     * @param styles A style definition.
+     * @param formatter A style formatter.
+     * @return A stylesheet representation.
+     */
+    public static String write(Class definition, Formatter formatter) {
+        Set<Style> styles = new HashSet();
+
+        for (Field field : definition.getDeclaredFields()) {
+            try {
+                if (Modifier.isStatic(field.getModifiers())) {
+                    field.setAccessible(true);
+
+                    if (Style.class.isAssignableFrom(field.getType())) {
+                        Style located = (Style) field.get(null);
+
+                        if (located != null) {
+                            styles.add(located);
+                        }
+                    } else if (ValueStyle.class.isAssignableFrom(field.getType())) {
+                        Type type = field.getGenericType();
+
+                        if (type instanceof ParameterizedType) {
+                            ParameterizedType parameterized = (ParameterizedType) type;
+                            Type[] args = parameterized.getActualTypeArguments();
+
+                            if (args.length == 1 && args[0] instanceof Class) {
+                                Class param = (Class) args[0];
+
+                                if (param.isEnum()) {
+                                    ValueStyle style = (ValueStyle) field.get(null);
+
+                                    for (Object constant : param.getEnumConstants()) {
+                                        styles.add(style.of(constant));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable e) {
+                throw I.quiet(e);
+            }
+        }
+
+        return write(styles, formatter);
+    }
+
+    /**
+     * Write out the specified {@link Style} with {@link Formatter#pretty()}.
+     * 
+     * @param style A style definition.
+     * @return A stylesheet representation.
+     */
+    public static String write(Style style) {
+        return write(style, null);
+    }
+
+    /**
+     * Write out the specified {@link Style} with your {@link Formatter}.
+     * 
+     * @param style A style definition.
+     * @param formatter A style formatter.
+     * @return A stylesheet representation.
+     */
+    public static String write(Style style, Formatter formatter) {
+        return write(List.of(style), formatter);
+    }
+
+    /**
+     * Write out the specified {@link Style} with {@link Formatter#pretty()}.
+     * 
+     * @param style The style definitions.
+     * @return A stylesheet representation.
+     */
+    public static String write(Iterable<Style> styles) {
+        return write(styles, null);
+    }
+
+    /**
+     * Write out the specified {@link Style} with your {@link Formatter}.
+     * 
+     * @param style The style definitions.
+     * @param formatter A style formatter.
+     * @return A stylesheet representation.
+     */
+    public static String write(Iterable<Style> styles, Formatter formatter) {
+        Formatter format = formatter == null ? Formatter.pretty() : formatter;
+
+        StringBuilder builder = new StringBuilder();
+
+        I.signal(styles).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
+            format.format(e, builder);
+        });
+
+        return builder.toString();
     }
 }
