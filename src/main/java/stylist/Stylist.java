@@ -17,14 +17,11 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -37,12 +34,6 @@ import stylist.value.Color;
  * @version 2018/12/08 11:36:03
  */
 public final class Stylist {
-
-    static {
-        for (Class domain : I.findAs(StyleDSL.class)) {
-            styles(domain).forEach(Style::name);
-        }
-    }
 
     /** The format style. */
     private String beforeSelector = "";
@@ -254,7 +245,7 @@ public final class Stylist {
      * @param rule A target to format.
      * @return A formatted text.
      */
-    public String format(StyleRule rule) {
+    final String format(StyleRule rule) {
         StringBuilder builder = new StringBuilder();
         format(rule, builder);
         return builder.toString();
@@ -266,7 +257,7 @@ public final class Stylist {
      * @param rule A target to format.
      * @param appendable An output for the formatted text.
      */
-    public void format(StyleRule rule, Appendable appendable) {
+    final void format(StyleRule rule, Appendable appendable) {
         if (showEmptyStyle == false && rule.properties.size() == 0) {
             for (StyleRule child : rule.children) {
                 format(child, appendable);
@@ -321,22 +312,22 @@ public final class Stylist {
     }
 
     /**
-     * Write out all styles in the specified style definitio with {@link Stylist#pretty()}.
+     * Write out all styles in the specified style definition.
      * 
      * @param definitions The style definitions.
      * @return A stylesheet representation.
      */
-    public String format(Class... definitions) {
+    public final String format(Class... definitions) {
         return format(I.signal(definitions).flatIterable(Stylist::styles).toList());
     }
 
     /**
-     * Write out the specified {@link Style} with {@link Stylist#pretty()}.
+     * Write out the specified {@link Style}.
      * 
      * @param styles The style definitions.
      * @return A stylesheet representation.
      */
-    public String format(Style... styles) {
+    public final String format(Style... styles) {
         return format(List.of(styles));
     }
 
@@ -357,32 +348,53 @@ public final class Stylist {
     }
 
     /**
-     * Write out all styles to the specified path.
+     * Write out all managed styles.
      * 
-     * @param path
      * @return
      */
-    public final Path formatTo(String path) {
-        return formatTo(Paths.get(path));
+    public final String format() {
+        return format(I.signal(id.keySet()).as(Style.class).toList());
     }
 
     /**
-     * Write out all styles to the specified path.
+     * Write out all managed styles.
      * 
-     * @param path
+     * @param output A style output buffer.
      * @return
      */
-    public final Path formatTo(Path path) {
+    public final Path formatTo(String output) {
+        return formatTo(Path.of(output));
+    }
+
+    /**
+     * Write out all managed styles.
+     * 
+     * @param output A style output buffer.
+     * @return
+     */
+    public final Path formatTo(Path output) {
         try {
-            if (Files.notExists(path)) {
-                Files.createDirectories(path.getParent());
-                Files.createFile(path);
-            }
-            Files.writeString(path, format(I.signal(id.keySet()).as(Style.class).toList()));
+            formatTo(Files.newBufferedWriter(output));
         } catch (IOException e) {
-            throw new IOError(e);
+            throw I.quiet(e);
         }
-        return path;
+        return output;
+    }
+
+    /**
+     * Write out all managed styles.
+     * 
+     * @param output A style output buffer.
+     * @return
+     */
+    public final void formatTo(Appendable output) {
+        try {
+            output.append(format());
+        } catch (IOException e) {
+            throw I.quiet(e);
+        } finally {
+            I.quiet(output);
+        }
     }
 
     /**
@@ -421,6 +433,12 @@ public final class Stylist {
     /** The id manager. */
     private static final AtomicInteger counter = new AtomicInteger();
 
+    static {
+        for (Class domain : I.findAs(StyleDSL.class)) {
+            styles(domain).forEach(Style::name);
+        }
+    }
+
     /**
      * Compute identifier for the specified {@link Location}.
      * 
@@ -451,8 +469,8 @@ public final class Stylist {
      * @param definition The style definitions
      * @return
      */
-    private static Set<Style> styles(Class definition) {
-        Set<Style> styles = new HashSet();
+    private static List<Style> styles(Class definition) {
+        List<Style> styles = new ArrayList();
 
         for (Field field : definition.getDeclaredFields()) {
             try {
