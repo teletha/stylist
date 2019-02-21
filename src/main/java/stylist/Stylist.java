@@ -27,7 +27,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import kiss.I;
-import stylist.util.Properties;
 import stylist.value.Color;
 
 /**

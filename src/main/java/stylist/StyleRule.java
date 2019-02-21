@@ -11,8 +11,6 @@ package stylist;
 
 import java.util.ArrayList;
 
-import stylist.util.Properties;
-
 /**
  * This class is CSSStyleRule which represents a single CSS style rule.
  * 

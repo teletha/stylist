@@ -16,7 +16,6 @@ import java.util.StringJoiner;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
-import stylist.util.Strings;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -145,13 +144,30 @@ public class Font extends Colorable<Font> {
                 name = FontInfo.parse(name);
             }
 
-            if (Strings.hasSpace(name)) {
+            if (hasSpace(name)) {
                 joiner.add("\"" + name + "\"");
             } else {
                 joiner.add(name);
             }
         }
         return value("font-family", joiner.toString());
+    }
+
+    /**
+     * <p>
+     * Find whitespace.
+     * </p>
+     * 
+     * @param value
+     * @return
+     */
+    private static boolean hasSpace(String value) {
+        for (int i = 0; i < value.length(); i++) {
+            if (Character.isWhitespace(value.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

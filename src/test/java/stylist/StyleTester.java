@@ -12,7 +12,6 @@ package stylist;
 import java.util.function.Consumer;
 
 import kiss.I;
-import stylist.util.Properties;
 
 /**
  * @version 2018/09/08 22:39:50

@@ -16,8 +16,6 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
-import stylist.util.Strings;
-
 /**
  * @version 2018/09/06 14:10:24
  */
@@ -69,7 +67,7 @@ public class PropertyDefinition<T> {
      * @param vendors The required vendors.
      */
     protected PropertyDefinition(String name, T context, Vendor... vendors) {
-        this.name = Objects.requireNonNullElse(name, Strings.hyphenate(getClass().getSimpleName()));
+        this.name = Objects.requireNonNullElse(name, hyphenate(getClass().getSimpleName()));
         this.context = Objects.requireNonNullElse(context, (T) this);
         this.requiredVendorsForNames = EnumSet.of(Vendor.Standard, vendors);
     }
@@ -260,5 +258,33 @@ public class PropertyDefinition<T> {
             joiner.add(conveter.apply(item).toString());
         }
         return joiner.toString();
+    }
+
+    /**
+     * <p>
+     * Convert to hyphened lower case.
+     * </p>
+     * 
+     * @param value
+     * @return
+     */
+    private static String hyphenate(String value) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+
+            if (c == '_') {
+                builder.append('-');
+            } else if (Character.isUpperCase(c)) {
+                if (i != 0) {
+                    builder.append('-');
+                }
+                builder.append(Character.toLowerCase(c));
+            } else {
+                builder.append(c);
+            }
+        }
+        return builder.toString();
     }
 }

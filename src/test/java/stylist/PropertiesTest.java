@@ -7,11 +7,12 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist.util;
+package stylist;
 
 import org.junit.jupiter.api.Test;
 
 import stylist.CSSValue;
+import stylist.Properties;
 
 /**
  * @version 2018/09/01 21:32:13
