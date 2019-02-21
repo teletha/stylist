@@ -15,8 +15,6 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Objects;
 
-import stylist.util.Formatter;
-
 /**
  * @version 2018/09/05 12:55:50
  */
@@ -86,7 +84,7 @@ public abstract class CSSValue {
      * @param formatter
      * @return
      */
-    public String format(Formatter formatter) {
+    public String format(Stylist formatter) {
         return toString();
     }
 
@@ -293,7 +291,7 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        public String format(Formatter formatter) {
+        public String format(Stylist formatter) {
             return before.format(formatter) + separator + after.format(formatter);
         }
 

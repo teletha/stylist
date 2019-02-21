@@ -7,38 +7,38 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist.util;
+package stylist;
 
 import org.junit.jupiter.api.Test;
 
-import stylist.StyleTester;
+import stylist.Stylist;
 import stylist.value.Color;
 
 /**
  * @version 2018/09/11 14:17:43
  */
-class FormatterTest extends StyleTester {
+class StylistTest extends StyleTester {
 
     ValidatableStyle empty = writeStyle(() -> {
     });
 
     @Test
     void selector() {
-        Formatter formatter = Formatter.compact().showEmptyStyle(true).selector(" ", " ");
+        Stylist formatter = Stylist.compact().showEmptyStyle(true).selector(" ", " ");
 
         assert formatter.format(empty.rules).equals(" " + empty.selector() + " {}");
     }
 
     @Test
     void startBrace() {
-        Formatter formatter = Formatter.compact().showEmptyStyle(true).startBrace("\r\n");
+        Stylist formatter = Stylist.compact().showEmptyStyle(true).startBrace("\r\n");
 
         assert formatter.format(empty.rules).equals(empty.selector() + "{\r\n}");
     }
 
     @Test
     void endBrace() {
-        Formatter formatter = Formatter.compact().showEmptyStyle(true).endBrace("\r\n", "");
+        Stylist formatter = Stylist.compact().showEmptyStyle(true).endBrace("\r\n", "");
 
         assert formatter.format(empty.rules).equals(empty.selector() + "{\r\n}");
     }
@@ -49,21 +49,21 @@ class FormatterTest extends StyleTester {
 
     @Test
     void propertyName() {
-        Formatter formatter = Formatter.compact().propertyName(" ", " ");
+        Stylist formatter = Stylist.compact().propertyName(" ", " ");
 
         assert formatter.format(one.rules).equals(one.selector() + "{ display :block;}");
     }
 
     @Test
     void propertyValue() {
-        Formatter formatter = Formatter.compact().propertyValue(" ", " ");
+        Stylist formatter = Stylist.compact().propertyValue(" ", " ");
 
         assert formatter.format(one.rules).equals(one.selector() + "{display: block ;}");
     }
 
     @Test
     void propertyLine() {
-        Formatter formatter = Formatter.compact().propertyLine("\r\n");
+        Stylist formatter = Stylist.compact().propertyLine("\r\n");
 
         assert formatter.format(one.rules).equals(one.selector() + "{display:block;\r\n}");
     }
@@ -74,7 +74,7 @@ class FormatterTest extends StyleTester {
 
     @Test
     void properties() {
-        Formatter formatter = Formatter.compact().propertyName(" ", "");
+        Stylist formatter = Stylist.compact().propertyName(" ", "");
 
         assert formatter.format(two.rules).equals(two.selector() + "{ display:block; width:10px;}");
     }
@@ -89,7 +89,7 @@ class FormatterTest extends StyleTester {
 
     @Test
     void nest() {
-        Formatter formatter = Formatter.compact().endBrace("", " ");
+        Stylist formatter = Stylist.compact().endBrace("", " ");
 
         assert formatter.format(nest.rules).equals(nest.selector() + "{width:10px;} " + nest.selector() + ":hover{width:20px;} ");
     }
@@ -100,7 +100,7 @@ class FormatterTest extends StyleTester {
 
     @Test
     void color() {
-        Formatter formatter = Formatter.compact().color(Color::toRGB);
+        Stylist formatter = Stylist.compact().color(Color::toRGB);
 
         assert formatter.format(color.rules).equals(color.selector() + "{color:rgb(18,18,18);}");
     }

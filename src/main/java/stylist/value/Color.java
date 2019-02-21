@@ -13,8 +13,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import stylist.CSSValue;
+import stylist.Stylist;
 import stylist.Vendor;
-import stylist.util.Formatter;
 
 /**
  * @version 2018/09/11 15:53:19
@@ -288,7 +288,7 @@ public class Color extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    public String format(Formatter formatter) {
+    public String format(Stylist formatter) {
         return formatter.color().apply(this);
     }
 

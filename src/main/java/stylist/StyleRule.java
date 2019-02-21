@@ -11,7 +11,6 @@ package stylist;
 
 import java.util.ArrayList;
 
-import stylist.util.Formatter;
 import stylist.util.Properties;
 
 /**
@@ -62,7 +61,7 @@ public class StyleRule implements Comparable<StyleRule> {
      */
     @Override
     public String toString() {
-        return Formatter.pretty().format(this);
+        return Stylist.pretty().format(this);
     }
 
     /**
