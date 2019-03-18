@@ -19,7 +19,7 @@ import kiss.I;
 public class StyleTester implements StyleDSL {
 
     static {
-        I.load(StyleTester.class, false);
+        I.load(StyleTester.class);
     }
 
     /**
