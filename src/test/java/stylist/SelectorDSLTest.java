@@ -115,7 +115,6 @@ public class SelectorDSLTest {
     /**
      * @version 2016/09/18 21:30:20
      */
-    @SuppressWarnings("serial")
     private static final class NamedLocation implements Location {
 
         private final String name;

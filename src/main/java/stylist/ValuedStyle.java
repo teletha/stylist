@@ -24,7 +24,6 @@ import java.util.Map;
  * 
  * @version 2018/09/08 16:30:51
  */
-@SuppressWarnings("serial")
 final class ValuedStyle<V> implements Style {
 
     /** The cache repository. */

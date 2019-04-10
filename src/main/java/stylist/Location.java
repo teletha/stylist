@@ -9,12 +9,10 @@
  */
 package stylist;
 
-import java.io.Serializable;
-
 /**
  * @version 2018/09/08 22:41:00
  */
-public interface Location extends Serializable {
+public interface Location {
 
     /**
      * Compute location name.
