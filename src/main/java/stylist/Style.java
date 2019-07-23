@@ -9,6 +9,7 @@
  */
 package stylist;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
@@ -16,7 +17,7 @@ import java.util.function.Consumer;
 /**
  * @version 2018/09/10 18:39:34
  */
-public interface Style extends Location, Consumer {
+public interface Style extends Location, Consumer, Serializable {
 
     /** The empty {@link Style} for reuse. */
     Style Empty = () -> {
