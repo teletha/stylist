@@ -373,6 +373,10 @@ public final class Stylist {
      */
     public final Path formatTo(Path output) {
         try {
+            if (Files.notExists(output)) {
+                Files.createDirectories(output.getParent());
+            }
+
             formatTo(Files.newBufferedWriter(output));
         } catch (IOException e) {
             throw I.quiet(e);
