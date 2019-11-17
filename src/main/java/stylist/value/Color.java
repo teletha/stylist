@@ -255,7 +255,12 @@ public class Color extends CSSValue {
             rounded[i] = Math.round(rgb[i]);
         }
 
-        StringBuilder builder = new StringBuilder("rgb(").append(rounded[0]).append(',').append(rounded[1]).append(',').append(rounded[2]);
+        StringBuilder builder = new StringBuilder(alpha == 1 ? "rgb" : "rgba").append("(")
+                .append(rounded[0])
+                .append(',')
+                .append(rounded[1])
+                .append(',')
+                .append(rounded[2]);
 
         if (alpha != 1) {
             builder.append(',').append(formatDecimal(alpha));

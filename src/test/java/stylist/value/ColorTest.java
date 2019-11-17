@@ -64,8 +64,8 @@ class ColorTest extends StyleTester {
     void toRGB() {
         assert Color.hsl(0, 0, 0, 1).toRGB().equals("rgb(0,0,0)");
         assert Color.hsl(1, 2, 3, 1).toRGB().equals("rgb(8,8,7)");
-        assert Color.hsl(10, 20, 30, 0).toRGB().equals("rgb(92,66,61,0)");
-        assert Color.hsl(150, 55, 70, 0.5).toRGB().equals("rgb(136,221,179,.5)");
+        assert Color.hsl(10, 20, 30, 0).toRGB().equals("rgba(92,66,61,0)");
+        assert Color.hsl(150, 55, 70, 0.5).toRGB().equals("rgba(136,221,179,.5)");
         assert Color.hsl(222, 4, 92).toRGB().equals("rgb(234,234,235)");
         assert Color.hsl(341, 76, 13).toRGB().equals("rgb(58,8,24)");
     }
@@ -86,8 +86,8 @@ class ColorTest extends StyleTester {
     void fromRGB() {
         assert Color.rgb(0, 0, 0).toRGB().equals("rgb(0,0,0)");
         assert Color.rgb(8, 8, 7).toRGB().equals("rgb(8,8,7)");
-        assert Color.rgb(92, 66, 61, 0).toRGB().equals("rgb(92,66,61,0)");
-        assert Color.rgb(136, 221, 179, 0.5).toRGB().equals("rgb(136,221,179,.5)");
+        assert Color.rgb(92, 66, 61, 0).toRGB().equals("rgba(92,66,61,0)");
+        assert Color.rgb(136, 221, 179, 0.5).toRGB().equals("rgba(136,221,179,.5)");
         assert Color.rgb(234, 234, 235).toRGB().equals("rgb(234,234,235)");
         assert Color.rgb(58, 8, 24).toRGB().equals("rgb(58,8,24)");
     }
@@ -98,10 +98,10 @@ class ColorTest extends StyleTester {
         assert Color.of("  rgb(  0 ,  0  ,  0  )  ").toRGB().equals("rgb(0,0,0)");
         assert Color.of("rgb(0,0,0,100%)").toRGB().equals("rgb(0,0,0)");
         assert Color.of("rgb(0,0,0,1)").toRGB().equals("rgb(0,0,0)");
-        assert Color.of("rgb(0,0,0,0.1)").toRGB().equals("rgb(0,0,0,.1)");
-        assert Color.of("rgb(0,0,0,.3)").toRGB().equals("rgb(0,0,0,.3)");
+        assert Color.of("rgb(0,0,0,0.1)").toRGB().equals("rgba(0,0,0,.1)");
+        assert Color.of("rgb(0,0,0,.3)").toRGB().equals("rgba(0,0,0,.3)");
         assert Color.of("rgb(44,50,88)").toRGB().equals("rgb(44,50,88)");
-        assert Color.of("rgba(32,118,197,0.1)").toRGB().equals("rgb(32,118,197,.1)");
+        assert Color.of("rgba(32,118,197,0.1)").toRGB().equals("rgba(32,118,197,.1)");
     }
 
     @Test
