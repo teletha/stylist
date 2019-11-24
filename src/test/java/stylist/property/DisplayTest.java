@@ -14,9 +14,6 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 import stylist.Vendor;
 
-/**
- * @version 2018/09/05 11:40:00
- */
 class DisplayTest extends StyleTester {
 
     @Test
@@ -59,5 +56,21 @@ class DisplayTest extends StyleTester {
         });
         assert style.property("display", "inline-flex");
         assert style.property("display", Vendor.Webkit, "display", "-webkit-inline-flex");
+    }
+
+    @Test
+    void heightFill() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.height.fill();
+        });
+        assert style.property("height", "fill");
+    }
+
+    @Test
+    void widthFill() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.width.fill();
+        });
+        assert style.property("width", "fill");
     }
 }

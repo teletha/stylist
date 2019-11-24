@@ -23,6 +23,23 @@ public final class Display extends PropertyDefinition<Display> {
 
     /**
      * <p>
+     * The height CSS property specifies the height of an element. By default, the property defines
+     * the height of the content area. If box-sizing is set to border-box, however, it instead
+     * determines the height of the border area.
+     * </p>
+     */
+    public final Height height = new Height();
+
+    /**
+     * <p>
+     * The width CSS property sets an element's width. By default, it sets the width of the content
+     * area, but if box-sizing is set to border-box, it sets the width of the border area.
+     * </p>
+     */
+    public final Width width = new Width();
+
+    /**
+     * <p>
      * The box-sizing CSS property is used to alter the default CSS box model used to calculate
      * widths and heights of elements. It is possible to use this property to emulate the behavior
      * of browsers that do not correctly support the CSS box model specification.
@@ -477,6 +494,146 @@ public final class Display extends PropertyDefinition<Display> {
      */
     public Display shadow(Shadow... shadows) {
         return value("box-shadow", join(shadows, v -> v.toString()));
+    }
+
+    /**
+     * 
+     */
+    public class Height extends PropertyDefinition<Display> {
+
+        /**
+         * Hide.
+         */
+        private Height() {
+            super("height", Display.this);
+        }
+
+        /**
+         * <p>
+         * The browser will calculate and select a height for the specified element.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display auto() {
+            return value("auto");
+        }
+
+        /**
+         * <p>
+         * The intrinsic preferred height.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display maxContent() {
+            return value("max-content");
+        }
+
+        /**
+         * <p>
+         * The intrinsic minimum height.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display minContent() {
+            return value("min-content");
+        }
+
+        /**
+         * <p>
+         * The larger of: the intrinsic minimum height the smaller of the intrinsic preferred height
+         * and the available height
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display fitContent() {
+            return value("fit-content");
+        }
+
+        /**
+         * <p>
+         * Use the fill-available inline size or fill-available block size, as appropriate to the
+         * writing mode.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display fill() {
+            return value("fill");
+        }
+    }
+
+    /**
+     * 
+     */
+    public class Width extends PropertyDefinition<Display> {
+
+        /**
+         * Hide.
+         */
+        private Width() {
+            super("width", Display.this);
+        }
+
+        /**
+         * <p>
+         * The browser will calculate and select a height for the specified element.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display auto() {
+            return value("auto");
+        }
+
+        /**
+         * <p>
+         * The intrinsic preferred height.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display maxContent() {
+            return value("max-content");
+        }
+
+        /**
+         * <p>
+         * The intrinsic minimum height.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display minContent() {
+            return value("min-content");
+        }
+
+        /**
+         * <p>
+         * The larger of: the intrinsic minimum height the smaller of the intrinsic preferred height
+         * and the available height
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display fitContent() {
+            return value("fit-content");
+        }
+
+        /**
+         * <p>
+         * Use the fill-available inline size or fill-available block size, as appropriate to the
+         * writing mode.
+         * </p>
+         * 
+         * @return Chainable API.
+         */
+        public Display fill() {
+            return value("fill");
+        }
     }
 
     /**
