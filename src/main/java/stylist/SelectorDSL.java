@@ -1240,12 +1240,30 @@ public class SelectorDSL {
      * selectors.
      * </p>
      * 
+     * @param selector A css selector.
      * @return Chainable API.
      */
     public final SelectorDSL select(String selector) {
         SelectorDSL child = combine(" ", true);
         child.selector = selector;
         return child;
+    }
+
+    /**
+     * <p>
+     * A generic combinator — typically represented by a single space ( ) character in the form of
+     * selector₁ selector₂ — combines two selectors such that elements matched by the second
+     * selector (selector₂) are selected if they have an ancestor element matching the first
+     * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+     * selectors.
+     * </p>
+     * 
+     * @param selector A css selector.
+     * @param sub A sub style.
+     * @return Chainable API.
+     */
+    public final void select(String selector, Style sub) {
+        select(selector).declare(sub);
     }
 
     /**
