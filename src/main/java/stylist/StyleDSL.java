@@ -9,7 +9,6 @@
  */
 package stylist;
 
-import kiss.Extensible;
 import stylist.property.Animation;
 import stylist.property.Appearance;
 import stylist.property.Background;
@@ -33,10 +32,7 @@ import stylist.property.Transform;
 import stylist.property.Visibility;
 import stylist.value.Unit;
 
-/**
- * @version 2018/09/05 14:36:02
- */
-public interface StyleDSL extends Extensible {
+public interface StyleDSL extends StyleDeclarations {
 
     /** A set of css functions. */
     CSSFunctions $ = new CSSFunctions();
