@@ -11,10 +11,7 @@ package stylist;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * @version 2018/08/30 18:33:19
- */
-public class PseudoClassTest extends StyleTester {
+class PseudoClassTest extends StyleTester {
 
     @Test
     public void interaction() {
@@ -52,7 +49,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void form() throws Exception {
+    public void form() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.enabled(() -> {
                 font.size(1, px);
@@ -98,7 +95,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void FirstChild() throws Exception {
+    public void FirstChild() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.firstChild(() -> {
                 font.size(1, px);
@@ -108,7 +105,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void LastChild() throws Exception {
+    public void LastChild() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.lastChild(() -> {
                 font.size(1, px);
@@ -118,7 +115,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void nthChild() throws Exception {
+    public void nthChild() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.nthChild("1", () -> {
                 font.size(1, px);
@@ -139,7 +136,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void nthLastChild() throws Exception {
+    public void nthLastChild() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.nthLastChild("1", () -> {
                 font.size(1, px);
@@ -160,7 +157,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void FirstType() throws Exception {
+    public void FirstType() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.firstOfType(() -> {
                 font.size(1, px);
@@ -171,7 +168,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void LastType() throws Exception {
+    public void LastType() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.lastType(() -> {
                 font.size(1, px);
@@ -182,7 +179,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void nthType() throws Exception {
+    public void nthType() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.nthType("1", () -> {
                 font.size(1, px);
@@ -203,7 +200,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void nthLastType() throws Exception {
+    public void nthLastType() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.nthLastType("1", () -> {
                 font.size(1, px);
@@ -224,7 +221,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void OnlyChild() throws Exception {
+    public void OnlyChild() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.onlyChild(() -> {
                 font.size(1, px);
@@ -234,7 +231,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void OnlyType() throws Exception {
+    public void OnlyType() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.onlyType(() -> {
                 font.size(1, px);
@@ -244,7 +241,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void Empty() throws Exception {
+    public void Empty() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.empty(() -> {
                 font.size(1, px);
@@ -257,7 +254,7 @@ public class PseudoClassTest extends StyleTester {
     };
 
     @Test
-    public void not() throws Exception {
+    public void not() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.not(E, () -> {
                 font.size(1, px);
@@ -267,7 +264,7 @@ public class PseudoClassTest extends StyleTester {
     }
 
     @Test
-    public void nest() throws Exception {
+    public void nestPseudoClass() {
         ValidatableStyle parsed = writeStyle(() -> {
             $.active(() -> {
                 $.invalid(() -> {
@@ -276,5 +273,82 @@ public class PseudoClassTest extends StyleTester {
             });
         });
         assert parsed.sub("active:invalid").property("font-size", "1px");
+    }
+
+    @Test
+    public void nestSelector() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            $.attr("class").exist(() -> {
+                $.child(() -> {
+                    $.select("span", () -> {
+                        font.size(1, px);
+                    });
+                });
+            });
+        });
+        assert parsed.sub("[class]>* span").property("font-size", "1px");
+    }
+
+    @Test
+    public void nestRootPseudoClassAndSelector() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            $.focus(() -> {
+                $.hover(() -> {
+                    $.select("span", () -> {
+                        font.size(1, px);
+                    });
+                });
+            });
+        });
+        assert parsed.sub(":focus:hover span").property("font-size", "1px");
+    }
+
+    @Test
+    public void nestRootPseudoClassAndSelectorWithPseudoClass() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            $.focus(() -> {
+                $.hover(() -> {
+                    $.select("span", () -> {
+                        $.active(() -> {
+                            font.size(1, px);
+                        });
+                    });
+                });
+            });
+        });
+        assert parsed.sub(":focus:hover span:active").property("font-size", "1px");
+    }
+
+    @Test
+    public void nestRootPseudoClassAndSelectorWithPseudoElement() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            $.focus(() -> {
+                $.hover(() -> {
+                    $.select("span", () -> {
+                        $.after(() -> {
+                            font.size(1, px);
+                        });
+                    });
+                });
+            });
+        });
+        assert parsed.sub(":focus:hover span::after").property("font-size", "1px");
+    }
+
+    @Test
+    public void nestMultipleSelectors() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            $.hover(() -> {
+                $.select("span", () -> {
+                    font.size(1, px);
+                });
+
+                $.select("em", () -> {
+                    font.size(1, px);
+                });
+            });
+        });
+        assert parsed.sub(":hover span").property("font-size", "1px");
+        assert parsed.sub(":hover em").property("font-size", "1px");
     }
 }

@@ -27,7 +27,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import kiss.I;
 import stylist.value.Color;
@@ -346,7 +345,11 @@ public final class Stylist {
             format(e, builder);
         });
 
-        builder.insert(0, externals.stream().collect(Collectors.joining("", "@import url(\"", "\");" + afterPropertyLine)));
+        StringBuilder imports = new StringBuilder();
+        for (String external : externals) {
+            imports.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
+        }
+        builder.insert(0, imports);
 
         return builder.toString();
     }

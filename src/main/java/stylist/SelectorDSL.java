@@ -1324,12 +1324,17 @@ public class SelectorDSL {
         SelectorDSL now = root;
 
         while (now != null) {
-            now.selector = now.selector.replace("$", parent.selector);
+            String selector = parent.toString();
+            int hasPasudeElement = selector.indexOf("::");
+            if (hasPasudeElement != -1) selector = selector.substring(0, hasPasudeElement);
+
+            now.selector = now.selector.replace("$", selector);
             now = now.child;
         }
 
+        // This is useless?
         // assign pseudo classes
-        pseudoClasses.addAll(0, parent.pseudoClasses);
+        // pseudoClasses.addAll(0, parent.pseudoClasses);
 
         // replace pseudo element
         if (parent.pseudoElement != null) {
