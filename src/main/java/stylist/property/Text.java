@@ -10,7 +10,7 @@
 package stylist.property;
 
 import static stylist.Vendor.*;
-import static stylist.value.Unit.*;
+import static stylist.value.Unit.px;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
@@ -19,9 +19,6 @@ import stylist.value.Numeric;
 import stylist.value.Shadow;
 import stylist.value.Unit;
 
-/**
- * @version 2018/09/06 14:13:27
- */
 public class Text extends PropertyDefinition<Text> {
 
     /**
@@ -57,6 +54,15 @@ public class Text extends PropertyDefinition<Text> {
      * </p>
      */
     public final VerticalAlign verticalAlign = new VerticalAlign();
+
+    /**
+     * <p>
+     * The text-transform CSS property specifies how to capitalize an element's text. It can be used
+     * to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also
+     * can help improve legibility for ruby.
+     * </p>
+     */
+    public final Transform transform = new Transform();
 
     /**
      * <p>
@@ -464,6 +470,95 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text ellipsis() {
             return value("ellipsis");
+        }
+    }
+
+    /**
+     * <p>
+     * The text-transform CSS property specifies how to capitalize an element's text. It can be used
+     * to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also
+     * can help improve legibility for ruby.
+     * </p>
+     */
+    public class Transform extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private Transform() {
+            super("text-transform", Text.this);
+        }
+
+        /**
+         * <p>
+         * Converts the first letter of each word to uppercase. Other characters remain unchanged
+         * (they retain their original case as written in the element's text). A letter is defined
+         * as a character that is part of Unicode's Letter or Number general categories ; thus, any
+         * punctuation marks or symbols at the beginning of a word are ignored.
+         * </p>
+         * 
+         * @return
+         */
+        public Text capitalize() {
+            return value("capitalize");
+        }
+
+        /**
+         * <p>
+         * Converts all characters to uppercase.
+         * </p>
+         * 
+         * @return
+         */
+        public Text upper() {
+            return value("uppercase");
+        }
+
+        /**
+         * <p>
+         * Converts all characters to lowercase.
+         * </p>
+         * 
+         * @return
+         */
+        public Text lower() {
+            return value("lowercase");
+        }
+
+        /**
+         * <p>
+         * Prevents the case of all characters from being changed.
+         * </p>
+         * 
+         * @return
+         */
+        public Text none() {
+            return value("none");
+        }
+
+        /**
+         * <p>
+         * Forces the writing of a character — mainly ideograms and Latin scripts — inside a square,
+         * allowing them to be aligned in the usual East Asian scripts (like Chinese or Japanese).
+         * </p>
+         * 
+         * @return
+         */
+        public Text fullWidth() {
+            return value("full-width");
+        }
+
+        /**
+         * <p>
+         * Generally used for <ruby> annotation text, the keyword converts all small Kana characters
+         * to the equivalent full-size Kana, to compensate for legibility issues at the small font
+         * sizes typically used in ruby.
+         * </p>
+         * 
+         * @return
+         */
+        public Text fullSizeKana() {
+            return value("full-size-kana");
         }
     }
 }

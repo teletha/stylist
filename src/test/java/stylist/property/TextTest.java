@@ -15,13 +15,10 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/09/06 14:13:42
- */
-public class TextTest extends StyleTester {
+class TextTest extends StyleTester {
 
     @Test
-    public void indent() {
+    void indent() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.indent(3, em);
         });
@@ -29,7 +26,7 @@ public class TextTest extends StyleTester {
     }
 
     @Test
-    public void align() {
+    void align() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.align.center().verticalAlign.bottom();
         });
@@ -38,7 +35,7 @@ public class TextTest extends StyleTester {
     }
 
     @Test
-    public void decoration() {
+    void decoration() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.decoration.underline();
         });
@@ -46,7 +43,7 @@ public class TextTest extends StyleTester {
     }
 
     @Test
-    public void overflow() {
+    void overflow() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.overflow.ellipsis();
         });
@@ -54,7 +51,7 @@ public class TextTest extends StyleTester {
     }
 
     @Test
-    public void unselectable() {
+    void unselectable() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.unselectable();
         });
@@ -66,7 +63,7 @@ public class TextTest extends StyleTester {
     }
 
     @Test
-    public void shadowSingle() {
+    void shadowSingle() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.shadow($.shadow().offset(2, 2, px).blurRadius(1, px).color($.hsl(100, 100, 100)));
         });
@@ -74,10 +71,34 @@ public class TextTest extends StyleTester {
     }
 
     @Test
-    public void shadowMultiple() {
+    void shadowMultiple() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.shadow($.shadow().offset(2, 2, px), $.shadow().offset(1, 1, px));
         });
         assert parsed.property("text-shadow", "2px 2px,1px 1px");
+    }
+
+    @Test
+    void transformCapitalize() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.transform.capitalize();
+        });
+        assert parsed.property("text-transform", "capitalize");
+    }
+
+    @Test
+    void transformLowercase() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.transform.lower();
+        });
+        assert parsed.property("text-transform", "lowercase");
+    }
+
+    @Test
+    void transformUppercase() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.transform.upper();
+        });
+        assert parsed.property("text-transform", "uppercase");
     }
 }
