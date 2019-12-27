@@ -20,11 +20,14 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import kiss.I;
 import stylist.value.Color;
@@ -343,6 +346,8 @@ public final class Stylist {
             format(e, builder);
         });
 
+        builder.insert(0, externals.stream().collect(Collectors.joining("", "@import url(\"", "\");" + afterPropertyLine)));
+
         return builder.toString();
     }
 
@@ -512,5 +517,19 @@ public final class Stylist {
             }
         }
         return styles;
+    }
+
+    /** The external stylesheets. */
+    private static final Set<String> externals = new HashSet();
+
+    /**
+     * Register the external stylesheet to import.
+     * 
+     * @param uri A target uri.
+     */
+    public static void useExternalStylesheet(String uri) {
+        if (uri != null && uri.startsWith("http")) {
+            externals.add(uri);
+        }
     }
 }

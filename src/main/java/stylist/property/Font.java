@@ -16,6 +16,7 @@ import java.util.StringJoiner;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
+import stylist.Stylist;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -138,10 +139,19 @@ public class Font extends Colorable<Font> {
         StringJoiner joiner = new StringJoiner(",");
 
         for (CharSequence font : fonts) {
-            String name = font.toString();
+            String name;
 
-            if (name.startsWith("http")) {
-                name = FontInfo.parse(name);
+            if (font instanceof stylist.value.Font) {
+                stylist.value.Font f = (stylist.value.Font) font;
+                Stylist.useExternalStylesheet(f.uri);
+                name = f.name;
+            } else {
+                name = font.toString();
+
+                if (name.startsWith("http")) {
+                    Stylist.useExternalStylesheet(name);
+                    name = FontInfo.parse(name);
+                }
             }
 
             if (hasSpace(name)) {

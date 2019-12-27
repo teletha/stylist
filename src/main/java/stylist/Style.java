@@ -59,4 +59,27 @@ public interface Style extends Location, Consumer, Serializable {
     default void accept(Object context) {
         // do nothing
     }
+
+    /**
+     * Create named {@link Style}.
+     * 
+     * @param name A style name.
+     * @param style A style definition.
+     * @return
+     */
+    @SuppressWarnings("serial")
+    static Style named(String name, Runnable style) {
+        return new Style() {
+
+            @Override
+            public String name() {
+                return name;
+            }
+
+            @Override
+            public void style() {
+                style.run();
+            }
+        };
+    }
 }
