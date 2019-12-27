@@ -472,6 +472,32 @@ public final class Display extends PropertyDefinition<Display> {
 
     /**
      * <p>
+     * The float CSS property places an element on the left or right side of its container, allowing
+     * text and inline elements to wrap around it. The element is removed from the normal flow of
+     * the page, though still remaining a part of the flow (in contrast to absolute positioning).
+     * </p>
+     * 
+     * @return
+     */
+    public Display floatRight() {
+        return value("float", "right");
+    }
+
+    /**
+     * <p>
+     * The float CSS property places an element on the left or right side of its container, allowing
+     * text and inline elements to wrap around it. The element is removed from the normal flow of
+     * the page, though still remaining a part of the flow (in contrast to absolute positioning).
+     * </p>
+     * 
+     * @return
+     */
+    public Display floatLeft() {
+        return value("float", "left");
+    }
+
+    /**
+     * <p>
      * The opacity CSS property specifies the transparency of an element, that is, the degree to
      * which the background behind the element is overlaid. Using this property with a value
      * different than 1 places the element in a new stacking context.

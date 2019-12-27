@@ -73,4 +73,12 @@ class DisplayTest extends StyleTester {
         });
         assert style.property("width", "fill");
     }
+
+    @Test
+    void floating() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.floatLeft();
+        });
+        assert style.property("float", "left");
+    }
 }
