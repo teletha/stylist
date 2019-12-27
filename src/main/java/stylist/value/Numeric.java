@@ -315,4 +315,15 @@ public class Numeric extends CSSValue {
             return String.valueOf(size) + (unit == null ? "" : unit);
         }
     }
+
+    /**
+     * Generic builder.
+     * 
+     * @param size
+     * @param unit
+     * @return
+     */
+    public static Numeric of(double size, Unit unit) {
+        return new Numeric(size, unit);
+    }
 }
