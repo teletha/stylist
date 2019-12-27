@@ -9,6 +9,7 @@
  */
 package stylist.value;
 
+import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -78,7 +79,7 @@ public class Color extends CSSValue {
         this.hue = checkRange(0, hue, 360);
         this.saturation = checkRange(0, saturation, 100);
         this.lightness = checkRange(0, lightness, 100);
-        this.alpha = checkRange(0, alpha, 1);
+        this.alpha = checkRange(0, alpha, 1d);
     }
 
     /**
@@ -158,8 +159,8 @@ public class Color extends CSSValue {
      * @param amount An amount of transparency.
      * @return A new color.
      */
-    public Color opacify(float amount) {
-        return new Color(hue, saturation, lightness, alpha + amount);
+    public Color opacify(double amount) {
+        return new Color(hue, saturation, lightness, new BigDecimal(alpha).add(new BigDecimal(amount)).doubleValue());
     }
 
     /**
@@ -342,7 +343,7 @@ public class Color extends CSSValue {
      * @return A new color.
      */
     public static Color rgb(int red, int green, int blue) {
-        return rgb(red, green, blue, 1);
+        return rgb(red, green, blue, 1d);
     }
 
     /**
