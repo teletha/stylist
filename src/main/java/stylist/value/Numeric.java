@@ -17,9 +17,6 @@ import java.util.EnumSet;
 import stylist.CSSValue;
 import stylist.Vendor;
 
-/**
- * @version 2018/08/30 18:21:59
- */
 public class Numeric extends CSSValue {
 
     /** The zero value. */
@@ -249,7 +246,7 @@ public class Numeric extends CSSValue {
      * 
      * @return
      */
-    public Numeric opposite() {
+    public Numeric negate() {
         return multiply(new Numeric(-1, unit));
     }
 

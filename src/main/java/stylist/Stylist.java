@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -77,6 +78,9 @@ public final class Stylist {
 
     /** The manager of post processors. */
     private final List<Consumer<Properties>> posts = new ArrayList();
+
+    /** The imported stylesheets. */
+    private final Set<String> imports = new TreeSet();
 
     /**
      * Hide constructor.
@@ -241,6 +245,37 @@ public final class Stylist {
     }
 
     /**
+     * Import reset stylesheet.
+     * 
+     * @return Chainable API.
+     */
+    public Stylist importResetStyle() {
+        return importStyle("https://unpkg.com/modern-css-reset/dist/reset.min.css");
+    }
+
+    /**
+     * Import normalize stylesheet.
+     * 
+     * @return Chainable API.
+     */
+    public Stylist importNormalizeStyle() {
+        return importStyle("https://unpkg.com/ress/dist/ress.min.css");
+    }
+
+    /**
+     * Import external stylesheet.
+     * 
+     * @param uri A target stylesheet uri to import.
+     * @return Chainable API.
+     */
+    public Stylist importStyle(String uri) {
+        if (uri != null && uri.length() != 0) {
+            imports.add(uri);
+        }
+        return this;
+    }
+
+    /**
      * Format the specified {@link StyleRule}.
      * 
      * @param rule A target to format.
@@ -345,11 +380,12 @@ public final class Stylist {
             format(e, builder);
         });
 
-        StringBuilder imports = new StringBuilder();
-        for (String external : externals) {
-            imports.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
+        imports.addAll(externals);
+        StringBuilder addition = new StringBuilder();
+        for (String external : imports) {
+            addition.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
         }
-        builder.insert(0, imports);
+        builder.insert(0, addition);
 
         return builder.toString();
     }
