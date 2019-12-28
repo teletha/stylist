@@ -128,77 +128,77 @@ public final class Display extends PropertyDefinition<Display> {
         return new Flex();
     }
 
-    // /**
-    // * Behaves like the table HTML element. It defines a block-level box.
-    // */
-    // public Display table() {
-    // return value("table");
-    // }
-    //
-    // /**
-    // * The inline-table value does not have a direct mapping in HTML. It behaves like a table HTML
-    // * element, but as an inline box, rather than a block-level box. Inside the table box is a
-    // * block-level context.
-    // */
-    // public Display inlineTable() {
-    // return value("inline-table");
-    // }
-    //
-    // /**
-    // * Behaves like the caption HTML element.
-    // */
-    // public Display tableCaption() {
-    // return value("table-caption");
-    // }
-    //
-    // /**
-    // * Behaves like the tr HTML element.
-    // */
-    // public Display tableRow() {
-    // return value("table-row");
-    // }
-    //
-    // /**
-    // * Behaves like the td HTML element.
-    // */
-    // public Display tableCell() {
-    // return value("table-cell");
-    // }
-    //
-    // /**
-    // * These elements behave like the corresponding col HTML elements.
-    // */
-    // public Display tableColumn() {
-    // return value("table-column");
-    // }
-    //
-    // /**
-    // * These elements behave like the corresponding colgroup HTML elements.
-    // */
-    // public Display tableColumnGroup() {
-    // return value("table-column-group");
-    // }
-    //
-    // /**
-    // * These elements behave like the corresponding thead HTML elements.
-    // */
-    // public Display tableHeaderGroup() {
-    // return value("table-header-group");
-    // }
-    //
-    // /**
-    // * These elements behave like the corresponding tfoot HTML elements.
-    // */
-    // public Display tableFooterGroup() {
-    // return value("table-footer-group");
-    // }
-    //
-    // /**
-    // * These elements behave like the corresponding tbody HTML elements.
-    // */
-    // public Display tableRowGroup() {
-    // return value("table-row-group");
-    // }
+    /**
+     * Behaves like the table HTML element. It defines a block-level box.
+     */
+    public Display table() {
+        return value("table");
+    }
+
+    /**
+     * The inline-table value does not have a direct mapping in HTML. It behaves like a table HTML
+     * element, but as an inline box, rather than a block-level box. Inside the table box is a
+     * block-level context.
+     */
+    public Display inlineTable() {
+        return value("inline-table");
+    }
+
+    /**
+     * Behaves like the caption HTML element.
+     */
+    public Display tableCaption() {
+        return value("table-caption");
+    }
+
+    /**
+     * Behaves like the tr HTML element.
+     */
+    public Display tableRow() {
+        return value("table-row");
+    }
+
+    /**
+     * Behaves like the td HTML element.
+     */
+    public Display tableCell() {
+        return value("table-cell");
+    }
+
+    /**
+     * These elements behave like the corresponding col HTML elements.
+     */
+    public Display tableColumn() {
+        return value("table-column");
+    }
+
+    /**
+     * These elements behave like the corresponding colgroup HTML elements.
+     */
+    public Display tableColumnGroup() {
+        return value("table-column-group");
+    }
+
+    /**
+     * These elements behave like the corresponding thead HTML elements.
+     */
+    public Display tableHeaderGroup() {
+        return value("table-header-group");
+    }
+
+    /**
+     * These elements behave like the corresponding tfoot HTML elements.
+     */
+    public Display tableFooterGroup() {
+        return value("table-footer-group");
+    }
+
+    /**
+     * These elements behave like the corresponding tbody HTML elements.
+     */
+    public Display tableRowGroup() {
+        return value("table-row-group");
+    }
 
     /**
      * <p>
