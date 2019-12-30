@@ -519,7 +519,7 @@ public final class Stylist {
     private static List<Style> styles(Class definition) {
         List<Style> styles = new ArrayList();
 
-        for (Field field : definition.getDeclaredFields()) {
+        for (Field field : definition.getFields()) {
             try {
                 if (Modifier.isStatic(field.getModifiers())) {
                     field.setAccessible(true);
