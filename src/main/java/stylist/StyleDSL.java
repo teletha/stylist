@@ -156,6 +156,15 @@ public interface StyleDSL extends StyleDeclarations {
      */
     Unit percent = Unit.percent;
 
+    /**
+     * <p>
+     * The <flex> data type is specified as a <number> followed by the unit fr. The fr unit
+     * represents a fraction of the leftover space in the grid container. As with all CSS
+     * dimensions, there is no space between the unit and the number.
+     * </p>
+     */
+    Unit fr = Unit.fr;
+
     Animation animation = new Animation();
 
     /**

@@ -123,7 +123,14 @@ public enum Unit {
     /**
      * a time in milliseconds. E.g. 0ms, 1500ms, -60000ms.
      */
-    ms;
+    ms,
+
+    /**
+     * The <flex> data type is specified as a <number> followed by the unit fr. The fr unit
+     * represents a fraction of the leftover space in the grid container. As with all CSS
+     * dimensions, there is no space between the unit and the number.
+     */
+    fr;
 
     /** The unit representaion. */
     private final String unit;

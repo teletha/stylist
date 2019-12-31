@@ -91,22 +91,25 @@ public final class Display extends PropertyDefinition<Display> {
     // public Display runIn() {
     // return value("run-in");
     // }
-    //
-    // /**
-    // * The element behaves like a block element and lay out its content according to the grid
-    // model.
-    // */
-    // public Display grid() {
-    // return value("grid");
-    // }
-    //
-    // /**
-    // * The element behaves like an inline element and lay out its content according to the grid
-    // * model.
-    // */
-    // public Display inlineGrid() {
-    // return value("inline-grid");
-    // }
+
+    /**
+     * The element behaves like a block element and lay out its content according to the grid model.
+     */
+    public Grid grid() {
+        value(CSSValue.of("grid"));
+
+        return new Grid();
+    }
+
+    /**
+     * The element behaves like an inline element and lay out its content according to the grid
+     * model.
+     */
+    public Grid inlineGrid() {
+        value(CSSValue.of("inline-grid"));
+
+        return new Grid();
+    }
 
     /**
      * The element behaves like a block element and lays out its content according to the flexbox

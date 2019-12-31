@@ -59,6 +59,22 @@ class DisplayTest extends StyleTester {
     }
 
     @Test
+    void grid() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.grid();
+        });
+        assert style.property("display", "grid");
+    }
+
+    @Test
+    void inlineGrid() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.inlineGrid();
+        });
+        assert style.property("display", "inline-grid");
+    }
+
+    @Test
     void heightFill() {
         ValidatableStyle style = writeStyle(() -> {
             display.height.fill();
