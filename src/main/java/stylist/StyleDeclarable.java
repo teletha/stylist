@@ -14,5 +14,5 @@ import kiss.Extensible;
 /**
  * This is marker interface and extension point to declare your styles.
  */
-public interface StyleDeclarations extends Extensible {
+public interface StyleDeclarable extends Extensible {
 }

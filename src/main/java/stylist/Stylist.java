@@ -481,7 +481,7 @@ public final class Stylist {
     private static final AtomicInteger counter = new AtomicInteger();
 
     static {
-        for (Class domain : I.findAs(StyleDeclarations.class)) {
+        for (Class domain : I.findAs(StyleDeclarable.class)) {
             styles(domain).forEach(Style::name);
         }
     }

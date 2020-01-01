@@ -32,7 +32,7 @@ import stylist.property.Transform;
 import stylist.property.Visibility;
 import stylist.value.Unit;
 
-public interface StyleDSL extends StyleDeclarations {
+public interface StyleDSL extends StyleDeclarable {
 
     /** A set of css functions. */
     CSSFunctions $ = new CSSFunctions();
