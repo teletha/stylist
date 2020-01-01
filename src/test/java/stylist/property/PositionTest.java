@@ -13,13 +13,10 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/08/30 18:39:53
- */
-public class PositionTest extends StyleTester {
+class PositionTest extends StyleTester {
 
     @Test
-    public void relative() {
+    void relative() {
         ValidatableStyle parsed = writeStyle(() -> {
             position.relative();
 
@@ -30,7 +27,7 @@ public class PositionTest extends StyleTester {
     }
 
     @Test
-    public void absolute() {
+    void absolute() {
         ValidatableStyle parsed = writeStyle(() -> {
             position.absolute();
 
@@ -41,7 +38,7 @@ public class PositionTest extends StyleTester {
     }
 
     @Test
-    public void fixed() {
+    void fixed() {
         ValidatableStyle parsed = writeStyle(() -> {
             position.fixed();
 
@@ -52,7 +49,18 @@ public class PositionTest extends StyleTester {
     }
 
     @Test
-    public void position() {
+    void sticky() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            position.sticky();
+
+            assert position.isRelative() == false;
+            assert position.isAbsolute() == false;
+        });
+        assert parsed.property("position", "sticky");
+    }
+
+    @Test
+    void position() {
         ValidatableStyle parsed = writeStyle(() -> {
             position.top(1, px).right(2, px).bottom(3, px).left(4, px);
         });

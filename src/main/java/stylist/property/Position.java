@@ -84,6 +84,20 @@ public final class Position extends PropertyDefinition<Position> {
 
     /**
      * <p>
+     * The element is positioned according to the normal flow of the document, and then offset
+     * relative to its nearest scrolling ancestor and containing block (nearest block-level
+     * ancestor), including table-related elements, based on the values of top, right, bottom, and
+     * left. The offset does not affect the position of any other elements.
+     * </p>
+     * 
+     * @return
+     */
+    public Position sticky() {
+        return value("sticky");
+    }
+
+    /**
+     * <p>
      * The left CSS property specifies part of the position of positioned elements.
      * </p>
      * <p>
