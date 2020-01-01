@@ -255,6 +255,38 @@ public class Background extends Colorable<Background> {
      * image can be fully constrained or only partially in order to preserve its intrinsic ratio.
      * </p>
      * <p>
+     * A value that scales the background image to the specified length in the corresponding
+     * dimension. Negative lengths are not allowed.
+     * </p>
+     * 
+     * @return
+     */
+    public Background size(double horizontalSize, Unit horizontalUnit, double verticalSize, Unit verticalUnit) {
+        return size(new Numeric(horizontalSize, horizontalUnit), new Numeric(verticalSize, verticalUnit));
+    }
+
+    /**
+     * <p>
+     * The background-size CSS property specifies the size of the background images. The size of the
+     * image can be fully constrained or only partially in order to preserve its intrinsic ratio.
+     * </p>
+     * <p>
+     * A value that scales the background image to the specified length in the corresponding
+     * dimension. Negative lengths are not allowed.
+     * </p>
+     * 
+     * @return
+     */
+    public Background size(Numeric horizontal, Numeric vertical) {
+        return value("background-size", horizontal + " " + vertical);
+    }
+
+    /**
+     * <p>
+     * The background-size CSS property specifies the size of the background images. The size of the
+     * image can be fully constrained or only partially in order to preserve its intrinsic ratio.
+     * </p>
+     * <p>
      * This keyword specifies that the background image should be scaled to be as small as possible
      * while ensuring both its dimensions are greater than or equal to the corresponding dimensions
      * of the background positioning area.
