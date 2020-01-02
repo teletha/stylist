@@ -82,6 +82,9 @@ public final class Stylist {
     /** The imported stylesheets. */
     private final Set<String> imports = new TreeSet();
 
+    /** The target styles. */
+    private final Set<Style> styles = new HashSet();
+
     /**
      * Hide constructor.
      */
@@ -276,118 +279,27 @@ public final class Stylist {
     }
 
     /**
-     * Format the specified {@link StyleRule}.
-     * 
-     * @param rule A target to format.
-     * @return A formatted text.
-     */
-    final String format(StyleRule rule) {
-        StringBuilder builder = new StringBuilder();
-        format(rule, builder);
-        return builder.toString();
-    }
-
-    /**
-     * Format the specified {@link StyleRule}.
-     * 
-     * @param rule A target to format.
-     * @param appendable An output for the formatted text.
-     */
-    final void format(StyleRule rule, Appendable appendable) {
-        if (showEmptyStyle == false && rule.properties.size() == 0) {
-            for (StyleRule child : rule.children) {
-                format(child, appendable);
-            }
-            return;
-        }
-
-        try {
-            for (Consumer<Properties> processor : posts) {
-                processor.accept(rule.properties);
-            }
-
-            appendable.append(beforeSelector)
-                    .append(comment(rule.description))
-                    .append(rule.selector.toString())
-                    .append(afterSelector)
-                    .append('{')
-                    .append(afterStartBrace);
-
-            for (int i = 0, size = rule.properties.size(); i < size; i++) {
-                appendable.append(beforePropertyName)
-                        .append(rule.properties.name(i).toString())
-                        .append(afterPropertyName)
-                        .append(':')
-                        .append(beforePropertyValue)
-                        .append(rule.properties.value(i).format(this))
-                        .append(afterPropertyValue)
-                        .append(';')
-                        .append(afterPropertyLine);
-            }
-            appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
-
-            for (StyleRule child : rule.children) {
-                format(child, appendable);
-            }
-        } catch (IOException e) {
-            throw new IOError(e);
-        }
-    }
-
-    /**
-     * Write comment.
-     * 
-     * @param message
-     */
-    private String comment(String message) {
-        if (comment && message != null && message.length() != 0) {
-            return "/* " + message + " */";
-        } else {
-            return "";
-        }
-    }
-
-    /**
-     * Write out all styles in the specified style definition.
+     * Specify the class containing the style definition to be converted.
      * 
      * @param definitions The style definitions.
-     * @return A stylesheet representation.
+     * @return Chainable API.
      */
-    public final String format(Class... definitions) {
-        return format(I.signal(definitions).flatIterable(Stylist::styles).toList());
+    public final Stylist styles(Class... definitions) {
+        I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
+        return this;
     }
 
     /**
-     * Write out the specified {@link Style}.
+     * Specify the style definition to be converted.
      * 
      * @param styles The style definitions.
-     * @return A stylesheet representation.
+     * @return Chainable API.
      */
-    public final String format(Style... styles) {
-        return format(List.of(styles));
-    }
-
-    /**
-     * Write out the specified {@link Style}.
-     * 
-     * @param styles The style definitions.
-     * @return A stylesheet representation.
-     */
-    private String format(Iterable<Style> styles) {
-        StringBuilder builder = new StringBuilder();
-
-        I.signal(styles).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
-            format(e, builder);
-        });
-
-        imports.addAll(externals);
-        StringBuilder addition = new StringBuilder();
-        for (String external : imports) {
-            addition.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
+    public final Stylist styles(Style... styles) {
+        for (Style style : styles) {
+            this.styles.add(style);
         }
-        builder.insert(0, addition);
-
-        return builder.toString();
+        return this;
     }
 
     /**
@@ -396,7 +308,7 @@ public final class Stylist {
      * @return
      */
     public final String format() {
-        return format(I.signal(id.keySet()).as(Style.class).toList());
+        return format(styles.isEmpty() ? I.signal(id.keySet()).as(Style.class).toList() : styles);
     }
 
     /**
@@ -441,6 +353,101 @@ public final class Stylist {
             throw I.quiet(e);
         } finally {
             I.quiet(output);
+        }
+    }
+
+    /**
+     * Write out the specified {@link Style}.
+     * 
+     * @param styles The style definitions.
+     * @return A stylesheet representation.
+     */
+    private String format(Iterable<Style> styles) {
+        StringBuilder builder = new StringBuilder();
+
+        I.signal(styles).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
+            format(e, builder);
+        });
+
+        imports.addAll(externals);
+        StringBuilder addition = new StringBuilder();
+        for (String external : imports) {
+            addition.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
+        }
+        builder.insert(0, addition);
+
+        return builder.toString();
+    }
+
+    /**
+     * Format the specified {@link StyleRule}.
+     * 
+     * @param rule A target to format.
+     * @return A formatted text.
+     */
+    final String format(StyleRule rule) {
+        StringBuilder builder = new StringBuilder();
+        format(rule, builder);
+        return builder.toString();
+    }
+
+    /**
+     * Format the specified {@link StyleRule}.
+     * 
+     * @param rule A target to format.
+     * @param appendable An output for the formatted text.
+     */
+    final void format(StyleRule rule, Appendable appendable) {
+        if (showEmptyStyle == false && rule.properties.size() == 0) {
+            for (StyleRule child : rule.children) {
+                format(child, appendable);
+            }
+            return;
+        }
+    
+        try {
+            for (Consumer<Properties> processor : posts) {
+                processor.accept(rule.properties);
+            }
+    
+            appendable.append(beforeSelector)
+                    .append(comment(rule.description))
+                    .append(rule.selector.toString())
+                    .append(afterSelector)
+                    .append('{')
+                    .append(afterStartBrace);
+    
+            for (int i = 0, size = rule.properties.size(); i < size; i++) {
+                appendable.append(beforePropertyName)
+                        .append(rule.properties.name(i).toString())
+                        .append(afterPropertyName)
+                        .append(':')
+                        .append(beforePropertyValue)
+                        .append(rule.properties.value(i).format(this))
+                        .append(afterPropertyValue)
+                        .append(';')
+                        .append(afterPropertyLine);
+            }
+            appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
+    
+            for (StyleRule child : rule.children) {
+                format(child, appendable);
+            }
+        } catch (IOException e) {
+            throw new IOError(e);
+        }
+    }
+
+    /**
+     * Write comment.
+     * 
+     * @param message
+     */
+    private String comment(String message) {
+        if (comment && message != null && message.length() != 0) {
+            return "/* " + message + " */";
+        } else {
+            return "";
         }
     }
 
