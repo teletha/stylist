@@ -475,14 +475,14 @@ public final class Stylist {
     private static final int base = chars.length;
 
     /** The managed locations. */
-    private static final Map<Location, String> id = new HashMap();
+    private static final Map<Style, String> id = new HashMap();
 
     /** The id manager. */
     private static final AtomicInteger counter = new AtomicInteger();
 
     static {
         for (Class domain : I.findAs(StyleDeclarable.class)) {
-            styles(domain).forEach(Style::name);
+            styles(domain).forEach(Style::selector);
         }
     }
 
@@ -492,12 +492,12 @@ public final class Stylist {
      * @param location A target location.
      * @return An identifier.
      */
-    static String id(Location location) {
+    static String id(Style location) {
         return id.computeIfAbsent(location, key -> {
             int id = counter.getAndIncrement();
 
             if (id == 0) {
-                return String.valueOf(chars[0]);
+                return "." + String.valueOf(chars[0]);
             }
 
             StringBuilder builder = new StringBuilder();
@@ -506,7 +506,7 @@ public final class Stylist {
                 builder.append(chars[id % base]);
                 id /= base;
             }
-            return builder.toString();
+            return "." + builder.toString();
         });
     }
 

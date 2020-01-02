@@ -14,10 +14,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 
-/**
- * @version 2018/09/10 18:39:34
- */
-public interface Style extends Location, Consumer, Serializable {
+public interface Style extends Consumer, Serializable {
 
     /** The empty {@link Style} for reuse. */
     Style Empty = () -> {
@@ -61,6 +58,38 @@ public interface Style extends Location, Consumer, Serializable {
     }
 
     /**
+     * Describe detailed information for this {@link Location}.
+     * 
+     * @return
+     */
+    default String detail() {
+        return ValuedStyle.locate(this);
+    }
+
+    /**
+     * Gets the CSS selector expression associated with this {@link Style}. The default
+     * implementation returns a class selector with the obfuscated name.
+     * 
+     * @return CSS selector expression (For example .name, #id or element).
+     */
+    default String selector() {
+        return Stylist.id(this);
+    }
+
+    /**
+     * Gets class names that uniquely identifies this {@link Style} (returns class name [A] instead
+     * of class selector [.A]). If the style is assigned a selector other than the class name, a
+     * zero-length array will be returned.
+     * 
+     * @return A list of class names.
+     */
+    default String[] className() {
+        String name = selector();
+
+        return name.charAt(0) == '.' ? new String[] {name.substring(1)} : new String[0];
+    }
+
+    /**
      * Create named {@link Style}.
      * 
      * @param name A style name.
@@ -72,7 +101,7 @@ public interface Style extends Location, Consumer, Serializable {
         return new Style() {
 
             @Override
-            public String name() {
+            public String selector() {
                 return name;
             }
 

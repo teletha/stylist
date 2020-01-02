@@ -33,9 +33,9 @@ class MultipleStyle implements Style {
         this.names = new String[styles.length + 1];
 
         for (int i = 0; i < names.length - 1; i++) {
-            names[i] = styles[i].name();
+            names[i] = styles[i].selector();
         }
-        names[names.length - 1] = name();
+        names[names.length - 1] = selector();
     }
 
     /**
@@ -75,7 +75,7 @@ class MultipleStyle implements Style {
      * {@inheritDoc}
      */
     @Override
-    public String[] names() {
+    public String[] className() {
         return names;
     }
 

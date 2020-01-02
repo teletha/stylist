@@ -11,7 +11,6 @@ package stylist;
 
 import org.junit.jupiter.api.Test;
 
-import stylist.Stylist;
 import stylist.value.Color;
 
 /**

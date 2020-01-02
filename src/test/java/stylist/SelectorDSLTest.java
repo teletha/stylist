@@ -115,7 +115,7 @@ public class SelectorDSLTest {
     /**
      * @version 2016/09/18 21:30:20
      */
-    private static final class NamedLocation implements Location {
+    private static final class NamedLocation implements Style {
 
         private final String name;
 
@@ -130,7 +130,7 @@ public class SelectorDSLTest {
          * {@inheritDoc}
          */
         @Override
-        public String name() {
+        public String selector() {
             return name;
         }
 
@@ -140,6 +140,13 @@ public class SelectorDSLTest {
         @Override
         public String toString() {
             return name;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void style() {
         }
     }
 }

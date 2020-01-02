@@ -23,7 +23,7 @@ public class StyleRuleTest extends StyleTester {
         };
 
         StyleRule rule = StyleRule.create(style);
-        assert rule.selector.match("." + style.name());
+        assert rule.selector.match(style.selector());
         assert rule.properties.get("display").get().match("block");
     }
 
@@ -38,12 +38,12 @@ public class StyleRuleTest extends StyleTester {
         };
 
         StyleRule rule = StyleRule.create(style);
-        assert rule.selector.match("." + style.name());
+        assert rule.selector.match(style.selector());
         assert rule.properties.get("display").get().match("block");
         assert rule.children.size() == 1;
 
         StyleRule child = rule.children.get(0);
-        assert child.selector.match("." + style.name() + ":hover");
+        assert child.selector.match(style.selector() + ":hover");
         assert child.properties.get("text-decoration").get().match("underline");
     }
 
@@ -59,7 +59,7 @@ public class StyleRuleTest extends StyleTester {
 
         StyleRule rule = StyleRule.create(style);
         StyleRule child = rule.children.get(0);
-        assert child.selector.match("." + style.name() + " *");
+        assert child.selector.match(style.selector() + " *");
         assert child.properties.get("text-decoration").get().match("underline");
     }
 
@@ -75,7 +75,7 @@ public class StyleRuleTest extends StyleTester {
 
         StyleRule rule = StyleRule.create(style);
         StyleRule child = rule.children.get(0);
-        assert child.selector.match("." + style.name() + ">*");
+        assert child.selector.match(style.selector() + ">*");
         assert child.properties.get("text-decoration").get().match("underline");
     }
 
@@ -91,7 +91,7 @@ public class StyleRuleTest extends StyleTester {
 
         StyleRule rule = StyleRule.create(style);
         StyleRule child = rule.children.get(0);
-        assert child.selector.match("*:enabled>." + style.name());
+        assert child.selector.match("*:enabled>" + style.selector());
         assert child.properties.get("text-decoration").get().match("underline");
     }
 }

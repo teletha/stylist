@@ -33,7 +33,7 @@ public class StyleTester implements StyleDSL {
         StyleRule rule = StyleRule.create(style);
 
         // search specified rule
-        String name = "." + style.name();
+        String name = style.selector();
 
         assert rule.selector.toString().equals(name);
 

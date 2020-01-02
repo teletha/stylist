@@ -260,7 +260,7 @@ class PseudoClassTest extends StyleTester {
                 font.size(1, px);
             });
         });
-        assert parsed.sub("not(." + E.name() + ")").property("font-size", "1px");
+        assert parsed.sub("not(." + E.selector() + ")").property("font-size", "1px");
     }
 
     @Test

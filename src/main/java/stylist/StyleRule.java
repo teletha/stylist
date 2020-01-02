@@ -84,7 +84,7 @@ public class StyleRule implements Comparable<StyleRule> {
         String description;
 
         if (parent == null) {
-            selector.selector = "." + style.name();
+            selector.selector = style.selector();
             description = style.detail();
         } else {
             selector.replace(parent.internal);

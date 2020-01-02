@@ -115,8 +115,8 @@ public class SelectorDSL {
      * @param location A class location.
      * @return Chainable API.
      */
-    public final SelectorDSL with(Location location) {
-        return basic("." + location.name());
+    public final SelectorDSL with(Style location) {
+        return basic("." + location.selector());
     }
 
     /**
@@ -127,7 +127,7 @@ public class SelectorDSL {
      * 
      * @param location A class location.
      */
-    public final void with(Location location, Style sub) {
+    public final void with(Style location, Style sub) {
         with(location).declare(sub);
     }
 
@@ -905,7 +905,7 @@ public class SelectorDSL {
      */
     public final SelectorDSL not(Style selector) {
         // not-pseudo-class accepts simple selector only
-        return pseudo(false, "not(." + selector.name() + ")");
+        return pseudo(false, "not(." + selector.selector() + ")");
     }
 
     /**
@@ -1280,7 +1280,7 @@ public class SelectorDSL {
      * @return Chainable API.
      */
     public final void select(Style selector, Style sub) {
-        select("." + selector.name()).declare(sub);
+        select("." + selector.selector()).declare(sub);
     }
 
     /**
