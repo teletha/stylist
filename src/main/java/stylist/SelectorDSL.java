@@ -1280,7 +1280,7 @@ public class SelectorDSL {
      * @return Chainable API.
      */
     public final void select(Style selector, Style sub) {
-        select("." + selector.selector()).declare(sub);
+        select(selector.selector()).declare(sub);
     }
 
     /**
