@@ -66,6 +66,29 @@ public class Text extends PropertyDefinition<Text> {
 
     /**
      * <p>
+     * The text-underline-offset CSS property sets the offset distance of an underline text
+     * decoration line (applied using text-decoration) from its original position.
+     * </p>
+     * <p>
+     * text-underline-offset is not part of the text-decoration shorthand. While an element can have
+     * multiple text-decoration lines, text-underline-offset only impacts underlining, and not other
+     * possible line decoration options such as overline or line-through.
+     * </p>
+     * 
+     */
+    public final UnderlineOffset underlineOffset = new UnderlineOffset();
+
+    /**
+     * <p>
+     * The text-underline-position CSS property specifies the position of the underline which is set
+     * using the text-decoration property's underline value.
+     * </p>
+     * 
+     */
+    public final UnderlinePosition underlinePosition = new UnderlinePosition();
+
+    /**
+     * <p>
      * The text-indent CSS property specifies how much horizontal space should be left before the
      * beginning of the first line of the text content of an element. Horizontal spacing is with
      * respect to the left (or right, for right-to-left layout) edge of the containing block
@@ -559,6 +582,109 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text fullSizeKana() {
             return value("full-size-kana");
+        }
+    }
+
+    public class UnderlineOffset extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private UnderlineOffset() {
+            super("text-underline-offset", Text.this);
+        }
+
+        /**
+         * The user agent will use its own algorithm to place the line at or under the alphabetic
+         * baseline.
+         * 
+         * @return
+         */
+        public Text auto() {
+            return value("auto");
+        }
+
+        /**
+         * Forces the line to be set below the alphabetic baseline, at a position where it won't
+         * cross any descenders. This is useful for ensuring legibility with chemical and
+         * mathematical formulas, which make a large use of subscripts.
+         * 
+         * @return
+         */
+        public Text under() {
+            return value("under");
+        }
+
+        /**
+         * In vertical writing-modes, this keyword forces the line to be placed on the left side of
+         * the text. In horizontal writing-modes, it is a synonym of under.
+         * 
+         * @return
+         */
+        public Text left() {
+            return value("left");
+        }
+
+        /**
+         * In vertical writing-modes, this keyword forces the line to be placed on the right side of
+         * the text. In horizontal writing-modes, it is a synonym of under.
+         * 
+         * @return
+         */
+        public Text right() {
+            return value("right");
+        }
+    }
+
+    public class UnderlinePosition extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private UnderlinePosition() {
+            super("text-underline-position", Text.this);
+        }
+
+        /**
+         * The browser chooses the appropriate offset for underlines.
+         * 
+         * @return
+         */
+        public Text auto() {
+            return value("auto");
+        }
+
+        /**
+         * If the font file includes information about a preferred offset, use that value. If the
+         * font file doesn't include this information, behave as if auto was set, with the browser
+         * choosing an appropriate offset.
+         * 
+         * @return
+         */
+        public Text fromFont() {
+            return value("from-font");
+        }
+
+        /**
+         * Specifies the offset of underlines as a <length>, overriding the font file suggestion and
+         * the browser default. It is recommended to use em units so the offset scales with the font
+         * size.
+         * 
+         * @return
+         */
+        public Text length(int length, Unit unit) {
+            return length(Numeric.of(length, unit));
+        }
+
+        /**
+         * Specifies the offset of underlines as a <length>, overriding the font file suggestion and
+         * the browser default. It is recommended to use em units so the offset scales with the font
+         * size.
+         * 
+         * @return
+         */
+        public Text length(Numeric length) {
+            return value(length);
         }
     }
 }
