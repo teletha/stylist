@@ -629,57 +629,6 @@ public class Text extends PropertyDefinition<Text> {
         }
 
         /**
-         * The user agent will use its own algorithm to place the line at or under the alphabetic
-         * baseline.
-         * 
-         * @return
-         */
-        public Text auto() {
-            return value("auto");
-        }
-
-        /**
-         * Forces the line to be set below the alphabetic baseline, at a position where it won't
-         * cross any descenders. This is useful for ensuring legibility with chemical and
-         * mathematical formulas, which make a large use of subscripts.
-         * 
-         * @return
-         */
-        public Text under() {
-            return value("under");
-        }
-
-        /**
-         * In vertical writing-modes, this keyword forces the line to be placed on the left side of
-         * the text. In horizontal writing-modes, it is a synonym of under.
-         * 
-         * @return
-         */
-        public Text left() {
-            return value("left");
-        }
-
-        /**
-         * In vertical writing-modes, this keyword forces the line to be placed on the right side of
-         * the text. In horizontal writing-modes, it is a synonym of under.
-         * 
-         * @return
-         */
-        public Text right() {
-            return value("right");
-        }
-    }
-
-    public class UnderlinePosition extends PropertyDefinition<Text> {
-
-        /**
-         * Hide.
-         */
-        private UnderlinePosition() {
-            super("text-underline-position", Text.this);
-        }
-
-        /**
          * The browser chooses the appropriate offset for underlines.
          * 
          * @return
@@ -719,6 +668,57 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text length(Numeric length) {
             return value(length);
+        }
+    }
+
+    public class UnderlinePosition extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private UnderlinePosition() {
+            super("text-underline-position", Text.this);
+        }
+
+        /**
+         * The user agent will use its own algorithm to place the line at or under the alphabetic
+         * baseline.
+         * 
+         * @return
+         */
+        public Text auto() {
+            return value("auto");
+        }
+
+        /**
+         * Forces the line to be set below the alphabetic baseline, at a position where it won't
+         * cross any descenders. This is useful for ensuring legibility with chemical and
+         * mathematical formulas, which make a large use of subscripts.
+         * 
+         * @return
+         */
+        public Text under() {
+            return value("under");
+        }
+
+        /**
+         * In vertical writing-modes, this keyword forces the line to be placed on the left side of
+         * the text. In horizontal writing-modes, it is a synonym of under.
+         * 
+         * @return
+         */
+        public Text left() {
+            return value("left");
+        }
+
+        /**
+         * In vertical writing-modes, this keyword forces the line to be placed on the right side of
+         * the text. In horizontal writing-modes, it is a synonym of under.
+         * 
+         * @return
+         */
+        public Text right() {
+            return value("right");
         }
     }
 }

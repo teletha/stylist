@@ -38,4 +38,14 @@ interface ColorPaletteModel {
      */
     @Icy.Property
     Color font();
+
+    /**
+     * Set link color.
+     * 
+     * @return
+     */
+    @Icy.Property
+    default Color link() {
+        return font();
+    }
 }
