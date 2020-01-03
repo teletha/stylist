@@ -10,13 +10,14 @@
 package stylist.property;
 
 import stylist.CSSValue;
+import stylist.PropertyDefinition;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
 /**
  * @version 2018/08/30 18:26:56
  */
-public class Outline extends Colorable<Outline> {
+public class Outline extends PropertyDefinition<Outline> implements Colorable<Outline> {
 
     /**
      * {@inheritDoc}

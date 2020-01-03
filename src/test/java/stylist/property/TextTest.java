@@ -101,4 +101,12 @@ class TextTest extends StyleTester {
         });
         assert parsed.property("text-transform", "uppercase");
     }
+
+    @Test
+    void decorationColor() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.decorationColor.color(0, 0, 0);
+        });
+        assert parsed.property("text-decoration-color", "black");
+    }
 }

@@ -36,7 +36,29 @@ public class Text extends PropertyDefinition<Text> {
      * line-through or blink.
      * </p>
      */
-    public final Decration decoration = new Decration();
+    public final Decoration decoration = new Decoration();
+
+    /**
+     * <p>
+     * The text-decoration-color CSS property sets the color of decorations added to text by
+     * text-decoration-line.
+     * </p>
+     * <p>
+     * The color applies to decorations, such as underlines, overlines, strikethroughs, and wavy
+     * lines like those used to mark misspellings, in the scope of the property's value.
+     * </p>
+     * <p>
+     * CSS does not provide a direct mechanism for specifying a unique color for each line type.
+     * This effect can nevertheless be achieved by nesting elements, applying a different line type
+     * to each element (with the text-decoration-line property), and specifying the line color (with
+     * text-decoration-color) on a per‐element basis.
+     * </p>
+     * <p>
+     * When setting multiple line-decoration properties at once, it may be more convenient to use
+     * the text-decoration shorthand property instead.
+     * </p>
+     */
+    public final DecorationColor decorationColor = new DecorationColor();
 
     /**
      * <p>
@@ -370,15 +392,12 @@ public class Text extends PropertyDefinition<Text> {
         }
     }
 
-    /**
-     * @version 2014/10/28 17:57:00
-     */
-    public class Decration extends PropertyDefinition<Text> {
+    public class Decoration extends PropertyDefinition<Text> {
 
         /**
          * Hide.
          */
-        private Decration() {
+        private Decoration() {
             super("text-decoration", Text.this);
         }
 
@@ -456,9 +475,24 @@ public class Text extends PropertyDefinition<Text> {
         }
     }
 
-    /**
-     * @version 2014/10/28 17:57:07
-     */
+    public class DecorationColor extends PropertyDefinition<Text> implements Colorable<Text> {
+
+        /**
+         * Hide.
+         */
+        private DecorationColor() {
+            super("text-decoration-color", Text.this);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Text color(CSSValue color) {
+            return value(color);
+        }
+    }
+
     public class Overflow extends PropertyDefinition<Text> {
 
         /**

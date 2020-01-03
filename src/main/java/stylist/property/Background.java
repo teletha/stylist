@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import stylist.CSSValue;
+import stylist.PropertyDefinition;
 import stylist.value.LinearGradient;
 import stylist.value.Numeric;
 import stylist.value.Unit;
@@ -20,7 +21,7 @@ import stylist.value.Unit;
 /**
  * @version 2018/08/30 18:23:37
  */
-public class Background extends Colorable<Background> {
+public class Background extends PropertyDefinition<Background> implements Colorable<Background> {
 
     /**
      * {@inheritDoc}

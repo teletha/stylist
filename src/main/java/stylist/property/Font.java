@@ -23,7 +23,7 @@ import stylist.value.Unit;
 /**
  * @version 2018/09/06 13:44:25
  */
-public class Font extends Colorable<Font> {
+public class Font extends PropertyDefinition<Font> implements Colorable<Font> {
 
     /**
      * <p>

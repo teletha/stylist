@@ -10,34 +10,9 @@
 package stylist.property;
 
 import stylist.CSSValue;
-import stylist.PropertyDefinition;
 import stylist.value.Color;
 
-/**
- * @version 2018/08/30 18:23:58
- */
-public abstract class Colorable<T extends Colorable> extends PropertyDefinition<T> {
-
-    /**
-     * 
-     */
-    protected Colorable() {
-    }
-
-    /**
-     * 
-     */
-    protected Colorable(String name) {
-        super(name);
-    }
-
-    /**
-     * @param name
-     * @param context
-     */
-    protected Colorable(String name, T context) {
-        super(name, context);
-    }
+public interface Colorable<R> {
 
     /**
      * <p>
@@ -51,7 +26,7 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @param color
      * @return Chainable API.
      */
-    public abstract T color(CSSValue color);
+    R color(CSSValue color);
 
     /**
      * <p>
@@ -65,7 +40,7 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @param colorCode
      * @return Chainable API.
      */
-    public T color(String colorCode) {
+    default R color(String colorCode) {
         try {
             return color(Color.of(colorCode));
         } catch (IllegalArgumentException e) {
@@ -87,7 +62,7 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @param blue
      * @return Chainable API.
      */
-    public T color(int red, int green, int blue) {
+    default R color(int red, int green, int blue) {
         return color(Color.rgb(red, green, blue));
     }
 
@@ -105,7 +80,7 @@ public abstract class Colorable<T extends Colorable> extends PropertyDefinition<
      * @param blue
      * @return Chainable API.
      */
-    public T color(int red, int green, int blue, double alpha) {
+    default R color(int red, int green, int blue, double alpha) {
         return color(Color.rgb(red, green, blue, alpha));
     }
 }

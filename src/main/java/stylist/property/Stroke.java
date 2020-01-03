@@ -17,7 +17,7 @@ import stylist.value.Unit;
 /**
  * @version 2018/08/30 18:28:15
  */
-public class Stroke extends Colorable<Stroke> {
+public class Stroke extends PropertyDefinition<Stroke> implements Colorable<Stroke> {
 
     /**
      * <p>
