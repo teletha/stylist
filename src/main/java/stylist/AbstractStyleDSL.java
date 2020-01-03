@@ -35,10 +35,10 @@ import stylist.property.Visibility;
 import stylist.value.Unit;
 
 @Managed(Singleton.class)
-public interface StyleDSL extends StyleDeclarable {
+public abstract class AbstractStyleDSL implements StyleDeclarable {
 
     /** A set of css functions. */
-    public static final CSSFunctions $ = new CSSFunctions();
+    protected static final CSSFunctions $ = new CSSFunctions();
 
     /**
      * <p>
@@ -46,7 +46,7 @@ public interface StyleDSL extends StyleDeclarable {
      * element). When used on the font-size on this root element, it represents its initial value.
      * </p>
      */
-    public static final Unit rem = Unit.rem;
+    protected static final Unit rem = Unit.rem;
 
     /**
      * <p>
@@ -57,7 +57,7 @@ public interface StyleDSL extends StyleDeclarable {
      * typographic texts.)
      * </p>
      */
-    public static final Unit em = Unit.em;
+    protected static final Unit em = Unit.em;
 
     /**
      * <p>
@@ -66,7 +66,7 @@ public interface StyleDSL extends StyleDeclarable {
      * even for fonts that don't contain an "x".
      * </p>
      */
-    public static final Unit ex = Unit.ex;
+    protected static final Unit ex = Unit.ex;
 
     /**
      * <p>
@@ -78,7 +78,7 @@ public interface StyleDSL extends StyleDeclarable {
      * value of 0.5em should be used.
      * </p>
      */
-    public static final Unit px = Unit.px;
+    protected static final Unit px = Unit.px;
 
     /**
      * <p>
@@ -90,33 +90,33 @@ public interface StyleDSL extends StyleDeclarable {
      * value of 0.5em should be used.
      * </p>
      */
-    public static final Unit in = Unit.in;
+    protected static final Unit in = Unit.in;
 
     /**
      * 1/100th of the width of the viewport.
      */
-    public static final Unit vh = Unit.vh;
+    protected static final Unit vh = Unit.vh;
 
     /**
      * 1/100th of the width of the viewport.
      */
-    public static final Unit vw = Unit.vw;
+    protected static final Unit vw = Unit.vw;
 
     /**
      * 1/100th of the minimum value between the height and the width of the viewport.
      */
-    public static final Unit vmin = Unit.vmin;
+    protected static final Unit vmin = Unit.vmin;
 
     /**
      * 1/100th of the maximum value between the height and the width of the viewport.
      */
-    public static final Unit vmax = Unit.vmax;
+    protected static final Unit vmax = Unit.vmax;
 
     /**
      * deg which represents an angle in degrees. One full circle is 360deg. E.g. 0deg, 90deg,
      * 360deg.
      */
-    public static final Unit deg = Unit.deg;
+    protected static final Unit deg = Unit.deg;
 
     /**
      * <p>
@@ -128,7 +128,7 @@ public interface StyleDSL extends StyleDeclarable {
      * value of 0.5em should be used.
      * </p>
      */
-    public static final Unit s = Unit.s;
+    protected static final Unit s = Unit.s;
 
     /**
      * <p>
@@ -140,7 +140,7 @@ public interface StyleDSL extends StyleDeclarable {
      * value of 0.5em should be used.
      * </p>
      */
-    public static final Unit ms = Unit.ms;
+    protected static final Unit ms = Unit.ms;
 
     /**
      * <p>
@@ -157,7 +157,7 @@ public interface StyleDSL extends StyleDeclarable {
      * value of that property.
      * </p>
      */
-    public static final Unit percent = Unit.percent;
+    protected static final Unit percent = Unit.percent;
 
     /**
      * <p>
@@ -166,9 +166,9 @@ public interface StyleDSL extends StyleDeclarable {
      * dimensions, there is no space between the unit and the number.
      * </p>
      */
-    public static final Unit fr = Unit.fr;
+    protected static final Unit fr = Unit.fr;
 
-    public static final Animation animation = new Animation();
+    protected static final Animation animation = new Animation();
 
     /**
      * <p>
@@ -177,7 +177,7 @@ public interface StyleDSL extends StyleDeclarable {
      * stylesheet origin.
      * </p>
      */
-    public static final PropertyDefinition all = new PropertyDefinition("all");
+    protected static final PropertyDefinition all = new PropertyDefinition("all");
 
     /**
      * <p>
@@ -185,7 +185,7 @@ public interface StyleDSL extends StyleDeclarable {
      * platform-native styling based on the operating system's theme.
      * </p>
      */
-    public static final Appearance appearance = new Appearance();
+    protected static final Appearance appearance = new Appearance();
 
     /**
      * <p>
@@ -193,7 +193,7 @@ public interface StyleDSL extends StyleDeclarable {
      * an element.
      * </p>
      */
-    public static final Cursor cursor = new Cursor();
+    protected static final Cursor cursor = new Cursor();
 
     /**
      * <p>
@@ -202,7 +202,7 @@ public interface StyleDSL extends StyleDeclarable {
      * background-color, background-image, background-position, background-repeat, background-size,
      * </p>
      */
-    public static final Background background = new Background();
+    protected static final Background background = new Background();
 
     /**
      * <p>
@@ -211,7 +211,7 @@ public interface StyleDSL extends StyleDeclarable {
      * more of: border-width, border-style, border-color.
      * </p>
      */
-    public static final Borders border = new Borders();
+    protected static final Borders border = new Borders();
 
     /**
      * <p>
@@ -220,7 +220,7 @@ public interface StyleDSL extends StyleDeclarable {
      * elements.
      * </p>
      */
-    public static final Content content = new Content();
+    protected static final Content content = new Content();
 
     /**
      * <p>
@@ -234,10 +234,10 @@ public interface StyleDSL extends StyleDeclarable {
      * off. The document is rendered as though the element doesn't exist in the document tree.
      * </p>
      */
-    public static final Display display = new Display();
+    protected static final Display display = new Display();
 
     /** The SVG property. */
-    public static final Fill fill = new Fill();
+    protected static final Fill fill = new Fill();
 
     /**
      * <p>
@@ -246,7 +246,7 @@ public interface StyleDSL extends StyleDeclarable {
      * proportional to their flex grow factor or their flex shrink factor to prevent overflow.
      * </p>
      */
-    public static final FlexItem flexItem = new FlexItem();
+    protected static final FlexItem flexItem = new FlexItem();
 
     /**
      * <p>
@@ -255,7 +255,7 @@ public interface StyleDSL extends StyleDeclarable {
      * system font, using specific keywords.
      * </p>
      */
-    public static final Font font = new Font();
+    protected static final Font font = new Font();
 
     /**
      * <p>
@@ -264,7 +264,7 @@ public interface StyleDSL extends StyleDeclarable {
      * minimal height of line boxes within the element.
      * </p>
      */
-    public static final Line line = new Line();
+    protected static final Line line = new Line();
 
     /**
      * <p>
@@ -272,7 +272,7 @@ public interface StyleDSL extends StyleDeclarable {
      * list-style-image and list-style-position.
      * </p>
      */
-    public static final ListStyle listStyle = new ListStyle();
+    protected static final ListStyle listStyle = new ListStyle();
 
     /**
      * <p>
@@ -284,7 +284,7 @@ public interface StyleDSL extends StyleDeclarable {
      * One single value applies to all four sides.
      * </p>
      */
-    public static final BoxLength margin = new BoxLength("margin");
+    protected static final BoxLength margin = new BoxLength("margin");
 
     /**
      * <p>
@@ -301,7 +301,7 @@ public interface StyleDSL extends StyleDeclarable {
      * draws a non-rectangular shape around a construct like this:</li>
      * </ul>
      */
-    public static final Outline outline = new Outline();
+    protected static final Outline outline = new Outline();
 
     /**
      * <p>
@@ -317,7 +317,7 @@ public interface StyleDSL extends StyleDeclarable {
      * relevant HTML element, even when overflow has the hidden value an element may need to scroll.
      * </p>
      */
-    public static final Overflows overflow = new Overflows();
+    protected static final Overflows overflow = new Overflows();
 
     /**
      * <p>
@@ -330,7 +330,7 @@ public interface StyleDSL extends StyleDeclarable {
      * padding-right, padding-bottom, padding-left).
      * </p>
      */
-    public static final BoxLength padding = new BoxLength("padding");
+    protected static final BoxLength padding = new BoxLength("padding");
 
     /**
      * <p>
@@ -339,7 +339,7 @@ public interface StyleDSL extends StyleDeclarable {
      * unspecified, the same characteristics of the visiblePainted value apply to SVG content.
      * </p>
      */
-    public static final PointerEvents pointerEvents = new PointerEvents();
+    protected static final PointerEvents pointerEvents = new PointerEvents();
 
     /**
      * <p>
@@ -347,13 +347,13 @@ public interface StyleDSL extends StyleDeclarable {
      * useful for scripted animation effects.
      * </p>
      */
-    public static final Position position = new Position();
+    protected static final Position position = new Position();
 
     /** The SVG property. */
-    public static final Stroke stroke = new Stroke();
+    protected static final Stroke stroke = new Stroke();
 
     /** The text related style. */
-    public static final Text text = new Text();
+    protected static final Text text = new Text();
 
     /**
      * <p>
@@ -366,12 +366,12 @@ public interface StyleDSL extends StyleDeclarable {
      * case the object will act as a containing block for position: fixed elements that it contains.
      * </p>
      */
-    public static final Transform transform = new Transform();
+    protected static final Transform transform = new Transform();
 
     /**
      * <p>
      * The visibility CSS property has two purposes:
      * </p>
      */
-    public static final Visibility visibility = new Visibility();
+    protected static final Visibility visibility = new Visibility();
 }

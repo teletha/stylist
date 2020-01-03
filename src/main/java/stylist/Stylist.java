@@ -290,6 +290,17 @@ public final class Stylist {
     }
 
     /**
+     * Specify the class containing the style definition to be converted.
+     * 
+     * @param definitions The style definitions.
+     * @return Chainable API.
+     */
+    public final Stylist styles(StyleDeclarable... definitions) {
+        I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
+        return this;
+    }
+
+    /**
      * Specify the style definition to be converted.
      * 
      * @param styles The style definitions.
@@ -404,19 +415,19 @@ public final class Stylist {
             }
             return;
         }
-    
+
         try {
             for (Consumer<Properties> processor : posts) {
                 processor.accept(rule.properties);
             }
-    
+
             appendable.append(beforeSelector)
                     .append(comment(rule.description))
                     .append(rule.selector.toString())
                     .append(afterSelector)
                     .append('{')
                     .append(afterStartBrace);
-    
+
             for (int i = 0, size = rule.properties.size(); i < size; i++) {
                 appendable.append(beforePropertyName)
                         .append(rule.properties.name(i).toString())
@@ -429,7 +440,7 @@ public final class Stylist {
                         .append(afterPropertyLine);
             }
             appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
-    
+
             for (StyleRule child : rule.children) {
                 format(child, appendable);
             }
@@ -553,6 +564,52 @@ public final class Stylist {
                                     for (Object constant : param.getEnumConstants()) {
                                         styles.add(style.of(constant));
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable e) {
+                throw I.quiet(e);
+            }
+        }
+        return styles;
+    }
+
+    /**
+     * Collect all styles in the specified style definitions.
+     * 
+     * @param definition The style definitions
+     * @return
+     */
+    private static List<Style> styles(StyleDeclarable definition) {
+        List<Style> styles = new ArrayList();
+
+        for (Field field : definition.getClass().getDeclaredFields()) {
+            try {
+                field.setAccessible(true);
+
+                if (Style.class.isAssignableFrom(field.getType())) {
+                    Style located = (Style) field.get(definition);
+
+                    if (located != null) {
+                        styles.add(located);
+                    }
+                } else if (ValueStyle.class.isAssignableFrom(field.getType())) {
+                    Type type = field.getGenericType();
+
+                    if (type instanceof ParameterizedType) {
+                        ParameterizedType parameterized = (ParameterizedType) type;
+                        Type[] args = parameterized.getActualTypeArguments();
+
+                        if (args.length == 1 && args[0] instanceof Class) {
+                            Class param = (Class) args[0];
+
+                            if (param.isEnum()) {
+                                ValueStyle style = (ValueStyle) field.get(definition);
+
+                                for (Object constant : param.getEnumConstants()) {
+                                    styles.add(style.of(constant));
                                 }
                             }
                         }

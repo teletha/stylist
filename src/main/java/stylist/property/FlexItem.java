@@ -38,9 +38,20 @@ public class FlexItem extends PropertyDefinition<FlexItem> {
      * @return
      */
     public FlexItem basis(int size, Unit unit) {
-        Numeric numeric = new Numeric(size, unit);
-        value("flex-basis", numeric);
-        value("-webkit-flex-basis", numeric);
+        return basis(Numeric.of(size, unit));
+    }
+
+    /**
+     * <p>
+     * The CSS flex-grow property specifies the flex grow factor of a flex item.
+     * </p>
+     * 
+     * @param ratio Negative values are invalid.
+     * @return
+     */
+    public FlexItem basis(Numeric size) {
+        value("flex-basis", size);
+        value("-webkit-flex-basis", size);
 
         return this;
     }

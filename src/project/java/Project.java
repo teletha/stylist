@@ -12,8 +12,9 @@ public class Project extends bee.api.Project {
     {
         product("com.github.teletha", "stylist", "0.2");
 
-        require("com.github.teletha", "sinobu", "LATEST");
-        require("com.github.teletha", "antibug", "LATEST").atTest();
+        require("com.github.teletha", "sinobu");
+        require("com.github.teletha", "icymanipulator").atAnnotation();
+        require("com.github.teletha", "antibug").atTest();
 
         versionControlSystem("https://github.com/teletha/stylist");
     }
