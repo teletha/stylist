@@ -14,6 +14,7 @@ import static stylist.value.Unit.px;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
+import stylist.property.helper.ColorHelper;
 import stylist.value.Color;
 import stylist.value.Numeric;
 import stylist.value.Shadow;
@@ -475,7 +476,7 @@ public class Text extends PropertyDefinition<Text> {
         }
     }
 
-    public class DecorationColor extends PropertyDefinition<Text> implements Colorable<Text> {
+    public class DecorationColor extends PropertyDefinition<Text> implements ColorHelper<Text> {
 
         /**
          * Hide.

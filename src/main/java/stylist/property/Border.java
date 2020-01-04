@@ -10,13 +10,14 @@
 package stylist.property;
 
 import stylist.PropertyDefinition;
+import stylist.property.helper.ColorHelper;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
 /**
  * @version 2018/08/30 18:24:13
  */
-public abstract class Border extends PropertyDefinition<Border> implements Colorable<Border> {
+public abstract class Border extends PropertyDefinition<Border> implements ColorHelper<Border> {
 
     /**
      * 

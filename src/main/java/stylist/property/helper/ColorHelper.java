@@ -7,12 +7,12 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist.property;
+package stylist.property.helper;
 
 import stylist.CSSValue;
 import stylist.value.Color;
 
-public interface Colorable<R> {
+public interface ColorHelper<R> {
 
     /**
      * <p>

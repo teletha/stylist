@@ -12,14 +12,12 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.value.Color;
 
-/**
- * @version 2018/08/30 18:39:19
- */
-public class OverflowTest extends StyleTester {
+class OverflowTest extends StyleTester {
 
     @Test
-    public void normal() throws Exception {
+    void normal() {
         ValidatableStyle style = writeStyle(() -> {
             overflow.hidden();
         });
@@ -27,7 +25,7 @@ public class OverflowTest extends StyleTester {
     }
 
     @Test
-    public void x() throws Exception {
+    void x() {
         ValidatableStyle style = writeStyle(() -> {
             overflow.x.scroll();
         });
@@ -36,7 +34,7 @@ public class OverflowTest extends StyleTester {
     }
 
     @Test
-    public void y() throws Exception {
+    void y() {
         ValidatableStyle style = writeStyle(() -> {
             overflow.y.visible();
         });
@@ -45,12 +43,22 @@ public class OverflowTest extends StyleTester {
     }
 
     @Test
-    public void xy() throws Exception {
+    void xy() {
         ValidatableStyle style = writeStyle(() -> {
             overflow.x.auto().y.hidden();
         });
 
         assert style.property("overflow-x", "auto");
         assert style.property("overflow-y", "hidden");
+    }
+
+    @Test
+    void scrollbar() {
+        ValidatableStyle style = writeStyle(() -> {
+            overflow.scrollbar.color(Color.Black).scrollbar.width(10, px);
+        });
+
+        assert style.property("scrollbar-width", "10px");
+        assert style.property("scrollbar-color", "black");
     }
 }

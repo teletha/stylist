@@ -11,11 +11,12 @@ package stylist.property;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
+import stylist.property.helper.ColorHelper;
 
 /**
  * @version 2018/08/30 18:25:29
  */
-public class Fill extends PropertyDefinition<Fill> implements Colorable<Fill> {
+public class Fill extends PropertyDefinition<Fill> implements ColorHelper<Fill> {
 
     /**
      * {@inheritDoc}

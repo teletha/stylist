@@ -17,13 +17,14 @@ import java.util.StringJoiner;
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.Stylist;
+import stylist.property.helper.ColorHelper;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
 /**
  * @version 2018/09/06 13:44:25
  */
-public class Font extends PropertyDefinition<Font> implements Colorable<Font> {
+public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> {
 
     /**
      * <p>
