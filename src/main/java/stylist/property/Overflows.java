@@ -18,7 +18,7 @@ import stylist.value.Numeric;
 /**
  * @version 2014/10/29 12:49:59
  */
-public class Overflows extends Overflow {
+public class Overflows extends Overflow<Overflows> {
 
     /**
      * <p>
