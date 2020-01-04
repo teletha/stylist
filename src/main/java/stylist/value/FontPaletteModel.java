@@ -24,4 +24,9 @@ interface FontPaletteModel {
     default Font mono() {
         return Font.Monospace;
     }
+
+    @Icy.Property
+    default Font icon() {
+        return Font.fromGoogle("Material Icons");
+    }
 }
