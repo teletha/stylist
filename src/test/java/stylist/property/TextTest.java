@@ -109,4 +109,12 @@ class TextTest extends StyleTester {
         });
         assert parsed.property("text-decoration-color", "black");
     }
+
+    @Test
+    void whiteSpace() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.whiteSpace.nowrap();
+        });
+        assert parsed.property("white-space", "nowrap");
+    }
 }

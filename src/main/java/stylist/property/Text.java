@@ -112,6 +112,14 @@ public class Text extends PropertyDefinition<Text> {
 
     /**
      * <p>
+     * The white-space CSS property sets how white space inside an element is handled.
+     * </p>
+     * 
+     */
+    public final WhiteSpace whiteSpace = new WhiteSpace();
+
+    /**
+     * <p>
      * The text-indent CSS property specifies how much horizontal space should be left before the
      * beginning of the first line of the text content of an element. Horizontal spacing is with
      * respect to the left (or right, for right-to-left layout) edge of the containing block
@@ -720,6 +728,85 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text right() {
             return value("right");
+        }
+    }
+
+    public class WhiteSpace extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private WhiteSpace() {
+            super("white-space", Text.this);
+        }
+
+        /**
+         * Sequences of white space are collapsed. Newline characters in the source are handled the
+         * same as other white space. Lines are broken as necessary to fill line boxes.
+         * 
+         * @return
+         */
+        public Text normal() {
+            return value("normal");
+        }
+
+        /**
+         * Collapses white space as for normal, but suppresses line breaks (text wrapping) within
+         * the source.
+         * 
+         * @return
+         */
+        public Text nowrap() {
+            return value("nowrap");
+        }
+
+        /**
+         * Sequences of white space are preserved. Lines are only broken at newline characters in
+         * the source and at <br>
+         * elements.
+         * 
+         * @return
+         */
+        public Text pre() {
+            return value("pre");
+        }
+
+        /**
+         * Sequences of white space are preserved. Lines are broken at newline characters, at <br>
+         * , and as necessary to fill line boxes.
+         * 
+         * @return
+         */
+        public Text preWrap() {
+            return value("pre-wrap");
+        }
+
+        /**
+         * Sequences of white space are collapsed. Lines are broken at newline characters, at <br>
+         * , and as necessary to fill line boxes.
+         * 
+         * @return
+         */
+        public Text preLine() {
+            return value("pre-line");
+        }
+
+        /**
+         * The behavior is identical to that of pre-wrap, except that:
+         * 
+         * <ul>
+         * <li>Any sequence of preserved white space always takes up space, including at the end of
+         * the line.</li>
+         * <li>A line breaking opportunity exists after every preserved white space character,
+         * including between white space characters.</li>
+         * <li>Such preserved spaces take up space and do not hang, and thus affect the box’s
+         * intrinsic sizes (min-content size and max-content size).</li>
+         * </ul>
+         * 
+         * @return
+         */
+        public Text breakSpaces() {
+            return value("break-spaces");
         }
     }
 }
