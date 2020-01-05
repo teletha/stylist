@@ -22,7 +22,7 @@ interface FontPaletteModel {
 
     @Icy.Property
     default Font mono() {
-        return Font.Monospace;
+        return Font.fromGoogle("Roboto Mono");
     }
 
     @Icy.Property

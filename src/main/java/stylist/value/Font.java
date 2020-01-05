@@ -130,6 +130,16 @@ public class Font implements CharSequence {
     }
 
     /**
+     * Build font.
+     * 
+     * @param name
+     * @return
+     */
+    public static Font of(String name) {
+        return new Font(name, "");
+    }
+
+    /**
      * <p>
      * Load from <a href="https://www.google.com/fonts">Google Fonts</a>.
      * </p>

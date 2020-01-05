@@ -34,7 +34,7 @@ public class SelectorDSLTest {
         test(selector().nexts(), "$~*");
     }
 
-    private static final NamedLocation loc1 = new NamedLocation("loc1");
+    private static final NamedLocation loc1 = new NamedLocation(".loc1");
 
     @Test
     public void with() throws Exception {
