@@ -54,6 +54,8 @@ public class Font implements CharSequence {
      */
     public static final Font Monospace = new Font("monospace", "");
 
+    public static final Font SystemUI = new Font("system-ui", "");
+
     /** The built-in font. */
     public static final Font Awesome = new Font("FontAwesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 

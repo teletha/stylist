@@ -15,14 +15,36 @@ import icy.manipulator.Icy;
 interface FontPaletteModel {
 
     @Icy.Property
-    Font base();
+    Font[] base();
+
+    @Icy.Overload("base")
+    private Font[] baseBySystem() {
+        return new Font[] {
+                // Generic
+                Font.SystemUI,
+                // For Mac
+                Font.of("-apple-system"), Font.of("BlinkMacSystemFont"), Font.of("Helvetica Neue"),
+                // For Windows
+                Font.of("Yu Gothic UI"), Font.of("Verdana"), Font.of("Meiryo"),
+                // fallback
+                Font.SansSerif};
+    }
 
     @Icy.Property
     Font title();
 
     @Icy.Property
-    default Font mono() {
-        return Font.fromGoogle("Roboto Mono");
+    Font[] mono();
+
+    @Icy.Overload("mono")
+    private Font[] monoBySystem() {
+        return new Font[] {
+                // For Mac
+                Font.of("Menlo"),
+                // For Windows
+                Font.of("Consolas"),
+                // fallback
+                Font.Monospace};
     }
 
     @Icy.Property
