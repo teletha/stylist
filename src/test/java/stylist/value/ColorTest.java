@@ -9,15 +9,12 @@
  */
 package stylist.value;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/09/11 15:53:13
- */
 class ColorTest extends StyleTester {
 
     @Test
@@ -34,6 +31,30 @@ class ColorTest extends StyleTester {
             font.color(0, 0, 0);
         });
         assert style.property("color", "black");
+    }
+
+    @Test
+    void inherit() {
+        ValidatableStyle style = writeStyle(() -> {
+            font.color(Color.Inherit);
+        });
+        assert style.property("color", "inherit");
+    }
+
+    @Test
+    void initial() {
+        ValidatableStyle style = writeStyle(() -> {
+            font.color(Color.Initial);
+        });
+        assert style.property("color", "initial");
+    }
+
+    @Test
+    void unset() {
+        ValidatableStyle style = writeStyle(() -> {
+            font.color(Color.Unset);
+        });
+        assert style.property("color", "unset");
     }
 
     @Test

@@ -42,6 +42,35 @@ public class Color extends CSSValue {
     /** The frequently used color. */
     public static final Color Transparent = hsl(0, 0, 0, 0);
 
+    /** The built-in color. */
+    public static final Color Inherit = new BuiltinColor("inherit");
+
+    /** The built-in color. */
+    public static final Color Initial = new BuiltinColor("initial");
+
+    /** The built-in color. */
+    public static final Color Unset = new BuiltinColor("unset");
+
+    private static class BuiltinColor extends Color {
+
+        private final String value;
+
+        public BuiltinColor(String value) {
+            super(1, 1, 1, 1);
+            this.value = value;
+        }
+
+        @Override
+        public String toHSL() {
+            return value;
+        }
+
+        @Override
+        public String toRGB() {
+            return value;
+        }
+    }
+
     /**
      * The attribute of a visual sensation according to which an area appears to be similar to one
      * of the perceived colors: red, yellow, green, and blue, or to a combination of two of them .
@@ -75,7 +104,7 @@ public class Color extends CSSValue {
      * @param lightness The brightness relative to the brightness of a similarly illuminated white.
      * @param alpha The transparency.
      */
-    private Color(int hue, int saturation, int lightness, double alpha) {
+    protected Color(int hue, int saturation, int lightness, double alpha) {
         this.hue = checkRange(0, hue, 360);
         this.saturation = checkRange(0, saturation, 100);
         this.lightness = checkRange(0, lightness, 100);
