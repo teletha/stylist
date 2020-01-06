@@ -59,6 +59,8 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
      */
     public final Size size = new Size();
 
+    public final PropertyDefinition color = new PropertyDefinition("color");
+
     /**
      * {@inheritDoc}
      */

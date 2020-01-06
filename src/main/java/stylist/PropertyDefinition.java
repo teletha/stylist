@@ -45,7 +45,7 @@ public class PropertyDefinition<T> {
      * 
      * @param name A property name.
      */
-    protected PropertyDefinition(String name) {
+    public PropertyDefinition(String name) {
         this(name, null);
     }
 
