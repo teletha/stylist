@@ -120,11 +120,13 @@ public class Color extends CSSValue {
      * @return A result.
      */
     private static int checkRange(int from, int target, int to) {
-        if (from <= target && target <= to) {
-            return target;
-        } else {
-            throw new IllegalArgumentException("Color code[" + target + "] must be between " + from + " and " + to + ".");
+        if (target < from) {
+            target = from;
         }
+        if (to < target) {
+            target = to;
+        }
+        return target;
     }
 
     /**
@@ -136,11 +138,13 @@ public class Color extends CSSValue {
      * @return A result.
      */
     private static double checkRange(double from, double target, double to) {
-        if (from <= target && target <= to) {
-            return target;
-        } else {
-            throw new IllegalArgumentException("Color code[" + target + "] must be between " + from + " and " + to + ".");
+        if (target < from) {
+            target = from;
         }
+        if (to < target) {
+            target = to;
+        }
+        return target;
     }
 
     /**
