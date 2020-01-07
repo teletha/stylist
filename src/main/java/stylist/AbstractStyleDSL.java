@@ -28,6 +28,7 @@ import stylist.property.Outline;
 import stylist.property.Overflows;
 import stylist.property.PointerEvents;
 import stylist.property.Position;
+import stylist.property.Scroll;
 import stylist.property.Stroke;
 import stylist.property.Text;
 import stylist.property.Transform;
@@ -351,39 +352,11 @@ public abstract class AbstractStyleDSL implements StyleDeclarable {
 
     /**
      * <p>
-     * The scroll-margin property is a shorthand property which sets all of the scroll-margin
-     * longhands, assigning values much like the margin property does for the margin-* longhands
-     * </p>
-     * <p>
-     * In these examples, you can see the effect of scroll-margin by scrolling the output box to a
-     * point partway between two of the "pages" of the example's content. The value specified for
-     * scroll-margin determines how much of the page that's primarily outside the snapport should
-     * remain visible.
-     * </p>
-     * <p>
-     * Thus, the scroll-margin values represent outsets defining the scroll snap area that is used
-     * for snapping this box to the snapport. The scroll snap area is determined by taking the
-     * transformed border box, finding its rectangular bounding box (axis-aligned in the scroll
-     * container’s coordinate space), then adding the specified outsets.
+     * The scroll-behavior CSS property sets the behavior for a scrolling box when scrolling is
+     * triggered by the navigation or CSSOM scrolling APIs.
      * </p>
      */
-    protected static final BoxLength scrollMargin = new BoxLength("scroll-margin");
-
-    /**
-     * <p>
-     * The scroll-padding property is a shorthand property that sets all of the scroll-padding-*
-     * longhands. It assigns values much like the padding property does for the padding-* longhands.
-     * </p>
-     * <p>
-     * The scroll-padding-* properties define offsets for the optimal viewing region of the
-     * scrollport: the region used as the target region for placing things in view of the user. This
-     * allows the author to exclude regions of the scrollport that are obscured by other content
-     * (such as fixed-positioned toolbars or sidebars), or simply to put more breathing room between
-     * a targeted element and the edges of the scrollport.
-     * </p>
-     * 
-     */
-    protected static final BoxLength scrollPadding = new BoxLength("scroll-padding");
+    protected static final Scroll scroll = new Scroll();
 
     /** The SVG property. */
     protected static final Stroke stroke = new Stroke();
