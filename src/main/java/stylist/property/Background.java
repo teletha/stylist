@@ -481,6 +481,24 @@ public class Background extends PropertyDefinition<Background> implements ColorH
      */
     public static class BackgroundImage {
 
+        public static final BackgroundImage Absurdity = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NgYODjBWJWKOZgQOKwQDAKByLAgSTACQAp6QE8mK8aTgAAAABJRU5ErkJggg==");
+
+        public static final BackgroundImage SlashLine = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAADklEQVQIW2NgQAXGZHAAGioAza6+Hk0AAAAASUVORK5CYII=");
+
+        public static final BackgroundImage Detail = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAQAAADYv8WvAAAADklEQVQIHWNgYGBoACMABIoBAUIssgcAAAAASUVORK5CYII=");
+
+        public static final BackgroundImage VerticalLinen = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAQAAADYv8WvAAAADklEQVQIHWNgYGBoACMABIoBAUIssgcAAAAASUVORK5CYII=");
+
+        public static final BackgroundImage Square = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGElEQVQYlWNgYGCQwoKxgqGgcJA5h3yFAAs8BRWVSwooAAAAAElFTkSuQmCC");
+
+        public static final BackgroundImage SlashLineNano = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMAGovxNEIAAAAoSURBVDhPYxBEAgIMSkhAgcEFCTgwdCCBBoZRfaP6RvWN6hvVR5Y+APADQlQnmrINAAAAAElFTkSuQmCC");
+
+        public static final BackgroundImage HorizontalLine = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAQAAADl0Z2xAAAAEElEQVQIHWNgYGD4b8UABgAJmgE6cUJg+wAAAABJRU5ErkJggg==");
+
+        public static final BackgroundImage WhiteCarbon = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAATElEQVQYV2OYNmGaOggvmb8kCoTR+QwwgXmz5tmDMDqfYfn85bEglVP7pqog64TxGXDphPEZ5k2ap0WSG+ZOmIvqBnQ7YXyYQoJuAABKJ4Hmp8ET1QAAAABJRU5ErkJggg==");
+
+        public static final BackgroundImage WhiteLinen = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsBAMAAAAfmfjxAAAAFVBMVEX////ExMS/v7/8/PyLi4ufn5+6uro3PuJqAAAAB3RSTlMARTAACxAlpkPg9gAAAWVJREFUeF7t1EENgEAABLF9wB8LBGXn3wQ+Jq2I7orYF7E3YnfEnoidCGtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWslaAtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZK8Ba1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1EqxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1kr4gcY9P+FkIkE1AAAAABJRU5ErkJggg==");
+
         /**
          * The background related properties.
          * <ul>
