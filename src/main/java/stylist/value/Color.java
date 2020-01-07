@@ -105,9 +105,9 @@ public class Color extends CSSValue {
      * @param alpha The transparency.
      */
     protected Color(int hue, int saturation, int lightness, double alpha) {
-        this.hue = checkRange(0, hue, 360);
-        this.saturation = checkRange(0, saturation, 100);
-        this.lightness = checkRange(0, lightness, 100);
+        this.hue = checkRange(0, hue, 360, true);
+        this.saturation = checkRange(0, saturation, 100, false);
+        this.lightness = checkRange(0, lightness, 100, false);
         this.alpha = checkRange(0, alpha, 1d);
     }
 
@@ -119,12 +119,12 @@ public class Color extends CSSValue {
      * @param to End point.
      * @return A result.
      */
-    private static int checkRange(int from, int target, int to) {
+    private static int checkRange(int from, int target, int to, boolean rotate) {
         if (target < from) {
-            target = from;
+            return rotate ? checkRange(from, target + to, to, rotate) : from;
         }
         if (to < target) {
-            target = to;
+            return rotate ? checkRange(from, target - to, to, rotate) : to;
         }
         return target;
     }
@@ -393,7 +393,7 @@ public class Color extends CSSValue {
      * @return A new color.
      */
     public static Color rgb(int red, int green, int blue, double alpha) {
-        return rgb2hsl(checkRange(0, red, 255), checkRange(0, green, 255), checkRange(0, blue, 255), alpha);
+        return rgb2hsl(checkRange(0, red, 255, false), checkRange(0, green, 255, false), checkRange(0, blue, 255, false), alpha);
     }
 
     /**

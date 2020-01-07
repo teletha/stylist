@@ -9,7 +9,7 @@
  */
 package stylist.value;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -92,18 +92,6 @@ class ColorTest extends StyleTester {
     }
 
     @Test
-    void toInvalidRGB() {
-        assert Color.hsl(-1, 0, 0, 1).toHSL().equals("hsl(0,0%,0%)");
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(361, 0, 0, 1));
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(0, -1, 0, 1));
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(0, 101, 0, 1));
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(0, 0, -1, 1));
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(0, 0, 101, 1));
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(0, 0, 0, -1));
-        // assertThrows(IllegalArgumentException.class, () -> Color.hsl(0, 0, 0, 1.1));
-    }
-
-    @Test
     void fromRGB() {
         assert Color.rgb(0, 0, 0).toRGB().equals("rgb(0,0,0)");
         assert Color.rgb(8, 8, 7).toRGB().equals("rgb(8,8,7)");
@@ -123,17 +111,6 @@ class ColorTest extends StyleTester {
         assert Color.of("rgb(0,0,0,.3)").toRGB().equals("rgba(0,0,0,.3)");
         assert Color.of("rgb(44,50,88)").toRGB().equals("rgb(44,50,88)");
         assert Color.of("rgba(32,118,197,0.1)").toRGB().equals("rgba(32,118,197,.1)");
-    }
-
-    @Test
-    void parseInvalidRGB() {
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgb()"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgb(-1, 0, 0)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgb(1, 300, 0)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgb( 0, 0, 0, 10)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgb( 0, 0, 0, -1)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgba( 0, 0, 0, 10)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("rgba( 0, 0, 0, -1)"));
     }
 
     @Test
@@ -168,13 +145,17 @@ class ColorTest extends StyleTester {
     }
 
     @Test
-    void parseInvalidHSL() {
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsl()"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsl(-1, 0, 0)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsl(1, 101%, 0)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsl( 0, 0, 0, 10)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsl( 0, 0, 0, -1)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsla( 0, 0, 0, 10)"));
-        assertThrows(IllegalArgumentException.class, () -> Color.of("hsla( 0, 0, 0, -1)"));
+    void parseOutOfRangeHSL() {
+        Color hsl = Color.hsl(-1, -1, -1, -1);
+        assert hsl.hue == 359;
+        assert hsl.lightness == 0;
+        assert hsl.saturation == 0;
+        assert hsl.alpha == 0d;
+    
+        hsl = Color.hsl(361, 101, 101, 1.2);
+        assert hsl.hue == 1;
+        assert hsl.lightness == 100;
+        assert hsl.saturation == 100;
+        assert hsl.alpha == 1;
     }
 }
