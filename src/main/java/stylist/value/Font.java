@@ -9,16 +9,13 @@
  */
 package stylist.value;
 
-/**
- * @version 2018/08/30 18:20:04
- */
 public class Font implements CharSequence {
 
     /**
      * Glyphs have finishing strokes, flared or tapering ends, or have actual serifed endings. E.g.
      * Palatino, "Palatino Linotype", Palladio, "URW Palladio", serif
      */
-    public static final Font Serif = new Font("serif", "");
+    public static final Font Serif = Font.of("serif");
 
     /**
      * <p>
@@ -26,7 +23,7 @@ public class Font implements CharSequence {
      * Sans L', sans-serif
      * </p>
      */
-    public static final Font SansSerif = new Font("sans-serif", "");
+    public static final Font SansSerif = Font.of("sans-serif");
 
     /**
      * <p>
@@ -36,7 +33,7 @@ public class Font implements CharSequence {
      * letterwork.
      * </p>
      */
-    public static final Font Cursive = new Font("cursive", "");
+    public static final Font Cursive = Font.of("cursive");
 
     /**
      * <p>
@@ -44,7 +41,7 @@ public class Font implements CharSequence {
      * characters.
      * </p>
      */
-    public static final Font Fantasy = new Font("fantasy", "");
+    public static final Font Fantasy = Font.of("fantasy");
 
     /**
      * <p>
@@ -52,12 +49,44 @@ public class Font implements CharSequence {
      * Mono", Monaco, "Lucida Console", monospace
      * </p>
      */
-    public static final Font Monospace = new Font("monospace", "");
+    public static final Font Monospace = Font.of("monospace");
 
-    public static final Font SystemUI = new Font("system-ui", "");
+    /**
+     * <p>
+     * Glyphs are taken from the default user interface font on a given platform. Because
+     * typographic traditions vary widely across the world, this generic is provided for typefaces
+     * that don't map cleanly into the other generics.
+     * </p>
+     */
+    public static final Font SystemUI = Font.of("system-ui");
+
+    /**
+     * <p>
+     * This is for the particular stylistic concerns of representing mathematics: superscript and
+     * subscript, brackets that cross several lines, nesting expressions, and double struck glyphs
+     * with distinct meanings.
+     * </p>
+     */
+    public static final Font Math = Font.of("math");
+
+    /**
+     * <p>
+     * Fonts that are specifically designed to render emoji.
+     * </p>
+     */
+    public static final Font Emoji = Font.of("emoji");
+
+    /**
+     * <p>
+     * A particular style of Chinese characters that are between serif-style Song and cursive-style
+     * Kai forms. This style is often used for government documents
+     * </p>
+     */
+    public static final Font FangSong = Font.of("fangsong");
 
     /** The built-in font. */
-    public static final Font Awesome = new Font("FontAwesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+    public static final Font Awesome = Font
+            .of("FontAwesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 
     /** The font name. */
     public final String name;
@@ -73,7 +102,7 @@ public class Font implements CharSequence {
      * @param name A font name.
      * @param uri A font uri.
      */
-    public Font(String name, String uri) {
+    private Font(String name, String uri) {
         this.name = name;
         this.uri = uri;
     }
@@ -132,13 +161,24 @@ public class Font implements CharSequence {
     }
 
     /**
-     * Build font.
+     * Build local font.
      * 
-     * @param name
+     * @param name Font name.
      * @return
      */
     public static Font of(String name) {
         return new Font(name, "");
+    }
+
+    /**
+     * Build external font.
+     * 
+     * @param name Font name.
+     * @param url External location.
+     * @return
+     */
+    public static Font of(String name, String url) {
+        return new Font(name, url);
     }
 
     /**
