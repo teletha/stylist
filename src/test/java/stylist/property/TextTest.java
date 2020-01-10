@@ -117,4 +117,12 @@ class TextTest extends StyleTester {
         });
         assert parsed.property("white-space", "nowrap");
     }
+
+    @Test
+    void wordBreak() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.wordBreak.breakAll();
+        });
+        assert parsed.property("word-break", "break-all");
+    }
 }

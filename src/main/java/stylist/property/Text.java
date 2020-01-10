@@ -10,7 +10,7 @@
 package stylist.property;
 
 import static stylist.Vendor.*;
-import static stylist.value.Unit.px;
+import static stylist.value.Unit.*;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
@@ -97,7 +97,6 @@ public class Text extends PropertyDefinition<Text> {
      * multiple text-decoration lines, text-underline-offset only impacts underlining, and not other
      * possible line decoration options such as overline or line-through.
      * </p>
-     * 
      */
     public final UnderlineOffset underlineOffset = new UnderlineOffset();
 
@@ -106,7 +105,6 @@ public class Text extends PropertyDefinition<Text> {
      * The text-underline-position CSS property specifies the position of the underline which is set
      * using the text-decoration property's underline value.
      * </p>
-     * 
      */
     public final UnderlinePosition underlinePosition = new UnderlinePosition();
 
@@ -114,9 +112,16 @@ public class Text extends PropertyDefinition<Text> {
      * <p>
      * The white-space CSS property sets how white space inside an element is handled.
      * </p>
-     * 
      */
     public final WhiteSpace whiteSpace = new WhiteSpace();
+
+    /**
+     * <p>
+     * The word-break CSS property sets whether line breaks appear wherever the text would otherwise
+     * overflow its content box.
+     * </p>
+     */
+    public final WordBreak wordBreak = new WordBreak();
 
     /**
      * <p>
@@ -793,7 +798,6 @@ public class Text extends PropertyDefinition<Text> {
 
         /**
          * The behavior is identical to that of pre-wrap, except that:
-         * 
          * <ul>
          * <li>Any sequence of preserved white space always takes up space, including at the end of
          * the line.</li>
@@ -807,6 +811,45 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text breakSpaces() {
             return value("break-spaces");
+        }
+    }
+
+    public class WordBreak extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private WordBreak() {
+            super("word-break", Text.this);
+        }
+
+        /**
+         * Use the default line break rule.
+         * 
+         * @return
+         */
+        public Text normal() {
+            return value("normal");
+        }
+
+        /**
+         * To prevent overflow, word breaks should be inserted between any two characters (excluding
+         * Chinese/Japanese/Korean text).
+         * 
+         * @return
+         */
+        public Text breakAll() {
+            return value("break-all");
+        }
+
+        /**
+         * Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text
+         * behavior is the same as for normal.
+         * 
+         * @return
+         */
+        public Text keepAll() {
+            return value("keep-all");
         }
     }
 }
