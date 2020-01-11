@@ -10,11 +10,10 @@
 package stylist;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/**
- * @version 2018/08/30 18:06:47
- */
 class MultipleStyle implements Style {
 
     /** The aggregation. */
@@ -30,12 +29,15 @@ class MultipleStyle implements Style {
      */
     private MultipleStyle(Style[] styles) {
         this.styles = styles;
-        this.names = new String[styles.length + 1];
 
-        for (int i = 0; i < names.length - 1; i++) {
-            names[i] = styles[i].selector();
+        Set<String> set = new HashSet();
+
+        for (Style style : styles) {
+            for (String name : style.className()) {
+                set.add(name);
+            }
         }
-        names[names.length - 1] = selector();
+        this.names = set.toArray(new String[set.size()]);
     }
 
     /**
