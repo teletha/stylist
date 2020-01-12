@@ -9,14 +9,13 @@
  */
 package stylist.property;
 
+import java.util.List;
+
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-/**
- * @version 2018/08/30 18:24:13
- */
 public abstract class Border extends PropertyDefinition<Border> implements ColorHelper<Border> {
 
     /**
@@ -213,5 +212,49 @@ public abstract class Border extends PropertyDefinition<Border> implements Color
      */
     public final Border outset() {
         return style("outset");
+    }
+
+    /**
+     * <p>
+     * The border-spacing CSS property sets the distance between the borders of adjacent
+     * <table>
+     * cells. This property applies only when border-collapse is separate.
+     * </p>
+     */
+    public final Border spacing(double length, Unit unit) {
+        return spacing(Numeric.of(length, unit));
+    }
+
+    /**
+     * <p>
+     * The border-spacing CSS property sets the distance between the borders of adjacent
+     * <table>
+     * cells. This property applies only when border-collapse is separate.
+     * </p>
+     */
+    public final Border spacing(Numeric length) {
+        return value("border-spacing", length);
+    }
+
+    /**
+     * <p>
+     * The border-spacing CSS property sets the distance between the borders of adjacent
+     * <table>
+     * cells. This property applies only when border-collapse is separate.
+     * </p>
+     */
+    public final Border spacing(double horizontalLength, Unit horizontalUnit, double verticalLength, Unit vertivalUnit) {
+        return spacing(Numeric.of(horizontalLength, horizontalUnit), Numeric.of(verticalLength, vertivalUnit));
+    }
+
+    /**
+     * <p>
+     * The border-spacing CSS property sets the distance between the borders of adjacent
+     * <table>
+     * cells. This property applies only when border-collapse is separate.
+     * </p>
+     */
+    public final Border spacing(Numeric horizontal, Numeric vertical) {
+        return value("border-spacing", List.of(horizontal, vertical), " ");
     }
 }

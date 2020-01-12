@@ -119,4 +119,12 @@ public class BorderTest extends StyleTester {
         });
         assert parsed.property("border-top-right-radius", "1px");
     }
+
+    @Test
+    void spacing() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            border.spacing(10, px);
+        });
+        assert parsed.property("border-spacing", "10px");
+    }
 }
