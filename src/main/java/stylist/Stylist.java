@@ -284,6 +284,17 @@ public final class Stylist {
      * @param definitions The style definitions.
      * @return Chainable API.
      */
+    public final Stylist styles(List<Class> definitions) {
+        I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
+        return this;
+    }
+
+    /**
+     * Specify the class containing the style definition to be converted.
+     * 
+     * @param definitions The style definitions.
+     * @return Chainable API.
+     */
     public final Stylist styles(Class... definitions) {
         I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
         return this;
