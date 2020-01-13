@@ -15,8 +15,10 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -284,7 +286,7 @@ public final class Stylist {
      * @param definitions The style definitions.
      * @return Chainable API.
      */
-    public final Stylist styles(List<Class> definitions) {
+    public final Stylist styles(List<Class<StyleDeclarable>> definitions) {
         I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
         return this;
     }
@@ -354,8 +356,7 @@ public final class Stylist {
             if (Files.notExists(output)) {
                 Files.createDirectories(output.getParent());
             }
-
-            formatTo(Files.newBufferedWriter(output));
+            formatTo(Files.newBufferedWriter(output, StandardCharsets.UTF_8, StandardOpenOption.CREATE));
         } catch (IOException e) {
             throw I.quiet(e);
         }
