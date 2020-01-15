@@ -524,6 +524,13 @@ public class Background extends PropertyDefinition<Background> implements ColorH
             return created;
         }
 
+        public static BackgroundImage inherit() {
+            BackgroundImage created = new BackgroundImage();
+            created.properties[0] = CSSValue.of("inherit");
+
+            return created;
+        }
+
         /**
          * <p>
          * The CSS background-image property sets one or several background images for an element.
