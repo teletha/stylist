@@ -9,12 +9,21 @@
  */
 package stylist.property;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+import java.util.function.BiPredicate;
 
+import javax.imageio.ImageIO;
+
+import kiss.I;
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
+import stylist.value.Color;
 import stylist.value.LinearGradient;
 import stylist.value.Numeric;
 import stylist.value.Unit;
@@ -481,23 +490,7 @@ public class Background extends PropertyDefinition<Background> implements ColorH
      */
     public static class BackgroundImage {
 
-        public static final BackgroundImage Absurdity = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NgYODjBWJWKOZgQOKwQDAKByLAgSTACQAp6QE8mK8aTgAAAABJRU5ErkJggg==");
-
-        public static final BackgroundImage SlashLine = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAADklEQVQIW2NgQAXGZHAAGioAza6+Hk0AAAAASUVORK5CYII=");
-
-        public static final BackgroundImage Detail = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAQAAADYv8WvAAAADklEQVQIHWNgYGBoACMABIoBAUIssgcAAAAASUVORK5CYII=");
-
-        public static final BackgroundImage VerticalLinen = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAQAAADYv8WvAAAADklEQVQIHWNgYGBoACMABIoBAUIssgcAAAAASUVORK5CYII=");
-
-        public static final BackgroundImage Square = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGElEQVQYlWNgYGCQwoKxgqGgcJA5h3yFAAs8BRWVSwooAAAAAElFTkSuQmCC");
-
-        public static final BackgroundImage SlashLineNano = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkAQMAAABKLAcXAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMAGovxNEIAAAAoSURBVDhPYxBEAgIMSkhAgcEFCTgwdCCBBoZRfaP6RvWN6hvVR5Y+APADQlQnmrINAAAAAElFTkSuQmCC");
-
-        public static final BackgroundImage HorizontalLine = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAQAAADl0Z2xAAAAEElEQVQIHWNgYGD4b8UABgAJmgE6cUJg+wAAAABJRU5ErkJggg==");
-
         public static final BackgroundImage WhiteCarbon = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAATElEQVQYV2OYNmGaOggvmb8kCoTR+QwwgXmz5tmDMDqfYfn85bEglVP7pqog64TxGXDphPEZ5k2ap0WSG+ZOmIvqBnQ7YXyYQoJuAABKJ4Hmp8ET1QAAAABJRU5ErkJggg==");
-
-        public static final BackgroundImage WhiteLinen = url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsBAMAAAAfmfjxAAAAFVBMVEX////ExMS/v7/8/PyLi4ufn5+6uro3PuJqAAAAB3RSTlMARTAACxAlpkPg9gAAAWVJREFUeF7t1EENgEAABLF9wB8LBGXn3wQ+Jq2I7orYF7E3YnfEnoidCGtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWslaAtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZK8Ba1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1EqxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1nLWtaylrWsZS1rWcta1rKWtaxlLWtZy1rWspa1rGUta1kr4gcY9P+FkIkE1AAAAABJRU5ErkJggg==");
 
         /**
          * The background related properties.
@@ -529,6 +522,93 @@ public class Background extends PropertyDefinition<Background> implements ColorH
             created.properties[0] = CSSValue.of("inherit");
 
             return created;
+        }
+
+        /**
+         * Draw image.
+         * 
+         * @param color Dot color.
+         * @param size Image size (width and height).
+         * @param drawer Draw function.
+         * @return
+         */
+        public static BackgroundImage draw(Color color, int size, BiPredicate<Integer, Integer> drawer) {
+            int[] rgb = color.toRGBValue();
+            int alpha = (int) (color.alpha * 255);
+            int c = (alpha << 24) | (rgb[0] << 16) | (rgb[1] << 8) | rgb[2];
+
+            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+                // write image
+                BufferedImage img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+                for (int y = 0; y < size; y++) {
+                    for (int x = 0; x < size; x++) {
+                        img.setRGB(x, y, drawer.test(x, y) ? c : 0);
+                    }
+                }
+
+                // write to byte array
+                ImageIO.write(img, "png", os);
+
+                // encode
+                return url("data:image/png;base64," + Base64.getEncoder().encodeToString(os.toByteArray()));
+            } catch (IOException e) {
+                throw I.quiet(e);
+            }
+        }
+
+        /**
+         * Draw line image.
+         * 
+         * @param color Line color.
+         * @param size Image size.
+         * @return
+         */
+        public static BackgroundImage drawHorizontalLine(Color color, int size) {
+            return draw(color, size, (x, y) -> y == 0);
+        }
+
+        /**
+         * Draw line image.
+         * 
+         * @param color Line color.
+         * @param size Image size.
+         * @return
+         */
+        public static BackgroundImage drawVerticalLine(Color color, int size) {
+            return draw(color, size, (x, y) -> x == 0);
+        }
+
+        /**
+         * Draw slash image.
+         * 
+         * @param color Line color.
+         * @param size Image size.
+         * @return
+         */
+        public static BackgroundImage drawSlash(Color color, int size) {
+            return draw(color, size, (x, y) -> x + y == size - 1);
+        }
+
+        /**
+         * Draw tiling image.
+         * 
+         * @param color Line color.
+         * @param size Image size.
+         * @return
+         */
+        public static BackgroundImage drawTile(Color color, int size) {
+            return draw(color, size * 2, (x, y) -> x / size % 2 == 0 ^ y / size % 2 == 1);
+        }
+
+        /**
+         * Draw tiling image.
+         * 
+         * @param color Line color.
+         * @param size Image size.
+         * @return
+         */
+        public static BackgroundImage drawSquare(Color color, int size) {
+            return draw(color, size * 2, (x, y) -> x / size % 2 == 0 && y / size % 2 == 0);
         }
 
         /**

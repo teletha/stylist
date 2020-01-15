@@ -264,6 +264,24 @@ public class Color extends CSSValue {
      * @return
      */
     public String toRGB() {
+        int[] rgb = toRGBValue();
+
+        StringBuilder builder = new StringBuilder(alpha == 1 ? "rgb" : "rgba").append("(")
+                .append(rgb[0])
+                .append(',')
+                .append(rgb[1])
+                .append(',')
+                .append(rgb[2]);
+
+        if (alpha != 1) {
+            builder.append(',').append(formatDecimal(alpha));
+        }
+        builder.append(")");
+
+        return builder.toString();
+    }
+
+    public int[] toRGBValue() {
         double max = 2.55 * (lightness + (lightness < 50 ? lightness : 100 - lightness) * (saturation / 100d));
         double min = 2.55 * (lightness - (lightness < 50 ? lightness : 100 - lightness) * (saturation / 100d));
         double diff = max - min;
@@ -283,25 +301,13 @@ public class Color extends CSSValue {
             rgb = new double[] {max, min, ((360 - hue) / 60d) * diff + min};
         }
 
-        long[] rounded = new long[3];
+        int[] rounded = new int[3];
 
         for (int i = 0; i < rgb.length; i++) {
-            rounded[i] = Math.round(rgb[i]);
+            rounded[i] = (int) Math.round(rgb[i]);
         }
 
-        StringBuilder builder = new StringBuilder(alpha == 1 ? "rgb" : "rgba").append("(")
-                .append(rounded[0])
-                .append(',')
-                .append(rounded[1])
-                .append(',')
-                .append(rounded[2]);
-
-        if (alpha != 1) {
-            builder.append(',').append(formatDecimal(alpha));
-        }
-        builder.append(")");
-
-        return builder.toString();
+        return rounded;
     }
 
     /**
