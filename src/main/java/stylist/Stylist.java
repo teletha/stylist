@@ -558,7 +558,7 @@ public final class Stylist {
                         Style located = (Style) field.get(null);
 
                         if (located != null) {
-                            styles.add(located);
+                            styles.addAll(located.group());
                         }
                     } else if (ValueStyle.class.isAssignableFrom(field.getType())) {
                         Type type = field.getGenericType();
