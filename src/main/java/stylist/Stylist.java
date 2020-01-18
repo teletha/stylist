@@ -18,7 +18,6 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -356,7 +355,7 @@ public final class Stylist {
             if (Files.notExists(output)) {
                 Files.createDirectories(output.getParent());
             }
-            formatTo(Files.newBufferedWriter(output, StandardCharsets.UTF_8, StandardOpenOption.CREATE));
+            formatTo(Files.newBufferedWriter(output, StandardCharsets.UTF_8));
         } catch (IOException e) {
             throw I.quiet(e);
         }
