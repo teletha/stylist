@@ -20,11 +20,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -504,7 +504,7 @@ public final class Stylist {
     private static final int base = chars.length;
 
     /** The managed locations. */
-    private static final Map<Style, String> id = new HashMap();
+    private static final Map<Style, String> id = new ConcurrentHashMap();
 
     /** The id manager. */
     private static final AtomicInteger counter = new AtomicInteger();
