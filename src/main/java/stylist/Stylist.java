@@ -25,7 +25,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -81,7 +81,7 @@ public final class Stylist {
     private final List<Consumer<Properties>> posts = new ArrayList();
 
     /** The imported stylesheets. */
-    private final Set<String> imports = new TreeSet();
+    private final Set<String> imports = new ConcurrentSkipListSet();
 
     /** The target styles. */
     private final Set<Style> styles = new HashSet();
