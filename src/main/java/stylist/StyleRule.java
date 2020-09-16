@@ -78,7 +78,7 @@ public class StyleRule implements Comparable<StyleRule> {
      * @param object A style description.
      * @return A create new {@link StyleRule}.
      */
-    static StyleRule create(Style style, SelectorDSL selector) {
+    static synchronized StyleRule create(Style style, SelectorDSL selector) {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
         String description;
