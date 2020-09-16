@@ -16,8 +16,6 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
-import kiss.I;
-
 /**
  * @version 2018/09/06 14:10:24
  */
@@ -213,17 +211,8 @@ public class PropertyDefinition<T> {
             propertyValue = propertyValue.join(separator, value);
         }
 
-        try {
-            // declare property
-            rule.properties.set(propertyName, propertyValue);
-        } catch (NullPointerException e) {
-            if (rule == null) {
-                System.out.println("Rule is null");
-            } else if (rule.properties == null) {
-                System.out.println("Properties is null");
-            }
-            throw I.quiet(e);
-        }
+        // declare property
+        rule.properties.set(propertyName, propertyValue);
 
         // API definition
         return context;
