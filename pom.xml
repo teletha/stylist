@@ -66,9 +66,7 @@
 				<configuration>
 					<encoding>UTF-8</encoding>
 					<release>16</release>
-					<compilerArgs>
-						<arg>-proc:none</arg>
-					</compilerArgs>
+					<compilerArgs/>
 				</configuration>
 			</plugin>
 			<plugin>
