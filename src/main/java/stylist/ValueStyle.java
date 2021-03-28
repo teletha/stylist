@@ -36,7 +36,7 @@ public interface ValueStyle<V> extends Serializable {
         }
 
         return ValuedStyle.cache //
-                .computeIfAbsent(this, styles -> new ConcurrentHashMap())
+                .computeIfAbsent(this, styles -> new ConcurrentHashMap<>())
                 .computeIfAbsent(value, key -> new ValuedStyle(this, key));
     }
 }
