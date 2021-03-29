@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/Teletha/stylist/compare/v1.0.0...v1.0.1) (2021-03-29)
+
+
+### Bug Fixes
+
+* Document. ([96c3fd6](https://www.github.com/Teletha/stylist/commit/96c3fd600225f43298c22391bc9be490cbf2b539))
+
 ## 1.0.0 (2021-03-28)
 
 
