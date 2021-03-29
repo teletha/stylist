@@ -23,9 +23,7 @@ public interface ValueStyle<V> extends Serializable {
     void style(V value);
 
     /**
-     * <p>
      * Retrieve the refined {@link Style} of the specified value.
-     * </p>
      * 
      * @param value A conditional value.
      * @return A refined {@link Style}.

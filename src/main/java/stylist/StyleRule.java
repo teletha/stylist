@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 /**
  * This class is CSSStyleRule which represents a single CSS style rule.
- * 
- * @version 2018/09/06 16:35:10
  */
 public class StyleRule implements Comparable<StyleRule> {
 
