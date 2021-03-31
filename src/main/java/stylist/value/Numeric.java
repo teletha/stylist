@@ -63,7 +63,7 @@ public class Numeric extends CSSValue {
      * {@link Numeric} value as number.
      * </p>
      * 
-     * @param value A numeric size.
+     * @param size A numeric size.
      */
     public Numeric(double size) {
         this(size, null);

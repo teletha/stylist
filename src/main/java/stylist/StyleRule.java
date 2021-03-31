@@ -73,7 +73,7 @@ public class StyleRule implements Comparable<StyleRule> {
     /**
      * Create {@link StyleRule} from the specified {@link Style}.
      * 
-     * @param object A style description.
+     * @param style A style description.
      * @return A create new {@link StyleRule}.
      */
     static synchronized StyleRule create(Style style, SelectorDSL selector) {

@@ -55,10 +55,8 @@ public class SelectorDSL {
     // ===============================================================
 
     /**
-     * <p>
      * Attribute selectors select an element using the presence of a given attribute or attribute
      * value.
-     * </p>
      * 
      * @param name An attribute name.
      * @return Chainable API.
@@ -68,49 +66,39 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * Attribute selectors select an element using the presence of a given attribute or attribute
      * value.
-     * </p>
      * <p>
      * Represents an element with an attribute name.
-     * </p>
      * <p>
      * This is shorthand method of {@link Attribute#exist(Style)}
-     * </p>
      * 
      * @param name An attribute name.
-     * @param A sub style rule.
+     * @param sub A sub style rule.
      */
     public final void attr(String name, Style sub) {
         attr(name).exist(sub);
     }
 
     /**
-     * <p>
      * Attribute selectors select an element using the presence of a given attribute or attribute
      * value.
-     * </p>
      * <p>
      * Represents an element with an attribute name.
-     * </p>
      * <p>
-     * This is shorthand method of {@link Attribute#is(Style)}
-     * </p>
+     * This is shorthand method of {@link Attribute#with(Style)}
      * 
      * @param name An attribute name.
      * @param value An attribute value.
-     * @param A sub style rule.
+     * @param sub A sub style rule.
      */
     public final void attr(String name, String value, Style sub) {
         attr(name).is(value, sub);
     }
 
     /**
-     * <p>
      * In an HTML document, CSS class selectors match an element based on the contents of the
      * element's class attribute.
-     * </p>
      * 
      * @param location A class location.
      * @return Chainable API.
@@ -120,10 +108,8 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * In an HTML document, CSS class selectors match an element based on the contents of the
      * element's class attribute.
-     * </p>
      * 
      * @param location A class location.
      */
@@ -132,10 +118,8 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * In an HTML document, CSS class selectors match an element based on the contents of the
      * element's class attribute.
-     * </p>
      * 
      * @param location A class location.
      */
@@ -144,9 +128,7 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * Write basic selector.
-     * </p>
      * 
      * @param selector A selector expression.
      * @return Chainable API.
@@ -162,13 +144,11 @@ public class SelectorDSL {
     // ===============================================================
 
     /**
-     * <p>
      * A descendant combinator — typically represented by a single space ( ) character in the form
      * of selector₁ selector₂ — combines two selectors such that elements matched by the second
      * selector (selector₂) are selected if they have an ancestor element matching the first
      * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
      * selectors.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -177,28 +157,24 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * A descendant combinator — typically represented by a single space ( ) character in the form
      * of selector₁ selector₂ — combines two selectors such that elements matched by the second
      * selector (selector₂) are selected if they have an ancestor element matching the first
      * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
      * selectors.
-     * </p>
      * 
-     * @param A sub style rule.
+     * @param sub A sub style rule.
      */
     public final void ancestor(Style sub) {
         ancestor().declare(sub);
     }
 
     /**
-     * <p>
      * A descendant combinator — typically represented by a single space ( ) character in the form
      * of selector₁ selector₂ — combines two selectors such that elements matched by the second
      * selector (selector₂) are selected if they have an ancestor element matching the first
      * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
      * selectors.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -207,28 +183,22 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * A descendant combinator — typically represented by a single space ( ) character in the form
      * of selector₁ selector₂ — combines two selectors such that elements matched by the second
      * selector (selector₂) are selected if they have an ancestor element matching the first
      * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
      * selectors.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void descendant(Style sub) {
         descendant().declare(sub);
     }
 
     /**
-     * <p>
      * The > combinator separates two selectors and matches only those elements matched by the
      * second selector that are direct children of elements matched by the first. By contrast, when
      * two selectors are combined with the descendant selector, the combined selector expression
      * matches those elements matched by the second selector for which there exists an ancestor
      * element matched by the first selector, regardless of the number of "hops" up the DOM.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -237,28 +207,22 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The > combinator separates two selectors and matches only those elements matched by the
      * second selector that are direct children of elements matched by the first. By contrast, when
      * two selectors are combined with the descendant selector, the combined selector expression
      * matches those elements matched by the second selector for which there exists an ancestor
      * element matched by the first selector, regardless of the number of "hops" up the DOM.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void parent(Style sub) {
         parent().declare(sub);
     }
 
     /**
-     * <p>
      * The > combinator separates two selectors and matches only those elements matched by the
      * second selector that are direct children of elements matched by the first. By contrast, when
      * two selectors are combined with the descendant selector, the combined selector expression
      * matches those elements matched by the second selector for which there exists an ancestor
      * element matched by the first selector, regardless of the number of "hops" up the DOM.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -267,25 +231,19 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The > combinator separates two selectors and matches only those elements matched by the
      * second selector that are direct children of elements matched by the first. By contrast, when
      * two selectors are combined with the descendant selector, the combined selector expression
      * matches those elements matched by the second selector for which there exists an ancestor
      * element matched by the first selector, regardless of the number of "hops" up the DOM.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void child(Style sub) {
         child().declare(sub);
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -294,10 +252,8 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -306,10 +262,8 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -318,22 +272,16 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void next(Style sub) {
         next().declare(sub);
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -342,22 +290,16 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void prevs(Style sub) {
         prevs().declare(sub);
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -366,21 +308,15 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void nexts(Style sub) {
         nexts().declare(sub);
     }
 
     /**
-     * <p>
      * Write combinator.
-     * </p>
      * 
      * @param type A combinator type.
      * @param forward A direction.
@@ -405,11 +341,9 @@ public class SelectorDSL {
     // ===============================================================
 
     /**
-     * <p>
      * The CSS :after pseudo-element matches a virtual last child of the selected element. Typically
      * used to add cosmetic content to an element, by using the content CSS property. This element
      * is inline by default.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -418,11 +352,9 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The CSS ::before creates a pseudo-element that is the first child of the element matched. It
      * is often used to add cosmetic content to an element by using the content property. This
      * element is inline by default.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -431,10 +363,8 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The ::first-letter CSS pseudo-element selects the first letter of the first line of a block,
      * if it is not preceded by any other content (such as images or inline tables) on its line.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -443,12 +373,10 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The ::first-line CSS pseudo-element applies styles only to the first line of an element. The
      * amount of the text on the first line depends of numerous factors, like the width of the
      * elements or of the document, but also of the font size of the text. As all pseudo-elements,
      * the selectors containing ::first-line does not match any real HTML element.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -457,15 +385,12 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The ::selection CSS pseudo-element applies rules to the portion of a document that has been
      * highlighted (e.g., selected with the mouse or another pointing device) by the user.
-     * </p>
      * <p>
      * Only a small subset of CSS properties can be used in a rule using ::selection in its
      * selector: color, background, background-color and text-shadow. Note that, in particular,
      * background-image is ignored, like any other property.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -482,14 +407,12 @@ public class SelectorDSL {
     // ===============================================================
 
     /**
-     * <p>
      * The :active CSS pseudo-class matches when an element is being activated by the user. It
      * allows the page to give a feedback that the activation has been detected by the browser. When
      * interacting with a mouse, this is typically the time between the user presses the mouse
      * button and releases it. The :active pseudo-class is also typically matched when using the
      * keyboard tab key. It is frequently used on <a> and <button> HTML elements, but may not be
      * limited to just those.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -498,14 +421,12 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :active CSS pseudo-class matches when an element is being activated by the user. It
      * allows the page to give a feedback that the activation has been detected by the browser. When
      * interacting with a mouse, this is typically the time between the user presses the mouse
      * button and releases it. The :active pseudo-class is also typically matched when using the
      * keyboard tab key. It is frequently used on <a> and <button> HTML elements, but may not be
      * limited to just those.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -514,13 +435,11 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :checked CSS pseudo-class selector represents any radio (<input type="radio">), checkbox
      * (<input type="checkbox">) or option (<option> in a <select>) element that is checked or
      * toggled to an on state. The user can change this state by clicking on the element, or
      * selecting a different value, in which case the :checked pseudo-class no longer applies to
      * this element, but will to the relevant one.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -529,13 +448,11 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :checked CSS pseudo-class selector represents any radio (<input type="radio">), checkbox
      * (<input type="checkbox">) or option (<option> in a <select>) element that is checked or
      * toggled to an on state. The user can change this state by clicking on the element, or
      * selecting a different value, in which case the :checked pseudo-class no longer applies to
      * this element, but will to the relevant one.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -544,10 +461,8 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :default CSS pseudo-class represents any user interface element that is the public final
      * among a group of similar elements.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -556,23 +471,17 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :default CSS pseudo-class represents any user interface element that is the public final
      * among a group of similar elements.
-     * </p>
-     * 
-     * @return Chainable API.
      */
     public final void defaults(Style sub) {
         defaults().declare(sub);
     }
 
     /**
-     * <p>
      * The :disabled CSS pseudo-class represents any disabled element. An element is disabled if it
      * can't be activated (e.g. selected, clicked on or accept text input) or accept focus. The
      * element also has an enabled state, in which it can be activated or accept focus.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -581,11 +490,9 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :disabled CSS pseudo-class represents any disabled element. An element is disabled if it
      * can't be activated (e.g. selected, clicked on or accept text input) or accept focus. The
      * element also has an enabled state, in which it can be activated or accept focus.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -594,11 +501,9 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :empty pseudo-class represents any element that has no children at all. Only element
      * nodes and text (including whitespace) are considered. Comments or processing instructions do
      * not affect whether an element is considered empty or not.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -607,11 +512,9 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :empty pseudo-class represents any element that has no children at all. Only element
      * nodes and text (including whitespace) are considered. Comments or processing instructions do
      * not affect whether an element is considered empty or not.
-     * </p>
      * 
      * @param sub A sub style.
      */
@@ -620,11 +523,9 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * The :enabled CSS pseudo-class represents any enabled element. An element is enabled if it can
      * be activated (e.g. selected, clicked on or accept text input) or accept focus. The element
      * also has an disabled state, in which it can't be activated or accept focus.
-     * </p>
      * 
      * @return Chainable API.
      */
@@ -1262,43 +1163,35 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * A generic combinator — typically represented by a single space ( ) character in the form of
      * selector₁ selector₂ — combines two selectors such that elements matched by the second
      * selector (selector₂) are selected if they have an ancestor element matching the first
      * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
      * selectors.
-     * </p>
      * 
      * @param selector A css selector.
      * @param sub A sub style.
-     * @return Chainable API.
      */
     public final void select(String selector, Style sub) {
         select(selector).declare(sub);
     }
 
     /**
-     * <p>
      * A generic combinator — typically represented by a single space ( ) character in the form of
      * selector₁ selector₂ — combines two selectors such that elements matched by the second
      * selector (selector₂) are selected if they have an ancestor element matching the first
      * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
      * selectors.
-     * </p>
      * 
      * @param selector A css selector.
      * @param sub A sub style.
-     * @return Chainable API.
      */
     public final void select(Style selector, Style sub) {
         select(selector.selector()).declare(sub);
     }
 
     /**
-     * <p>
      * Declare the specified new style with this selector expression.
-     * </p>
      * 
      * @param style A style declaration.
      */
@@ -1406,11 +1299,7 @@ public class SelectorDSL {
         private boolean ignoreCase;
 
         /**
-         * <p>
          * Create attribute selector builder.
-         * </p>
-         * 
-         * @return Chainable API.
          */
         Attribute(SelectorDSL parent, String name) {
             if (name == null || name.equals("")) {
@@ -1421,9 +1310,7 @@ public class SelectorDSL {
         }
 
         /**
-         * <p>
          * Set case sensitivity.
-         * </p>
          * 
          * @return Chainable API.
          */
@@ -1433,13 +1320,10 @@ public class SelectorDSL {
         }
 
         /**
-         * <p>
          * Attribute selectors select an element using the presence of a given attribute or
          * attribute value.
-         * </p>
          * <p>
          * Represents an element with an attribute name.
-         * </p>
          * 
          * @return Chainable API.
          */
@@ -1448,13 +1332,10 @@ public class SelectorDSL {
         }
 
         /**
-         * <p>
          * Attribute selectors select an element using the presence of a given attribute or
          * attribute value.
-         * </p>
          * <p>
          * Represents an element with an attribute name.
-         * </p>
          * 
          * @param sub A sub style.
          */
@@ -1463,13 +1344,10 @@ public class SelectorDSL {
         }
 
         /**
-         * <p>
          * Attribute selectors select an element using the presence of a given attribute or
          * attribute value.
-         * </p>
          * <p>
          * Represents an element with an attribute name.
-         * </p>
          * 
          * @param value An attribute value.
          * @return Chainable API.
@@ -1479,13 +1357,10 @@ public class SelectorDSL {
         }
 
         /**
-         * <p>
          * Attribute selectors select an element using the presence of a given attribute or
          * attribute value.
-         * </p>
          * <p>
          * Represents an element with an attribute name.
-         * </p>
          * 
          * @param value An attribute value.
          * @param sub A sub style.

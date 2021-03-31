@@ -193,7 +193,6 @@ public final class Stylist {
     /**
      * Format {@link CSSValue}.
      * 
-     * @param value
      * @return
      */
     public Function<Color, String> color() {
@@ -366,7 +365,6 @@ public final class Stylist {
      * Write out all managed styles.
      * 
      * @param output A style output buffer.
-     * @return
      */
     public final void formatTo(Appendable output) {
         try {
@@ -516,7 +514,7 @@ public final class Stylist {
     }
 
     /**
-     * Compute identifier for the specified {@link Location}.
+     * Compute identifier for the specified {@link Style}.
      * 
      * @param location A target location.
      * @return An identifier.

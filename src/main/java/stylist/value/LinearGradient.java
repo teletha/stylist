@@ -67,7 +67,7 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
      * follows the same rules as color-stops in SVG gradients.
      * </p>
      * 
-     * @param color A color.
+     * @param colors A color.
      * @return Chainable API.
      */
     public T color(Color... colors) {

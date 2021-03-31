@@ -34,7 +34,6 @@ public class FlexItem extends PropertyDefinition<FlexItem> {
      * The CSS flex-grow property specifies the flex grow factor of a flex item.
      * </p>
      * 
-     * @param ratio Negative values are invalid.
      * @return
      */
     public FlexItem basis(int size, Unit unit) {
@@ -46,7 +45,7 @@ public class FlexItem extends PropertyDefinition<FlexItem> {
      * The CSS flex-grow property specifies the flex grow factor of a flex item.
      * </p>
      * 
-     * @param ratio Negative values are invalid.
+     * @param size Negative values are invalid.
      * @return
      */
     public FlexItem basis(Numeric size) {
@@ -61,7 +60,7 @@ public class FlexItem extends PropertyDefinition<FlexItem> {
      * The CSS flex-grow property specifies the flex grow factor of a flex item.
      * </p>
      * 
-     * @param ratio Negative values are invalid.
+     * @param factor Negative values are invalid.
      * @return
      */
     public FlexItem grow(int factor) {
@@ -76,7 +75,7 @@ public class FlexItem extends PropertyDefinition<FlexItem> {
      * The CSS flex-shrink property specifies the flex shrink factor of a flex item.
      * </p>
      * 
-     * @param ratio Negative values are invalid.
+     * @param factor Negative values are invalid.
      * @return
      */
     public FlexItem shrink(int factor) {

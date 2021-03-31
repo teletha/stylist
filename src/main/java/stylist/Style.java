@@ -58,7 +58,7 @@ public interface Style extends Consumer, Serializable {
     }
 
     /**
-     * Describe detailed information for this {@link Location}.
+     * Describe detailed information for this {@link Style}.
      * 
      * @return
      */

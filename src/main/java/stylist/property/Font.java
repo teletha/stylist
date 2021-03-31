@@ -133,7 +133,7 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
      * font when needed.
      * </p>
      * 
-     * @param persons
+     * @param fonts
      * @return
      */
     public Font family(CharSequence... fonts) {

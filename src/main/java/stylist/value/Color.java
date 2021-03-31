@@ -452,7 +452,7 @@ public class Color extends CSSValue {
     /**
      * Parse any color code.
      * 
-     * @param code A color colde (any type).
+     * @param color A color code (any type).
      * @return A parsed color.
      */
     public static Color of(String color) {

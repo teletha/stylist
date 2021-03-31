@@ -55,8 +55,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength size(Numeric value) {
@@ -101,8 +99,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength top(Numeric value) {
@@ -129,8 +125,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength bottom(Numeric value) {
@@ -157,8 +151,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength left(Numeric value) {
@@ -185,8 +177,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength right(Numeric value) {
@@ -217,8 +207,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * the top of an element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength horizontal(Numeric value) {
@@ -253,8 +241,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * the top of an element. A negative value is also allowed.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public BoxLength vertical(Numeric value) {

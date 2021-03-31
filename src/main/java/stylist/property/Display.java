@@ -261,8 +261,6 @@ public final class Display extends PropertyDefinition<Display> {
      * Setting width and height properties.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public Display size(Numeric value) {
@@ -298,8 +296,6 @@ public final class Display extends PropertyDefinition<Display> {
      * The min-width and max-width properties override width.
      * </p>
      * 
-     * @param size A box width.
-     * @param unit A unit.
      * @return Chainable API.
      */
     public Display width(Numeric value) {
@@ -328,8 +324,6 @@ public final class Display extends PropertyDefinition<Display> {
      * min-width.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public Display minWidth(Numeric value) {
@@ -358,8 +352,6 @@ public final class Display extends PropertyDefinition<Display> {
      * max-width.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public Display maxWidth(Numeric value) {
@@ -392,8 +384,6 @@ public final class Display extends PropertyDefinition<Display> {
      * The min-height and max-height properties override height.
      * </p>
      * 
-     * @param size A box width.
-     * @param unit A unit.
      * @return Chainable API.
      */
     public Display height(Numeric value) {
@@ -422,8 +412,6 @@ public final class Display extends PropertyDefinition<Display> {
      * min-height.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public Display minHeight(Numeric value) {
@@ -452,8 +440,6 @@ public final class Display extends PropertyDefinition<Display> {
      * max-height.
      * </p>
      * 
-     * @param size
-     * @param unit
      * @return
      */
     public Display maxHeight(Numeric value) {

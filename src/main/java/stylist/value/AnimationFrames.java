@@ -26,7 +26,6 @@ public class AnimationFrames {
     private ArrayList<Frame> frames = new ArrayList();
 
     /**
-     * @param frames
      */
     public AnimationFrames() {
         this.name = "Anima" + hashCode();

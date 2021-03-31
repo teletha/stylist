@@ -134,7 +134,7 @@ public final class Properties {
     /**
      * Get the index of property name.
      * 
-     * @param name A property name to find.
+     * @param key A property name to find.
      * @return A index for the specified property name.
      */
     public int name(String key) {

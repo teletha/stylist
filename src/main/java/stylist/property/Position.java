@@ -285,8 +285,6 @@ public final class Position extends PropertyDefinition<Position> {
      * value of bottom is the negative of the computed value of top.
      * </p>
      * 
-     * @param size A position value.
-     * @param unit A unit.
      * @return Chainable API.
      */
     public Position bottom(Numeric value) {

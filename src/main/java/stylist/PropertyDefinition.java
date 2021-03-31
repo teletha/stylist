@@ -124,7 +124,6 @@ public class PropertyDefinition<T> {
      * </p>
      * 
      * @param value A property name.
-     * @param value A property value.
      * @return Chainable API.
      */
     protected final T value(Object value) {
@@ -231,8 +230,6 @@ public class PropertyDefinition<T> {
     /**
      * Join all values.
      * 
-     * @param images
-     * @param index
      * @return
      */
     protected static final <T> String join(T[] items, Function<T, Object> conveter) {
@@ -247,8 +244,6 @@ public class PropertyDefinition<T> {
     /**
      * Join all values.
      * 
-     * @param images
-     * @param index
      * @return
      */
     protected static final <T> String join(Iterable<T> items, Function<T, Object> conveter) {

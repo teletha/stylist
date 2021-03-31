@@ -53,41 +53,27 @@ public class Overflows extends Overflow<Overflows> {
     public final Overflow<Overflows> y = new Overflow("overflow-y", this);
 
     /**
-     * The scrollbar-color CSS property sets the color of the scrollbar track and thumb.
-     * 
-     * The track refers to the background of the scrollbar, which is generally fixed regardless of
-     * the scrolling position.
-     * 
-     * The thumb refers to the moving part of the scrollbar, which usually floats on top of the
-     * track.
-     * 
-     * The scrollbar-width property allows the author to set the maximum thickness of an element’s
-     * scrollbars when they are shown.
+     * The scrollbar-color CSS property sets the color of the scrollbar track and thumb. The track
+     * refers to the background of the scrollbar, which is generally fixed regardless of the
+     * scrolling position. The thumb refers to the moving part of the scrollbar, which usually
+     * floats on top of the track. The scrollbar-width property allows the author to set the maximum
+     * thickness of an element’s scrollbars when they are shown.
      */
     public final Scrollbar scrollbar = new Scrollbar();
 
     /**
-     * <p>
      * Create property.
-     * </p>
-     * 
-     * @param name A property name.
      */
     public Overflows() {
         super("overflow");
     }
 
     /**
-     * The scrollbar-color CSS property sets the color of the scrollbar track and thumb.
-     * 
-     * The track refers to the background of the scrollbar, which is generally fixed regardless of
-     * the scrolling position.
-     * 
-     * The thumb refers to the moving part of the scrollbar, which usually floats on top of the
-     * track.
-     * 
-     * The scrollbar-width property allows the author to set the maximum thickness of an element’s
-     * scrollbars when they are shown.
+     * The scrollbar-color CSS property sets the color of the scrollbar track and thumb. The track
+     * refers to the background of the scrollbar, which is generally fixed regardless of the
+     * scrolling position. The thumb refers to the moving part of the scrollbar, which usually
+     * floats on top of the track. The scrollbar-width property allows the author to set the maximum
+     * thickness of an element’s scrollbars when they are shown.
      */
     public class Scrollbar<T extends Scrollbar> extends PropertyDefinition<Overflows>
             implements ColorHelper<Overflows>, WidthHelper<Overflows> {

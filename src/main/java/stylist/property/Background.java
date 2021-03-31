@@ -49,7 +49,6 @@ public class Background extends PropertyDefinition<Background> implements ColorH
      * background-color is drawn beneath them.
      * </p>
      * 
-     * @param uri
      * @return
      */
     public Background none() {
@@ -64,7 +63,7 @@ public class Background extends PropertyDefinition<Background> implements ColorH
      * background-color is drawn beneath them.
      * </p>
      * 
-     * @param uri
+     * @param imageURL
      * @return
      */
     public Background image(String imageURL) {
@@ -83,7 +82,7 @@ public class Background extends PropertyDefinition<Background> implements ColorH
      * cannot be loaded), browsers handle it as they would a none value.
      * </p>
      * 
-     * @param images
+     * @param image
      */
     public Background image(BackgroundImage image) {
         if (!image.properties[0].match("none")) value("background-image", image.properties[0]);

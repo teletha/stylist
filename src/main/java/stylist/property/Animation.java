@@ -193,13 +193,9 @@ public class Animation extends PropertyDefinition<Animation> {
     }
 
     /**
-     * <p>
      * The animation-iteration-count CSS property defines the number of times an animation cycle
      * should be played before stopping.
-     * </p>
      * 
-     * @param time
-     * @param unit
      * @return
      */
     public Animation iterationCount(int count) {
@@ -214,8 +210,6 @@ public class Animation extends PropertyDefinition<Animation> {
      * should be played before stopping.
      * </p>
      * 
-     * @param time
-     * @param unit
      * @return
      */
     public Animation iterationInfinite() {
