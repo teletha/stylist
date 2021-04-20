@@ -111,6 +111,24 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
 
     /**
      * <p>
+     * This value is comprised of a <color> value, followed by an optional stop position (either a
+     * percentage or a <length> along the gradient axis). Rendering of color-stops in CSS gradients
+     * follows the same rules as color-stops in SVG gradients.
+     * </p>
+     * 
+     * @param color A color.
+     * @param start A start position.
+     * @param end A end position.
+     * @return Chainable API.
+     */
+    public T color(Color color, Numeric start, Numeric end) {
+        steps.add(new Step(color, start, end));
+
+        return (T) this;
+    }
+
+    /**
+     * <p>
      * Make this gradient image repeatable.
      * </p>
      * 
@@ -178,7 +196,11 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
             builder.append(step.color);
 
             if (step.length != null) {
-                builder.append(" ").append(step.length.valueFor(vendor));
+                if (step.end == null) {
+                    builder.append(" ").append(step.length.valueFor(vendor));
+                } else {
+                    builder.append(" ").append(step.length.valueFor(vendor)).append(" ").append(step.end.valueFor(vendor));
+                }
             }
 
             if (i + 1 < steps.size()) {
@@ -204,8 +226,11 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
         /** The color. */
         protected final Color color;
 
-        /** The length. */
+        /** The length or start position. */
         protected final Numeric length;
+
+        /** The end position. */
+        protected final Numeric end;
 
         /**
          * @param color A color.
@@ -214,6 +239,17 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
         private Step(Color color, Numeric length) {
             this.color = color;
             this.length = length;
+            this.end = null;
+        }
+
+        /**
+         * @param color A color.
+         * @param length A length.
+         */
+        private Step(Color color, Numeric start, Numeric end) {
+            this.color = color;
+            this.length = start;
+            this.end = end;
         }
     }
 }
