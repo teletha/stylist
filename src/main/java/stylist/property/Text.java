@@ -10,7 +10,7 @@
 package stylist.property;
 
 import static stylist.Vendor.*;
-import static stylist.value.Unit.*;
+import static stylist.value.Unit.px;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
@@ -60,6 +60,22 @@ public class Text extends PropertyDefinition<Text> {
      * </p>
      */
     public final DecorationColor decorationColor = new DecorationColor();
+
+    /**
+     * The text-decoration-style CSS property sets the style of the lines specified by
+     * text-decoration-line. The style applies to all lines that are set with text-decoration-line.
+     * <p>
+     * If the specified decoration has a specific semantic meaning, like a line-through line meaning
+     * that some text has been deleted, authors are encouraged to denote this meaning using an HTML
+     * tag, like <del> or <s>. As browsers can disable styling in some cases, the semantic meaning
+     * won't disappear in such a situation.
+     * </p>
+     * <p>
+     * When setting multiple line-decoration properties at once, it may be more convenient to use
+     * the text-decoration shorthand property instead.
+     * </p>
+     */
+    public final DecorationStyle decorationStyle = new DecorationStyle();
 
     /**
      * <p>
@@ -504,6 +520,53 @@ public class Text extends PropertyDefinition<Text> {
         @Override
         public Text color(CSSValue color) {
             return value(color);
+        }
+    }
+
+    public class DecorationStyle extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private DecorationStyle() {
+            super("text-decoration-style", Text.this);
+        }
+
+        /**
+         * Draws a single line.
+         * 
+         * @return
+         */
+        public Text solid() {
+            return value("solid");
+        }
+
+        /**
+         * Draws a double line.
+         */
+        public Text doubles() {
+            return value("double");
+        }
+
+        /**
+         * Draws a dotted line.
+         */
+        public Text dotted() {
+            return value("dotted");
+        }
+
+        /**
+         * Draws a dashed line.
+         */
+        public Text dashed() {
+            return value("dashed");
+        }
+
+        /**
+         * Draws a wavy line.
+         */
+        public Text wavy() {
+            return value("wavy");
         }
     }
 
