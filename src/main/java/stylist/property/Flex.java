@@ -355,10 +355,8 @@ public class Flex extends PropertyDefinition<Flex> {
         }
 
         /**
-         * <p>
          * The cross-start margin edge of the flex item is flushed with the cross-start edge of the
          * line.
-         * </p>
          * 
          * @return
          */
@@ -367,10 +365,8 @@ public class Flex extends PropertyDefinition<Flex> {
         }
 
         /**
-         * <p>
          * The cross-end margin edge of the flex item is flushed with the cross-end edge of the
          * line.
-         * </p>
          * 
          * @return
          */
@@ -379,11 +375,9 @@ public class Flex extends PropertyDefinition<Flex> {
         }
 
         /**
-         * <p>
          * The flex item's margin box is centered within the line on the cross-axis. If the
          * cross-size of the item is larger than the flex container, it will overflow equally in
          * both directions.
-         * </p>
          * 
          * @return
          */
@@ -392,11 +386,9 @@ public class Flex extends PropertyDefinition<Flex> {
         }
 
         /**
-         * <p>
          * All flex items are aligned such that their baselines align. The item with the largest
          * distance between its cross-start margin edge and its baseline is flushed with the
          * cross-start edge of the line.
-         * </p>
          * 
          * @return
          */
@@ -405,10 +397,50 @@ public class Flex extends PropertyDefinition<Flex> {
         }
 
         /**
-         * <p>
+         * All flex items are aligned such that their flex container baselines align. The item with
+         * the largest distance between its cross-start margin edge and its baseline is flushed with
+         * the cross-start edge of the line.
+         * 
+         * @return
+         */
+        public Flex firstBaseline() {
+            return value("first baseline");
+        }
+
+        /**
+         * All flex items are aligned such that their flex container baselines align. The item with
+         * the largest distance between its cross-start margin edge and its baseline is flushed with
+         * the cross-start edge of the line.
+         * 
+         * @return
+         */
+        public Flex lastBaseline() {
+            return value("last baseline");
+        }
+
+        /**
+         * The items are packed flush to the edge of the alignment container of the start side of
+         * the item, in the appropriate axis.
+         * 
+         * @return
+         */
+        public Flex selfStart() {
+            return value("self-start");
+        }
+
+        /**
+         * The items are packed flush to the edge of the alignment container of the end side of the
+         * item, in the appropriate axis.
+         * 
+         * @return
+         */
+        public Flex selfEnd() {
+            return value("self-end");
+        }
+
+        /**
          * Flex items are stretched such as the cross-size of the item's margin box is the same as
          * the line while respecting width and height constraints.
-         * </p>
          * 
          * @return
          */
