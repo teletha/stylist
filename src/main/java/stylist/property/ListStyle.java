@@ -94,6 +94,24 @@ public class ListStyle extends PropertyDefinition<ListStyle> {
     }
 
     /**
+     * Symbol indicating that a disclosure widget such as <details> is opened.
+     * 
+     * @return
+     */
+    public ListStyle disclosureOpen() {
+        return value("list-style-type", "disclosure-open");
+    }
+
+    /**
+     * Symbol indicating that a disclosure widget, like <details> is closed.
+     * 
+     * @return
+     */
+    public ListStyle disclosureClose() {
+        return value("list-style-type", "disclosure-close");
+    }
+
+    /**
      * <p>
      * The list-style-type CSS property specifies appearance of a list item element. As it is the
      * only one who defaults to display:list-item, this is usually a lielement, but can be any
