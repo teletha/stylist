@@ -108,7 +108,7 @@ public class ListStyle extends PropertyDefinition<ListStyle> {
      * @return
      */
     public ListStyle disclosureClose() {
-        return value("list-style-type", "disclosure-close");
+        return value("list-style-type", "disclosure-closed");
     }
 
     /**
