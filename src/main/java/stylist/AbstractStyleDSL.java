@@ -32,6 +32,7 @@ import stylist.property.Scroll;
 import stylist.property.Stroke;
 import stylist.property.Text;
 import stylist.property.Transform;
+import stylist.property.Transition;
 import stylist.property.Visibility;
 import stylist.value.Unit;
 
@@ -383,4 +384,8 @@ public abstract class AbstractStyleDSL implements StyleDeclarable {
      * </p>
      */
     protected static final Visibility visibility = new Visibility();
+
+    /**
+     */
+    protected static final Transition transition = new Transition();
 }

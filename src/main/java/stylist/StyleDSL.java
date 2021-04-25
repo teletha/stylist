@@ -32,6 +32,7 @@ import stylist.property.Scroll;
 import stylist.property.Stroke;
 import stylist.property.Text;
 import stylist.property.Transform;
+import stylist.property.Transition;
 import stylist.property.Visibility;
 import stylist.value.Unit;
 
@@ -383,4 +384,9 @@ public interface StyleDSL extends StyleDeclarable {
      * </p>
      */
     public static final Visibility visibility = new Visibility();
+
+    /**
+     * 
+     */
+    public static final Transition transition = new Transition();
 }
