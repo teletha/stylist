@@ -13,25 +13,22 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/08/30 18:39:29
- */
-public class VisibilityTest extends StyleTester {
+class VisibilityTest extends StyleTester {
 
     @Test
-    public void visibility() {
+    void visibility() {
         ValidatableStyle parsed = writeStyle(() -> {
-            visibility.collapse();
+            display.visibility.collapse();
         });
         assert parsed.property("visibility", "collapse");
 
         parsed = writeStyle(() -> {
-            visibility.hidden();
+            display.visibility.hidden();
         });
         assert parsed.property("visibility", "hidden");
 
         parsed = writeStyle(() -> {
-            visibility.visible();
+            display.visibility.visible();
         });
         assert parsed.property("visibility", "visible");
     }

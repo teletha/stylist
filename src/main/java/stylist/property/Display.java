@@ -48,6 +48,16 @@ public final class Display extends PropertyDefinition<Display> {
     public final Sizing sizing = new Sizing();
 
     /**
+     * <p>
+     * The visibility CSS property shows or hides an element without changing the layout of a
+     * document. The property can also hide rows or columns in a table. To both hide an element and
+     * remove it from the document layout, set the display property to none instead of using
+     * visibility.
+     * </p>
+     */
+    public final Visibility visibility = new Visibility();
+
+    /**
      * The element generates a block element box.
      */
     public Display block() {
@@ -651,9 +661,6 @@ public final class Display extends PropertyDefinition<Display> {
         }
     }
 
-    /**
-     * @version 2016/09/17 0:01:38
-     */
     public class Sizing extends PropertyDefinition<Display> {
 
         /**
@@ -686,6 +693,59 @@ public final class Display extends PropertyDefinition<Display> {
          */
         public Display borderBox() {
             return value("border-box");
+        }
+    }
+
+    /**
+     * Property for visibility.
+     */
+    public class Visibility extends PropertyDefinition<Display> {
+
+        private Visibility() {
+            super("visibility", Display.this);
+        }
+
+        /**
+         * <p>
+         * Default value, the box is visible.
+         * </p>
+         * 
+         * @return
+         */
+        public Display visible() {
+            return value("visible");
+        }
+
+        /**
+         * <p>
+         * The box is invisible (fully transparent, nothing is drawn), but still affects layout.
+         * Descendants of the element will be visible if they have visibility:visible (this doesn't
+         * work in IE up to version 7).
+         * </p>
+         * 
+         * @return
+         */
+        public Display hidden() {
+            return value("hidden");
+        }
+
+        /**
+         * <p>
+         * For table rows, columns, column groups, and row groups the row(s) or column(s) are hidden
+         * and the space they would have occupied is (as if display: none were applied to the
+         * column/row of the table). However, the size of other rows and columns is still calculated
+         * as though the cells in the collapsed row(s) or column(s) are present. This was designed
+         * for fast removal of a row/column from a table without having to recalculate widths and
+         * heights for every portion of the table. For XUL elements, the computed size of the
+         * element is always zero, regardless of other styles that would normally affect the size,
+         * although margins still take effect. For other elements, collapse is treated the same as
+         * hidden.
+         * </p>
+         * 
+         * @return
+         */
+        public Display collapse() {
+            return value("collapse");
         }
     }
 

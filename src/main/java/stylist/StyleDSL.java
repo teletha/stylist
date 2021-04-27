@@ -33,7 +33,6 @@ import stylist.property.Stroke;
 import stylist.property.Text;
 import stylist.property.Transform;
 import stylist.property.Transition;
-import stylist.property.Visibility;
 import stylist.value.Unit;
 
 @Managed(Singleton.class)
@@ -377,13 +376,6 @@ public interface StyleDSL extends StyleDeclarable {
      * </p>
      */
     public static final Transform transform = new Transform();
-
-    /**
-     * <p>
-     * The visibility CSS property has two purposes:
-     * </p>
-     */
-    public static final Visibility visibility = new Visibility();
 
     /**
      * 
