@@ -83,4 +83,13 @@ public interface ColorHelper<R> {
     default R color(int red, int green, int blue, double alpha) {
         return color(Color.rgb(red, green, blue, alpha));
     }
+
+    /**
+     * Short hand method for {@link Color#Transparent}.
+     * 
+     * @return Chainable API.
+     */
+    default R transparent() {
+        return color(Color.Transparent);
+    }
 }
