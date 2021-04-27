@@ -182,6 +182,48 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
+     * <p>
+     * On inline elements, the line-height CSS property specifies the height that is used in the
+     * calculation of the line box height. On block level elements, line-height specifies the
+     * minimal height of line boxes within the element.
+     * </p>
+     * 
+     * @param size
+     * @return
+     */
+    public Font lineHight(double size) {
+        return value("line-height", size);
+    }
+
+    /**
+     * <p>
+     * On inline elements, the line-height CSS property specifies the height that is used in the
+     * calculation of the line box height. On block level elements, line-height specifies the
+     * minimal height of line boxes within the element.
+     * </p>
+     * 
+     * @param size
+     * @return
+     */
+    public Font lineHight(Numeric size) {
+        return value("line-height", size);
+    }
+
+    /**
+     * <p>
+     * On inline elements, the line-height CSS property specifies the height that is used in the
+     * calculation of the line box height. On block level elements, line-height specifies the
+     * minimal height of line boxes within the element.
+     * </p>
+     * 
+     * @param size
+     * @return
+     */
+    public Font lineHight(double size, Unit unit) {
+        return lineHight(new Numeric(size, unit));
+    }
+
+    /**
      * @version 2014/10/28 22:38:44
      */
     public class Size extends PropertyDefinition<Font> {

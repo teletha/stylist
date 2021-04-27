@@ -22,7 +22,6 @@ import stylist.property.Display;
 import stylist.property.Fill;
 import stylist.property.FlexItem;
 import stylist.property.Font;
-import stylist.property.Line;
 import stylist.property.ListStyle;
 import stylist.property.Outline;
 import stylist.property.Overflows;
@@ -257,15 +256,6 @@ public interface StyleDSL extends StyleDeclarable {
      * </p>
      */
     public static final Font font = new Font();
-
-    /**
-     * <p>
-     * On inline elements, the line-height CSS property specifies the height that is used in the
-     * calculation of the line box height. On block level elements, line-height specifies the
-     * minimal height of line boxes within the element.
-     * </p>
-     */
-    public static final Line line = new Line();
 
     /**
      * <p>

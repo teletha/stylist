@@ -13,9 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/09/05 11:52:22
- */
 class FontTest extends StyleTester {
 
     @Test
@@ -32,5 +29,13 @@ class FontTest extends StyleTester {
             font.family("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600", stylist.value.Font.Serif);
         });
         assert parsed.property("font-family", "\"Source Sans Pro\",serif");
+    }
+
+    @Test
+    void lineHeight() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            font.lineHight(1.2);
+        });
+        assert parsed.property("line-height", "1.2");
     }
 }
