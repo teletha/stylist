@@ -9,10 +9,16 @@
  */
 package stylist;
 
+import static stylist.StyleDSL.*;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
+
+import stylist.property.Background.BackgroundImage;
+import stylist.value.Color;
+import stylist.value.Numeric;
 
 public interface Style extends Consumer, Serializable {
 
@@ -110,5 +116,70 @@ public interface Style extends Consumer, Serializable {
                 style.run();
             }
         };
+    }
+
+    /**
+     * Builtin {@link Style} for tooltip design.
+     * 
+     * @param attributeName A target attribute to show as tooltip.
+     * @param showOnTop
+     * @param fontColor
+     * @param backgroundColor
+     * @return
+     */
+    static Style tooltip(String attributeName, boolean showOnTop, Color fontColor, Color backgroundColor, BackgroundImage... images) {
+        return Style.named("[" + attributeName + "]", () -> {
+            position.relative();
+            cursor.help();
+
+            $.before(() -> {
+                tooltipPositioning(showOnTop);
+
+                content.attr(attributeName);
+                padding.horizontal(0.9, em).vertical(0.4, em);
+                display.width.fitContent();
+                border.radius(4, px);
+                background.color(backgroundColor).image(images);
+                font.color(fontColor).size(0.9, em);
+                text.align.center().whiteSpace.preWrap().decoration.none();
+                transform.translate(-50, percent, -5, px).scale(0.6);
+                transition.duration(0.2, s).whenever();
+            });
+
+            $.hover().before(() -> {
+                display.opacity(1).visibility.visible();
+                transform.translate(-50, percent, -5, px).scale(1);
+            });
+
+            $.after(() -> {
+                tooltipPositioning(showOnTop);
+
+                content.text("");
+                border.solid().width(5, px);
+                border.top.color(backgroundColor);
+                border.bottom.width(0, px).transparent();
+                transition.duration(0, s);
+                transform.origin.top().translateX(-50, percent).scaleY(0);
+                font.color(Color.Transparent);
+            });
+
+            $.hover().after(() -> {
+                display.opacity(1).visibility.visible();
+                transform.translateX(-50, percent).scaleY(1);
+                transition.duration(0.2, s).delay(0.4, s).whenever();
+            });
+        });
+    }
+
+    private static void tooltipPositioning(boolean showOnTop) {
+        Numeric verticalPotion = Numeric.of(100, percent).plus(1, px);
+
+        position.absolute().left(50, percent);
+        if (showOnTop) {
+            position.bottom(verticalPotion);
+        } else {
+            position.top(verticalPotion);
+        }
+        display.opacity(0).visibility.hidden();
     }
 }
