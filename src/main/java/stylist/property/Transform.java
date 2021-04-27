@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.Vendor.*;
+import static stylist.Vendor.Webkit;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -21,10 +21,21 @@ import stylist.Vendor;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-/**
- * @version 2018/08/30 18:28:41
- */
 public class Transform extends PropertyDefinition<Transform> {
+
+    /**
+     * <p>
+     * The transform-origin CSS property sets the origin for an element's transformations. The
+     * transformation origin is the point around which a transformation is applied. For example, the
+     * transformation origin of the rotate() function is the center of rotation.
+     * </p>
+     * <p>
+     * This property is applied by first translating the element by the value of the property, then
+     * applying the element's transform, then translating by the negated property value. This means,
+     * this definition
+     * </p>
+     */
+    public final Origin origin = new Origin();
 
     /** The function list. */
     private final List<Function> functions = new ArrayList();
@@ -626,6 +637,82 @@ public class Transform extends PropertyDefinition<Transform> {
             builder.append(')');
 
             return builder.toString();
+        }
+    }
+
+    public class Origin extends PropertyDefinition<Transform> {
+
+        private Origin() {
+            super("transform-origin", Transform.this);
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return
+         */
+        public Transform bottom() {
+            return value("bottom");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return
+         */
+        public Transform center() {
+            return value("center");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return
+         */
+        public Transform left() {
+            return value("left");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return
+         */
+        public Transform right() {
+            return value("right");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return
+         */
+        public Transform top() {
+            return value("top");
+        }
+
+        /**
+         * Two dimension.
+         * 
+         * @param horizontal
+         * @param horizontalUnit
+         * @param vertical
+         * @param verticalUnit
+         * @return
+         */
+        public Transform position(double horizontal, Unit horizontalUnit, double vertical, Unit verticalUnit) {
+            return position(Numeric.of(horizontal, horizontalUnit), Numeric.of(vertical, verticalUnit));
+        }
+
+        /**
+         * Two dimension.
+         * 
+         * @param horizontal
+         * @param vertical
+         * @return
+         */
+        public Transform position(Numeric horizontal, Numeric vertical) {
+            return value(horizontal + " " + vertical);
         }
     }
 }

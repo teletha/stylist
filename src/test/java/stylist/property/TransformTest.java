@@ -199,4 +199,58 @@ class TransformTest extends StyleTester {
         assert style
                 .property("transform", Vendor.Webkit, "-webkit-transform", "translate(-webkit-calc(1px + 2em),-webkit-calc(1px + 2em))");
     }
+
+    @Test
+    void originBottom() {
+        ValidatableStyle style = writeStyle(() -> {
+            transform.origin.bottom();
+        });
+
+        assert style.property("transform-origin", "bottom");
+    }
+
+    @Test
+    void originCenter() {
+        ValidatableStyle style = writeStyle(() -> {
+            transform.origin.center();
+        });
+
+        assert style.property("transform-origin", "center");
+    }
+
+    @Test
+    void originLeft() {
+        ValidatableStyle style = writeStyle(() -> {
+            transform.origin.left();
+        });
+
+        assert style.property("transform-origin", "left");
+    }
+
+    @Test
+    void originRight() {
+        ValidatableStyle style = writeStyle(() -> {
+            transform.origin.right();
+        });
+
+        assert style.property("transform-origin", "right");
+    }
+
+    @Test
+    void originTop() {
+        ValidatableStyle style = writeStyle(() -> {
+            transform.origin.top();
+        });
+
+        assert style.property("transform-origin", "top");
+    }
+
+    @Test
+    void origin() {
+        ValidatableStyle style = writeStyle(() -> {
+            transform.origin.position(50, percent, 2, rem);
+        });
+
+        assert style.property("transform-origin", "50% 2rem");
+    }
 }
