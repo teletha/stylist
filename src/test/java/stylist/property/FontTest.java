@@ -34,7 +34,7 @@ class FontTest extends StyleTester {
     @Test
     void lineHeight() {
         ValidatableStyle parsed = writeStyle(() -> {
-            font.lineHight(1.2);
+            font.lineHeight(1.2);
         });
         assert parsed.property("line-height", "1.2");
     }

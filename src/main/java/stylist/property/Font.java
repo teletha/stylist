@@ -191,7 +191,7 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
      * @param size
      * @return
      */
-    public Font lineHight(double size) {
+    public Font lineHeight(double size) {
         return value("line-height", size);
     }
 
@@ -205,7 +205,7 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
      * @param size
      * @return
      */
-    public Font lineHight(Numeric size) {
+    public Font lineHeight(Numeric size) {
         return value("line-height", size);
     }
 
@@ -219,8 +219,8 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
      * @param size
      * @return
      */
-    public Font lineHight(double size, Unit unit) {
-        return lineHight(new Numeric(size, unit));
+    public Font lineHeight(double size, Unit unit) {
+        return lineHeight(new Numeric(size, unit));
     }
 
     /**
