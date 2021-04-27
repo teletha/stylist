@@ -72,7 +72,7 @@ class MarginTest extends StyleTester {
         Numeric two = new Numeric(2, px);
 
         ValidatableStyle parsed = writeStyle(() -> {
-            margin.size(one.add(two));
+            margin.size(one.plus(two));
         });
         assert parsed.property("margin-left", "calc(1em + 2px)");
         assert parsed.property("margin-left", Vendor.Webkit, "margin-left", "-webkit-calc(1em + 2px)");

@@ -192,7 +192,7 @@ class TransformTest extends StyleTester {
     @Test
     void calc() {
         ValidatableStyle style = writeStyle(() -> {
-            transform.translate(new Numeric(1, px).add(new Numeric(2, em)));
+            transform.translate(new Numeric(1, px).plus(new Numeric(2, em)));
         });
 
         assert style.property("transform", "translate(calc(1px + 2em),calc(1px + 2em))");

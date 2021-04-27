@@ -9,8 +9,10 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.*;
-import static stylist.value.Unit.*;
+import static stylist.Vendor.Standard;
+import static stylist.Vendor.Webkit;
+import static stylist.value.Unit.deg;
+import static stylist.value.Unit.percent;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -189,7 +191,7 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
         }
         builder.append("linear-gradient(");
         if (angle != null && angle.size != 0) {
-            builder.append(baseAngle.add(angle).valueFor(vendor)).append(",");
+            builder.append(baseAngle.plus(angle).valueFor(vendor)).append(",");
         }
         for (int i = 0; i < steps.size(); i++) {
             Step step = steps.get(i);

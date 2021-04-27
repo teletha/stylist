@@ -9,8 +9,11 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.*;
-import static stylist.value.Unit.*;
+import static stylist.Vendor.Standard;
+import static stylist.Vendor.Webkit;
+import static stylist.value.Unit.deg;
+import static stylist.value.Unit.percent;
+import static stylist.value.Unit.px;
 
 import java.util.EnumSet;
 
@@ -136,8 +139,15 @@ public class Numeric extends CSSValue {
      * @param value
      * @return
      */
-    public Numeric add(double value) {
+    public Numeric plus(double value) {
         return new Numeric(size + value, unit);
+    }
+
+    /**
+     * Addition.
+     */
+    public Numeric plus(double value, Unit unit) {
+        return plus(new Numeric(value, unit));
     }
 
     /**
@@ -148,7 +158,7 @@ public class Numeric extends CSSValue {
      * @param value
      * @return
      */
-    public Numeric add(Numeric value) {
+    public Numeric plus(Numeric value) {
         if (unit == value.unit) {
             return new Numeric(size + value.size, unit);
         } else {
@@ -166,6 +176,13 @@ public class Numeric extends CSSValue {
      */
     public Numeric subtract(double value) {
         return new Numeric(size - value, unit);
+    }
+
+    /**
+     * Subtraction.
+     */
+    public Numeric subtract(double value, Unit unit) {
+        return subtract(new Numeric(value, unit));
     }
 
     /**
@@ -197,6 +214,13 @@ public class Numeric extends CSSValue {
     }
 
     /**
+     * Multiply.
+     */
+    public Numeric multiply(double value, Unit unit) {
+        return multiply(new Numeric(value, unit));
+    }
+
+    /**
      * <p>
      * Multiply.
      * </p>
@@ -222,6 +246,13 @@ public class Numeric extends CSSValue {
      */
     public Numeric divide(double value) {
         return new Numeric(size / value, unit);
+    }
+
+    /**
+     * Division.
+     */
+    public Numeric divide(double value, Unit unit) {
+        return divide(new Numeric(value, unit));
     }
 
     /**
