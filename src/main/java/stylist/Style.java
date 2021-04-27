@@ -123,11 +123,10 @@ public interface Style extends Consumer, Serializable {
      * 
      * @param attributeName A target attribute to show as tooltip.
      * @param showOnTop
-     * @param fontColor
-     * @param backgroundColor
+     * @param theme
      * @return
      */
-    static Style tooltip(String attributeName, boolean showOnTop, Color fontColor, Color backgroundColor, BackgroundImage... images) {
+    static Style tooltip(String attributeName, boolean showOnTop, Theme theme, BackgroundImage... images) {
         return Style.named("[" + attributeName + "]", () -> {
             position.relative();
             cursor.help();
@@ -139,8 +138,8 @@ public interface Style extends Consumer, Serializable {
                 padding.horizontal(0.9, em).vertical(0.4, em);
                 display.width.fitContent();
                 border.radius(4, px);
-                background.color(backgroundColor).image(images);
-                font.color(fontColor).size(0.9, em);
+                background.color(theme.front).image(images);
+                font.color(theme.back).size(0.9, em);
                 text.align.center().whiteSpace.preWrap().decoration.none();
                 transform.translate(-50, percent, -5, px).scale(0.6);
                 transition.duration(0.2, s).whenever();
@@ -156,7 +155,7 @@ public interface Style extends Consumer, Serializable {
 
                 content.text("");
                 border.solid().width(5, px);
-                border.top.color(backgroundColor);
+                border.top.color(theme.front);
                 border.bottom.width(0, px).transparent();
                 transition.duration(0, s);
                 transform.origin.top().translateX(-50, percent).scaleY(0);

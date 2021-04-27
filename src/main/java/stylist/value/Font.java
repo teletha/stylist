@@ -102,7 +102,7 @@ public class Font implements CharSequence {
      * @param name A font name.
      * @param uri A font uri.
      */
-    private Font(String name, String uri) {
+    protected Font(String name, String uri) {
         this.name = name;
         this.uri = uri;
     }

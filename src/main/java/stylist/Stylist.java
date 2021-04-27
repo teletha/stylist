@@ -23,8 +23,10 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -69,7 +71,7 @@ public final class Stylist {
     private String afterPropertyLine = "";
 
     /** The format style. */
-    private Function<Color, String> color = Color::toHSL;
+    private Function<Color, String> color = Color::toString;
 
     /** The format style. */
     private boolean comment = false;
@@ -394,6 +396,22 @@ public final class Stylist {
         for (String external : imports) {
             addition.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
         }
+        if (!variables.isEmpty()) {
+            addition.append(beforeSelector).append(":root").append(afterSelector).append('{').append(afterStartBrace);
+            for (Entry<String, String> variable : variables.entrySet()) {
+                addition.append(beforePropertyName)
+                        .append("--")
+                        .append(variable.getKey())
+                        .append(afterPropertyName)
+                        .append(':')
+                        .append(beforePropertyValue)
+                        .append(variable.getValue())
+                        .append(afterPropertyValue)
+                        .append(';')
+                        .append(afterPropertyLine);
+            }
+            addition.append(beforeEndBrace).append('}').append(afterEndBrace);
+        }
         builder.insert(0, addition);
 
         return builder.toString();
@@ -506,6 +524,9 @@ public final class Stylist {
 
     /** The id manager. */
     private static final AtomicInteger counter = new AtomicInteger();
+
+    /** The variable manager. */
+    static final Map<String, String> variables = new ConcurrentSkipListMap();
 
     static {
         for (Class domain : I.findAs(StyleDeclarable.class)) {
