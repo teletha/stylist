@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/Teletha/stylist/compare/v1.0.1...v1.1.0) (2021-04-28)
+
+
+### Features
+
+* Add arithmetic operations i.e. Numeric#xxx(double, Unit). ([251c68c](https://www.github.com/Teletha/stylist/commit/251c68c79e5f9378245d7949bd2f4abb64a0f6d1))
+* Add builtin style Style#tooltip. ([275a660](https://www.github.com/Teletha/stylist/commit/275a66036b05bbf0b95250aaf9559bac319cd4a7))
+* Support CSS variable. ([8b46aea](https://www.github.com/Teletha/stylist/commit/8b46aea803bcdc0e9b6c671abc9e900abeb9f69d))
+* Support list-style-type: disclosure-open and closed. ([63ae1e1](https://www.github.com/Teletha/stylist/commit/63ae1e1a18f9829299c7da66739dcc726650f99b))
+* Support shorthand method for Color#Transparent. ([97ee30f](https://www.github.com/Teletha/stylist/commit/97ee30f6d71e7cb0c6d6993df356190523cf39ce))
+* Support start and end position on linear-gradient. ([515a502](https://www.github.com/Teletha/stylist/commit/515a502b2b468dd72238211104cff487ae2be14c))
+* Support text-decoration-style property. ([e401680](https://www.github.com/Teletha/stylist/commit/e4016803cae01fe4b798e7f3e45f56882c6853cb))
+* Support transform-origin property. ([e105394](https://www.github.com/Teletha/stylist/commit/e105394c0bcb142c01f4e25166385bb088f7281d))
+* Support transition property on DSL. ([492ef5b](https://www.github.com/Teletha/stylist/commit/492ef5b9fe6f156aaa9812107fa63f8a84cb6cc6))
+* Support user defined theme. ([8b46aea](https://www.github.com/Teletha/stylist/commit/8b46aea803bcdc0e9b6c671abc9e900abeb9f69d))
+* The align-items property Supports "first(last) baseline" and ([f6d4b02](https://www.github.com/Teletha/stylist/commit/f6d4b021b838744f53bbe7d61bb19ffc777ccd0f))
+* Use font-display:swap in Google Fonts. ([489ca00](https://www.github.com/Teletha/stylist/commit/489ca00d66dfc301973cc4e596994e9e9e60aa69))
+
+
+### Bug Fixes
+
+* Make transition property resetable. ([70e391e](https://www.github.com/Teletha/stylist/commit/70e391e7c7bbc816a4f815516dbdb945f2b27716))
+* The line-height property merged into font property. ([2706e3f](https://www.github.com/Teletha/stylist/commit/2706e3fdda05d656a1995b54e4a15a1167cdc957))
+* The visibility property merged into display property. ([9fca1b0](https://www.github.com/Teletha/stylist/commit/9fca1b0c5b8b245a45283505e7dde32ffbc78df1))
+
 ### [1.0.1](https://www.github.com/Teletha/stylist/compare/v1.0.0...v1.0.1) (2021-03-29)
 
 
