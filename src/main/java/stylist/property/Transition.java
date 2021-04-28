@@ -9,26 +9,39 @@
  */
 package stylist.property;
 
-import static stylist.value.Unit.*;
+import static stylist.value.Unit.s;
 
 import stylist.PropertyDefinition;
 import stylist.SelectorDSL;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-/**
- * @version 2018/08/30 18:28:26
- */
 public class Transition extends PropertyDefinition<Transition> {
 
     /** The transition related property. */
-    private Numeric duration = new Numeric(0, s);
+    private Numeric duration;
 
     /** The transition related property. */
-    private Numeric delay = new Numeric(0, s);
+    private Numeric delay;
 
     /** The transition related property. */
-    private String timing = "ease";
+    private String timing;
+
+    /**
+     * Reset user setting.
+     */
+    private void reset() {
+        duration = new Numeric(0, s);
+        delay = new Numeric(0, s);
+        timing = "ease";
+    }
+
+    /**
+     * 
+     */
+    public Transition() {
+        reset();
+    }
 
     /**
      * <p>
@@ -172,6 +185,8 @@ public class Transition extends PropertyDefinition<Transition> {
             value("transition-duration", join(rule.properties.names(), v -> duration));
             value("transition-delay", join(rule.properties.names(), v -> delay));
             value("transition-timing-function", join(rule.properties.names(), v -> timing));
+
+            reset();
         });
     }
 
@@ -185,5 +200,7 @@ public class Transition extends PropertyDefinition<Transition> {
         value("transition-duration", duration);
         value("transition-delay", delay);
         value("transition-timing-function", timing);
+
+        reset();
     }
 }
