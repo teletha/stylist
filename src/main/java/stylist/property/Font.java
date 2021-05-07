@@ -224,6 +224,36 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
+     * <p>
+     * The letter-spacing CSS property sets the horizontal spacing behavior between text characters.
+     * This value is added to the natural spacing between characters while rendering the text.
+     * Positive values of letter-spacing causes characters to spread farther apart, while negative
+     * values of letter-spacing bring characters closer together.
+     * </p>
+     * 
+     * @param size
+     * @return
+     */
+    public Font letterSpacing(Numeric size) {
+        return value("letter-spacing", size);
+    }
+
+    /**
+     * <p>
+     * The letter-spacing CSS property sets the horizontal spacing behavior between text characters.
+     * This value is added to the natural spacing between characters while rendering the text.
+     * Positive values of letter-spacing causes characters to spread farther apart, while negative
+     * values of letter-spacing bring characters closer together.
+     * </p>
+     * 
+     * @param size
+     * @return
+     */
+    public Font letterSpacing(double size, Unit unit) {
+        return letterSpacing(new Numeric(size, unit));
+    }
+
+    /**
      * @version 2014/10/28 22:38:44
      */
     public class Size extends PropertyDefinition<Font> {

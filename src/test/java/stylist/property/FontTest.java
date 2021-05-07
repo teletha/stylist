@@ -38,4 +38,12 @@ class FontTest extends StyleTester {
         });
         assert parsed.property("line-height", "1.2");
     }
+
+    @Test
+    void letterSpacing() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            font.letterSpacing(1, px);
+        });
+        assert parsed.property("letter-spacing", "1px");
+    }
 }
