@@ -94,6 +94,15 @@ public class ListStyle extends PropertyDefinition<ListStyle> {
     }
 
     /**
+     * A filled circle (default value)
+     * 
+     * @return
+     */
+    public ListStyle disk() {
+        return value("list-style-type", "disk");
+    }
+
+    /**
      * Symbol indicating that a disclosure widget such as <details> is opened.
      * 
      * @return
