@@ -145,7 +145,7 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
             if (font instanceof stylist.value.Font) {
                 stylist.value.Font f = (stylist.value.Font) font;
                 Stylist.useExternalStylesheet(f.uri);
-                name = f.name;
+                name = f.toString();
             } else {
                 name = font.toString();
 

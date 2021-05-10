@@ -132,10 +132,26 @@ interface ThemeModel {
     }
 
     /**
+     * Specify the condensed font.
+     */
+    @Icy.Property
+    Font condensedFont();
+
+    @Icy.Intercept("condensedFont")
+    private Font parameterizeCondensedFont(Font font) {
+        return parameterize("theme-font-condensed", font);
+    }
+
+    /**
      * Specify the title font.
      */
     @Icy.Property
     Font titleFont();
+
+    @Icy.Intercept("titleFont")
+    private Font parameterizeTitleFont(Font font) {
+        return parameterize("theme-font-title", font);
+    }
 
     /**
      * Specify the monospace font.
@@ -163,5 +179,32 @@ interface ThemeModel {
     @Icy.Property
     default Font iconFont() {
         return Font.fromGoogle("Material Icons");
+    }
+
+    /**
+     * Parameterize.
+     */
+    private static Font parameterize(String name, Font font) {
+        class ParameterizedFont extends Font {
+
+            /** The identifier. */
+            private final String id;
+
+            private ParameterizedFont(String id, Font font) {
+                super(font.name, font.uri);
+
+                this.id = id;
+                Stylist.variables.put(id, super.toString());
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public String toString() {
+                return "var(--" + id + ")";
+            }
+        }
+        return new ParameterizedFont(name, font);
     }
 }
