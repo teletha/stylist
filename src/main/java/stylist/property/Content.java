@@ -11,9 +11,6 @@ package stylist.property;
 
 import stylist.PropertyDefinition;
 
-/**
- * @version 2018/08/30 18:25:12
- */
 public class Content extends PropertyDefinition<Content> {
 
     /**
@@ -51,6 +48,99 @@ public class Content extends PropertyDefinition<Content> {
      */
     public Content attr(String name) {
         return value("attr(" + name + ")");
+    }
+
+    /**
+     * The counter-reset CSS property resets a CSS counter to a given value.
+     * 
+     * @param counters
+     * @return
+     */
+    public Content counterReset(String... counters) {
+        return value("counter-reset", String.join(" ", counters));
+    }
+
+    /**
+     * The counter-reset CSS property resets a CSS counter to a given value.
+     * 
+     * @return
+     */
+    public Content counterReset(String counter, int value) {
+        return value("counter-reset", counter + " " + value);
+    }
+
+    /**
+     * The counter-reset CSS property resets a CSS counter to a given value.
+     * 
+     * @return
+     */
+    public Content counterReset(String counter1, int value1, String counter2, int value2) {
+        return value("counter-reset", counter1 + " " + value1 + " " + counter2 + " " + value2);
+    }
+
+    /**
+     * The counter-reset CSS property resets a CSS counter to a given value.
+     * 
+     * @return
+     */
+    public Content counterReset(String counter1, int value1, String counter2, int value2, String counter3, int value3) {
+        return value("counter-reset", counter1 + " " + value1 + " " + counter2 + " " + value2 + " " + counter3 + " " + value3);
+    }
+
+    /**
+     * The counter-increment CSS property increases or decreases the value of a CSS counter by a
+     * given value.
+     * 
+     * @param counters
+     * @return
+     */
+    public Content counterIncrement(String... counters) {
+        return value("counter-increment", String.join(" ", counters));
+    }
+
+    /**
+     * The counter-increment CSS property increases or decreases the value of a CSS counter by a
+     * given value.
+     * 
+     * @param counter
+     * @return
+     */
+    public Content counterIncrement(String counter, int value) {
+        return value("counter-increment", counter + " " + value);
+    }
+
+    /**
+     * The counter-increment CSS property increases or decreases the value of a CSS counter by a
+     * given value.
+     * 
+     * @return
+     */
+    public Content counterIncrement(String counter1, int value1, String counter2, int value2) {
+        return value("counter-increment", counter1 + " " + value1 + " " + counter2 + " " + value2);
+    }
+
+    /**
+     * The counter-increment CSS property increases or decreases the value of a CSS counter by a
+     * given value.
+     * 
+     * @return
+     */
+    public Content counterIncrement(String counter1, int value1, String counter2, int value2, String counter3, int value3) {
+        return value("counter-increment", counter1 + " " + value1 + " " + counter2 + " " + value2 + " " + counter3 + " " + value3);
+    }
+
+    /**
+     * The counter() function has two forms: 'counter(name)' or 'counter(name, style)'. The
+     * generated text is the value of the innermost counter of the given name in scope at the given
+     * pseudo-element.The counter is rendered in the specified style (decimal by default).
+     * 
+     * @param prefix
+     * @param counter
+     * @param postfix
+     * @return
+     */
+    public Content counter(String prefix, String counter, String postfix) {
+        return value("'" + prefix + "' counter(" + counter + ") '" + postfix + "'");
     }
 
     /**
