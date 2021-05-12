@@ -9,6 +9,9 @@
  */
 package stylist.property;
 
+import static stylist.value.Color.*;
+import static stylist.value.Unit.*;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -524,6 +527,38 @@ public class Background extends PropertyDefinition<Background> implements ColorH
         }
 
         /**
+         * <pre>
+        background-image:
+        radial-gradient(circle at 29% 55%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 4%, transparent 4%, transparent 44%, transparent 44%, transparent 100%),
+        radial-gradient(circle at 85% 89%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 51%, transparent 51%, transparent 52%, transparent 52%, transparent 100%),
+        radial-gradient(circle at 6% 90%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 53%, transparent 53%, transparent 64%, transparent 64%, transparent 100%),
+        radial-gradient(circle at 35% 75%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 6%, transparent 6%, transparent 98%, transparent 98%, transparent 100%),
+        radial-gradient(circle at 56% 75%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 16%, transparent 16%, transparent 23%, transparent 23%, transparent 100%),
+        radial-gradient(circle at 42% 0%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 3%, transparent 3%, transparent 26%, transparent 26%, transparent 100%),
+        radial-gradient(circle at 29% 28%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 51%, transparent 51%, transparent 75%, transparent 75%, transparent 100%),
+        radial-gradient(circle at 77% 21%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 35%, transparent 35%, transparent 55%, transparent 55%, transparent 100%),
+        radial-gradient(circle at 65% 91%, hsla(329, 0%, 99%, 0.05) 0%, hsla(329, 0%, 99%, 0.05) 46%, transparent 46%, transparent 76%, transparent 76%, transparent 100%),
+        linear-gradient(45deg, rgb(83, 91, 235), rgb(76, 11, 174));
+        </pre>
+         * 
+         * @param one
+         * @param two
+         * @param three
+         * @return
+         */
+        public static BackgroundImage[] drawCircleGradients(Color one, Color two, Color three) {
+        }
+
+        public static BackgroundImage[] drawSubtleTexture(Color base, Color line) {
+            return BackgroundImage.of(new LinearGradient().angle(45, deg)
+                    .color(line, 0, px)
+                    .color(line, 2, px)
+                    .color(Transparent, 2, px)
+                    .color(Transparent, 4, px)
+                    .repeat(), new LinearGradient().angle(90, deg).color(base, base));
+        }
+
+        /**
          * Draw image.
          * 
          * @param color Dot color.
@@ -626,6 +661,26 @@ public class Background extends PropertyDefinition<Background> implements ColorH
             BackgroundImage created = new BackgroundImage();
             created.properties[0] = image;
 
+            return created;
+        }
+
+        /**
+         * <p>
+         * The CSS background-image property sets one or several background images for an element.
+         * The images are drawn on stacking context layers on top of each other. The first layer
+         * specified is drawn as if it is closest to the user. The borders of the element are then
+         * drawn on top of them, and the background-color is drawn beneath them.
+         * </p>
+         * <p>
+         * If a specified image cannot be drawn (for example, when the file denoted by the specified
+         * URI cannot be loaded), browsers handle it as they would a none value.
+         * </p>
+         */
+        public static BackgroundImage[] of(LinearGradient... images) {
+            BackgroundImage[] created = new BackgroundImage[images.length];
+            for (int i = 0; i < created.length; i++) {
+                created[i] = BackgroundImage.of(images[i]);
+            }
             return created;
         }
 

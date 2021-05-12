@@ -9,10 +9,8 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.Standard;
-import static stylist.Vendor.Webkit;
-import static stylist.value.Unit.deg;
-import static stylist.value.Unit.percent;
+import static stylist.Vendor.*;
+import static stylist.value.Unit.*;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -91,7 +89,23 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
      * @return Chainable API.
      */
     public T color(Color color, int percentage) {
-        return color(color, new Numeric(percentage, percent));
+        return color(color, Numeric.of(percentage, percent));
+    }
+
+    /**
+     * <p>
+     * This value is comprised of a <color> value, followed by an optional stop position (either a
+     * percentage or a <length> along the gradient axis). Rendering of color-stops in CSS gradients
+     * follows the same rules as color-stops in SVG gradients.
+     * </p>
+     * 
+     * @param color A color.
+     * @param size A size.
+     * @param unit A unit of size.
+     * @return Chainable API.
+     */
+    public T color(Color color, int size, Unit unit) {
+        return color(color, Numeric.of(size, unit));
     }
 
     /**

@@ -88,6 +88,9 @@ public class Font implements CharSequence {
     public static final Font Awesome = Font
             .of("FontAwesome", "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 
+    /** The built-in font. */
+    public static final Font MaterialIcon = Font.of("Material Icons", "https://fonts.googleapis.com/icon?family=Material+Icons");
+
     /** The font name. */
     public final String name;
 
@@ -191,7 +194,7 @@ public class Font implements CharSequence {
      * @return A loaded font.
      */
     public static Font fromGoogle(String name, String... params) {
-        StringBuilder builder = new StringBuilder("http://fonts.googleapis.com/css?display=swap&family=");
+        StringBuilder builder = new StringBuilder("https://fonts.googleapis.com/css?display=swap&family=");
         builder.append(name.replaceAll("\\s", "+"));
 
         if (params != null && params.length != 0) {
