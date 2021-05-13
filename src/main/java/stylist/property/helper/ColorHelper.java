@@ -92,4 +92,13 @@ public interface ColorHelper<R> {
     default R transparent() {
         return color(Color.Transparent);
     }
+
+    /**
+     * Short hand method for <code>currentColor</code>.
+     * 
+     * @return
+     */
+    default R current() {
+        return color(Color.of("currentColor"));
+    }
 }
