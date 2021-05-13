@@ -51,6 +51,9 @@ public class Color extends CSSValue {
     /** The built-in color. */
     public static final Color Unset = new BuiltinColor("unset");
 
+    /** The built-in color. */
+    public static final Color Current = new BuiltinColor("currentColor");
+
     private static class BuiltinColor extends Color {
 
         private final String value;

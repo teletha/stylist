@@ -94,11 +94,11 @@ public interface ColorHelper<R> {
     }
 
     /**
-     * Short hand method for <code>currentColor</code>.
+     * Short hand method for {@link Color#Current}.
      * 
      * @return
      */
     default R current() {
-        return color(Color.of("currentColor"));
+        return color(Color.Current);
     }
 }
