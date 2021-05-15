@@ -16,8 +16,6 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
-import stylist.value.AnimationFrames;
-
 /**
  * @version 2018/09/06 14:10:24
  */

@@ -11,8 +11,8 @@ package stylist.property;
 
 import static stylist.value.Unit.s;
 
+import stylist.AnimationFrames;
 import stylist.PropertyDefinition;
-import stylist.value.AnimationFrames;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 

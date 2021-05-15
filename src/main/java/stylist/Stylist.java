@@ -31,9 +31,10 @@ import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import kiss.I;
-import stylist.value.AnimationFrames;
 import stylist.value.Color;
 
 public final class Stylist {
@@ -411,11 +412,44 @@ public final class Stylist {
             addition.append(beforeEndBrace).append('}').append(afterEndBrace);
         }
         for (AnimationFrames frames : animations) {
-            addition.append(frames.format(this));
+            format(frames, addition);
         }
         builder.insert(0, addition);
 
         return builder.toString();
+    }
+
+    /**
+     * Format the specified {@link AnimationFrames}.
+     * 
+     * @param frames
+     * @param appendable
+     */
+    final void format(AnimationFrames frames, Appendable appendable) {
+        try {
+            appendable.append("@keyframes ").append(frames.name).append(afterSelector).append('{').append(afterStartBrace);
+            for (int i = 0; i < frames.progressions.size(); i++) {
+                String progress = IntStream.of(frames.progressions.get(i)).mapToObj(e -> e + "%").collect(Collectors.joining(","));
+                Properties properties = frames.styles.get(i).properties;
+
+                appendable.append(progress).append(afterSelector).append('{').append(afterStartBrace);
+                for (int j = 0; j < properties.size(); j++) {
+                    appendable.append(beforePropertyName)
+                            .append(properties.name(j).toString())
+                            .append(afterPropertyName)
+                            .append(':')
+                            .append(beforePropertyValue)
+                            .append(properties.value(j).format(this))
+                            .append(afterPropertyValue)
+                            .append(';')
+                            .append(afterPropertyLine);
+                }
+                appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
+            }
+            appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
+        } catch (IOException e) {
+            throw I.quiet(e);
+        }
     }
 
     /**
@@ -530,7 +564,7 @@ public final class Stylist {
     static final Map<String, String> variables = new ConcurrentSkipListMap();
 
     /** The animation manager. */
-    static final Set<AnimationFrames> animations = new ConcurrentSkipListSet();
+    static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
 
     static {
         for (Class domain : I.findAs(StyleDeclarable.class)) {
