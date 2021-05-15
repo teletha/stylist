@@ -11,19 +11,18 @@ package stylist.value;
 
 import java.util.ArrayList;
 
+import stylist.CSSValue;
 import stylist.Style;
 import stylist.StyleRule;
+import stylist.Vendor;
 
-/**
- * @version 2015/10/06 14:00:26
- */
-public class AnimationFrames {
+public class AnimationFrames extends CSSValue {
 
     /** The frame name. */
     public final String name;
 
     /** The list of animation frames. */
-    private ArrayList<Frame> frames = new ArrayList();
+    private final ArrayList<Frame> frames = new ArrayList();
 
     /**
      */
@@ -83,20 +82,17 @@ public class AnimationFrames {
      * {@inheritDoc}
      */
     @Override
-    public String toString() {
+    protected String valueFor(Vendor vendor) {
         StringBuilder builder = new StringBuilder();
         builder.append("@keyframes ").append(name).append("{");
         for (int i = 0; i < frames.size(); i++) {
-            builder.append(frames.get(i));
+            builder.append(frames.get(i).valueFor(vendor));
         }
         builder.append("}");
         return builder.toString();
     }
 
-    /**
-     * @version 2015/10/06 14:49:35
-     */
-    private static class Frame {
+    private static class Frame extends CSSValue {
 
         /** The progress info. */
         private final int[] progress;
@@ -121,11 +117,10 @@ public class AnimationFrames {
          * {@inheritDoc}
          */
         @Override
-        public String toString() {
+        protected String valueFor(Vendor vendor) {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < progress.length; i++) {
                 builder.append(progress[i]).append("%");
-
                 if (i + 1 != progress.length) {
                     builder.append(",");
                 }

@@ -33,11 +33,9 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import kiss.I;
+import stylist.value.AnimationFrames;
 import stylist.value.Color;
 
-/**
- * @version 2018/12/08 11:36:03
- */
 public final class Stylist {
 
     /** The format style. */
@@ -412,6 +410,9 @@ public final class Stylist {
             }
             addition.append(beforeEndBrace).append('}').append(afterEndBrace);
         }
+        for (AnimationFrames frames : animations) {
+            addition.append(frames.format(this));
+        }
         builder.insert(0, addition);
 
         return builder.toString();
@@ -527,6 +528,9 @@ public final class Stylist {
 
     /** The variable manager. */
     static final Map<String, String> variables = new ConcurrentSkipListMap();
+
+    /** The animation manager. */
+    static final Set<AnimationFrames> animations = new ConcurrentSkipListSet();
 
     static {
         for (Class domain : I.findAs(StyleDeclarable.class)) {

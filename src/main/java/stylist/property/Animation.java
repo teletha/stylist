@@ -16,9 +16,6 @@ import stylist.value.AnimationFrames;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-/**
- * @version 2015/10/05 23:16:01
- */
 public class Animation extends PropertyDefinition<Animation> {
 
     /** The animation related property. */
@@ -74,6 +71,8 @@ public class Animation extends PropertyDefinition<Animation> {
      * @return
      */
     public Animation name(AnimationFrames animation) {
+        registerAnimation(animation);
+
         return name(animation.name);
     }
 

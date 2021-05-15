@@ -16,6 +16,8 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
+import stylist.value.AnimationFrames;
+
 /**
  * @version 2018/09/06 14:10:24
  */
@@ -281,5 +283,14 @@ public class PropertyDefinition<T> {
             }
         }
         return builder.toString();
+    }
+
+    /**
+     * INTERNAL USAGE : Bypass to animation manager.
+     * 
+     * @param anime
+     */
+    protected static final void registerAnimation(AnimationFrames anime) {
+        Stylist.animations.add(anime);
     }
 }
