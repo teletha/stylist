@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.value.Unit.*;
+import static stylist.value.Unit.s;
 
 import stylist.PropertyDefinition;
 import stylist.value.AnimationFrames;
@@ -264,7 +264,7 @@ public class Animation extends PropertyDefinition<Animation> {
      * @return
      */
     public Animation linear() {
-        timing = "liner";
+        timing = "linear";
         return this;
     }
 
