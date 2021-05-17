@@ -29,27 +29,33 @@ public final class Browsers {
     /**
      * Builtin {@link Style} for tooltip design.
      * 
-     * @param theme
      * @param attributeName A target attribute to show as tooltip.
      * @param showOnTop
      * @return
      */
-    public static Style tooltip(Theme theme, String attributeName, boolean showOnTop, BackgroundImage... images) {
+    public static Style tooltip(String attributeName, boolean showOnTop, Color front, Color back, BackgroundImage... images) {
         return Style.named("[" + attributeName + "]", () -> {
             position.relative();
-            cursor.help();
+
+            Numeric gap = Numeric.of(5, px);
 
             $.before(() -> {
-                tooltipPositioning(showOnTop);
+                position.absolute().left(50, percent);
+                if (showOnTop) {
+                    position.bottom(Numeric.of(100, percent).plus(gap));
+                } else {
+                    position.top(Numeric.of(100, percent).subtract(gap));
+                }
 
+                display.opacity(0).visibility.hidden();
                 content.attr(attributeName);
-                padding.horizontal(0.9, em).vertical(0.4, em);
+                padding.horizontal(1.2, em).vertical(0.8, em);
                 display.width.fitContent();
                 border.radius(4, px);
-                background.color(theme.front).image(images);
-                font.color(theme.back).size(0.9, em);
-                text.align.center().whiteSpace.preWrap().decoration.none();
-                transform.translate(-50, percent, -5, px).scale(0.6);
+                background.color(back).image(images);
+                font.color(front).size(0.9, em).letterSpacing(0.2, px);
+                text.align.center().whiteSpace.nowrap().decoration.none();
+                transform.translate(-50, percent, -5, px).scale(0.7);
                 transition.duration(0.2, s).whenever();
             });
 
@@ -59,11 +65,20 @@ public final class Browsers {
             });
 
             $.after(() -> {
-                tooltipPositioning(showOnTop);
+                position.absolute().left(50, percent);
+                // Finally, since the coordinate system is rounded to the nearest pixel, setting the
+                // value to 0.5 instead of 1 rounds out the misalignment caused by different content
+                // heights.
+                if (showOnTop) {
+                    position.bottom(Numeric.of(100, percent).plus(gap).plus(0.5, px));
+                } else {
+                    position.top(Numeric.of(100, percent).subtract(gap).subtract(0.5, px));
+                }
 
+                display.opacity(0).visibility.hidden();
                 content.text("");
                 border.solid().width(5, px);
-                border.top.color(theme.front);
+                border.top.color(back);
                 border.bottom.width(0, px).transparent();
                 transition.duration(0, s);
                 transform.origin.top().translateX(-50, percent).scaleY(0);
@@ -73,21 +88,9 @@ public final class Browsers {
             $.hover().after(() -> {
                 display.opacity(1).visibility.visible();
                 transform.translateX(-50, percent).scaleY(1);
-                transition.duration(0.2, s).delay(0.4, s).whenever();
+                transition.duration(0.2, s).delay(0.2, s).whenever();
             });
         });
-    }
-
-    private static void tooltipPositioning(boolean showOnTop) {
-        Numeric verticalPotion = Numeric.of(100, percent).plus(1, px);
-
-        position.absolute().left(50, percent);
-        if (showOnTop) {
-            position.bottom(verticalPotion);
-        } else {
-            position.top(verticalPotion);
-        }
-        display.opacity(0).visibility.hidden();
     }
 
     /**
