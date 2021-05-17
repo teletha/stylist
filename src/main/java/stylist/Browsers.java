@@ -47,10 +47,9 @@ public final class Browsers {
                     position.top(Numeric.of(100, percent).subtract(gap));
                 }
 
-                display.opacity(0).visibility.hidden();
+                display.opacity(0).visibility.hidden().width.fitContent().zIndex(10);
                 content.attr(attributeName);
                 padding.horizontal(1.2, em).vertical(0.8, em);
-                display.width.fitContent();
                 border.radius(4, px);
                 background.color(back).image(images);
                 font.color(front).size(0.9, em).letterSpacing(0.2, px);
@@ -75,7 +74,7 @@ public final class Browsers {
                     position.top(Numeric.of(100, percent).subtract(gap).subtract(0.5, px));
                 }
 
-                display.opacity(0).visibility.hidden();
+                display.opacity(0).visibility.hidden().zIndex(10);
                 content.text("");
                 border.solid().width(5, px);
                 border.top.color(back);
