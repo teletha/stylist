@@ -175,16 +175,25 @@ public class Color extends CSSValue {
     }
 
     /**
-     * <p>
      * Makes a color lighter or darker. Positive value makes this color lighter, negative value
      * makes this color darker.
-     * </p>
      * 
      * @param amount An amount of lightness.
      * @return A new color.
      */
     public Color lighten(int amount) {
         return new Color(hue, saturation, lightness + amount, alpha);
+    }
+
+    /**
+     * Makes a color lighter or darker. Positive value makes this color lighter, negative value
+     * makes this color darker.
+     * 
+     * @param amount An amount of lightness.
+     * @return A new color.
+     */
+    public final Color lighten(Color direction, int amount) {
+        return lighten(lightness <= direction.lightness ? amount : -amount);
     }
 
     /**
