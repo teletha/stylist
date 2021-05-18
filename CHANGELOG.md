@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/Teletha/stylist/compare/v1.1.0...v1.2.0) (2021-05-18)
+
+
+### Features
+
+* Support animation frame. ([f03f064](https://www.github.com/Teletha/stylist/commit/f03f0643bb0148c57d0cf4dc218134da9c4b91f8))
+* Support counter related property. ([e86b55e](https://www.github.com/Teletha/stylist/commit/e86b55e63e84bdd5feb9d400583830a77e556f25))
+* Support currentColor on color-related property. ([246a8c6](https://www.github.com/Teletha/stylist/commit/246a8c69f06f446b3262da44b17221772c12bda2))
+* Support letter-spacing property. ([dc97f0c](https://www.github.com/Teletha/stylist/commit/dc97f0ce736c6d7fcb7431dfd291ccd4bd77be4c))
+* Support list-style: disk. ([20cc3a6](https://www.github.com/Teletha/stylist/commit/20cc3a6df74f25a6e1af99c981a04490248f5ed8))
+* Theme supports  borderRadius token. ([206a559](https://www.github.com/Teletha/stylist/commit/206a559dd90c0113e399978d63de5ad59ceb047b))
+* Theme supports condensed font and parameterized font. ([b5b4005](https://www.github.com/Teletha/stylist/commit/b5b4005d5448afac4352a093159cf28f35f14bd0))
+
+
+### Bug Fixes
+
+* Add currentColor keyword. ([801ae6c](https://www.github.com/Teletha/stylist/commit/801ae6cc0b0fc8153cbf9da8794f4512aa6d426d))
+* Tooltip styles. ([25d59c3](https://www.github.com/Teletha/stylist/commit/25d59c3a909afec98a62d2d361d1018102711edd))
+* Type at animation keyword. ([38e94fe](https://www.github.com/Teletha/stylist/commit/38e94fe4fee89e1d3f5244176b5f9c0f35c3555c))
+* Use https on google font. ([2ce2ef6](https://www.github.com/Teletha/stylist/commit/2ce2ef642576006a4b3fa3a12b1fb77f8cc8ba91))
+
 ## [1.1.0](https://www.github.com/Teletha/stylist/compare/v1.0.1...v1.1.0) (2021-04-28)
 
 
