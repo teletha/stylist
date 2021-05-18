@@ -66,13 +66,10 @@ public final class Browsers {
 
             $.after(() -> {
                 position.absolute().left(50, percent);
-                // Finally, since the coordinate system is rounded to the nearest pixel, setting the
-                // value to 0.5 instead of 1 rounds out the misalignment caused by different content
-                // heights.
                 if (showOnTop) {
-                    position.bottom(Numeric.of(100, percent).plus(gap).subtract(0.5, px));
+                    position.bottom(Numeric.of(100, percent).plus(gap));
                 } else {
-                    position.top(Numeric.of(100, percent).subtract(gap).plus(0.5, px));
+                    position.top(Numeric.of(100, percent).subtract(gap));
                 }
 
                 display.opacity(0).visibility.hidden().zIndex(10).height(arrow);
@@ -81,7 +78,7 @@ public final class Browsers {
                 border.top.color(back);
                 border.bottom.width(0, px).transparent();
                 transition.duration(0, s);
-                transform.origin.top().translateX(-50, percent).scaleY(0);
+                transform.origin.top().translate(-50, percent, -5, px).scaleY(0);
                 font.color(Color.Transparent);
             });
 
