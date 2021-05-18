@@ -9,6 +9,8 @@
  */
 package stylist;
 
+import java.util.LinkedHashMap;
+
 import icy.manipulator.Icy;
 import stylist.value.Color;
 import stylist.value.Font;
@@ -16,78 +18,86 @@ import stylist.value.Numeric;
 import stylist.value.Unit;
 
 @Icy
-interface ThemeModel {
+abstract class ThemeModel {
+
+    final LinkedHashMap<String, String> variables = new LinkedHashMap();
 
     /**
-     * s Sepcify the primary color.
+     * Sepcify the name.
      */
-    @Icy.Property
-    Color primary();
+    @Icy.Property(copiable = true)
+    public abstract String name();
+
+    /**
+     * Sepcify the primary color.
+     */
+    @Icy.Property(copiable = true)
+    public abstract Color primary();
 
     @Icy.Intercept("primary")
     private Color parameterizePrimary(Color color) {
-        return parameterize("theme-primary", color);
+        return parameterize("--theme-primary", color);
     }
 
     /**
      * Sepcify the secondary color.
      */
-    @Icy.Property
-    Color secondary();
+    @Icy.Property(copiable = true)
+    public abstract Color secondary();
 
     @Icy.Intercept("secondary")
     private Color parameterizeSecondary(Color color) {
-        return parameterize("theme-secondary", color);
+        return parameterize("--theme-secondary", color);
     }
 
     /**
      * Sepcify the accent color.
      */
-    @Icy.Property
-    Color accent();
+    @Icy.Property(copiable = true)
+    public abstract Color accent();
 
     @Icy.Intercept("accent")
     private Color parameterizeAccent(Color color) {
-        return parameterize("theme-accent", color);
+        return parameterize("--theme-accent", color);
     }
 
     /**
      * Sepcify the font color.
      */
-    @Icy.Property
-    Color front();
+    @Icy.Property(copiable = true)
+    public abstract Color front();
 
     @Icy.Intercept("front")
     private Color parameterizeFront(Color color) {
-        return parameterize("theme-front", color);
+        return parameterize("--theme-front", color);
     }
 
     /**
      * Sepcify the background color.
      */
-    @Icy.Property
-    Color back();
+    @Icy.Property(copiable = true)
+    public abstract Color back();
 
     @Icy.Intercept("back")
     private Color parameterizeBack(Color color) {
-        return parameterize("theme-back", color);
+        return parameterize("--theme-back", color);
     }
 
     /**
      * Sepcify the font color on linkable item.
      */
-    @Icy.Property
-    Color link();
+    @Icy.Property(copiable = true)
+    public abstract Color link();
 
     @Icy.Intercept("link")
     private Color parameterizeLink(Color color) {
-        return parameterize("theme-link", color);
+        return parameterize("--theme-link", color);
     }
 
     /**
      * Parameterize.
      */
-    private static Color parameterize(String name, Color color) {
+    private Color parameterize(String name, Color color) {
         class ParameterizedColor extends Color {
 
             /** The identifier. */
@@ -97,7 +107,7 @@ interface ThemeModel {
                 super(color.hue, color.saturation, color.lightness, color.alpha);
 
                 this.id = id;
-                Stylist.variables.put(id, super.valueFor(Vendor.Standard));
+                variables.put(id, super.valueFor(Vendor.Standard));
             }
 
             /**
@@ -105,7 +115,7 @@ interface ThemeModel {
              */
             @Override
             protected String valueFor(Vendor vendor) {
-                return "var(--" + id + ")";
+                return "var(" + id + ")";
             }
         }
         return new ParameterizedColor(name, color);
@@ -115,7 +125,7 @@ interface ThemeModel {
      * Specify the base font.
      */
     @Icy.Property
-    Font[] baseFont();
+    public abstract Font[] baseFont();
 
     /**
      * Specify the base font by using system.
@@ -137,29 +147,29 @@ interface ThemeModel {
      * Specify the condensed font.
      */
     @Icy.Property
-    Font condensedFont();
+    public abstract Font condensedFont();
 
     @Icy.Intercept("condensedFont")
     private Font parameterizeCondensedFont(Font font) {
-        return parameterize("theme-font-condensed", font);
+        return parameterize("--theme-font-condensed", font);
     }
 
     /**
      * Specify the title font.
      */
     @Icy.Property
-    Font titleFont();
+    public abstract Font titleFont();
 
     @Icy.Intercept("titleFont")
     private Font parameterizeTitleFont(Font font) {
-        return parameterize("theme-font-title", font);
+        return parameterize("--theme-font-title", font);
     }
 
     /**
      * Specify the monospace font.
      */
     @Icy.Property
-    Font[] monoFont();
+    public abstract Font[] monoFont();
 
     /**
      * Specify the monospace font by using system.
@@ -179,14 +189,14 @@ interface ThemeModel {
      * Specify the icon font.
      */
     @Icy.Property
-    default Font iconFont() {
+    public Font iconFont() {
         return Font.fromGoogle("Material Icons");
     }
 
     /**
      * Parameterize.
      */
-    private static Font parameterize(String name, Font font) {
+    private Font parameterize(String name, Font font) {
         class ParameterizedFont extends Font {
 
             /** The identifier. */
@@ -196,7 +206,7 @@ interface ThemeModel {
                 super(font.name, font.uri);
 
                 this.id = id;
-                Stylist.variables.put(id, super.toString());
+                variables.put(id, super.toString());
             }
 
             /**
@@ -204,7 +214,7 @@ interface ThemeModel {
              */
             @Override
             public String toString() {
-                return "var(--" + id + ")";
+                return "var(" + id + ")";
             }
         }
         return new ParameterizedFont(name, font);
@@ -216,7 +226,7 @@ interface ThemeModel {
      * @return
      */
     @Icy.Property
-    default Numeric borderRadius() {
+    public Numeric borderRadius() {
         return Numeric.Zero;
     }
 

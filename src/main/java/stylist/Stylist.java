@@ -26,7 +26,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
@@ -86,6 +85,9 @@ public final class Stylist {
 
     /** The target styles. */
     private final Set<Style> styles = new HashSet();
+
+    /** The theme manager. */
+    private final List<Theme> themes = new ArrayList();
 
     /**
      * Hide constructor.
@@ -280,6 +282,21 @@ public final class Stylist {
     }
 
     /**
+     * Specify the importable theme.
+     * 
+     * @param themes
+     * @return
+     */
+    public final Stylist theme(Theme... themes) {
+        for (Theme theme : themes) {
+            if (theme != null) {
+                this.themes.add(theme);
+            }
+        }
+        return this;
+    }
+
+    /**
      * Specify the class containing the style definition to be converted.
      * 
      * @param definitions The style definitions.
@@ -395,28 +412,46 @@ public final class Stylist {
         for (String external : imports) {
             addition.append("@import url(\"").append(external).append("\");").append(afterPropertyLine);
         }
-        if (!variables.isEmpty()) {
-            addition.append(beforeSelector).append(":root").append(afterSelector).append('{').append(afterStartBrace);
-            for (Entry<String, String> variable : variables.entrySet()) {
-                addition.append(beforePropertyName)
-                        .append("--")
-                        .append(variable.getKey())
+
+        for (AnimationFrames frames : animations) {
+            format(frames, addition);
+        }
+
+        for (int i = 0; i < themes.size(); i++) {
+            format(i == 0, themes.get(i), addition);
+        }
+
+        builder.insert(0, addition);
+
+        return builder.toString();
+    }
+
+    /**
+     * Format the specified {@link AnimationFrames}.
+     * 
+     * @param theme
+     * @param appendable
+     */
+    final void format(boolean isDefault, Theme theme, Appendable appendable) {
+        try {
+            String selector = isDefault ? ":root" : "." + theme.name + ":root";
+
+            appendable.append(selector).append(afterSelector).append('{').append(afterStartBrace);
+            for (Entry<String, String> entry : theme.variables.entrySet()) {
+                appendable.append(beforePropertyName)
+                        .append(entry.getKey())
                         .append(afterPropertyName)
                         .append(':')
                         .append(beforePropertyValue)
-                        .append(variable.getValue())
+                        .append(entry.getValue())
                         .append(afterPropertyValue)
                         .append(';')
                         .append(afterPropertyLine);
             }
-            addition.append(beforeEndBrace).append('}').append(afterEndBrace);
+            appendable.append(beforeEndBrace).append('}').append(afterEndBrace);
+        } catch (IOException e) {
+            throw I.quiet(e);
         }
-        for (AnimationFrames frames : animations) {
-            format(frames, addition);
-        }
-        builder.insert(0, addition);
-
-        return builder.toString();
     }
 
     /**
@@ -559,9 +594,6 @@ public final class Stylist {
 
     /** The id manager. */
     private static final AtomicInteger counter = new AtomicInteger();
-
-    /** The variable manager. */
-    static final Map<String, String> variables = new ConcurrentSkipListMap();
 
     /** The animation manager. */
     static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
