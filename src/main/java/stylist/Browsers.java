@@ -37,30 +37,31 @@ public final class Browsers {
         return Style.named("[" + attributeName + "]", () -> {
             position.relative();
 
+            Numeric arrow = Numeric.of(10, px);
             Numeric gap = Numeric.of(5, px);
 
             $.before(() -> {
                 position.absolute().left(50, percent);
                 if (showOnTop) {
-                    position.bottom(Numeric.of(100, percent).plus(gap));
+                    position.bottom(Numeric.of(100, percent).plus(gap).plus(arrow));
                 } else {
-                    position.top(Numeric.of(100, percent).subtract(gap));
+                    position.top(Numeric.of(100, percent).subtract(gap).subtract(arrow));
                 }
 
                 display.opacity(0).visibility.hidden().width.fitContent().zIndex(10);
                 content.attr(attributeName);
-                padding.horizontal(1.2, em).vertical(0.8, em);
+                padding.horizontal(1.2, em).vertical(0.6, em);
                 border.radius(4, px);
                 background.color(back).image(images);
-                font.color(front).size(0.9, em).letterSpacing(0.2, px);
+                font.color(front).size(0.9, em).letterSpacing(0.2, px).lineHeight(1.5);
                 text.align.center().whiteSpace.nowrap().decoration.none();
-                transform.translate(-50, percent, -5, px).scale(0.7);
+                transform.translate(-50, percent, 0, px).scale(0.7);
                 transition.duration(0.2, s).whenever();
             });
 
             $.hover().before(() -> {
                 display.opacity(1).visibility.visible();
-                transform.translate(-50, percent, -5, px).scale(1);
+                transform.translate(-50, percent, 0, px).scale(1);
             });
 
             $.after(() -> {
@@ -69,12 +70,12 @@ public final class Browsers {
                 // value to 0.5 instead of 1 rounds out the misalignment caused by different content
                 // heights.
                 if (showOnTop) {
-                    position.bottom(Numeric.of(100, percent).plus(gap).plus(0.5, px));
+                    position.bottom(Numeric.of(100, percent).plus(gap).subtract(0.5, px));
                 } else {
-                    position.top(Numeric.of(100, percent).subtract(gap).subtract(0.5, px));
+                    position.top(Numeric.of(100, percent).subtract(gap).plus(0.5, px));
                 }
 
-                display.opacity(0).visibility.hidden().zIndex(10);
+                display.opacity(0).visibility.hidden().zIndex(10).height(arrow);
                 content.text("");
                 border.solid().width(5, px);
                 border.top.color(back);

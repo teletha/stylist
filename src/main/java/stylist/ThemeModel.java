@@ -12,6 +12,8 @@ package stylist;
 import icy.manipulator.Icy;
 import stylist.value.Color;
 import stylist.value.Font;
+import stylist.value.Numeric;
+import stylist.value.Unit;
 
 @Icy
 interface ThemeModel {
@@ -206,5 +208,20 @@ interface ThemeModel {
             }
         }
         return new ParameterizedFont(name, font);
+    }
+
+    /**
+     * Specify the border radius.
+     * 
+     * @return
+     */
+    @Icy.Property
+    default Numeric borderRadius() {
+        return Numeric.Zero;
+    }
+
+    @Icy.Overload("borderRadius")
+    private Numeric borderRadius(double size, Unit unit) {
+        return Numeric.of(size, unit);
     }
 }
