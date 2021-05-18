@@ -10,6 +10,7 @@
 package stylist;
 
 import java.util.LinkedHashMap;
+import java.util.Objects;
 
 import icy.manipulator.Icy;
 import stylist.value.Color;
@@ -25,13 +26,13 @@ abstract class ThemeModel {
     /**
      * Sepcify the name.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract String name();
 
     /**
      * Sepcify the primary color.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract Color primary();
 
     @Icy.Intercept("primary")
@@ -42,7 +43,7 @@ abstract class ThemeModel {
     /**
      * Sepcify the secondary color.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract Color secondary();
 
     @Icy.Intercept("secondary")
@@ -53,7 +54,7 @@ abstract class ThemeModel {
     /**
      * Sepcify the accent color.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract Color accent();
 
     @Icy.Intercept("accent")
@@ -64,7 +65,7 @@ abstract class ThemeModel {
     /**
      * Sepcify the font color.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract Color front();
 
     @Icy.Intercept("front")
@@ -73,9 +74,20 @@ abstract class ThemeModel {
     }
 
     /**
+     * Sepcify the surface color.
+     */
+    @Icy.Property
+    public abstract Color surface();
+
+    @Icy.Intercept("surface")
+    private Color parameterizeSurface(Color color) {
+        return parameterize("--theme-surface", color);
+    }
+
+    /**
      * Sepcify the background color.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract Color back();
 
     @Icy.Intercept("back")
@@ -86,7 +98,7 @@ abstract class ThemeModel {
     /**
      * Sepcify the font color on linkable item.
      */
-    @Icy.Property(copiable = true)
+    @Icy.Property
     public abstract Color link();
 
     @Icy.Intercept("link")
@@ -108,6 +120,32 @@ abstract class ThemeModel {
 
                 this.id = id;
                 variables.put(id, super.valueFor(Vendor.Standard));
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public Color lighten(int amount) {
+                for (Theme theme : Stylist.themes) {
+                    if (theme != ThemeModel.this) {
+                        theme.variables.put(id + "Lighten" + sanitize(amount), Color.of(theme.variables.get(id)).lighten(amount).toHSL());
+                    }
+                }
+                return new ParameterizedColor(id + "Lighten" + sanitize(amount), super.lighten(amount));
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public Color opacify(double amount) {
+                for (Theme theme : Stylist.themes) {
+                    if (theme != ThemeModel.this) {
+                        theme.variables.put(id + "Opacify" + sanitize(amount), Color.of(theme.variables.get(id)).opacify(amount).toHSL());
+                    }
+                }
+                return new ParameterizedColor(id + "Opacify" + sanitize(amount), super.opacify(amount));
             }
 
             /**
@@ -233,5 +271,9 @@ abstract class ThemeModel {
     @Icy.Overload("borderRadius")
     private Numeric borderRadius(double size, Unit unit) {
         return Numeric.of(size, unit);
+    }
+
+    private static String sanitize(Object value) {
+        return Objects.toString(value).replaceAll("\\.", "");
     }
 }

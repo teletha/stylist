@@ -87,7 +87,7 @@ public final class Stylist {
     private final Set<Style> styles = new HashSet();
 
     /** The theme manager. */
-    private final List<Theme> themes = new ArrayList();
+    static final List<Theme> themes = new ArrayList();
 
     /**
      * Hide constructor.

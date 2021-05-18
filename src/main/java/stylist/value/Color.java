@@ -209,7 +209,7 @@ public class Color extends CSSValue {
      * 
      * @return A grascaled color.
      */
-    public Color grayscale() {
+    public final Color grayscale() {
         return saturate(-100);
     }
 
@@ -223,7 +223,7 @@ public class Color extends CSSValue {
      * 
      * @return A grascaled color.
      */
-    public Color complement() {
+    public final Color complement() {
         return adjustHue(180);
     }
 
