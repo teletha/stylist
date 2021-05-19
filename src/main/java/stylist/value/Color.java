@@ -192,7 +192,7 @@ public class Color extends CSSValue {
      * @param amount An amount of lightness.
      * @return A new color.
      */
-    public final Color lighten(Color direction, int amount) {
+    public Color lighten(Color direction, int amount) {
         return lighten(lightness <= direction.lightness ? amount : -amount);
     }
 

@@ -11,6 +11,7 @@ package stylist;
 
 import java.util.LinkedHashMap;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 import icy.manipulator.Icy;
 import stylist.value.Color;
@@ -107,56 +108,84 @@ abstract class ThemeModel {
     }
 
     /**
+     * Calculate the raw value.
+     * 
+     * @param color
+     * @return
+     */
+    Color raw(Color color) {
+        if (color instanceof ParameterizedColor) {
+            return Color.of(variables.get(((ParameterizedColor) color).id));
+        } else {
+            return color;
+        }
+    }
+
+    /**
      * Parameterize.
      */
     private Color parameterize(String name, Color color) {
-        class ParameterizedColor extends Color {
-
-            /** The identifier. */
-            private final String id;
-
-            private ParameterizedColor(String id, Color color) {
-                super(color.hue, color.saturation, color.lightness, color.alpha);
-
-                this.id = id;
-                variables.put(id, super.valueFor(Vendor.Standard));
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public Color lighten(int amount) {
-                for (Theme theme : Stylist.themes) {
-                    if (theme != ThemeModel.this) {
-                        theme.variables.put(id + "Lighten" + sanitize(amount), Color.of(theme.variables.get(id)).lighten(amount).toHSL());
-                    }
-                }
-                return new ParameterizedColor(id + "Lighten" + sanitize(amount), super.lighten(amount));
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public Color opacify(double amount) {
-                for (Theme theme : Stylist.themes) {
-                    if (theme != ThemeModel.this) {
-                        theme.variables.put(id + "Opacify" + sanitize(amount), Color.of(theme.variables.get(id)).opacify(amount).toHSL());
-                    }
-                }
-                return new ParameterizedColor(id + "Opacify" + sanitize(amount), super.opacify(amount));
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            protected String valueFor(Vendor vendor) {
-                return "var(" + id + ")";
-            }
-        }
         return new ParameterizedColor(name, color);
+    }
+
+    private class ParameterizedColor extends Color {
+
+        /** The identifier. */
+        private final String id;
+
+        private ParameterizedColor(String id, Color color) {
+            super(color.hue, color.saturation, color.lightness, color.alpha);
+
+            this.id = id;
+            variables.put(id, color.toHSL());
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Color lighten(int amount) {
+            String nextID = id(id, "lighten", amount);
+
+            for (Theme theme : Stylist.themes) {
+                theme.variables.put(nextID, theme.raw(this).lighten(amount).toHSL());
+            }
+            return new ParameterizedColor(nextID, Color.of(variables.get(nextID)));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Color lighten(Color direction, int amount) {
+            String nextID = id(id, "lightenD", amount);
+
+            for (Theme theme : Stylist.themes) {
+                theme.variables.put(nextID, theme.raw(this).lighten(theme.raw(direction), amount).toHSL());
+            }
+            return new ParameterizedColor(nextID, Color.of(variables.get(nextID)));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Color opacify(double amount) {
+            String nextID = id(id, "opacify", amount);
+
+            for (Theme theme : Stylist.themes) {
+                theme.variables.put(nextID, theme.raw(this).opacify(amount).toHSL());
+            }
+            return new ParameterizedColor(nextID, super.opacify(amount));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return "var(" + id + ")";
+        }
     }
 
     /**
@@ -275,5 +304,13 @@ abstract class ThemeModel {
 
     private static String sanitize(Object value) {
         return Objects.toString(value).replaceAll("\\.", "");
+    }
+
+    private static String id(Object... values) {
+        StringJoiner join = new StringJoiner("-");
+        for (Object value : values) {
+            join.add(Objects.toString(value));
+        }
+        return join.toString().replaceAll("\\.", "");
     }
 }
