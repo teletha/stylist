@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.value.Color.Transparent;
+import static stylist.value.Color.*;
 import static stylist.value.Unit.*;
 
 import java.awt.image.BufferedImage;
@@ -59,12 +59,10 @@ public class Background extends PropertyDefinition<Background> implements ColorH
     }
 
     /**
-     * <p>
      * The CSS background-image property sets the background images for an element. The images are
      * drawn on successive stacking context layers, with the first specified being drawn as if it is
      * the closest to the user. The borders of the element are then drawn on top of them, and the
      * background-color is drawn beneath them.
-     * </p>
      * 
      * @param imageURL
      * @return
@@ -481,7 +479,7 @@ public class Background extends PropertyDefinition<Background> implements ColorH
      * @return A normalized URL.
      */
     private static String normalizeURL(String imageURL) {
-        if (!imageURL.startsWith("url(")) {
+        if (!imageURL.startsWith("url(") && !imageURL.startsWith("var(--")) {
             imageURL = "url(" + imageURL + ")";
         }
         return imageURL;

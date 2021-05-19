@@ -37,7 +37,9 @@ public abstract class DesignScheme {
      * Initialization.
      */
     protected DesignScheme() {
-        List<Field> fields = I.signal(getClass().getFields()).take(field -> CSSValue.class.isAssignableFrom(field.getType())).toList();
+        List<Field> fields = I.signal(getClass().getFields())
+                .take(field -> CSSValue.class.isAssignableFrom(field.getType()) || field.getType() == String.class)
+                .toList();
 
         for (Method method : getClass().getDeclaredMethods()) {
             Theme theme = method.getAnnotation(Theme.class);
@@ -57,6 +59,8 @@ public abstract class DesignScheme {
                     field.set(this, new VariableNumeric(name));
                 } else if (field.getType() == FontSet.class) {
                     field.set(this, new VariableFontSet(name));
+                } else if (field.getType() == String.class) {
+                    field.set(this, "var(--" + name + ")");
                 }
             } catch (Exception e) {
                 throw I.quiet(e);
@@ -184,12 +188,8 @@ public abstract class DesignScheme {
                     // collect
                     if (value instanceof CSSValue) {
                         variables.set(name, (CSSValue) value);
-                    } else if (value instanceof FontSet) {
-                        FontSet set = (FontSet) value;
-                        variables.set(name, set);
-
-                        // load external font
-                        set.toString();
+                    } else if (value instanceof String) {
+                        variables.set(name, CSSValue.of(value));
                     }
 
                     // clear
