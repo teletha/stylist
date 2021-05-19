@@ -62,6 +62,21 @@ class DesignSchemeTest {
     }
 
     @Test
+    void fonts() {
+        class Scheme extends AbstractDesignScheme {
+
+            @Theme
+            void one() {
+                mono = font("monospace");
+            }
+        }
+
+        Scheme scheme = new Scheme();
+        assert scheme.variablesFor("one").get("mono").exact().toString().equals("monospace");
+        assert scheme.mono.toString().equals("var(--mono)");
+    }
+
+    @Test
     void colorAdjustHue() {
         class Scheme extends AbstractDesignScheme {
 

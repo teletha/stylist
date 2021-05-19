@@ -10,7 +10,7 @@
 package stylist.design;
 
 import stylist.value.Color;
-import stylist.value.Font;
+import stylist.value.FontSet;
 import stylist.value.Numeric;
 
 public abstract class AbstractDesignScheme extends DesignScheme {
@@ -29,29 +29,15 @@ public abstract class AbstractDesignScheme extends DesignScheme {
 
     public Color surface;
 
-    public Font[] base = new Font[] {
-            // Generic
-            Font.SystemUI,
-            // For Mac
-            Font.of("-apple-system"), Font.of("BlinkMacSystemFont"), Font.of("Helvetica Neue"),
-            // For Windows
-            Font.of("Yu Gothic UI"), Font.of("Verdana"), Font.of("Meiryo"),
-            // fallback
-            Font.SansSerif};
+    public FontSet base;
 
-    public Font title;
+    public FontSet title;
 
-    public Font condensed;
+    public FontSet condensed;
 
-    public Font[] mono = new Font[] {
-            // For Mac
-            Font.of("Menlo"),
-            // For Windows
-            Font.of("Consolas"),
-            // fallback
-            Font.Monospace};
+    public FontSet mono;
 
-    public Font icon;
+    public FontSet icon;
 
     public Numeric font;
 

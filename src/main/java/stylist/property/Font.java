@@ -9,53 +9,37 @@
  */
 package stylist.property;
 
-import java.io.ByteArrayOutputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.StringJoiner;
-
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
-import stylist.Stylist;
 import stylist.property.helper.ColorHelper;
+import stylist.value.FontSet;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-/**
- * @version 2018/09/06 13:44:25
- */
 public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> {
 
     /**
-     * <p>
      * The font-style CSS property allows italic or oblique faces to be selected within a
      * font-family.
-     * </p>
      */
     public final Style style = new Style();
 
     /**
-     * <p>
      * The font-variant CSS property selects a normal, or small-caps face from a font family.
      * Setting font-variant is also possible by using the font shorthand.
-     * </p>
      */
     public final Variant variant = new Variant();
 
     /**
-     * <p>
      * The font-weight CSS property specifies the weight or boldness of the font. However, some
      * fonts are not available in all weights; some are available only on normal and bold.
-     * </p>
      */
     public final Weight weight = new Weight();
 
     /**
-     * <p>
      * The font-size CSS property specifies the size of the font. Setting the font size may, in
      * turn, change the size of other items, since it is used to compute the value of em and ex
      * length units.
-     * </p>
      */
     public final Size size = new Size();
 
@@ -70,11 +54,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
-     * <p>
      * The font-size CSS property specifies the size of the font. Setting the font size may, in
      * turn, change the size of other items, since it is used to compute the value of em and ex
      * length units.
-     * </p>
      * 
      * @param size
      * @param unit
@@ -85,11 +67,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
-     * <p>
      * The font-size CSS property specifies the size of the font. Setting the font size may, in
      * turn, change the size of other items, since it is used to compute the value of em and ex
      * length units.
-     * </p>
      * 
      * @param value
      * @return
@@ -136,57 +116,45 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
      * @param fonts
      * @return
      */
-    public Font family(CharSequence... fonts) {
-        StringJoiner joiner = new StringJoiner(",");
-
-        for (CharSequence font : fonts) {
-            String name;
-
-            if (font instanceof stylist.value.Font) {
-                stylist.value.Font f = (stylist.value.Font) font;
-                Stylist.useExternalStylesheet(f.uri);
-                name = f.toString();
-            } else {
-                name = font.toString();
-
-                if (name.startsWith("http")) {
-                    Stylist.useExternalStylesheet(name);
-                    name = FontInfo.parse(name);
-                }
-            }
-
-            if (hasSpace(name)) {
-                joiner.add("\"" + name + "\"");
-            } else {
-                joiner.add(name);
-            }
-        }
-        return value("font-family", joiner.toString());
+    public Font family(FontSet fonts) {
+        return value("font-family", fonts);
     }
 
     /**
      * <p>
-     * Find whitespace.
+     * The font-family CSS property allows for a prioritized list of font family names and/or
+     * generic family names to be specified for the selected element. Unlike most other CSS
+     * properties, values are separated by a comma to indicate that they are alternatives. The
+     * browser will select the first font on the list that is installed on the computer, or that can
+     * be downloaded using the information provided by a @font-face at-rule.
+     * </p>
+     * <p>
+     * Web authors should always add at least one generic family in a font-family list, since
+     * there's no guarantee that a specific font is intalled on the computer or can be downloaded
+     * using a @font-face at-rule. The generic family lets the browser select an acceptable fallback
+     * font when needed.
      * </p>
      * 
-     * @param value
+     * @param fonts
      * @return
      */
-    private static boolean hasSpace(String value) {
-        for (int i = 0; i < value.length(); i++) {
-            if (Character.isWhitespace(value.charAt(i))) {
-                return true;
+    public Font family(CharSequence... fonts) {
+        FontSet set = new FontSet();
+
+        for (CharSequence font : fonts) {
+            if (font instanceof stylist.value.Font) {
+                set.local((stylist.value.Font) font);
+            } else {
+                set.local(font.toString());
             }
         }
-        return false;
+        return family(set);
     }
 
     /**
-     * <p>
      * On inline elements, the line-height CSS property specifies the height that is used in the
      * calculation of the line box height. On block level elements, line-height specifies the
      * minimal height of line boxes within the element.
-     * </p>
      * 
      * @param size
      * @return
@@ -196,11 +164,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
-     * <p>
      * On inline elements, the line-height CSS property specifies the height that is used in the
      * calculation of the line box height. On block level elements, line-height specifies the
      * minimal height of line boxes within the element.
-     * </p>
      * 
      * @param size
      * @return
@@ -210,11 +176,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
-     * <p>
      * On inline elements, the line-height CSS property specifies the height that is used in the
      * calculation of the line box height. On block level elements, line-height specifies the
      * minimal height of line boxes within the element.
-     * </p>
      * 
      * @param size
      * @return
@@ -224,12 +188,10 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
-     * <p>
      * The letter-spacing CSS property sets the horizontal spacing behavior between text characters.
      * This value is added to the natural spacing between characters while rendering the text.
      * Positive values of letter-spacing causes characters to spread farther apart, while negative
      * values of letter-spacing bring characters closer together.
-     * </p>
      * 
      * @param size
      * @return
@@ -239,12 +201,10 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     }
 
     /**
-     * <p>
      * The letter-spacing CSS property sets the horizontal spacing behavior between text characters.
      * This value is added to the natural spacing between characters while rendering the text.
      * Positive values of letter-spacing causes characters to spread farther apart, while negative
      * values of letter-spacing bring characters closer together.
-     * </p>
      * 
      * @param size
      * @return
@@ -253,9 +213,6 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         return letterSpacing(new Numeric(size, unit));
     }
 
-    /**
-     * @version 2014/10/28 22:38:44
-     */
     public class Size extends PropertyDefinition<Font> {
 
         /**
@@ -266,9 +223,7 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * Set numerical value.
-         * </p>
          * 
          * @param value
          * @return
@@ -278,11 +233,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -291,11 +244,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -304,11 +255,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -317,11 +266,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -330,11 +277,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -343,11 +288,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -356,11 +299,9 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * A set of absolute size keywords based on the user's default font size (which is medium).
          * Similar to presentational HTML's &lt;font size="1"&gt; through &lt;font size="7"&gt;
          * where the user's default font size is &lt;font size="3"&gt;.
-         * </p>
          * 
          * @return
          */
@@ -369,10 +310,8 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * Larger or smaller than the parent element's font size, by roughly the ratio used to
          * separate the absolute size keywords above.
-         * </p>
          * 
          * @return
          */
@@ -381,10 +320,8 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
         }
 
         /**
-         * <p>
          * Larger or smaller than the parent element's font size, by roughly the ratio used to
          * separate the absolute size keywords above.
-         * </p>
          * 
          * @return
          */
@@ -552,47 +489,6 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
          */
         public Font normal() {
             return value("normal");
-        }
-    }
-
-    /**
-     * @version 2018/09/06 13:44:17
-     */
-    private static class FontInfo {
-
-        /**
-         * <p>
-         * Locate font.
-         * </p>
-         * 
-         * @param uri
-         * @return
-         */
-        static String parse(String uri) {
-            try {
-                ByteArrayOutputStream out = new ByteArrayOutputStream();
-                URLConnection connection = new URL(uri).openConnection();
-                connection.connect();
-                connection.getInputStream().transferTo(out);
-
-                String contents = out.toString();
-                int start = contents.indexOf("font-family");
-                int end = contents.indexOf(";", start);
-
-                String name = contents.substring(start + 11, end).trim();
-
-                if (name.charAt(0) == ':') {
-                    name = name.substring(1).trim();
-                }
-
-                if (name.charAt(0) == '\'') {
-                    name = name.substring(1, name.length() - 1);
-                }
-
-                return name;
-            } catch (Exception e) {
-                throw new Error(e);
-            }
         }
     }
 }

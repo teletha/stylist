@@ -23,6 +23,8 @@ import stylist.CSSValue;
 import stylist.Properties;
 import stylist.Vendor;
 import stylist.value.Color;
+import stylist.value.Font;
+import stylist.value.FontSet;
 import stylist.value.Numeric;
 
 @Managed(Singleton.class)
@@ -53,11 +55,77 @@ public abstract class DesignScheme {
                     field.set(this, new VariableColor(name));
                 } else if (field.getType() == Numeric.class) {
                     field.set(this, new VariableNumeric(name));
+                } else if (field.getType() == FontSet.class) {
+                    field.set(this, new VariableFontSet(name));
                 }
             } catch (Exception e) {
                 throw I.quiet(e);
             }
         }
+    }
+
+    /**
+     * Utility to define font family.
+     * 
+     * @param fontNames
+     * @return
+     */
+    protected final FontSet font(String... fontNames) {
+        FontSet set = new FontSet();
+        for (String name : fontNames) {
+            set.local(name);
+        }
+        return set;
+    }
+
+    /**
+     * Utility to define font family.
+     * 
+     * @param fontNames
+     * @return
+     */
+    protected final FontSet fontFromGoogle(String... fontNames) {
+        FontSet set = new FontSet();
+        for (String name : fontNames) {
+            set.fromGoogle(name);
+        }
+        return set;
+    }
+
+    /**
+     * Utility to define font family.
+     * 
+     * @return
+     */
+    protected final FontSet fontSystemBase() {
+        return new FontSet()
+                // Generic
+                .local(Font.SystemUI)
+                // For Mac
+                .local("-apple-system")
+                .local("BlinkMacSystemFont")
+                .local("Helvetica Neue")
+                // For Windows
+                .local("Yu Gothic UI")
+                .local("Verdana")
+                .local("Meiryo")
+                // fallback
+                .local(Font.SansSerif);
+    }
+
+    /**
+     * Utility to define font family.
+     * 
+     * @return
+     */
+    protected final FontSet fontSystemMono() {
+        return new FontSet()
+                // For Mac
+                .local("Menlo")
+                // For Windows
+                .local("Consolas")
+                // fallback
+                .local(Font.Monospace);
     }
 
     /**
@@ -110,11 +178,18 @@ public abstract class DesignScheme {
                 method.invoke(DesignScheme.this);
 
                 for (Field field : fields) {
-                    CSSValue value = (CSSValue) field.get(DesignScheme.this);
+                    String name = field.getName();
+                    Object value = field.get(DesignScheme.this);
 
                     // collect
-                    if (value != null) {
-                        variables.set(field.getName(), value);
+                    if (value instanceof CSSValue) {
+                        variables.set(name, (CSSValue) value);
+                    } else if (value instanceof FontSet) {
+                        FontSet set = (FontSet) value;
+                        variables.set(name, set);
+
+                        // load external font
+                        set.toString();
                     }
 
                     // clear
@@ -134,16 +209,18 @@ public abstract class DesignScheme {
         }
     }
 
-    private class VariableNumeric extends Numeric {
+    /**
+     * 
+     */
+    protected static class CSSVariable<T> extends CSSValue {
 
-        /** The name of this variable. */
+        /** The variable name. */
         private final String name;
 
         /**
-         * 
+         * @param name
          */
-        private VariableNumeric(String name) {
-            super();
+        private CSSVariable(String name) {
             this.name = name;
         }
 
@@ -225,6 +302,54 @@ public abstract class DesignScheme {
         @Override
         public Color opacify(double amount) {
             return new VariableColor(name, "opacify-" + sanitize(amount), (theme, color) -> color.opacify(amount));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return "var(--" + name + ")";
+        }
+    }
+
+    /**
+     * 
+     */
+    private class VariableNumeric extends Numeric {
+
+        /** The name of this variable. */
+        private final String name;
+
+        /**
+         * 
+         */
+        private VariableNumeric(String name) {
+            super();
+            this.name = name;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String valueFor(Vendor vendor) {
+            return "var(--" + name + ")";
+        }
+    }
+
+    /**
+     * 
+     */
+    private class VariableFontSet extends FontSet {
+
+        /** The variable name. */
+        private final String name;
+
+        /**
+         */
+        public VariableFontSet(String name) {
+            this.name = name;
         }
 
         /**

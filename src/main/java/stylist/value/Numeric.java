@@ -9,11 +9,8 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.Standard;
-import static stylist.Vendor.Webkit;
-import static stylist.value.Unit.deg;
-import static stylist.value.Unit.percent;
-import static stylist.value.Unit.px;
+import static stylist.Vendor.*;
+import static stylist.value.Unit.*;
 
 import java.util.EnumSet;
 
@@ -342,6 +339,16 @@ public class Numeric extends CSSValue {
         } else {
             return String.valueOf(size) + (unit == null ? "" : unit);
         }
+    }
+
+    /**
+     * Generic builder.
+     * 
+     * @param size
+     * @return
+     */
+    public static Numeric of(double size) {
+        return new Numeric(size);
     }
 
     /**
