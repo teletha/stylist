@@ -93,10 +93,9 @@ public final class Browsers {
     /**
      * Desing the chechbox form.
      * 
-     * @param theme
      * @return
      */
-    public static Style checkbox(Theme theme) {
+    public static Style checkbox(Color pointedColor) {
         return Style.named("input[type=\"checkbox\"]", () -> {
             display.none();
 
@@ -116,8 +115,8 @@ public final class Browsers {
                 });
 
                 $.hover().before(() -> {
-                    border.color(theme.accent);
-                    background.color(theme.accent.opacify(-0.25));
+                    border.color(pointedColor);
+                    background.color(pointedColor.opacify(-0.25));
                 });
             });
 

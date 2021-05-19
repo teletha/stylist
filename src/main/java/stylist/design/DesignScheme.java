@@ -12,58 +12,24 @@ package stylist.design;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
+import java.util.function.BiFunction;
 
 import kiss.I;
 import kiss.Managed;
 import kiss.Singleton;
-import kiss.Ⅱ;
 import stylist.CSSValue;
+import stylist.Properties;
 import stylist.Vendor;
 import stylist.value.Color;
-import stylist.value.Font;
 import stylist.value.Numeric;
 
 @Managed(Singleton.class)
 public abstract class DesignScheme {
 
-    public Color primary;
-
-    public Color secandary;
-
-    public Color accent;
-
-    public Color text;
-
-    public Color link;
-
-    public Color back;
-
-    public Color surface;
-
-    public Font base;
-
-    public Font title;
-
-    public Font condensed;
-
-    public Font mono;
-
-    public Font icon;
-
-    public Numeric font;
-
-    public Numeric line;
-
-    public Numeric border;
-
-    public Numeric radius;
-
     /** The theme manager. */
-    final List<UserTheme> themes = new ArrayList();
+    public final List<DefinedTheme> themes = new ArrayList();
 
     /**
      * Initialization.
@@ -74,7 +40,7 @@ public abstract class DesignScheme {
         for (Method method : getClass().getDeclaredMethods()) {
             Theme theme = method.getAnnotation(Theme.class);
             if (theme != null) {
-                themes.add(new UserTheme(method, theme, fields));
+                themes.add(new DefinedTheme(method, theme, fields));
             }
         }
 
@@ -84,7 +50,9 @@ public abstract class DesignScheme {
                 String name = field.getName();
 
                 if (field.getType() == Color.class) {
-                    field.set(this, new VariableColor(name, I.signal(themes).map(t -> I.pair(t, (Color) t.variables.get(name))).toList()));
+                    field.set(this, new VariableColor(name));
+                } else if (field.getType() == Numeric.class) {
+                    field.set(this, new VariableNumeric(name));
                 }
             } catch (Exception e) {
                 throw I.quiet(e);
@@ -92,6 +60,24 @@ public abstract class DesignScheme {
         }
     }
 
+    /**
+     * @param name A name of the target theme.
+     */
+    Properties variablesFor(String name) {
+        for (DefinedTheme theme : themes) {
+            if (theme.name.equals(name)) {
+                return theme.variables;
+            }
+        }
+        throw new Error("The theme [" + name + "] is not found.");
+    }
+
+    /**
+     * Sanitize the value for CSS Variable.
+     * 
+     * @param value
+     * @return
+     */
     private static String sanitize(Object value) {
         return Objects.toString(value).replaceAll("\\.", "");
     }
@@ -99,31 +85,28 @@ public abstract class DesignScheme {
     /**
      * Internal theme.
      */
-    class UserTheme {
+    public class DefinedTheme {
 
         /** The name of this theme. */
-        final String name;
-
-        /** The configurator. */
-        final Method method;
+        public final String name;
 
         /** The theme type. */
-        final boolean isMain;
+        public final boolean isMain;
 
         /** The variable manager. */
-        final Map<String, CSSValue> variables = new HashMap();
+        public final Properties variables = new Properties();
 
         /**
          * @param method
          * @param theme
          */
-        UserTheme(Method method, Theme theme, List<Field> fields) {
+        private DefinedTheme(Method method, Theme theme, List<Field> fields) {
             this.name = method.getName();
-            this.method = method;
             this.isMain = theme.main();
 
             try {
                 // apply
+                method.setAccessible(true);
                 method.invoke(DesignScheme.this);
 
                 for (Field field : fields) {
@@ -131,7 +114,7 @@ public abstract class DesignScheme {
 
                     // collect
                     if (value != null) {
-                        variables.put(field.getName(), value);
+                        variables.set(field.getName(), value);
                     }
 
                     // clear
@@ -144,25 +127,23 @@ public abstract class DesignScheme {
 
         private Color raw(Color color) {
             if (color instanceof VariableColor) {
-                return (Color) variables.get(((VariableColor) color).name);
+                return (Color) variables.get(((VariableColor) color).name).exact();
             } else {
                 return color;
             }
         }
     }
 
-    /**
-     * 
-     */
-    class CSSVariable extends CSSValue {
+    private class VariableNumeric extends Numeric {
 
         /** The name of this variable. */
         private final String name;
 
         /**
-         * @param name
+         * 
          */
-        CSSVariable(String name) {
+        private VariableNumeric(String name) {
+            super();
             this.name = name;
         }
 
@@ -171,27 +152,38 @@ public abstract class DesignScheme {
          */
         @Override
         protected String valueFor(Vendor vendor) {
-            return "var(" + name + ")";
+            return "var(--" + name + ")";
         }
     }
 
-    private static class VariableColor extends Color {
+    /**
+     * 
+     */
+    private class VariableColor extends Color {
 
         private final String name;
 
-        private final List<Ⅱ<UserTheme, Color>> original;
+        /**
+         * Define the base variable color.
+         * 
+         * @param name
+         */
+        private VariableColor(String name) {
+            super(0, 0, 0, 0);
+            this.name = name;
+        }
 
         /**
-         * 
+         * Define the derivative variable color.
          */
-        private VariableColor(String name, List<Ⅱ<UserTheme, Color>> original) {
+        private VariableColor(String base, String suffix, BiFunction<DefinedTheme, Color, Color> operation) {
             super(0, 0, 0, 0);
+            this.name = base + "-" + suffix;
 
-            this.name = name;
-            this.original = original;
-
-            for (Ⅱ<UserTheme, Color> o : original) {
-                o.ⅰ.variables.put(name, o.ⅱ);
+            for (DefinedTheme theme : themes) {
+                theme.variables.get(base).to(raw -> {
+                    theme.variables.set(name, operation.apply(theme, (Color) raw));
+                });
             }
         }
 
@@ -199,10 +191,24 @@ public abstract class DesignScheme {
          * {@inheritDoc}
          */
         @Override
+        public Color adjustHue(int amount) {
+            return new VariableColor(name, "adjustHue-" + sanitize(amount), (theme, color) -> color.adjustHue(amount));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Color saturate(int amount) {
+            return new VariableColor(name, "saturate-" + sanitize(amount), (theme, color) -> color.saturate(amount));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
         public Color lighten(int amount) {
-            return new VariableColor(name + "-lighten" + sanitize(amount), I.signal(original)
-                    .map(o -> o.map((t, c) -> I.pair(t, c.lighten(amount))))
-                    .toList());
+            return new VariableColor(name, "lighten-" + sanitize(amount), (theme, color) -> color.lighten(amount));
         }
 
         /**
@@ -210,9 +216,7 @@ public abstract class DesignScheme {
          */
         @Override
         public Color lighten(Color direction, int amount) {
-            return new VariableColor(name + "-lightenD" + sanitize(amount), I.signal(original)
-                    .map(o -> o.map((t, c) -> I.pair(t, c.lighten(t.raw(direction), amount))))
-                    .toList());
+            return new VariableColor(name, "lightenD-" + sanitize(amount), (theme, color) -> color.lighten(theme.raw(direction), amount));
         }
 
         /**
@@ -220,9 +224,7 @@ public abstract class DesignScheme {
          */
         @Override
         public Color opacify(double amount) {
-            return new VariableColor(name + "-opacify-" + sanitize(amount), I.signal(original)
-                    .map(o -> o.map((t, c) -> I.pair(t, c.opacify(amount))))
-                    .toList());
+            return new VariableColor(name, "opacify-" + sanitize(amount), (theme, color) -> color.opacify(amount));
         }
 
         /**

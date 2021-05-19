@@ -23,7 +23,6 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -34,6 +33,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import kiss.I;
+import stylist.design.DesignScheme;
+import stylist.design.DesignScheme.DefinedTheme;
 import stylist.value.Color;
 
 public final class Stylist {
@@ -86,8 +87,8 @@ public final class Stylist {
     /** The target styles. */
     private final Set<Style> styles = new HashSet();
 
-    /** The theme manager. */
-    static final List<Theme> themes = new ArrayList();
+    /** The user scheme. */
+    private DesignScheme scheme;
 
     /**
      * Hide constructor.
@@ -282,16 +283,14 @@ public final class Stylist {
     }
 
     /**
-     * Specify the importable theme.
+     * Specify the design scheme.
      * 
-     * @param themes
+     * @param scheme
      * @return
      */
-    public final Stylist theme(Theme... themes) {
-        for (Theme theme : themes) {
-            if (theme != null) {
-                this.themes.add(theme);
-            }
+    public final Stylist scheme(Class<? extends DesignScheme> scheme) {
+        if (scheme != null) {
+            this.scheme = I.make(scheme);
         }
         return this;
     }
@@ -417,8 +416,10 @@ public final class Stylist {
             format(frames, addition);
         }
 
-        for (int i = 0; i < themes.size(); i++) {
-            format(i == 0, themes.get(i), addition);
+        if (scheme != null) {
+            for (DefinedTheme theme : scheme.themes) {
+                format(theme.isMain, theme, addition);
+            }
         }
 
         builder.insert(0, addition);
@@ -432,18 +433,19 @@ public final class Stylist {
      * @param theme
      * @param appendable
      */
-    final void format(boolean isDefault, Theme theme, Appendable appendable) {
+    final void format(boolean isDefault, DefinedTheme theme, Appendable appendable) {
         try {
             String selector = isDefault ? ":root" : "." + theme.name + ":root";
 
             appendable.append(selector).append(afterSelector).append('{').append(afterStartBrace);
-            for (Entry<String, String> entry : theme.variables.entrySet()) {
+            for (int i = 0; i < theme.variables.size(); i++) {
                 appendable.append(beforePropertyName)
-                        .append(entry.getKey())
+                        .append("--")
+                        .append(theme.variables.name(i).toString())
                         .append(afterPropertyName)
                         .append(':')
                         .append(beforePropertyValue)
-                        .append(entry.getValue())
+                        .append(theme.variables.value(i).toString())
                         .append(afterPropertyValue)
                         .append(';')
                         .append(afterPropertyLine);
