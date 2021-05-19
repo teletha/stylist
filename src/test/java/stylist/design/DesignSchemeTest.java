@@ -78,14 +78,18 @@ class DesignSchemeTest {
             void one() {
                 primary = Color.White;
             }
+
+            @Theme
+            void other() {
+                primary = Color.Black;
+            }
         }
 
         Scheme scheme = new Scheme();
-        Map<String, CSSValue> variables = scheme.themes.get(0).variables;
-        assert variables.size() == 1;
-        assert variables.containsKey("primary");
-        assert variables.get("primary").equals(Color.White);
+        Color opacified = scheme.primary.opacify(-0.2);
 
-        assert scheme.primary.toString().equals("var(--primary)");
+        Map<String, CSSValue> variables = scheme.themes.get(0).variables;
+        assert variables.size() == 2;
+        assert variables.containsKey("primary-opacify--02");
     }
 }

@@ -20,6 +20,7 @@ import java.util.Objects;
 import kiss.I;
 import kiss.Managed;
 import kiss.Singleton;
+import kiss.Ⅱ;
 import stylist.CSSValue;
 import stylist.Vendor;
 import stylist.value.Color;
@@ -64,9 +65,6 @@ public abstract class DesignScheme {
     /** The theme manager. */
     final List<UserTheme> themes = new ArrayList();
 
-    /** The variable manager. */
-    final List<CSSValue> variables = new ArrayList();
-
     /**
      * Initialization.
      */
@@ -86,7 +84,7 @@ public abstract class DesignScheme {
                 String name = field.getName();
 
                 if (field.getType() == Color.class) {
-                    field.set(this, new VariableColor(name, I.signal(themes).map(t -> t.variables.get(name)).as(Color.class).toList()));
+                    field.set(this, new VariableColor(name, I.signal(themes).map(t -> I.pair(t, (Color) t.variables.get(name))).toList()));
                 }
             } catch (Exception e) {
                 throw I.quiet(e);
@@ -143,6 +141,14 @@ public abstract class DesignScheme {
                 throw I.quiet(e);
             }
         }
+
+        private Color raw(Color color) {
+            if (color instanceof VariableColor) {
+                return (Color) variables.get(((VariableColor) color).name);
+            } else {
+                return color;
+            }
+        }
     }
 
     /**
@@ -173,16 +179,20 @@ public abstract class DesignScheme {
 
         private final String name;
 
-        private final List<Color> original;
+        private final List<Ⅱ<UserTheme, Color>> original;
 
         /**
          * 
          */
-        private VariableColor(String name, List<Color> original) {
+        private VariableColor(String name, List<Ⅱ<UserTheme, Color>> original) {
             super(0, 0, 0, 0);
 
             this.name = name;
             this.original = original;
+
+            for (Ⅱ<UserTheme, Color> o : original) {
+                o.ⅰ.variables.put(name, o.ⅱ);
+            }
         }
 
         /**
@@ -190,7 +200,19 @@ public abstract class DesignScheme {
          */
         @Override
         public Color lighten(int amount) {
-            return new VariableColor(name + "-lighten" + sanitize(amount), I.signal(original).map(o -> o.lighten(amount)).toList());
+            return new VariableColor(name + "-lighten" + sanitize(amount), I.signal(original)
+                    .map(o -> o.map((t, c) -> I.pair(t, c.lighten(amount))))
+                    .toList());
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Color lighten(Color direction, int amount) {
+            return new VariableColor(name + "-lightenD" + sanitize(amount), I.signal(original)
+                    .map(o -> o.map((t, c) -> I.pair(t, c.lighten(t.raw(direction), amount))))
+                    .toList());
         }
 
         /**
@@ -198,7 +220,9 @@ public abstract class DesignScheme {
          */
         @Override
         public Color opacify(double amount) {
-            return new VariableColor(name + "-opacify" + sanitize(amount), I.signal(original).map(o -> o.opacify(amount)).toList());
+            return new VariableColor(name + "-opacify-" + sanitize(amount), I.signal(original)
+                    .map(o -> o.map((t, c) -> I.pair(t, c.opacify(amount))))
+                    .toList());
         }
 
         /**
