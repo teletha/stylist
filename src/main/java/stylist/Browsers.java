@@ -48,6 +48,7 @@ public final class Browsers {
                     position.top(Numeric.of(100, percent).subtract(gap).subtract(arrow));
                 }
 
+                pointerEvents.none();
                 display.opacity(0).visibility.hidden().width.fitContent().zIndex(10);
                 content.attr(attributeName);
                 padding.horizontal(1.2, em).vertical(0.6, em);
@@ -72,6 +73,7 @@ public final class Browsers {
                     position.top(Numeric.of(100, percent).subtract(gap));
                 }
 
+                pointerEvents.none();
                 display.opacity(0).visibility.hidden().zIndex(10).height(arrow);
                 content.text("");
                 border.solid().width(5, px);
