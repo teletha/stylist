@@ -9,26 +9,27 @@
  */
 package stylist.property;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 
 public class Content extends PropertyDefinition<Content> {
 
+    private static String content() {
+        return rule.properties.get("content").map(CSSValue::toString).or("");
+    }
+
     /**
-     * <p>
      * Text content.
-     * </p>
      * 
      * @param value
      * @return
      */
     public Content text(String value) {
-        return value("'" + value + "'");
+        return value(content() + "'" + value + "'");
     }
 
     /**
-     * <p>
      * The pseudo-element is not generated.
-     * </p>
      * 
      * @return
      */
@@ -47,7 +48,7 @@ public class Content extends PropertyDefinition<Content> {
      * @return
      */
     public Content attr(String name) {
-        return value("attr(" + name + ")");
+        return value(content() + "attr(" + name + ")");
     }
 
     /**

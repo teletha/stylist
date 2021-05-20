@@ -13,13 +13,10 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/08/30 18:37:14
- */
-public class ContentTest extends StyleTester {
+class ContentTest extends StyleTester {
 
     @Test
-    public void rgb() {
+    void content() {
         ValidatableStyle parsed = writeStyle(() -> {
             content.text("test");
         });
@@ -29,5 +26,29 @@ public class ContentTest extends StyleTester {
             content.attr("href");
         });
         assert parsed.property("content", "attr(href)");
+    }
+
+    @Test
+    void multiText() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            content.text("multi ").text("text");
+        });
+        assert parsed.property("content", "'multi ''text'");
+    }
+
+    @Test
+    void multiAttr() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            content.attr("title").attr("href");
+        });
+        assert parsed.property("content", "attr(title)attr(href)");
+    }
+
+    @Test
+    void mix() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            content.attr("title").text(" ").attr("href");
+        });
+        assert parsed.property("content", "attr(title)' 'attr(href)");
     }
 }
