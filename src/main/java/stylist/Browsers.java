@@ -93,7 +93,7 @@ public final class Browsers {
     }
 
     /**
-     * Desing the chechbox form.
+     * Desing the checkbox form.
      * 
      * @return
      */
@@ -131,6 +131,33 @@ public final class Browsers {
                     background.color(Color.Transparent);
                     transform.rotate(45, deg);
                 });
+            });
+        });
+    }
+
+    /**
+     * Desing the select form.
+     * 
+     * @return
+     */
+    public static Style selectbox(Color front, Color back) {
+        return Style.named("select", () -> {
+            display.width(100, percent).height(30, px);
+            font.color(front);
+            background.color(back);
+            padding.vertical(4, px).horizontal(3, px);
+            border.radius(3, px);
+            transition.duration(0.5, s).whenever();
+            outline.none();
+            overflow.hidden();
+
+            $.focus(() -> {
+                display.height(120, px);
+            });
+
+            $.select("option", () -> {
+                font.color(front);
+                background.color(back);
             });
         });
     }
