@@ -149,7 +149,7 @@ public final class Browsers {
             border.radius(3, px);
             transition.duration(0.5, s).whenever();
             outline.none();
-            overflow.hidden();
+            overflow.hidden().scrollbar.none();
 
             $.focus(() -> {
                 display.height(120, px);
@@ -158,6 +158,10 @@ public final class Browsers {
             $.select("option", () -> {
                 font.color(front);
                 background.color(back);
+
+                border.radius(3, px);
+                margin.vertical(3, px);
+                padding.vertical(4, px).horizontal(6, px);
             });
         });
     }
