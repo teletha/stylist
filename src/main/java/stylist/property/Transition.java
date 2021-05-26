@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.value.Unit.s;
+import static stylist.value.Unit.*;
 
 import stylist.PropertyDefinition;
 import stylist.SelectorDSL;
@@ -171,6 +171,20 @@ public class Transition extends PropertyDefinition<Transition> {
      */
     public Transition stepEnd() {
         timing = "step-end";
+        return this;
+    }
+
+    /**
+     * <p>
+     * This keyword represents the timing function steps(1, end). Using this timing function, the
+     * animation stays in its initial state until the end, where it directly jumps to its final
+     * position.
+     * </p>
+     * 
+     * @return
+     */
+    public Transition cubicBezier(double a, double b, double c, double d) {
+        timing = "cubic-bezier(" + a + "," + b + "," + c + "," + d + ")";
         return this;
     }
 
