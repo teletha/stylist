@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.value.Unit.*;
+import static stylist.value.Unit.s;
 
 import stylist.PropertyDefinition;
 import stylist.SelectorDSL;
@@ -134,16 +134,122 @@ public class Transition extends PropertyDefinition<Transition> {
     }
 
     /**
-     * <p>
      * This keyword represents the timing function cubic-bezier(0.0, 0.0, 0.58, 1.0). The animation
      * starts quickly then slow progressively down when approaching to its final state.
-     * </p>
      * 
      * @return
      */
     public Transition easeOut() {
         timing = "ease-out";
         return this;
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInSine() {
+        return cubicBezier(0.12, 0, 0.39, 0);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeOutSine() {
+        return cubicBezier(0.61, 1, 0.88, 1);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInOutSine() {
+        return cubicBezier(0.37, 0, 0.63, 1);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInCubic() {
+        return cubicBezier(0.32, 0, 0.67, 0);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeOutCubic() {
+        return cubicBezier(0.33, 1, 0.68, 1);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInOutCubic() {
+        return cubicBezier(0.65, 0, 0.35, 1);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInBack() {
+        return cubicBezier(0.36, 0, 0.66, -0.56);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeOutBack() {
+        return cubicBezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInOutBack() {
+        return cubicBezier(0.68, -0.6, 0.32, 1.6);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInQuint() {
+        return cubicBezier(0.64, 0, 0.78, 0);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeOutQuint() {
+        return cubicBezier(0.22, 1, 0.36, 1);
+    }
+
+    /**
+     * Additional keyword.
+     * 
+     * @return
+     */
+    public Transition easeInOutQuint() {
+        return cubicBezier(0.83, 0, 0.17, 1);
     }
 
     /**
