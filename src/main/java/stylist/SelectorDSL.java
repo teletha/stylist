@@ -590,7 +590,7 @@ public class SelectorDSL {
      * 
      * @param sub A sub style.
      */
-    public final void firstOfType(Style sub) {
+    public final void firstType(Style sub) {
         firstType().declare(sub);
     }
 

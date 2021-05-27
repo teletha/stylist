@@ -159,7 +159,7 @@ class PseudoClassTest extends StyleTester {
     @Test
     public void FirstType() {
         ValidatableStyle parsed = writeStyle(() -> {
-            $.firstOfType(() -> {
+            $.firstType(() -> {
                 font.size(1, px);
             });
         });
