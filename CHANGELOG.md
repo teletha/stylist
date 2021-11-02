@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.1](https://www.github.com/Teletha/stylist/compare/v1.3.0...v1.3.1) (2021-11-02)
+
+
+### Bug Fixes
+
+* warning ([4e44fbe](https://www.github.com/Teletha/stylist/commit/4e44fbec706d8b917cdbc1e34cff9da3d8d09d88))
+
 ## [1.3.0](https://www.github.com/Teletha/stylist/compare/v1.2.0...v1.3.0) (2021-05-28)
 
 
