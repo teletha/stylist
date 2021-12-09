@@ -16,13 +16,6 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.teletha</groupId>
-			<artifactId>icymanipulator</artifactId>
-			<version>[1.4.0,)</version>
-			<scope>provided</scope>
-			<exclusions/>
-		</dependency>
-		<dependency>
-			<groupId>com.github.teletha</groupId>
 			<artifactId>sinobu</artifactId>
 			<version>[2.10.0,)</version>
 			<scope>compile</scope>
@@ -53,14 +46,14 @@
 	</issueManagement>
 	<developers>
 		<developer>
-			<name/>
-			<email/>
-			<url>https://github.com/apps/github-actions</url>
-		</developer>
-		<developer>
 			<name>teletha</name>
 			<email/>
 			<url>https://github.com/teletha</url>
+		</developer>
+		<developer>
+			<name/>
+			<email/>
+			<url>https://github.com/apps/github-actions</url>
 		</developer>
 	</developers>
 	<build>

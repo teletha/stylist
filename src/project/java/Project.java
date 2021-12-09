@@ -13,7 +13,6 @@ public class Project extends bee.api.Project {
         product("com.github.teletha", "stylist", ref("version.txt"));
 
         require("com.github.teletha", "sinobu");
-        require("com.github.teletha", "icymanipulator").atAnnotation();
         require("com.github.teletha", "antibug").atTest();
 
         versionControlSystem("https://github.com/teletha/stylist");
