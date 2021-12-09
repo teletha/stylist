@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/zenburn.min.css" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<script async="true" src="highlight.js"></script>
+		<script src="mimic.js" type="module"></script>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="U">
+		<header class="j">
+			<h1 class="h" date="2021-12-09" ver="1.3.1"><code>Stylist</code></h1>
+			<nav class="g"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#package"/>
+					</svg><code>API</code></a><a href="https://github.com//teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>Activity</a><a href="https://github.com//teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>Repository</a></nav>
+			<div class="k" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg>
+				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<main class="X">
+			<nav class="f">
+				<div></div>
+			</nav>
+			<article class="e" id="Article">
+				<section class="J"><code class="I">stylist.value</code>
+					<h2 class="Enum R"><code class="Q">Unit</code></h2>
+					<ul class="C E">
+						<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html">Enum</a><code class="parameters"><code><a href="api/stylist.value.Unit.html">Unit</a></code></code></code></li>
+					</ul>
+					<ul class="C F">
+						<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html">Comparable</a><code class="parameters"><code><a href="api/stylist.value.Unit.html">Unit</a></code></code></code></li>
+						<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html">Constable</a></code></li>
+						<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html">Serializable</a></code></li>
+					</ul>
+				</section>
+				<section class="J" id="em">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">em</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">This unit represents the calculated font-size of the element. If used on the font-size
+ property itself, it represents the inherited font-size of the element.</span></section>
+				<section class="J" id="ex">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">ex</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">This unit represents the x-height of the element&#39;s font. On fonts with the &#39;x&#39; letter, this
+ is generally the height of lowercase letters in the font; 1ex ≈ 0.5em in many fonts.</span></section>
+				<section class="J" id="ch">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">ch</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">This unit represents the width, or more precisely the advance measure, of the glyph &#39;0&#39;
+ (zero, the Unicode character U+0030) in the element&#39;s font.</span></section>
+				<section class="J" id="rem">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">rem</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">This unit represents the font-size of the root element (e.g. the font-size of the <html>
+ element). When used on the font-size on this root element, it represents its initial value.</html>
+					</span></section>
+				<section class="J" id="vh">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">vh</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">1/100th of the height of the viewport.</span></section>
+				<section class="J" id="vw">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">vw</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">1/100th of the width of the viewport.</span></section>
+				<section class="J" id="vmin">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">vmin</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">1/100th of the minimum value between the height and the width of the viewport.</span></section>
+				<section class="J" id="vmax">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">vmax</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">1/100th of the maximum value between the height and the width of the viewport.</span></section>
+				<section class="J" id="px">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">px</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">Relative to the viewing device. For screen display, typically one device pixel (dot) of the
+ display. For printers and very high resolution screens one CSS pixel implies multiple device
+ pixels, so that the number of pixel per inch stays around 96.</span></section>
+				<section class="J" id="mm">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">mm</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">One millimeter.</span></section>
+				<section class="J" id="cm">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">cm</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">One centimeter (10 millimeters).</span></section>
+				<section class="J" id="in">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">in</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">One inch (2.54 centimeters).</span></section>
+				<section class="J" id="pt">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">pt</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">One point (which is 1/72 of an inch).</span></section>
+				<section class="J" id="pc">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">pc</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">One pica (which is 12 points).</span></section>
+				<section class="J" id="deg">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">deg</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">deg which represents an angle in degrees. One full circle is 360deg. E.g. 0deg, 90deg,
+ 360deg.</span></section>
+				<section class="J" id="grad">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">grad</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">grad which represents an angle in gradians. One full circle is 400grad. E.g. 0grad, 100grad,
+ 400grad.</span></section>
+				<section class="J" id="rad">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">rad</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">rad which represents an angle in radians. One full circle is 2π radians which approximates to
+ 6.2832rad. 1rad is 180/π degrees. E.g. 0rad, 1.0708rad, 6.2832rad.</span></section>
+				<section class="J" id="percent">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">percent</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">The <percentage> CSS data types represent a percentage value. Many CSS properties can take
+ percentage values, often to define sizes in terms of parent objects. Percentages are formed
+ by a 
+							<number> immediately followed by the percentage sign %. Like for all unit in CSS, there
+ is no space between the &#39;%&#39; and the number.</number>
+						</percentage>
+					</span></section>
+				<section class="J" id="s">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">s</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">a time in seconds. E.g. 0s, 1.5s, -60s.</span></section>
+				<section class="J" id="ms">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">ms</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">a time in milliseconds. E.g. 0ms, 1500ms, -60000ms.</span></section>
+				<section class="J" id="fr">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="Q">fr</code><i class="i"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2><span class="B">The <flex> data type is specified as a 
+							<number> followed by the unit fr. The fr unit
+ represents a fraction of the leftover space in the grid container. As with all CSS
+ dimensions, there is no space between the unit and the number.</number>
+						</flex>
+					</span></section>
+				<section class="J" id="values()">
+					<h2 class="a"><i class="PUBLIC STATIC"></i><code class="Q">values</code><code class="Y">()</code><i class="i"><code array="fix"><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code array="fix"><a href="api/stylist.value.Unit.html">Unit</a></code></td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
+				<section class="J" id="valueOf(java.lang.String)">
+					<h2 class="a"><i class="PUBLIC STATIC"></i><code class="Q">valueOf</code><code class="Y">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="i"><code><a href="api/stylist.value.Unit.html">Unit</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code>name</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code></td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
+				<section class="J" id="toString()">
+					<h2 class="a"><i class="OVERRIDE PUBLIC"></i><code class="Q">toString</code><code class="Y">()</code><i class="i"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
+			</article>
+			<aside class="c" id="SubNavi">
+				<div class="O">
+					<h5 class="W">Static Fields</h5>
+					<ul>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#em">em</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#ex">ex</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#ch">ch</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#rem">rem</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#vh">vh</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#vw">vw</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#vmin">vmin</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#vmax">vmax</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#px">px</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#mm">mm</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#cm">cm</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#in">in</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#pt">pt</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#pc">pc</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#deg">deg</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#grad">grad</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#rad">rad</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#percent">percent</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#s">s</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#ms">ms</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.Unit.html#fr">fr</a></code><i class="N"><code class="return"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+					</ul>
+					<h5 class="W">Static Methods</h5>
+					<ul>
+						<li><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.Unit.html#values()">values</a></code><code class="Y">()</code><i class="N"><code array="fix"><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+						<li><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.Unit.html#valueOf(java.lang.String)">valueOf</a></code><code class="Y">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="N"><code><a href="api/stylist.value.Unit.html">Unit</a></code></i></li>
+					</ul>
+					<h5 class="W">Methods</h5>
+					<ul>
+						<li><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.value.Unit.html#toString()">toString</a></code><code class="Y">()</code><i class="N"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+					</ul>
+				</div>
+			</aside>
+		</main>
+		<script src="root.js"></script>
+		<script src="main.js" type="module"></script>
+	</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/zenburn.min.css" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<script async="true" src="highlight.js"></script>
+		<script src="mimic.js" type="module"></script>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="U">
+		<header class="j">
+			<h1 class="h" date="2021-12-09" ver="1.3.1"><code>Stylist</code></h1>
+			<nav class="g"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#package"/>
+					</svg><code>API</code></a><a href="https://github.com//teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>Activity</a><a href="https://github.com//teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>Repository</a></nav>
+			<div class="k" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg>
+				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<main class="X">
+			<nav class="f">
+				<div></div>
+			</nav>
+			<article class="e" id="Article">
+				<section class="J"><code class="I">stylist.property</code>
+					<h2 class="Class R"><code class="Q">Animation</code></h2>
+					<ul class="C E">
+						<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Animation.html">Animation</a></code></code></code></li>
+					</ul>
+				</section>
+				<section class="J" id="Animation()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">Animation</code><code class="Y">()</code></h2>
+				</section>
+				<section class="J" id="name(java.lang.String)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">name</code><code class="Y">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code>name</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation-name CSS property specifies a list of animations that should be applied to the
+ selected element. Each name indicates a @keyframes at-rule that defines the property values
+ for the animation sequence.
+ </p>
+					</span></section>
+				<section class="J" id="name(stylist.AnimationFrames)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">name</code><code class="Y">(<code><a href="api/stylist.AnimationFrames.html">AnimationFrames</a></code> <code class="parameterName">animation</code>)</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.AnimationFrames.html">AnimationFrames</a></code> <code>animation</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation-name CSS property specifies a list of animations that should be applied to the
+ selected element. Each name indicates a @keyframes at-rule that defines the property values
+ for the animation sequence.
+ </p>
+					</span></section>
+				<section class="J" id="running()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">running</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation is currently playing.
+ </p>
+					</span></section>
+				<section class="J" id="paused()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">paused</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation is currently paused.
+ </p>
+					</span></section>
+				<section class="J" id="forwards()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">forwards</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The target will retain the computed values set by the last keyframe encountered during
+ execution. The last keyframe encountered depends on the value of animation-direction and
+ animation-iteration-count:
+ </p>
+					</span></section>
+				<section class="J" id="backwards()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">backwards</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation will apply the values defined in the first relevant keyframe as soon as it is
+ applied to the target, and retain this during the animation-delay period. The first relevant
+ keyframe depends of the value of animation-direction:
+ </p>
+					</span></section>
+				<section class="J" id="both()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">both</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation will follow the rules for both forwards and backwards, thus extending the
+ animation properties in both directions.
+ </p>
+					</span></section>
+				<section class="J" id="reverse()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">reverse</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation should reverse direction each cycle. When playing in reverse, the animation
+ steps are performed backward. In addition, timing functions are also reversed; for example,
+ an ease-in animation is replaced with an ease-out animation when played in reverse. The count
+ to determine if it is an even or an odd iteration starts at one.
+ </p>
+					</span></section>
+				<section class="J" id="alternate()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">alternate</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation plays backward each cycle. Each time the animation cycles, the animation resets
+ to the end state and start over again.
+ </p>
+					</span></section>
+				<section class="J" id="alternateReverse()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">alternateReverse</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation plays backward on the first play-through, then forward on the next, then
+ continues to alternate. The count to determinate if it is an even or an odd iteration starts
+ at one.
+ </p>
+					</span></section>
+				<section class="J" id="iterationCount(int)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">iterationCount</code><code class="Y">(<code>int</code> <code class="parameterName">count</code>)</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>int</code> <code>count</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The animation-iteration-count CSS property defines the number of times an animation cycle
+ should be played before stopping.</span></section>
+				<section class="J" id="iterationInfinite()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">iterationInfinite</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation-iteration-count CSS property defines the number of times an animation cycle
+ should be played before stopping.
+ </p>
+					</span></section>
+				<section class="J" id="duration(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">duration</code><code class="Y">(<code>double</code> <code class="parameterName">time</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>time</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation-duration CSS property specifies the length of time that an animation should
+ take to complete one cycle. A value of 0s, which is the default value, indicates that no
+ animation should occur.
+ </p>
+					</span></section>
+				<section class="J" id="delay(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">delay</code><code class="Y">(<code>double</code> <code class="parameterName">time</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>time</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The animation-delay CSS property specifies when the animation should start. This lets the
+ animation sequence begin some time after it&#39;s applied to an element. A value of 0s, which is
+ the default value of the property, indicates that the animation should begin as soon as it&#39;s
+ applied. Otherwise, the value specifies an offset from the moment the animation is applied to
+ the element; animation will begin that amount of time after being applied.
+ </p>
+					</span></section>
+				<section class="J" id="linear()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">linear</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function cubic-bezier(0.0, 0.0, 1.0, 1.0). Using this
+ timing function, the animation goes from its initial state to its final one regularly, with a
+ constant speed.
+ </p>
+					</span></section>
+				<section class="J" id="ease()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">ease</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function cubic-bezier(0.25, 0.1, 0.25, 1.0). This function
+ is similar to ease-in-out, though it accelerates more sharply at the beginning and the
+ acceleration already starts to slow down near the middle of it.
+ </p>
+					</span></section>
+				<section class="J" id="easeIn()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">easeIn</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function cubic-bezier(0.42, 0.0, 1.0, 1.0). The animation
+ begins slowly, then progressively accelerates until the final state is reached and the
+ animation stops abruptly.
+ </p>
+					</span></section>
+				<section class="J" id="easeInOut()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">easeInOut</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function cubic-bezier(0.42, 0.0, 0.58, 1.0). With this
+ timing function, the animation starts slowly, accelerates than slows down when approaching to
+ its final state. At the begin, it behaves similarly to the ease-in function, at the end, it
+ is similar to the ease-out function.
+ </p>
+					</span></section>
+				<section class="J" id="easeOut()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">easeOut</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function cubic-bezier(0.0, 0.0, 0.58, 1.0). The animation
+ starts quickly then slow progressively down when approaching to its final state.
+ </p>
+					</span></section>
+				<section class="J" id="stepStart()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">stepStart</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function steps(1, start). Using this timing function, the
+ animation jumps immediately to the end state and stay in that position until the end of the
+ animation.
+ </p>
+					</span></section>
+				<section class="J" id="stepEnd()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">stepEnd</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ This keyword represents the timing function steps(1, end). Using this timing function, the
+ animation stays in its initial state until the end, where it directly jumps to its final
+ position.
+ </p>
+					</span></section>
+			</article>
+			<aside class="c" id="SubNavi">
+				<div class="O">
+					<h5 class="W">Constructors</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#Animation()">Animation</a></code><code class="Y">()</code></li>
+					</ul>
+					<h5 class="W">Methods</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#name(java.lang.String)">name</a></code><code class="Y">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#name(stylist.AnimationFrames)">name</a></code><code class="Y">(<code><a href="api/stylist.AnimationFrames.html">AnimationFrames</a></code> <code class="parameterName">animation</code>)</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#running()">running</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#paused()">paused</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#forwards()">forwards</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#backwards()">backwards</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#both()">both</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#reverse()">reverse</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#alternate()">alternate</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#alternateReverse()">alternateReverse</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#iterationCount(int)">iterationCount</a></code><code class="Y">(<code>int</code> <code class="parameterName">count</code>)</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#iterationInfinite()">iterationInfinite</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#duration(double,stylist.value.Unit)">duration</a></code><code class="Y">(<code>double</code> <code class="parameterName">time</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#delay(double,stylist.value.Unit)">delay</a></code><code class="Y">(<code>double</code> <code class="parameterName">time</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#linear()">linear</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#ease()">ease</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#easeIn()">easeIn</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#easeInOut()">easeInOut</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#easeOut()">easeOut</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#stepStart()">stepStart</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Animation.html#stepEnd()">stepEnd</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Animation.html">Animation</a></code></i></li>
+					</ul>
+				</div>
+			</aside>
+		</main>
+		<script src="root.js"></script>
+		<script src="main.js" type="module"></script>
+	</body>
+</html>

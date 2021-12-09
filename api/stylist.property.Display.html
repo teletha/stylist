@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/zenburn.min.css" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<script async="true" src="highlight.js"></script>
+		<script src="mimic.js" type="module"></script>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="U">
+		<header class="j">
+			<h1 class="h" date="2021-12-09" ver="1.3.1"><code>Stylist</code></h1>
+			<nav class="g"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#package"/>
+					</svg><code>API</code></a><a href="https://github.com//teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>Activity</a><a href="https://github.com//teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>Repository</a></nav>
+			<div class="k" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg>
+				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<main class="X">
+			<nav class="f">
+				<div></div>
+			</nav>
+			<article class="e" id="Article">
+				<section class="J"><code class="I">stylist.property</code>
+					<h2 class="Class R"><code class="Q">Display</code></h2>
+					<ul class="C E">
+						<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Display.html">Display</a></code></code></code></li>
+					</ul>
+				</section>
+				<section class="J" id="height">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC"></i></i><code class="Q">height</code><i class="i"><code class="return"><a href="api/stylist.property.Display.Height.html">Height</a></code></i></h2><span class="B"><p>
+ The height CSS property specifies the height of an element. By default, the property defines
+ the height of the content area. If box-sizing is set to border-box, however, it instead
+ determines the height of the border area.
+ </p>
+					</span></section>
+				<section class="J" id="width">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC"></i></i><code class="Q">width</code><i class="i"><code class="return"><a href="api/stylist.property.Display.Width.html">Width</a></code></i></h2><span class="B"><p>
+ The width CSS property sets an element&#39;s width. By default, it sets the width of the content
+ area, but if box-sizing is set to border-box, it sets the width of the border area.
+ </p>
+					</span></section>
+				<section class="J" id="sizing">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC"></i></i><code class="Q">sizing</code><i class="i"><code class="return"><a href="api/stylist.property.Display.Sizing.html">Sizing</a></code></i></h2><span class="B"><p>
+ The box-sizing CSS property is used to alter the default CSS box model used to calculate
+ widths and heights of elements. It is possible to use this property to emulate the behavior
+ of browsers that do not correctly support the CSS box model specification.
+ </p>
+					</span></section>
+				<section class="J" id="visibility">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC"></i></i><code class="Q">visibility</code><i class="i"><code class="return"><a href="api/stylist.property.Display.Visibility.html">Visibility</a></code></i></h2><span class="B"><p>
+ The visibility CSS property shows or hides an element without changing the layout of a
+ document. The property can also hide rows or columns in a table. To both hide an element and
+ remove it from the document layout, set the display property to none instead of using
+ visibility.
+ </p>
+					</span></section>
+				<section class="J" id="Display()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">Display</code><code class="Y">()</code></h2>
+				</section>
+				<section class="J" id="block()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">block</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element generates a block element box.</span></section>
+				<section class="J" id="inline()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">inline</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element generates one or more inline element boxes.</span></section>
+				<section class="J" id="inlineBlock()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">inlineBlock</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element generates a block element box that will be flowed with surrounding content as if
+ it were a single inline box (behaving much like a replaced element would)</span></section>
+				<section class="J" id="listItem()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">listItem</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element generates a block box for the content and a separate list-item inline box.</span></section>
+				<section class="J" id="grid()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">grid</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element behaves like a block element and lay out its content according to the grid model.</span></section>
+				<section class="J" id="inlineGrid()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">inlineGrid</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element behaves like an inline element and lay out its content according to the grid
+ model.</span></section>
+				<section class="J" id="flex()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">flex</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Flex.html">Flex</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element behaves like a block element and lays out its content according to the flexbox
+ model.</span></section>
+				<section class="J" id="inlineFlex()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">inlineFlex</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Flex.html">Flex</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The element behaves like an inline element and lays out its content according to the flexbox
+ model.</span></section>
+				<section class="J" id="table()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">table</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">Behaves like the table HTML element. It defines a block-level box.</span></section>
+				<section class="J" id="inlineTable()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">inlineTable</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">The inline-table value does not have a direct mapping in HTML. It behaves like a table HTML
+ element, but as an inline box, rather than a block-level box. Inside the table box is a
+ block-level context.</span></section>
+				<section class="J" id="tableCaption()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableCaption</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">Behaves like the caption HTML element.</span></section>
+				<section class="J" id="tableRow()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableRow</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">Behaves like the tr HTML element.</span></section>
+				<section class="J" id="tableCell()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableCell</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">Behaves like the td HTML element.</span></section>
+				<section class="J" id="tableColumn()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableColumn</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">These elements behave like the corresponding col HTML elements.</span></section>
+				<section class="J" id="tableColumnGroup()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableColumnGroup</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">These elements behave like the corresponding colgroup HTML elements.</span></section>
+				<section class="J" id="tableHeaderGroup()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableHeaderGroup</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">These elements behave like the corresponding thead HTML elements.</span></section>
+				<section class="J" id="tableFooterGroup()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableFooterGroup</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">These elements behave like the corresponding tfoot HTML elements.</span></section>
+				<section class="J" id="tableRowGroup()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">tableRowGroup</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">These elements behave like the corresponding tbody HTML elements.</span></section>
+				<section class="J" id="none()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">none</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ Turns off the display of an element (it has no effect on layout)); all child elements also
+ have their display turned off. The document is rendered as though the element did not exist.
+ </p>
+ <p>
+ To render an element box&#39;s dimensions, yet have its contents be invisible, see the visibility
+ property.
+ </p>
+					</span></section>
+				<section class="J" id="horizontalBox()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">horizontalBox</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Flex.html">Flex</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ Alias for <code>display.flex()</code>.
+ </p>
+ <p>
+ The element behaves like a block element and lays out its content according to the horizontal
+ flexbox model.
+ </p>
+					</span></section>
+				<section class="J" id="verticalBox()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">verticalBox</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Flex.html">Flex</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ Alias for <code>display.flex().direction.column()</code>.
+ </p>
+ <p>
+ The element behaves like a block element and lays out its content according to the vertical
+ flexbox model.
+ </p>
+					</span></section>
+				<section class="J" id="size(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">size</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ Setting width and height properties.
+ </p>
+					</span></section>
+				<section class="J" id="size(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">size</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ Setting width and height properties.
+ </p>
+					</span></section>
+				<section class="J" id="width(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">width</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td><span>A box width.</span></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td><span>A unit.</span></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td><span>Chainable API.</span></td>
+						</tr>
+					</table><span class="B"><p>
+ The width CSS property specifies the width of the content area of an element. The content
+ area is inside the padding, border, and margin of the element.
+ </p>
+ <p>
+ The min-width and max-width properties override width.
+ </p>
+					</span></section>
+				<section class="J" id="width(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">width</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td><span>Chainable API.</span></td>
+						</tr>
+					</table><span class="B"><p>
+ The width CSS property specifies the width of the content area of an element. The content
+ area is inside the padding, border, and margin of the element.
+ </p>
+ <p>
+ The min-width and max-width properties override width.
+ </p>
+					</span></section>
+				<section class="J" id="minWidth(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">minWidth</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The min-width CSS property is used to set the minimum width of a given element. It prevents
+ the used value of the width property from becoming smaller than the value specified for
+ min-width.
+ </p>
+					</span></section>
+				<section class="J" id="minWidth(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">minWidth</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The min-width CSS property is used to set the minimum width of a given element. It prevents
+ the used value of the width property from becoming smaller than the value specified for
+ min-width.
+ </p>
+					</span></section>
+				<section class="J" id="maxWidth(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">maxWidth</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The max-width CSS property is used to set the maximum width of a given element. It prevents
+ the used value of the width property from becoming larger than the value specified for
+ max-width.
+ </p>
+					</span></section>
+				<section class="J" id="maxWidth(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">maxWidth</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The max-width CSS property is used to set the maximum width of a given element. It prevents
+ the used value of the width property from becoming larger than the value specified for
+ max-width.
+ </p>
+					</span></section>
+				<section class="J" id="height(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">height</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td><span>A box width.</span></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td><span>A unit.</span></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td><span>Chainable API.</span></td>
+						</tr>
+					</table><span class="B"><p>
+ The height CSS property specifies the height of the content area of an element. The content
+ area is inside the padding, border, and margin of the element.
+ </p>
+ <p>
+ The min-height and max-height properties override height.
+ </p>
+					</span></section>
+				<section class="J" id="height(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">height</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td><span>Chainable API.</span></td>
+						</tr>
+					</table><span class="B"><p>
+ The height CSS property specifies the height of the content area of an element. The content
+ area is inside the padding, border, and margin of the element.
+ </p>
+ <p>
+ The min-height and max-height properties override height.
+ </p>
+					</span></section>
+				<section class="J" id="minHeight(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">minHeight</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The min-height CSS property is used to set the minimum height of a given element. It prevents
+ the used value of the height property from becoming smaller than the value specified for
+ min-height.
+ </p>
+					</span></section>
+				<section class="J" id="minHeight(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">minHeight</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The min-height CSS property is used to set the minimum height of a given element. It prevents
+ the used value of the height property from becoming smaller than the value specified for
+ min-height.
+ </p>
+					</span></section>
+				<section class="J" id="maxHeight(double,stylist.value.Unit)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">maxHeight</code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>size</code></td>
+							<td></td>
+						</tr>
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code> <code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The max-height CSS property is used to set the maximum height of a given element. It prevents
+ the used value of the height property from becoming larger than the value specified for
+ max-height.
+ </p>
+					</span></section>
+				<section class="J" id="maxHeight(stylist.value.Numeric)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">maxHeight</code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The max-height CSS property is used to set the maximum height of a given element. It prevents
+ the used value of the height property from becoming larger than the value specified for
+ max-height.
+ </p>
+					</span></section>
+				<section class="J" id="zIndex(int)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">zIndex</code><code class="Y">(<code>int</code> <code class="parameterName">value</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>int</code> <code>value</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The z-index CSS property specifies the z-order of an element and its descendants. When
+ elements overlap, z-order determines which one covers the other. An element with a larger
+ z-index generally covers an element with a lower one.
+ </p>
+					</span></section>
+				<section class="J" id="floatRight()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">floatRight</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The float CSS property places an element on the left or right side of its container, allowing
+ text and inline elements to wrap around it. The element is removed from the normal flow of
+ the page, though still remaining a part of the flow (in contrast to absolute positioning).
+ </p>
+					</span></section>
+				<section class="J" id="floatLeft()">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">floatLeft</code><code class="Y">()</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The float CSS property places an element on the left or right side of its container, allowing
+ text and inline elements to wrap around it. The element is removed from the normal flow of
+ the page, though still remaining a part of the flow (in contrast to absolute positioning).
+ </p>
+					</span></section>
+				<section class="J" id="opacity(double)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">opacity</code><code class="Y">(<code>double</code> <code class="parameterName">alpha</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code>double</code> <code>alpha</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The opacity CSS property specifies the transparency of an element, that is, the degree to
+ which the background behind the element is overlaid. Using this property with a value
+ different than 1 places the element in a new stacking context.
+ </p>
+					</span></section>
+				<section class="J" id="shadow(stylist.value.Shadow...)">
+					<h2 class="a"><i class="PUBLIC"></i><code class="Q">shadow</code><code class="Y">(<code array="var"><a href="api/stylist.value.Shadow.html">Shadow</a></code> <code class="parameterName">shadows</code>)</code><i class="i"><code><a href="api/stylist.property.Display.html">Display</a></code></i></h2>
+					<table class="K">
+						<tr class="M">
+							<td><code array="var"><a href="api/stylist.value.Shadow.html">Shadow</a></code> <code>shadows</code></td>
+							<td></td>
+						</tr>
+						<tr class="d">
+							<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>
+ The box-shadow CSS property describes one or more shadow effects as a comma-separated list.
+ It allows casting a drop shadow from the frame of almost any element. If a border-radius is
+ specified on the element with a box shadow, the box shadow takes on the same rounded corners.
+ The z-ordering of multiple box shadows is the same as multiple text shadows (the first
+ specified shadow is on top).
+ </p>
+					</span></section>
+			</article>
+			<aside class="c" id="SubNavi">
+				<div class="O">
+					<h5 class="W">Constructors</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#Display()">Display</a></code><code class="Y">()</code></li>
+					</ul>
+					<h5 class="W">Fields</h5>
+					<ul>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Display.html#height">height</a></code><i class="N"><code class="return"><a href="api/stylist.property.Display.Height.html">Height</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Display.html#width">width</a></code><i class="N"><code class="return"><a href="api/stylist.property.Display.Width.html">Width</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Display.html#sizing">sizing</a></code><i class="N"><code class="return"><a href="api/stylist.property.Display.Sizing.html">Sizing</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Display.html#visibility">visibility</a></code><i class="N"><code class="return"><a href="api/stylist.property.Display.Visibility.html">Visibility</a></code></i></li>
+					</ul>
+					<h5 class="W">Methods</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#block()">block</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#inline()">inline</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#inlineBlock()">inlineBlock</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#listItem()">listItem</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#grid()">grid</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#inlineGrid()">inlineGrid</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#flex()">flex</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#inlineFlex()">inlineFlex</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#table()">table</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#inlineTable()">inlineTable</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableCaption()">tableCaption</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableRow()">tableRow</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableCell()">tableCell</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableColumn()">tableColumn</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableColumnGroup()">tableColumnGroup</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableHeaderGroup()">tableHeaderGroup</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableFooterGroup()">tableFooterGroup</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#tableRowGroup()">tableRowGroup</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#none()">none</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#horizontalBox()">horizontalBox</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#verticalBox()">verticalBox</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Flex.html">Flex</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#size(double,stylist.value.Unit)">size</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#size(stylist.value.Numeric)">size</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#width(double,stylist.value.Unit)">width</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#width(stylist.value.Numeric)">width</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#minWidth(double,stylist.value.Unit)">minWidth</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#minWidth(stylist.value.Numeric)">minWidth</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#maxWidth(double,stylist.value.Unit)">maxWidth</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#maxWidth(stylist.value.Numeric)">maxWidth</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#height(double,stylist.value.Unit)">height</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#height(stylist.value.Numeric)">height</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#minHeight(double,stylist.value.Unit)">minHeight</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#minHeight(stylist.value.Numeric)">minHeight</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#maxHeight(double,stylist.value.Unit)">maxHeight</a></code><code class="Y">(<code>double</code> <code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code> <code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#maxHeight(stylist.value.Numeric)">maxHeight</a></code><code class="Y">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#zIndex(int)">zIndex</a></code><code class="Y">(<code>int</code> <code class="parameterName">value</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#floatRight()">floatRight</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#floatLeft()">floatLeft</a></code><code class="Y">()</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#opacity(double)">opacity</a></code><code class="Y">(<code>double</code> <code class="parameterName">alpha</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Display.html#shadow(stylist.value.Shadow...)">shadow</a></code><code class="Y">(<code array="var"><a href="api/stylist.value.Shadow.html">Shadow</a></code> <code class="parameterName">shadows</code>)</code><i class="N"><code><a href="api/stylist.property.Display.html">Display</a></code></i></li>
+					</ul>
+				</div>
+			</aside>
+		</main>
+		<script src="root.js"></script>
+		<script src="main.js" type="module"></script>
+	</body>
+</html>
