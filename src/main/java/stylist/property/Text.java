@@ -10,7 +10,7 @@
 package stylist.property;
 
 import static stylist.Vendor.*;
-import static stylist.value.Unit.px;
+import static stylist.value.Unit.*;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
@@ -334,8 +334,8 @@ public class Text extends PropertyDefinition<Text> {
         /**
          * <p>
          * Aligns the baseline of the element with the baseline of its parent. The baseline of some
-         * replaced elements, like <textarea> is not specified by the HTML specification, meaning
-         * that their behavior with this keyword may change from one browser to the other.
+         * replaced elements, like &lt;textarea&gt; is not specified by the HTML specification,
+         * meaning that their behavior with this keyword may change from one browser to the other.
          * </p>
          * 
          * @return
