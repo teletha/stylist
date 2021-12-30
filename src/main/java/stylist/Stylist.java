@@ -257,7 +257,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public Stylist importResetStyle() {
-        return importStyle("https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css");
+        return importStyle("https://cdn.jsdelivr.net/npm/modern-css-reset@1.4.0/dist/reset.min.css");
     }
 
     /**
@@ -266,7 +266,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public Stylist importNormalizeStyle() {
-        return importStyle("https://unpkg.com/ress/dist/ress.min.css");
+        return importStyle("https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css");
     }
 
     /**
