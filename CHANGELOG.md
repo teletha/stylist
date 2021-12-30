@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.3.2](https://www.github.com/teletha/stylist/compare/v1.3.1...v1.3.2) (2021-12-30)
+
+
+### Bug Fixes
+
+* Drop icy-manipulator. ([954dcec](https://www.github.com/teletha/stylist/commit/954dcec90c7a804ef69b5c9792aa274335e5f20d))
+* Incorrect HTML on Javadoc. ([250f018](https://www.github.com/teletha/stylist/commit/250f018719d0fb688a38c74b574f2ff6a209e2d1))
+* Use jsdelivr to load reset css. ([42d1b77](https://www.github.com/teletha/stylist/commit/42d1b772ecf6e243f659a6da726201b38c310b96))
+
 ### [1.3.1](https://www.github.com/Teletha/stylist/compare/v1.3.0...v1.3.1) (2021-11-02)
 
 
