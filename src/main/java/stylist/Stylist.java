@@ -257,7 +257,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public Stylist importResetStyle() {
-        return importStyle("https://unpkg.com/modern-css-reset/dist/reset.min.css");
+        return importStyle("https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css");
     }
 
     /**
