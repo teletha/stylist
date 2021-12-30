@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.3](https://www.github.com/teletha/stylist/compare/v1.3.2...v1.3.3) (2021-12-30)
+
+
+### Bug Fixes
+
+* Use jsdelivr for loading normalize css. ([716fa31](https://www.github.com/teletha/stylist/commit/716fa313e1e8c0a4ea8a5fddc1f772a96e3f112e))
+
 ### [1.3.2](https://www.github.com/teletha/stylist/compare/v1.3.1...v1.3.2) (2021-12-30)
 
 
