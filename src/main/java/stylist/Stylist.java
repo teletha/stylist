@@ -597,6 +597,9 @@ public final class Stylist {
     /** The id manager. */
     private static final AtomicInteger counter = new AtomicInteger();
 
+    /** The external stylesheets. */
+    private static final Set<String> externals = new HashSet();
+
     /** The animation manager. */
     static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
 
@@ -723,9 +726,6 @@ public final class Stylist {
         }
         return styles;
     }
-
-    /** The external stylesheets. */
-    private static final Set<String> externals = new HashSet();
 
     /**
      * Register the external stylesheet to import.
