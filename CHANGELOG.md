@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.4](https://www.github.com/teletha/stylist/compare/v1.3.3...v1.3.4) (2022-01-18)
+
+
+### Bug Fixes
+
+* Avoid NPE. ([3991861](https://www.github.com/teletha/stylist/commit/3991861c404bbefb2e14f46fecc66c62fc0ca7c8))
+
 ### [1.3.3](https://www.github.com/teletha/stylist/compare/v1.3.2...v1.3.3) (2021-12-30)
 
 
