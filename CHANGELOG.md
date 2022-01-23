@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://www.github.com/teletha/stylist/compare/v1.3.4...v1.4.0) (2022-01-23)
+
+
+### Features
+
+* Add overflow-word property. ([4a5d07a](https://www.github.com/teletha/stylist/commit/4a5d07a8107ac050945bb5e330266880b7c3e5fa))
+* Add overflow-wrap property. ([b640d92](https://www.github.com/teletha/stylist/commit/b640d92efd3dc1fc252014b7e678f00a3038b8cf))
+
 ### [1.3.4](https://www.github.com/teletha/stylist/compare/v1.3.3...v1.3.4) (2022-01-18)
 
 
