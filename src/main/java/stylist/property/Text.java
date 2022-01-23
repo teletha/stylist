@@ -10,7 +10,7 @@
 package stylist.property;
 
 import static stylist.Vendor.*;
-import static stylist.value.Unit.*;
+import static stylist.value.Unit.px;
 
 import stylist.CSSValue;
 import stylist.PropertyDefinition;
@@ -903,6 +903,16 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text breakAll() {
             return value("break-all");
+        }
+
+        /**
+         * To prevent overflow, word breaks should be inserted between any two characters (excluding
+         * Chinese/Japanese/Korean text).
+         * 
+         * @return
+         */
+        public Text breakWord() {
+            return value("break-word");
         }
 
         /**
