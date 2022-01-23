@@ -91,7 +91,7 @@ public class Text extends PropertyDefinition<Text> {
      * insert line breaks within an otherwise unbreakable string to prevent text from overflowing
      * its line box.
      */
-    public final OverflowWord overflowWord = new OverflowWord();
+    public final OverflowWrap overflowWrap = new OverflowWrap();
 
     /**
      * <p>
@@ -933,13 +933,13 @@ public class Text extends PropertyDefinition<Text> {
         }
     }
 
-    public class OverflowWord extends PropertyDefinition<Text> {
+    public class OverflowWrap extends PropertyDefinition<Text> {
 
         /**
          * Hide.
          */
-        private OverflowWord() {
-            super("overflow-word", Text.this);
+        private OverflowWrap() {
+            super("overflow-wrap", Text.this);
         }
 
         /**
