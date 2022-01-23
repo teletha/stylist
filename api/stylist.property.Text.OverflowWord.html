@@ -35,11 +35,22 @@
 			</nav>
 			<article class="V" id="Article">
 				<section class="X"><code class="c">stylist.property</code>
-					<h2 class="Class Q"><code class="N">Text.WordBreak</code></h2>
+					<h2 class="Class Q"><code class="N">Text.OverflowWord</code></h2>
 					<ul class="C E">
 						<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Text.html">Text</a></code></code></code></li>
 					</ul>
 				</section>
+				<section class="X" id="anywhere()">
+					<h2 class="g"><i class="PUBLIC"></i><code class="N">anywhere</code><code class="I">()</code><i class="Y"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
+					<table class="H">
+						<tr class="T">
+							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B">To prevent overflow, an otherwise unbreakable string of characters — like a long word or
+ URL — may be broken at any point if there are no otherwise-acceptable break points in the
+ line. No hyphenation character is inserted at the break point. Soft wrap opportunities
+ introduced by the word break are considered when calculating min-content intrinsic sizes.</span></section>
 				<section class="X" id="normal()">
 					<h2 class="g"><i class="PUBLIC"></i><code class="N">normal</code><code class="I">()</code><i class="Y"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
 					<table class="H">
@@ -47,16 +58,7 @@
 							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
 							<td></td>
 						</tr>
-					</table><span class="B">Use the default line break rule.</span></section>
-				<section class="X" id="breakAll()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="N">breakAll</code><code class="I">()</code><i class="Y"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
-					<table class="H">
-						<tr class="T">
-							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B">To prevent overflow, word breaks should be inserted between any two characters (excluding
- Chinese/Japanese/Korean text).</span></section>
+					</table><span class="B">Lines may only break at normal word break points (such as a space between two words).</span></section>
 				<section class="X" id="breakWord()">
 					<h2 class="g"><i class="PUBLIC"></i><code class="N">breakWord</code><code class="I">()</code><i class="Y"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
 					<table class="H">
@@ -64,26 +66,18 @@
 							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
 							<td></td>
 						</tr>
-					</table><span class="B">To prevent overflow, word breaks should be inserted between any two characters (excluding
- Chinese/Japanese/Korean text).</span></section>
-				<section class="X" id="keepAll()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="N">keepAll</code><code class="I">()</code><i class="Y"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
-					<table class="H">
-						<tr class="T">
-							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B">Word breaks should not be used for Chinese/Japanese/Korean (CJK) text. Non-CJK text
- behavior is the same as for normal.</span></section>
+					</table><span class="B">The same as the anywhere value, with normally unbreakable words allowed to be broken at
+ arbitrary points if there are no otherwise acceptable break points in the line, but soft
+ wrap opportunities introduced by the word break are NOT considered when calculating
+ min-content intrinsic sizes.</span></section>
 			</article>
 			<aside class="a" id="SubNavi">
 				<div class="S">
 					<h5 class="i">Methods</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.WordBreak.html#normal()">normal</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.WordBreak.html#breakAll()">breakAll</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.WordBreak.html#breakWord()">breakWord</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.WordBreak.html#keepAll()">keepAll</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWord.html#anywhere()">anywhere</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWord.html#normal()">normal</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWord.html#breakWord()">breakWord</a></code><code class="I">()</code><i class="j"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
 					</ul>
 				</div>
 			</aside>

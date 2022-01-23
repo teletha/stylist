@@ -552,6 +552,13 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Text.OverflowWord",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Text.Transform",
 			"packageName": "stylist.property",
 			"type": "Class"
