@@ -87,6 +87,13 @@ public class Text extends PropertyDefinition<Text> {
     public final Overflow overflow = new Overflow();
 
     /**
+     * The overflow-wrap CSS property applies to inline elements, setting whether the browser should
+     * insert line breaks within an otherwise unbreakable string to prevent text from overflowing
+     * its line box.
+     */
+    public final OverflowWord overflowWord = new OverflowWord();
+
+    /**
      * <p>
      * The vertical-align CSS property specifies the vertical alignment of an inline or table-cell
      * element.
@@ -923,6 +930,49 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text keepAll() {
             return value("keep-all");
+        }
+    }
+
+    public class OverflowWord extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private OverflowWord() {
+            super("overflow-word", Text.this);
+        }
+
+        /**
+         * To prevent overflow, an otherwise unbreakable string of characters — like a long word or
+         * URL — may be broken at any point if there are no otherwise-acceptable break points in the
+         * line. No hyphenation character is inserted at the break point. Soft wrap opportunities
+         * introduced by the word break are considered when calculating min-content intrinsic sizes.
+         * 
+         * @return
+         */
+        public Text anywhere() {
+            return value("anywhere");
+        }
+
+        /**
+         * Lines may only break at normal word break points (such as a space between two words).
+         * 
+         * @return
+         */
+        public Text normal() {
+            return value("normal");
+        }
+
+        /**
+         * The same as the anywhere value, with normally unbreakable words allowed to be broken at
+         * arbitrary points if there are no otherwise acceptable break points in the line, but soft
+         * wrap opportunities introduced by the word break are NOT considered when calculating
+         * min-content intrinsic sizes.
+         * 
+         * @return
+         */
+        public Text breakWord() {
+            return value("break-word");
         }
     }
 }
