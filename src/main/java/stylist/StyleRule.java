@@ -31,6 +31,9 @@ public class StyleRule implements Comparable<StyleRule> {
     /** The sub rules. */
     public final ArrayList<StyleRule> children = new ArrayList();
 
+    /** The media rules. */
+    MediaQuery query;
+
     /**
      * Define style rule.
      * 

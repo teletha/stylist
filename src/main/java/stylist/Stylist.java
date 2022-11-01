@@ -23,6 +23,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -89,6 +90,9 @@ public final class Stylist {
 
     /** The user scheme. */
     private DesignScheme scheme;
+
+    /** The media queried styles. */
+    private Map<MediaQuery, StringBuilder> queried = new ConcurrentHashMap();
 
     /**
      * Hide constructor.
@@ -406,6 +410,12 @@ public final class Stylist {
             format(e, builder);
         });
 
+        for (Entry<MediaQuery, StringBuilder> entry : queried.entrySet()) {
+            builder.append(entry.getKey()).append(afterSelector).append('{').append(afterStartBrace);
+            builder.append(entry.getValue());
+            builder.append(beforeEndBrace).append('}').append(afterEndBrace);
+        }
+
         imports.addAll(externals);
         StringBuilder addition = new StringBuilder();
         for (String external : imports) {
@@ -513,6 +523,10 @@ public final class Stylist {
                 format(child, appendable);
             }
             return;
+        }
+
+        if (rule.query != null) {
+            appendable = queried.computeIfAbsent(rule.query, query -> new StringBuilder());
         }
 
         try {

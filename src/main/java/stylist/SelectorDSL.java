@@ -1148,6 +1148,11 @@ public class SelectorDSL {
         return this;
     }
 
+    public final void media(MediaQuery query, Style style) {
+        StyleRule create = StyleRule.create(style, create(processor));
+        create.query = query;
+    }
+
     /**
      * <p>
      * A generic combinator — typically represented by a single space ( ) character in the form of
