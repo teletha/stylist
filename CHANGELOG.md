@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://www.github.com/teletha/stylist/compare/v1.4.0...v1.5.0) (2022-11-01)
+
+
+### Features
+
+* Support media query. ([8056763](https://www.github.com/teletha/stylist/commit/8056763f9b9120cbc4574f52edb08da3141f3e54))
+
 ## [1.4.0](https://www.github.com/teletha/stylist/compare/v1.3.4...v1.4.0) (2022-01-23)
 
 
