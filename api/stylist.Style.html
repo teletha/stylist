@@ -4,15 +4,14 @@
 		<meta charset="UTF-8"/>
 		<title>Stylist API</title>
 		<base href="../"/>
-		<link href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/zenburn.min.css" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
-		<script async="true" src="highlight.js"></script>
+		<script async="true" src="highlight.js" type="module"></script>
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="K">
-		<header class="X">
-			<h1 class="P" date="2022-01-23" ver="1.4.0"><code>Stylist</code></h1>
-			<nav class="c"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="P">
+		<header class="L">
+			<h1 class="M" date="2022-11-01" ver="1.4.0"><code>Stylist</code></h1>
+			<nav class="l"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com//teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -21,7 +20,7 @@
 					</svg>Activity</a><a href="https://github.com//teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#github"/>
 					</svg>Repository</a></nav>
-			<div class="d" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+			<div class="i" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#sun"/>
 					</svg>
 				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
@@ -29,121 +28,136 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="Q">
-			<nav class="J">
+		<main class="j">
+			<nav class="Q">
 				<div></div>
 			</nav>
-			<article class="V" id="Article">
-				<section class="f"><code class="R">stylist</code>
-					<h2 class="Functional N"><code class="a">Style</code></h2>
-					<ul class="C F">
-						<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html">Consumer</a></code></li>
-						<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html">Serializable</a></code></li>
-					</ul>
+			<article class="T" id="Article">
+				<section class="Y"><code class="U">stylist</code>
+					<h2 class="Functional S"><code class="J">Style</code></h2>
+					<div class="X">
+						<ul class="C F">
+							<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html">Consumer</a></code></li>
+							<li><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html">Serializable</a></code></li>
+						</ul>
+					</div>
 				</section>
-				<section class="f" id="Empty">
-					<h2 class="Z"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="a">Empty</code><i class="U"><code class="return"><a href="api/stylist.Style.html">Style</a></code></i></h2><span class="B">The empty <code><a href="api/stylist.Style.html">Style</a></code> for reuse.</span></section>
-				<section class="f" id="style()">
-					<h2 class="Z"><i class="ABSTRACT"><i class="PUBLIC"></i></i><code class="a">style</code><code class="j">()</code><i class="U"><code>void</code></i></h2><span class="B"><p>
+				<section class="Y" id="Empty">
+					<h2 class="a"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="J">Empty</code><i class="R"><code class="return"><a href="api/stylist.Style.html">Style</a></code></i></h2><span class="B"><p>The empty <code><a href="api/stylist.Style.html">Style</a></code> for reuse.</p>
+					</span></section>
+				<section class="Y" id="style()">
+					<h2 class="a"><i class="ABSTRACT"><i class="PUBLIC"></i></i><code class="J">style</code><code class="h">()</code><i class="R"><code>void</code></i></h2><span class="B"><p>
  Define the style declaration.
  </p>
 					</span></section>
-				<section class="f" id="with(stylist.Style)">
-					<h2 class="Z"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="a">with</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="U"><code><a href="api/stylist.Style.html">Style</a></code></i></h2>
-					<table class="L">
-						<tr class="W">
-							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>style</code></td>
-							<td><span>A style to combine.</span></td>
-						</tr>
+				<section class="Y" id="with(stylist.Style)">
+					<h2 class="a"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="J">with</code><code class="h">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="R"><code><a href="api/stylist.Style.html">Style</a></code></i></h2>
+					<table class="k">
 						<tr class="H">
+							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>style</code></td>
+							<td><span><p>A style to combine.</p>
+								</span></td>
+						</tr>
+						<tr class="O">
 							<td><code><a href="api/stylist.Style.html">Style</a></code></td>
-							<td><span>A combined <code><a href="api/stylist.Style.html">Style</a></code>.</span></td>
+							<td><span><p>A combined <code><a href="api/stylist.Style.html">Style</a></code>.</p>
+								</span></td>
 						</tr>
 					</table><span class="B"><p>
  Combine this <code><a href="api/stylist.Style.html">Style</a></code> and the specified <code><a href="api/stylist.Style.html">Style</a></code>.
  </p>
 					</span></section>
-				<section class="f" id="group()">
-					<h2 class="Z"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="a">group</code><code class="j">()</code><i class="U"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html">Collection</a><code class="parameters"><code><a href="api/stylist.Style.html">Style</a></code></code></code></i></h2>
-					<table class="L">
-						<tr class="H">
+				<section class="Y" id="group()">
+					<h2 class="a"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="J">group</code><code class="h">()</code><i class="R"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html">Collection</a><code class="parameters"><code><a href="api/stylist.Style.html">Style</a></code></code></code></i></h2>
+					<table class="k">
+						<tr class="O">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html">Collection</a><code class="parameters"><code><a href="api/stylist.Style.html">Style</a></code></code></code></td>
-							<td><span>All members of the group to which this <code><a href="api/stylist.Style.html">Style</a></code> belongs.</span></td>
+							<td><span><p>All members of the group to which this <code><a href="api/stylist.Style.html">Style</a></code> belongs.</p>
+								</span></td>
 						</tr>
-					</table><span class="B">Returns all members of the group to which this <code><a href="api/stylist.Style.html">Style</a></code> belongs. Usually this
- <code><a href="api/stylist.Style.html">Style</a></code> only.</span></section>
-				<section class="f" id="accept(java.lang.Object)">
-					<h2 class="Z"><i class="DEFAULT"><i class="OVERRIDE PUBLIC"></i></i><code class="a">accept</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html">Object</a></code> <code class="parameterName">context</code>)</code><i class="U"><code>void</code></i></h2>
-					<table class="L">
-						<tr class="W">
+					</table><span class="B"><p>Returns all members of the group to which this <code><a href="api/stylist.Style.html">Style</a></code> belongs. Usually this
+ <code><a href="api/stylist.Style.html">Style</a></code> only.</p>
+					</span></section>
+				<section class="Y" id="accept(java.lang.Object)">
+					<h2 class="a"><i class="DEFAULT"><i class="OVERRIDE PUBLIC"></i></i><code class="J">accept</code><code class="h">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html">Object</a></code> <code class="parameterName">context</code>)</code><i class="R"><code>void</code></i></h2>
+					<table class="k">
+						<tr class="H">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html">Object</a></code> <code>context</code></td>
 							<td></td>
 						</tr>
 					</table>
 				</section>
-				<section class="f" id="detail()">
-					<h2 class="Z"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="a">detail</code><code class="j">()</code><i class="U"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="L">
-						<tr class="H">
+				<section class="Y" id="detail()">
+					<h2 class="a"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="J">detail</code><code class="h">()</code><i class="R"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+					<table class="k">
+						<tr class="O">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></td>
 							<td></td>
 						</tr>
-					</table><span class="B">Describe detailed information for this <code><a href="api/stylist.Style.html">Style</a></code>.</span></section>
-				<section class="f" id="selector()">
-					<h2 class="Z"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="a">selector</code><code class="j">()</code><i class="U"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="L">
-						<tr class="H">
+					</table><span class="B"><p>Describe detailed information for this <code><a href="api/stylist.Style.html">Style</a></code>.</p>
+					</span></section>
+				<section class="Y" id="selector()">
+					<h2 class="a"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="J">selector</code><code class="h">()</code><i class="R"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+					<table class="k">
+						<tr class="O">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></td>
-							<td><span>CSS selector expression (For example .name, #id or element).</span></td>
+							<td><span><p>CSS selector expression (For example .name, #id or element).</p>
+								</span></td>
 						</tr>
-					</table><span class="B">Gets the CSS selector expression associated with this <code><a href="api/stylist.Style.html">Style</a></code>. The default
- implementation returns a class selector with the obfuscated name.</span></section>
-				<section class="f" id="className()">
-					<h2 class="Z"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="a">className</code><code class="j">()</code><i class="U"><code array="fix"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="L">
-						<tr class="H">
+					</table><span class="B"><p>Gets the CSS selector expression associated with this <code><a href="api/stylist.Style.html">Style</a></code>. The default
+ implementation returns a class selector with the obfuscated name.</p>
+					</span></section>
+				<section class="Y" id="className()">
+					<h2 class="a"><i class="DEFAULT"><i class="PUBLIC"></i></i><code class="J">className</code><code class="h">()</code><i class="R"><code array="fix"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+					<table class="k">
+						<tr class="O">
 							<td><code array="fix"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></td>
-							<td><span>A list of class names.</span></td>
+							<td><span><p>A list of class names.</p>
+								</span></td>
 						</tr>
-					</table><span class="B">Gets class names that uniquely identifies this <code><a href="api/stylist.Style.html">Style</a></code> (returns class name [A] instead
+					</table><span class="B"><p>Gets class names that uniquely identifies this <code><a href="api/stylist.Style.html">Style</a></code> (returns class name [A] instead
  of class selector [.A]). If the style is assigned a selector other than the class name, a
- zero-length array will be returned.</span></section>
-				<section class="f" id="named(java.lang.String,java.lang.Runnable)">
-					<h2 class="Z"><i class="PUBLIC STATIC"></i><code class="a">named</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">style</code>)</code><i class="U"><code><a href="api/stylist.Style.html">Style</a></code></i></h2>
-					<table class="L">
-						<tr class="W">
+ zero-length array will be returned.</p>
+					</span></section>
+				<section class="Y" id="named(java.lang.String,java.lang.Runnable)">
+					<h2 class="a"><i class="PUBLIC STATIC"></i><code class="J">named</code><code class="h">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">style</code>)</code><i class="R"><code><a href="api/stylist.Style.html">Style</a></code></i></h2>
+					<table class="k">
+						<tr class="H">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code>name</code></td>
-							<td><span>A style name.</span></td>
-						</tr>
-						<tr class="W">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code>style</code></td>
-							<td><span>A style definition.</span></td>
+							<td><span><p>A style name.</p>
+								</span></td>
 						</tr>
 						<tr class="H">
+							<td><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code>style</code></td>
+							<td><span><p>A style definition.</p>
+								</span></td>
+						</tr>
+						<tr class="O">
 							<td><code><a href="api/stylist.Style.html">Style</a></code></td>
 							<td></td>
 						</tr>
-					</table><span class="B">Create named <code><a href="api/stylist.Style.html">Style</a></code>.</span></section>
+					</table><span class="B"><p>Create named <code><a href="api/stylist.Style.html">Style</a></code>.</p>
+					</span></section>
 			</article>
-			<aside class="g" id="SubNavi">
-				<div class="I">
-					<h5 class="O">Static Fields</h5>
+			<aside class="Z" id="SubNavi">
+				<div class="K">
+					<h5 class="g">Static Fields</h5>
 					<ul>
-						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.Style.html#Empty">Empty</a></code><i class="e"><code class="return"><a href="api/stylist.Style.html">Style</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.Style.html#Empty">Empty</a></code><i class="W"><code class="return"><a href="api/stylist.Style.html">Style</a></code></i></li>
 					</ul>
-					<h5 class="O">Static Methods</h5>
+					<h5 class="g">Static Methods</h5>
 					<ul>
-						<li><i class="PUBLIC STATIC"></i><code><a href="api/stylist.Style.html#named(java.lang.String,java.lang.Runnable)">named</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">style</code>)</code><i class="e"><code><a href="api/stylist.Style.html">Style</a></code></i></li>
+						<li><i class="PUBLIC STATIC"></i><code><a href="api/stylist.Style.html#named(java.lang.String,java.lang.Runnable)">named</a></code><code class="h">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">style</code>)</code><i class="W"><code><a href="api/stylist.Style.html">Style</a></code></i></li>
 					</ul>
-					<h5 class="O">Methods</h5>
+					<h5 class="g">Methods</h5>
 					<ul>
-						<li><i class="ABSTRACT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#style()">style</a></code><code class="j">()</code><i class="e"><code>void</code></i></li>
-						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#with(stylist.Style)">with</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="e"><code><a href="api/stylist.Style.html">Style</a></code></i></li>
-						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#group()">group</a></code><code class="j">()</code><i class="e"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html">Collection</a><code class="parameters"><code><a href="api/stylist.Style.html">Style</a></code></code></code></i></li>
-						<li><i class="DEFAULT"><i class="OVERRIDE PUBLIC"></i></i><code><a href="api/stylist.Style.html#accept(java.lang.Object)">accept</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html">Object</a></code> <code class="parameterName">context</code>)</code><i class="e"><code>void</code></i></li>
-						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#detail()">detail</a></code><code class="j">()</code><i class="e"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
-						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#selector()">selector</a></code><code class="j">()</code><i class="e"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
-						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#className()">className</a></code><code class="j">()</code><i class="e"><code array="fix"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+						<li><i class="ABSTRACT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#style()">style</a></code><code class="h">()</code><i class="W"><code>void</code></i></li>
+						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#with(stylist.Style)">with</a></code><code class="h">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="W"><code><a href="api/stylist.Style.html">Style</a></code></i></li>
+						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#group()">group</a></code><code class="h">()</code><i class="W"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html">Collection</a><code class="parameters"><code><a href="api/stylist.Style.html">Style</a></code></code></code></i></li>
+						<li><i class="DEFAULT"><i class="OVERRIDE PUBLIC"></i></i><code><a href="api/stylist.Style.html#accept(java.lang.Object)">accept</a></code><code class="h">(<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html">Object</a></code> <code class="parameterName">context</code>)</code><i class="W"><code>void</code></i></li>
+						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#detail()">detail</a></code><code class="h">()</code><i class="W"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#selector()">selector</a></code><code class="h">()</code><i class="W"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+						<li><i class="DEFAULT"><i class="PUBLIC"></i></i><code><a href="api/stylist.Style.html#className()">className</a></code><code class="h">()</code><i class="W"><code array="fix"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
 					</ul>
 				</div>
 			</aside>
