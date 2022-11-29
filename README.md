@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://docs.oracle.com/en/java/javase/16/"><img src="https://img.shields.io/badge/Java-Release%2016-green"/></a>
+    <a href="https://docs.oracle.com/en/java/javase/19/"><img src="https://img.shields.io/badge/Java-Release%2019-green"/></a>
     <span>&nbsp;</span>
     <a href="https://jitpack.io/#teletha/stylist"><img src="https://img.shields.io/jitpack/v/github/teletha/stylist?label=Repository&color=green"></a>
     <span>&nbsp;</span>
@@ -7,13 +7,18 @@
 </p>
 
 
-## About The Project
+## Summary
+
+<p align="right"><a href="#top">back to top</a></p>
+
+
+## Usage
 
 <p align="right"><a href="#top">back to top</a></p>
 
 
 ## Prerequisites
-Stylist runs on all major operating systems and requires only [Java version 16](https://docs.oracle.com/en/java/javase/16/) or later to run.
+Stylist runs on all major operating systems and requires only [Java version 19](https://docs.oracle.com/en/java/javase/19/) or later to run.
 To check, please run `java -version` from the command line interface. You should see something like this:
 ```
 > java -version
@@ -23,7 +28,7 @@ OpenJDK 64-Bit Server VM (build 16+36-2231, mixed mode, sharing)
 ```
 <p align="right"><a href="#top">back to top</a></p>
 
-## Using in your build
+## Install
 For any code snippet below, please substitute the version given with the version of Stylist you wish to use.
 #### [Maven](https://maven.apache.org/)
 Add JitPack repository at the end of repositories element in your build.xml:
@@ -38,7 +43,7 @@ Add it into in the dependencies element like so:
 <dependency>
     <groupId>com.github.teletha</groupId>
     <artifactId>stylist</artifactId>
-    <version>1.3.2</version>
+    <version>1.5.0</version>
 </dependency>
 ```
 #### [Gradle](https://gradle.org/)
@@ -51,7 +56,7 @@ repositories {
 Add it into the dependencies section like so:
 ```gradle
 dependencies {
-    implementation 'com.github.teletha:stylist:1.3.2'
+    implementation 'com.github.teletha:stylist:1.5.0'
 }
 ```
 #### [SBT](https://www.scala-sbt.org/)
@@ -61,7 +66,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 ```
 Add it into the libraryDependencies section like so:
 ```scala
-libraryDependencies += "com.github.teletha" % "stylist" % "1.3.2"
+libraryDependencies += "com.github.teletha" % "stylist" % "1.5.0"
 ```
 #### [Leiningen](https://leiningen.org/)
 Add JitPack repository at the end of repositories in your project.clj:
@@ -70,12 +75,12 @@ Add JitPack repository at the end of repositories in your project.clj:
 ```
 Add it into the dependencies section like so:
 ```clj
-:dependencies [[com.github.teletha/stylist "1.3.2"]]
+:dependencies [[com.github.teletha/stylist "1.5.0"]]
 ```
 #### [Bee](https://teletha.github.io/bee)
 Add it into your project definition class like so:
 ```java
-require("com.github.teletha", "stylist", "1.3.2");
+require("com.github.teletha", "stylist", "1.5.0");
 ```
 <p align="right"><a href="#top">back to top</a></p>
 
@@ -101,27 +106,14 @@ If you think something might be a bug, but you're not sure, ask on StackOverflow
 <p align="right"><a href="#top">back to top</a></p>
 
 
-## Built with
+## Dependency
 Stylist depends on the following products on runtime.
-* [sinobu-2.11.0](https://mvnrepository.com/artifact/com.github.teletha/sinobu/2.11.0)
-
-Stylist depends on the following products on test.
-* [antibug-1.2.6](https://mvnrepository.com/artifact/com.github.teletha/antibug/1.2.6)
-* [apiguardian-api-1.1.2](https://mvnrepository.com/artifact/org.apiguardian/apiguardian-api/1.1.2)
-* [byte-buddy-1.12.6](https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy/1.12.6)
-* [byte-buddy-agent-1.12.6](https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy-agent/1.12.6)
-* [junit-jupiter-api-5.8.2](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.8.2)
-* [junit-jupiter-engine-5.8.2](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine/5.8.2)
-* [junit-jupiter-params-5.8.2](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params/5.8.2)
-* [junit-platform-commons-1.8.2](https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons/1.8.2)
-* [junit-platform-engine-1.8.2](https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine/1.8.2)
-* [junit-platform-launcher-1.8.2](https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher/1.8.2)
-* [opentest4j-1.2.0](https://mvnrepository.com/artifact/org.opentest4j/opentest4j/1.2.0)
+* [sinobu-2.21.0](https://mvnrepository.com/artifact/com.github.teletha/sinobu/2.21.0)
 <p align="right"><a href="#top">back to top</a></p>
 
 
 ## License
-Copyright (C) 2021 The STYLIST Development Team
+Copyright (C) 2022 The STYLIST Development Team
 
 MIT License
 
