@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/teletha/stylist/compare/v1.6.0...v1.6.1) (2022-12-05)
+
+
+### Bug Fixes
+
+* ensure minimum java version ([6b9884a](https://github.com/teletha/stylist/commit/6b9884a28805d6a0f1994fb577834db33b1bd79b))
+
 ## [1.6.0](https://github.com/teletha/stylist/compare/v1.5.0...v1.6.0) (2022-12-05)
 
 
