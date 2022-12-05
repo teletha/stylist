@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/teletha/stylist/compare/v1.5.0...v1.6.0) (2022-12-05)
+
+
+### Features
+
+* Add generic previous and nest selector. ([3c8558c](https://github.com/teletha/stylist/commit/3c8558c6565e6f97e8f307e6a2d54a8834205b4b))
+
 ## [1.5.0](https://www.github.com/teletha/stylist/compare/v1.4.0...v1.5.0) (2022-11-01)
 
 
