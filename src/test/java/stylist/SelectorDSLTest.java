@@ -83,6 +83,12 @@ public class SelectorDSLTest {
         test(selector().attr("name").ignoreCase().is("value"), "$[name=\"value\" i]");
     }
 
+    @Test
+    public void next() {
+        test(selector -> selector.next(null), "$+*");
+        test(selector -> selector.next("next", null), "$+next");
+    }
+
     /**
      * Helper method.
      */

@@ -265,6 +265,26 @@ public class SelectorDSL {
      * This is referred to as an adjacent selector or next-sibling selector. It will select only the
      * specified element that immediately follows the former specified element.
      * 
+     * @param sub A sub style.
+     */
+    public final void prev(Style prev, Style sub) {
+        prev(prev.selector(), sub);
+    }
+
+    /**
+     * This is referred to as an adjacent selector or next-sibling selector. It will select only the
+     * specified element that immediately follows the former specified element.
+     * 
+     * @param sub A sub style.
+     */
+    public final void prev(String prev, Style sub) {
+        combine(prev + "+", false).declare(sub);
+    }
+
+    /**
+     * This is referred to as an adjacent selector or next-sibling selector. It will select only the
+     * specified element that immediately follows the former specified element.
+     * 
      * @return Chainable API.
      */
     public final SelectorDSL next() {
@@ -277,6 +297,22 @@ public class SelectorDSL {
      */
     public final void next(Style sub) {
         next().declare(sub);
+    }
+
+    /**
+     * This is referred to as an adjacent selector or next-sibling selector. It will select only the
+     * specified element that immediately follows the former specified element.
+     */
+    public final void next(Style next, Style sub) {
+        next(next.selector(), sub);
+    }
+
+    /**
+     * This is referred to as an adjacent selector or next-sibling selector. It will select only the
+     * specified element that immediately follows the former specified element.
+     */
+    public final void next(String next, Style sub) {
+        basic("+" + next).declare(sub);
     }
 
     /**
