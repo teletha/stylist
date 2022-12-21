@@ -9,7 +9,7 @@
  */
 package stylist;
 
-import static stylist.Vendor.*;
+import static stylist.Vendor.Standard;
 
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -125,9 +125,9 @@ public abstract class CSSValue {
     }
 
     /**
-     * @version 2018/09/02 11:05:46
+     * General value.
      */
-    static class Value extends CSSValue {
+    private static class Value extends CSSValue {
 
         /** The vendored values. */
         private final EnumMap<Vendor, String> values;
@@ -196,7 +196,7 @@ public abstract class CSSValue {
     }
 
     /**
-     * @version 2018/09/02 11:05:46
+     * Digit value.
      */
     private static class Digit extends CSSValue {
 
@@ -244,7 +244,7 @@ public abstract class CSSValue {
     }
 
     /**
-     * @version 2018/09/02 12:23:33
+     * Joined value.
      */
     private static class Joined extends CSSValue {
 
