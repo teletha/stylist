@@ -16,6 +16,7 @@ import java.util.function.Consumer;
 
 import kiss.Variable;
 import stylist.util.Properties;
+import stylist.value.CSSValue;
 
 public interface Style extends Consumer, Serializable {
 
@@ -24,16 +25,12 @@ public interface Style extends Consumer, Serializable {
     };
 
     /**
-     * <p>
      * Define the style declaration.
-     * </p>
      */
     void style();
 
     /**
-     * <p>
      * Combine this {@link Style} and the specified {@link Style}.
-     * </p>
      * 
      * @param style A style to combine.
      * @return A combined {@link Style}.

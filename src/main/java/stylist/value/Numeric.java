@@ -14,7 +14,6 @@ import static stylist.value.Unit.*;
 
 import java.util.EnumSet;
 
-import stylist.CSSValue;
 import stylist.Vendor;
 
 public class Numeric extends CSSValue {
@@ -311,7 +310,7 @@ public class Numeric extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected String valueFor(Vendor vendor) {
+    public String valueFor(Vendor vendor) {
         if (!calculated) {
             vendor = Standard;
         }

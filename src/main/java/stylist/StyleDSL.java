@@ -38,7 +38,7 @@ import stylist.value.Unit;
 public interface StyleDSL extends StyleDeclarable {
 
     /** A set of css functions. */
-    public static final CSSFunctions $ = new CSSFunctions();
+    public static final FunctionDSL $ = new FunctionDSL();
 
     /**
      * <p>

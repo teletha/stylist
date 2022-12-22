@@ -11,7 +11,9 @@ package stylist;
 
 import java.util.ArrayList;
 
+import kiss.Variable;
 import stylist.util.Properties;
+import stylist.value.CSSValue;
 
 /**
  * This class is CSSStyleRule which represents a single CSS style rule.
@@ -34,7 +36,7 @@ class StyleRule implements Comparable<StyleRule> {
     final ArrayList<StyleRule> children = new ArrayList();
 
     /** The media rules. */
-    MediaQuery query;
+    final Variable<MediaQuery> query = Variable.empty();
 
     /**
      * Define style rule.

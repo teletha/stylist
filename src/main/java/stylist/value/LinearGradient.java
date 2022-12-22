@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-import stylist.CSSValue;
 import stylist.Vendor;
 
 /**
@@ -196,7 +195,7 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected String valueFor(Vendor vendor) {
+    public String valueFor(Vendor vendor) {
         Numeric baseAngle = new Numeric(vendor == Standard ? 0 : 270, deg);
 
         StringBuilder builder = new StringBuilder();

@@ -9,9 +9,9 @@
  */
 package stylist.property;
 
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.Vendor;
+import stylist.value.CSSValue;
 
 /**
  * @version 2018/08/30 18:25:03

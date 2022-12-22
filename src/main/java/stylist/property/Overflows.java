@@ -9,10 +9,10 @@
  */
 package stylist.property;
 
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
 import stylist.property.helper.WidthHelper;
+import stylist.value.CSSValue;
 import stylist.value.Numeric;
 
 /**

@@ -15,7 +15,6 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-import stylist.CSSValue;
 import stylist.Stylist;
 import stylist.Vendor;
 
@@ -69,7 +68,7 @@ public class FontSet extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected String valueFor(Vendor vendor) {
+    public String valueFor(Vendor vendor) {
         return String.join(",", set);
     }
 

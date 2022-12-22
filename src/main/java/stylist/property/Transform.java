@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.Vendor;
+import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -577,7 +577,7 @@ public class Transform extends PropertyDefinition<Transform> {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return super.valueFor(vendor);
         }
     }
@@ -623,7 +623,7 @@ public class Transform extends PropertyDefinition<Transform> {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             StringBuilder builder = new StringBuilder();
             builder.append(function).append('(');
 

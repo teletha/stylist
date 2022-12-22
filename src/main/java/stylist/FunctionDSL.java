@@ -15,15 +15,12 @@ import stylist.value.LinearGradient;
 import stylist.value.RadialGradient;
 import stylist.value.Shadow;
 
-/**
- * @version 2018/09/07 13:50:11
- */
-public final class CSSFunctions extends SelectorDSL {
+public final class FunctionDSL extends SelectorDSL {
 
     /**
      * Hide constructor.
      */
-    CSSFunctions() {
+    FunctionDSL() {
         super(null);
     }
 

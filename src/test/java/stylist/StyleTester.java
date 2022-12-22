@@ -13,6 +13,7 @@ import java.util.function.Consumer;
 
 import kiss.I;
 import stylist.util.Properties;
+import stylist.value.CSSValue;
 
 public class StyleTester implements StyleDSL {
 

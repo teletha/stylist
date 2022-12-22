@@ -275,7 +275,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return expression;
         }
     }

@@ -11,7 +11,6 @@ package stylist.value;
 
 import java.util.EnumSet;
 
-import stylist.CSSValue;
 import stylist.Vendor;
 
 /**
@@ -73,7 +72,7 @@ public class Position extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected String valueFor(Vendor vendor) {
+    public String valueFor(Vendor vendor) {
         if (x.equals(y)) {
             return x.valueFor(vendor);
         } else {

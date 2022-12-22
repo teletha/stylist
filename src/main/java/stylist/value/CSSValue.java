@@ -7,13 +7,16 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist;
+package stylist.value;
 
 import static stylist.Vendor.Standard;
 
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Objects;
+
+import stylist.Stylist;
+import stylist.Vendor;
 
 /**
  * @version 2018/09/05 12:55:50
@@ -36,13 +39,11 @@ public abstract class CSSValue {
     }
 
     /**
-     * <p>
      * Compute the vendor specific value.
-     * </p>
      * 
      * @param vendor A target {@link Vendor}.
      */
-    protected abstract String valueFor(Vendor vendor);
+    public abstract String valueFor(Vendor vendor);
 
     /**
      * Test whether the specified value matches this {@link CSSValue}.
@@ -165,7 +166,7 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             String value = values.get(vendor);
 
             if (value != null) {
@@ -214,7 +215,7 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             if (value.intValue() == value.doubleValue()) {
                 return String.valueOf(value.intValue());
             } else {
@@ -283,7 +284,7 @@ public abstract class CSSValue {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return before.valueFor(vendor) + separator + after.valueFor(vendor);
         }
 

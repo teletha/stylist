@@ -19,9 +19,9 @@ import java.util.function.BiFunction;
 import kiss.I;
 import kiss.Managed;
 import kiss.Singleton;
-import stylist.CSSValue;
 import stylist.Vendor;
 import stylist.util.Properties;
+import stylist.value.CSSValue;
 import stylist.value.Color;
 import stylist.value.Font;
 import stylist.value.FontSet;
@@ -228,7 +228,7 @@ public abstract class DesignScheme {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return "var(--" + name + ")";
         }
     }
@@ -308,7 +308,7 @@ public abstract class DesignScheme {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return "var(--" + name + ")";
         }
     }
@@ -333,7 +333,7 @@ public abstract class DesignScheme {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return "var(--" + name + ")";
         }
     }
@@ -356,7 +356,7 @@ public abstract class DesignScheme {
          * {@inheritDoc}
          */
         @Override
-        protected String valueFor(Vendor vendor) {
+        public String valueFor(Vendor vendor) {
             return "var(--" + name + ")";
         }
     }

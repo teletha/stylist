@@ -12,6 +12,7 @@ package stylist;
 import org.junit.jupiter.api.Test;
 
 import stylist.util.Properties;
+import stylist.value.CSSValue;
 
 /**
  * @version 2018/09/01 21:32:13

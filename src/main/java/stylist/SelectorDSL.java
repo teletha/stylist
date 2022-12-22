@@ -12,6 +12,8 @@ package stylist;
 import java.util.ArrayList;
 import java.util.List;
 
+import stylist.value.CSSValue;
+
 /**
  * @version 2018/09/07 13:45:42
  */
@@ -1185,7 +1187,7 @@ public class SelectorDSL {
 
     public final void media(MediaQuery query, Style style) {
         StyleRule create = Stylist.create(style, create(processor));
-        create.query = query;
+        create.query.set(query);
     }
 
     /**

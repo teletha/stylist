@@ -40,7 +40,7 @@ public class RadialGradient extends LinearGradient<RadialGradient> {
      * {@inheritDoc}
      */
     @Override
-    protected String valueFor(Vendor vendor) {
+    public String valueFor(Vendor vendor) {
         StringBuilder builder = new StringBuilder();
         if (repeatable) {
             builder.append("repeating-");

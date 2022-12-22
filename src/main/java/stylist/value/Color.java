@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import stylist.CSSValue;
 import stylist.Stylist;
 import stylist.Vendor;
 
@@ -326,7 +325,7 @@ public class Color extends CSSValue {
      * {@inheritDoc}
      */
     @Override
-    protected String valueFor(Vendor vendor) {
+    public String valueFor(Vendor vendor) {
         if (alpha == 0) {
             return "transparent";
         } else if (alpha == 1) {
