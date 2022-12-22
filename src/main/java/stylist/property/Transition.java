@@ -9,8 +9,11 @@
  */
 package stylist.property;
 
-import static stylist.value.Unit.s;
+import static stylist.value.Unit.*;
 
+import java.util.List;
+
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.SelectorDSL;
 import stylist.value.Numeric;
@@ -300,11 +303,13 @@ public class Transition extends PropertyDefinition<Transition> {
      * </p>
      */
     public SelectorDSL when() {
-        return SelectorDSL.create(rule -> {
-            value("transition-property", join(rule.properties.names(), v -> v));
-            value("transition-duration", join(rule.properties.names(), v -> duration));
-            value("transition-delay", join(rule.properties.names(), v -> delay));
-            value("transition-timing-function", join(rule.properties.names(), v -> timing));
+        return SelectorDSL.create(() -> {
+            List<CSSValue> names = readPropertyNames();
+
+            value("transition-property", join(names, v -> v));
+            value("transition-duration", join(names, v -> duration));
+            value("transition-delay", join(names, v -> delay));
+            value("transition-timing-function", join(names, v -> timing));
 
             reset();
         });

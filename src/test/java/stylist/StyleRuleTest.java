@@ -11,24 +11,21 @@ package stylist;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * @version 2018/09/07 12:01:59
- */
-public class StyleRuleTest extends StyleTester {
+class StyleRuleTest extends StyleTester {
 
     @Test
-    public void single() {
+    void single() {
         Style style = () -> {
             display.block();
         };
 
-        StyleRule rule = StyleRule.create(style);
+        StyleRule rule = Stylist.create(style);
         assert rule.selector.match(style.selector());
         assert rule.properties.get("display").get().match("block");
     }
 
     @Test
-    public void hover() {
+    void hover() {
         Style style = () -> {
             display.block();
 
@@ -37,7 +34,7 @@ public class StyleRuleTest extends StyleTester {
             });
         };
 
-        StyleRule rule = StyleRule.create(style);
+        StyleRule rule = Stylist.create(style);
         assert rule.selector.match(style.selector());
         assert rule.properties.get("display").get().match("block");
         assert rule.children.size() == 1;
@@ -48,7 +45,7 @@ public class StyleRuleTest extends StyleTester {
     }
 
     @Test
-    public void descendant() {
+    void descendant() {
         Style style = () -> {
             display.block();
 
@@ -57,14 +54,14 @@ public class StyleRuleTest extends StyleTester {
             });
         };
 
-        StyleRule rule = StyleRule.create(style);
+        StyleRule rule = Stylist.create(style);
         StyleRule child = rule.children.get(0);
         assert child.selector.match(style.selector() + " *");
         assert child.properties.get("text-decoration").get().match("underline");
     }
 
     @Test
-    public void child() {
+    void child() {
         Style style = () -> {
             display.block();
 
@@ -73,14 +70,14 @@ public class StyleRuleTest extends StyleTester {
             });
         };
 
-        StyleRule rule = StyleRule.create(style);
+        StyleRule rule = Stylist.create(style);
         StyleRule child = rule.children.get(0);
         assert child.selector.match(style.selector() + ">*");
         assert child.properties.get("text-decoration").get().match("underline");
     }
 
     @Test
-    public void parent() {
+    void parent() {
         Style style = () -> {
             display.block();
 
@@ -89,7 +86,7 @@ public class StyleRuleTest extends StyleTester {
             });
         };
 
-        StyleRule rule = StyleRule.create(style);
+        StyleRule rule = Stylist.create(style);
         StyleRule child = rule.children.get(0);
         assert child.selector.match("*:enabled>" + style.selector());
         assert child.properties.get("text-decoration").get().match("underline");

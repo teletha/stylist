@@ -11,25 +11,27 @@ package stylist;
 
 import java.util.ArrayList;
 
+import stylist.util.Properties;
+
 /**
  * This class is CSSStyleRule which represents a single CSS style rule.
  */
-public class StyleRule implements Comparable<StyleRule> {
+class StyleRule implements Comparable<StyleRule> {
 
     /** The selector. */
-    public final CSSValue selector;
+    final CSSValue selector;
 
     /** The description. */
-    public final String description;
+    final String description;
 
     /** The internal selector. */
-    private final SelectorDSL internal;
+    final SelectorDSL internal;
 
     /** The property list. */
-    public final Properties properties;
+    final Properties properties;
 
     /** The sub rules. */
-    public final ArrayList<StyleRule> children = new ArrayList();
+    final ArrayList<StyleRule> children = new ArrayList();
 
     /** The media rules. */
     MediaQuery query;
@@ -37,10 +39,10 @@ public class StyleRule implements Comparable<StyleRule> {
     /**
      * Define style rule.
      * 
-     * @param name An actual selector.
+     * @param selector An actual selector.
      * @param description A description of style.
      */
-    private StyleRule(SelectorDSL selector, String description) {
+    StyleRule(SelectorDSL selector, String description) {
         this.selector = selector.selector();
         this.description = description;
         this.internal = selector;
@@ -61,50 +63,5 @@ public class StyleRule implements Comparable<StyleRule> {
     @Override
     public String toString() {
         return Stylist.pretty().format(this);
-    }
-
-    /**
-     * Create {@link StyleRule} from the specified {@link Style}.
-     * 
-     * @param style
-     * @return A create new {@link StyleRule}.
-     */
-    public static StyleRule create(Style style) {
-        return create(style, SelectorDSL.create(null));
-    }
-
-    /**
-     * Create {@link StyleRule} from the specified {@link Style}.
-     * 
-     * @param style A style description.
-     * @return A create new {@link StyleRule}.
-     */
-    static synchronized StyleRule create(Style style, SelectorDSL selector) {
-        // store parent rule
-        StyleRule parent = PropertyDefinition.rule;
-        String description;
-
-        if (parent == null) {
-            selector.selector = style.selector();
-            description = style.detail();
-        } else {
-            selector.replace(parent.internal);
-            description = parent.description;
-        }
-
-        // create child rule
-        StyleRule child = new StyleRule(selector, description);
-
-        // swap context rule and execute it
-        PropertyDefinition.rule = child;
-        style.style();
-        PropertyDefinition.rule = parent;
-
-        if (parent != null) {
-            parent.children.add(child);
-        }
-
-        // API definition
-        return child;
     }
 }

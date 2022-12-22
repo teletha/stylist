@@ -9,14 +9,9 @@
  */
 package stylist.property;
 
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
 
 public class Content extends PropertyDefinition<Content> {
-
-    private static String content() {
-        return rule.properties.get("content").map(CSSValue::toString).or("");
-    }
 
     /**
      * Text content.
@@ -25,7 +20,7 @@ public class Content extends PropertyDefinition<Content> {
      * @return
      */
     public Content text(String value) {
-        return value(content() + "'" + value + "'");
+        return value(readValueAsString("") + "'" + value + "'");
     }
 
     /**
@@ -38,17 +33,15 @@ public class Content extends PropertyDefinition<Content> {
     }
 
     /**
-     * <p>
      * Returns the value of the element's attribute X as a string. If there is no attribute X, an
      * empty string is returned. The case-sensitivity of attribute names depends on the document
      * language.
-     * </p>
      * 
      * @param name
      * @return
      */
     public Content attr(String name) {
-        return value(content() + "attr(" + name + ")");
+        return value(readValueAsString("") + "attr(" + name + ")");
     }
 
     /**
@@ -145,9 +138,7 @@ public class Content extends PropertyDefinition<Content> {
     }
 
     /**
-     * <p>
      * These values are replaced by the appropriate string from the quotes property.
-     * </p>
      * 
      * @return
      */
@@ -156,9 +147,7 @@ public class Content extends PropertyDefinition<Content> {
     }
 
     /**
-     * <p>
      * These values are replaced by the appropriate string from the quotes property.
-     * </p>
      * 
      * @return
      */

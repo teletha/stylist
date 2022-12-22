@@ -11,7 +11,6 @@ package stylist;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * @version 2018/09/07 13:45:42
@@ -25,7 +24,7 @@ public class SelectorDSL {
     private SelectorDSL child;
 
     /** The style creation processor. */
-    private final Consumer<StyleRule> processor;
+    private final Runnable processor;
 
     /** The simple selector list. */
     String selector = "";
@@ -46,7 +45,7 @@ public class SelectorDSL {
      * 
      * @param processor
      */
-    SelectorDSL(Consumer<StyleRule> processor) {
+    SelectorDSL(Runnable processor) {
         this.processor = processor;
     }
 
@@ -1185,7 +1184,7 @@ public class SelectorDSL {
     }
 
     public final void media(MediaQuery query, Style style) {
-        StyleRule create = StyleRule.create(style, create(processor));
+        StyleRule create = Stylist.create(style, create(processor));
         create.query = query;
     }
 
@@ -1242,10 +1241,10 @@ public class SelectorDSL {
      */
     private void declare(Style style) {
         if (style != null) {
-            StyleRule rule = StyleRule.create(style, this);
+            Stylist.create(style, this);
 
             if (root.processor != null) {
-                root.processor.accept(rule);
+                root.processor.run();
             }
         }
     }
@@ -1318,14 +1317,12 @@ public class SelectorDSL {
     }
 
     /**
-     * <p>
      * Create new selector builder.
-     * </p>
      * 
      * @param processor A style creation process.
      * @return A created selector builder.
      */
-    public static final SelectorDSL create(Consumer<StyleRule> processor) {
+    public static final SelectorDSL create(Runnable processor) {
         return new SelectorDSL(processor).basic("$");
     }
 

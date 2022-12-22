@@ -12,10 +12,8 @@ package stylist;
 import java.util.function.Consumer;
 
 import kiss.I;
+import stylist.util.Properties;
 
-/**
- * @version 2018/09/08 22:39:50
- */
 public class StyleTester implements StyleDSL {
 
     static {
@@ -30,7 +28,7 @@ public class StyleTester implements StyleDSL {
      */
     protected final ValidatableStyle writeStyle(Style style, Consumer<Properties>... postProcessors) {
         // empty style sheet
-        StyleRule rule = StyleRule.create(style);
+        StyleRule rule = Stylist.create(style);
 
         // search specified rule
         String name = style.selector();

@@ -65,7 +65,7 @@ public class AnimationFrames {
 
     private AnimationFrames frame(Style style, int... progress) {
         progressions.add(progress);
-        styles.add(StyleRule.create(style));
+        styles.add(Stylist.create(style));
 
         return this;
     }

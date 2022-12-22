@@ -16,9 +16,6 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
-/**
- * @version 2018/09/06 14:10:24
- */
 public class PropertyDefinition<T> {
 
     /** The current processing property holder. */
@@ -45,7 +42,7 @@ public class PropertyDefinition<T> {
      * 
      * @param name A property name.
      */
-    public PropertyDefinition(String name) {
+    protected PropertyDefinition(String name) {
         this(name, null);
     }
 
@@ -92,11 +89,9 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
      * The initial CSS keyword applies the initial value of a property to an element. It is allowed
      * on every CSS property and causes the element for which it is specified to use the initial
      * value of the property.
-     * </p>
      * 
      * @return
      */
@@ -105,12 +100,10 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
      * The unset CSS keyword resets a property to its inherited value if it inherits from its
      * parent, and to its initial value if not. In other words, it behaves like the inherit keyword
      * in the first case, and like the initial keyword in the second case. It can be applied to any
      * CSS property, including the CSS shorthand all.
-     * </p>
      * 
      * @return
      */
@@ -119,11 +112,9 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
      * Set property.
-     * </p>
      * 
-     * @param value A property name.
+     * @param value A property value.
      * @return Chainable API.
      */
     protected final T value(Object value) {
@@ -131,9 +122,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
-     * Set property.
-     * </p>
+     * Set property as int values.
      * 
      * @param name A property name.
      * @param values A list of property values.
@@ -149,9 +138,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
-     * Set property.
-     * </p>
+     * Set property as float values.
      * 
      * @param name A property name.
      * @param values A list of property values.
@@ -162,9 +149,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
-     * Set property.
-     * </p>
+     * Set property as float values with separator.
      * 
      * @param name A property name.
      * @param separator A value separator.
@@ -181,9 +166,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
      * Set property.
-     * </p>
      * 
      * @param name A property name.
      * @param value A property value.
@@ -194,7 +177,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * Declare the property.
+     * Set the property.
      * 
      * @param name A property name.
      * @param values A list of property values.
@@ -218,6 +201,26 @@ public class PropertyDefinition<T> {
     }
 
     /**
+     * Read the current value as {@link String}. If it is not specified yet, your default value will
+     * be returned.
+     * 
+     * @param defaultValue
+     * @return
+     */
+    protected final String readValueAsString(String defaultValue) {
+        return rule.properties.get(name).map(CSSValue::toString).or(defaultValue);
+    }
+
+    /**
+     * Read the snapshot of all specified property names.
+     * 
+     * @return
+     */
+    protected final List<CSSValue> readPropertyNames() {
+        return new ArrayList(rule.properties.names());
+    }
+
+    /**
      * Check the current value.
      * 
      * @param value A property value you want.
@@ -228,21 +231,16 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * Join all values.
+     * Join all values by comma.
      * 
      * @return
      */
     protected static final <T> String join(T[] items, Function<T, Object> conveter) {
-        StringJoiner joiner = new StringJoiner(",");
-
-        for (T item : items) {
-            joiner.add(conveter.apply(item).toString());
-        }
-        return joiner.toString();
+        return join(List.of(items), conveter);
     }
 
     /**
-     * Join all values.
+     * Join all values by comma.
      * 
      * @return
      */
@@ -256,9 +254,7 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * <p>
      * Convert to hyphened lower case.
-     * </p>
      * 
      * @param value
      * @return

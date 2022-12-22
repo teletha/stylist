@@ -36,6 +36,7 @@ import java.util.stream.IntStream;
 import kiss.I;
 import stylist.design.DesignScheme;
 import stylist.design.DesignScheme.DefinedTheme;
+import stylist.util.Properties;
 import stylist.value.Color;
 
 public final class Stylist {
@@ -406,7 +407,7 @@ public final class Stylist {
     private String format(Iterable<Style> styles) {
         StringBuilder builder = new StringBuilder();
 
-        I.signal(styles).map(StyleRule::create).sort(Comparator.naturalOrder()).to(e -> {
+        I.signal(styles).map(Stylist::create).sort(Comparator.naturalOrder()).to(e -> {
             format(e, builder);
         });
 
@@ -573,6 +574,51 @@ public final class Stylist {
         } else {
             return "";
         }
+    }
+
+    /**
+     * Create {@link StyleRule} from the specified {@link Style}.
+     * 
+     * @param style
+     * @return A create new {@link StyleRule}.
+     */
+    static StyleRule create(Style style) {
+        return create(style, SelectorDSL.create(null));
+    }
+
+    /**
+     * Create {@link StyleRule} from the specified {@link Style}.
+     * 
+     * @param style A style description.
+     * @return A create new {@link StyleRule}.
+     */
+    static synchronized StyleRule create(Style style, SelectorDSL selector) {
+        // store parent rule
+        StyleRule parent = PropertyDefinition.rule;
+        String description;
+
+        if (parent == null) {
+            selector.selector = style.selector();
+            description = style.detail();
+        } else {
+            selector.replace(parent.internal);
+            description = parent.description;
+        }
+
+        // create child rule
+        StyleRule child = new StyleRule(selector, description);
+
+        // swap context rule and execute it
+        PropertyDefinition.rule = child;
+        style.style();
+        PropertyDefinition.rule = parent;
+
+        if (parent != null) {
+            parent.children.add(child);
+        }
+
+        // API definition
+        return child;
     }
 
     /**

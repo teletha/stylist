@@ -15,13 +15,10 @@ import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
 
-/**
- * @version 2018/08/30 18:38:18
- */
-public class OutlineTest extends StyleTester {
+class OutlineTest extends StyleTester {
 
     @Test
-    public void width() throws Exception {
+    void width() throws Exception {
         ValidatableStyle style = writeStyle(() -> {
             outline.width(2, em);
         });
@@ -30,7 +27,7 @@ public class OutlineTest extends StyleTester {
     }
 
     @Test
-    public void style2() throws Exception {
+    void style2() throws Exception {
         ValidatableStyle style = writeStyle(() -> {
             outline.solid();
         });
@@ -39,7 +36,7 @@ public class OutlineTest extends StyleTester {
     }
 
     @Test
-    public void color() throws Exception {
+    void color() throws Exception {
         ValidatableStyle style = writeStyle(() -> {
             outline.color(White);
         });
@@ -48,7 +45,7 @@ public class OutlineTest extends StyleTester {
     }
 
     @Test
-    public void chain() throws Exception {
+    void chain() throws Exception {
         ValidatableStyle style = writeStyle(() -> {
             outline.solid().width(2, em).color(Black);
         });

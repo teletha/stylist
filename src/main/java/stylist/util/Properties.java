@@ -7,7 +7,7 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist;
+package stylist.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 import kiss.Variable;
+import stylist.CSSValue;
 
 /**
  * @version 2018/09/06 13:52:44
