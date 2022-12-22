@@ -7,7 +7,7 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist;
+package stylist.value;
 
 /**
  * @version 2018/09/10 11:28:42

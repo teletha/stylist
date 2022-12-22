@@ -10,11 +10,11 @@
 package stylist.property;
 
 import stylist.PropertyDefinition;
-import stylist.Vendor;
 import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Shadow;
 import stylist.value.Unit;
+import stylist.value.Vendor;
 
 /**
  * @version 2018/08/30 18:25:18

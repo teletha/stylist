@@ -578,51 +578,6 @@ public final class Stylist {
     }
 
     /**
-     * Create {@link StyleRule} from the specified {@link Style}.
-     * 
-     * @param style
-     * @return A create new {@link StyleRule}.
-     */
-    static StyleRule create(Style style) {
-        return create(style, SelectorDSL.create(null));
-    }
-
-    /**
-     * Create {@link StyleRule} from the specified {@link Style}.
-     * 
-     * @param style A style description.
-     * @return A create new {@link StyleRule}.
-     */
-    static synchronized StyleRule create(Style style, SelectorDSL selector) {
-        // store parent rule
-        StyleRule parent = PropertyDefinition.rule;
-        String description;
-
-        if (parent == null) {
-            selector.selector = style.selector();
-            description = style.detail();
-        } else {
-            selector.replace(parent.internal);
-            description = parent.description;
-        }
-
-        // create child rule
-        StyleRule child = new StyleRule(selector, description);
-
-        // swap context rule and execute it
-        PropertyDefinition.rule = child;
-        style.style();
-        PropertyDefinition.rule = parent;
-
-        if (parent != null) {
-            parent.children.add(child);
-        }
-
-        // API definition
-        return child;
-    }
-
-    /**
      * Default human-readable formatter.
      * 
      * @return
@@ -797,5 +752,50 @@ public final class Stylist {
         if (uri != null && uri.startsWith("http")) {
             externals.add(uri);
         }
+    }
+
+    /**
+     * Create {@link StyleRule} from the specified {@link Style}.
+     * 
+     * @param style
+     * @return A create new {@link StyleRule}.
+     */
+    static StyleRule create(Style style) {
+        return create(style, SelectorDSL.create(null));
+    }
+
+    /**
+     * Create {@link StyleRule} from the specified {@link Style}.
+     * 
+     * @param style A style description.
+     * @return A create new {@link StyleRule}.
+     */
+    static synchronized StyleRule create(Style style, SelectorDSL selector) {
+        // store parent rule
+        StyleRule parent = PropertyDefinition.rule;
+        String description;
+    
+        if (parent == null) {
+            selector.selector = style.selector();
+            description = style.detail();
+        } else {
+            selector.replace(parent.internal);
+            description = parent.description;
+        }
+    
+        // create child rule
+        StyleRule child = new StyleRule(selector, description);
+    
+        // swap context rule and execute it
+        PropertyDefinition.rule = child;
+        style.style();
+        PropertyDefinition.rule = parent;
+    
+        if (parent != null) {
+            parent.children.add(child);
+        }
+    
+        // API definition
+        return child;
     }
 }

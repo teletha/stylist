@@ -9,9 +9,7 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.*;
-
-import stylist.Vendor;
+import static stylist.value.Vendor.*;
 
 /**
  * @version 2018/08/30 18:22:22

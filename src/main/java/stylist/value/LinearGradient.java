@@ -9,14 +9,12 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.*;
 import static stylist.value.Unit.*;
+import static stylist.value.Vendor.*;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
-
-import stylist.Vendor;
 
 /**
  * @version 2014/10/28 20:36:39

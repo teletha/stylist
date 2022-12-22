@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import stylist.Stylist;
-import stylist.Vendor;
 
 public class FontSet extends CSSValue {
 

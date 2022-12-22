@@ -9,8 +9,8 @@
  */
 package stylist.property;
 
-import static stylist.Vendor.*;
 import static stylist.value.Unit.px;
+import static stylist.value.Vendor.*;
 
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;

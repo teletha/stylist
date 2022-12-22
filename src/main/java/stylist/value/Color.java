@@ -14,7 +14,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import stylist.Stylist;
-import stylist.Vendor;
 
 /**
  * @version 2018/09/11 15:53:19

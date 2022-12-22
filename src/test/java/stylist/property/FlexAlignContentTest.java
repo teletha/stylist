@@ -12,7 +12,7 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.Vendor;
+import stylist.value.Vendor;
 
 /**
  * @version 2018/09/05 11:18:01

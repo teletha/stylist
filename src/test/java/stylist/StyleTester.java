@@ -14,6 +14,7 @@ import java.util.function.Consumer;
 import kiss.I;
 import stylist.util.Properties;
 import stylist.value.CSSValue;
+import stylist.value.Vendor;
 
 public class StyleTester implements StyleDSL {
 

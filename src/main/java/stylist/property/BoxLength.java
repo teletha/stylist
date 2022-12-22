@@ -12,9 +12,9 @@ package stylist.property;
 import java.util.EnumSet;
 
 import stylist.PropertyDefinition;
-import stylist.Vendor;
 import stylist.value.Numeric;
 import stylist.value.Unit;
+import stylist.value.Vendor;
 
 /**
  * @version 2018/08/30 18:24:37

@@ -10,8 +10,8 @@
 package stylist.property;
 
 import stylist.PropertyDefinition;
-import stylist.Vendor;
 import stylist.value.CSSValue;
+import stylist.value.Vendor;
 
 /**
  * @version 2018/08/30 18:25:03

@@ -13,13 +13,10 @@ import java.util.function.Consumer;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * @version 2018/09/07 12:01:05
- */
-public class SelectorDSLTest {
+class SelectorDSLTest {
 
     @Test
-    public void combinator() throws Exception {
+    void combinator() throws Exception {
         test(selector().prev(), "*+$");
         test(selector().prev().checked(), "*:checked+$");
         test(selector().next(), "$+*");
@@ -37,19 +34,19 @@ public class SelectorDSLTest {
     private static final NamedLocation loc1 = new NamedLocation(".loc1");
 
     @Test
-    public void with() throws Exception {
+    void with() throws Exception {
         test(selector().with(loc1), "$.loc1");
         test(selector().hover().with(loc1), "$.loc1:hover");
     }
 
     @Test
-    public void combinatorWith() throws Exception {
+    void combinatorWith() throws Exception {
         test(selector().prev().with(loc1), ".loc1+$");
         test(selector().prev().with(loc1).checked(), ".loc1:checked+$");
     }
 
     @Test
-    public void pseudoClass() throws Exception {
+    void pseudoClass() throws Exception {
         test(selector().active(), "$:active");
         test(selector().disabled(), "$:disabled");
         test(selector().enabled(), "$:enabled");
@@ -57,34 +54,34 @@ public class SelectorDSLTest {
     }
 
     @Test
-    public void pseudoClasses() throws Exception {
+    void pseudoClasses() throws Exception {
         test(selector().active().hover(), "$:active:hover");
     }
 
     @Test
-    public void pseudoElement() throws Exception {
+    void pseudoElement() throws Exception {
         test(selector -> selector.before(null), "$::before");
     }
 
     @Test
-    public void pseudoClassAndElement() throws Exception {
+    void pseudoClassAndElement() throws Exception {
         test(selector -> selector.hover().before(null), "$:hover::before");
     }
 
     @Test
-    public void attribute() {
+    void attribute() {
         test(selector().attr("name").exist(), "$[name]");
         test(selector().attr("name").is("value"), "$[name=\"value\"]");
     }
 
     @Test
-    public void attributeCaseSensitive() {
+    void attributeCaseSensitive() {
         test(selector().attr("name").ignoreCase().exist(), "$[name]");
         test(selector().attr("name").ignoreCase().is("value"), "$[name=\"value\" i]");
     }
 
     @Test
-    public void next() {
+    void next() {
         test(selector -> selector.next(null), "$+*");
         test(selector -> selector.next("next", null), "$+next");
     }
@@ -118,9 +115,7 @@ public class SelectorDSLTest {
         assert selector.toString().equals(expected);
     }
 
-    /**
-     * @version 2016/09/18 21:30:20
-     */
+    @SuppressWarnings("serial")
     private static final class NamedLocation implements Style {
 
         private final String name;

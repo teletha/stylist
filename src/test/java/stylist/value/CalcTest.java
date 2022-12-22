@@ -12,7 +12,6 @@ package stylist.value;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.Vendor;
 
 /**
  * @version 2018/09/05 11:46:51

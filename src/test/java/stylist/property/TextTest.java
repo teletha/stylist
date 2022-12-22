@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.Vendor.*;
+import static stylist.value.Vendor.*;
 
 import org.junit.jupiter.api.Test;
 

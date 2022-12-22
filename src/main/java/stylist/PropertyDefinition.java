@@ -17,6 +17,7 @@ import java.util.StringJoiner;
 import java.util.function.Function;
 
 import stylist.value.CSSValue;
+import stylist.value.Vendor;
 
 public class PropertyDefinition<T> {
 

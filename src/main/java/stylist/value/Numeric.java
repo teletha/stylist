@@ -9,12 +9,10 @@
  */
 package stylist.value;
 
-import static stylist.Vendor.*;
 import static stylist.value.Unit.*;
+import static stylist.value.Vendor.*;
 
 import java.util.EnumSet;
-
-import stylist.Vendor;
 
 public class Numeric extends CSSValue {
 

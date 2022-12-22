@@ -19,13 +19,13 @@ import java.util.function.BiFunction;
 import kiss.I;
 import kiss.Managed;
 import kiss.Singleton;
-import stylist.Vendor;
 import stylist.util.Properties;
 import stylist.value.CSSValue;
 import stylist.value.Color;
 import stylist.value.Font;
 import stylist.value.FontSet;
 import stylist.value.Numeric;
+import stylist.value.Vendor;
 
 @Managed(Singleton.class)
 public abstract class DesignScheme {

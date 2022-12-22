@@ -14,8 +14,8 @@ import static stylist.value.Color.*;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.Vendor;
 import stylist.property.Background.BackgroundImage;
+import stylist.value.Vendor;
 
 /**
  * @version 2018/09/05 11:51:47

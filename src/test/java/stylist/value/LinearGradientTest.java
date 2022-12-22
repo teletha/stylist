@@ -12,7 +12,6 @@ package stylist.value;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.Vendor;
 import stylist.property.Background.BackgroundImage;
 
 /**
