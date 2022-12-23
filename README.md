@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://docs.oracle.com/en/java/javase/11/"><img src="https://img.shields.io/badge/Java-Release%2011-green"/></a>
+    <a href="https://docs.oracle.com/en/java/javase/19/"><img src="https://img.shields.io/badge/Java-Release%2019-green"/></a>
     <span>&nbsp;</span>
     <a href="https://jitpack.io/#teletha/stylist"><img src="https://img.shields.io/jitpack/v/github/teletha/stylist?label=Repository&color=green"></a>
     <span>&nbsp;</span>
@@ -18,7 +18,7 @@
 
 
 ## Prerequisites
-Stylist runs on all major operating systems and requires only [Java version 11](https://docs.oracle.com/en/java/javase/11/) or later to run.
+Stylist runs on all major operating systems and requires only [Java version 19](https://docs.oracle.com/en/java/javase/19/) or later to run.
 To check, please run `java -version` from the command line interface. You should see something like this:
 ```
 > java -version
