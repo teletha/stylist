@@ -2,11 +2,13 @@ const root = {
 	"docs": [],
 	"modules": [],
 	"packages": [
+		"kiss",
 		"stylist",
 		"stylist.design",
 		"stylist.image",
 		"stylist.property",
 		"stylist.property.helper",
+		"stylist.util",
 		"stylist.value"
 	],
 	"types": [
@@ -15,13 +17,6 @@ const root = {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "AbstractDesignScheme",
 			"packageName": "stylist.design",
-			"type": "AbstractClass"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "AbstractStyleDSL",
-			"packageName": "stylist",
 			"type": "AbstractClass"
 		},
 		{
@@ -252,14 +247,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
@@ -392,21 +387,21 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.property",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Position",
 			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Position",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Properties",
-			"packageName": "stylist",
+			"packageName": "stylist.util",
 			"type": "Class"
 		},
 		{
@@ -499,13 +494,6 @@ const root = {
 			"name": "StyleDeclarable",
 			"packageName": "stylist",
 			"type": "Interface"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "StyleRule",
-			"packageName": "stylist",
-			"type": "Class"
 		},
 		{
 			"modifiers": {
@@ -636,6 +624,20 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Tree",
+			"packageName": "kiss",
+			"type": "AbstractClass"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "TreeNode",
+			"packageName": "kiss",
+			"type": "AbstractClass"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Unit",
 			"packageName": "stylist.value",
 			"type": "Enum"
@@ -651,7 +653,7 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Vendor",
-			"packageName": "stylist",
+			"packageName": "stylist.value",
 			"type": "Enum"
 		},
 		{
