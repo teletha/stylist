@@ -7,11 +7,10 @@
  *
  *          http://opensource.org/licenses/mit-license.php
  */
-package stylist.util;
+package stylist;
 
 import static stylist.StyleDSL.*;
 
-import stylist.Style;
 import stylist.property.Background.BackgroundImage;
 import stylist.value.Color;
 import stylist.value.Numeric;
