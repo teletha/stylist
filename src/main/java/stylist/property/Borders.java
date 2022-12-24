@@ -9,7 +9,7 @@
  */
 package stylist.property;
 
-import stylist.value.CSSValue;
+import stylist.CSSValue;
 import stylist.value.Numeric;
 
 /**

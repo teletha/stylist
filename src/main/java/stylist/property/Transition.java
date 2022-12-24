@@ -13,9 +13,9 @@ import static stylist.value.Unit.*;
 
 import java.util.List;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.SelectorDSL;
-import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 

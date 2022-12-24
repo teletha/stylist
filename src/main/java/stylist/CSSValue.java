@@ -7,7 +7,7 @@
  *
  *          https://opensource.org/licenses/MIT
  */
-package stylist.value;
+package stylist;
 
 import static stylist.value.Vendor.Standard;
 
@@ -15,7 +15,7 @@ import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Objects;
 
-import stylist.Stylist;
+import stylist.value.Vendor;
 
 /**
  * @version 2018/09/05 12:55:50

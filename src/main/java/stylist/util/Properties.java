@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 import kiss.Variable;
-import stylist.value.CSSValue;
+import stylist.CSSValue;
 
 /**
  * @version 2018/09/06 13:52:44

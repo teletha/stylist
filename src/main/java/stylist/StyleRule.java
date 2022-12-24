@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import kiss.Variable;
 import stylist.util.Properties;
-import stylist.value.CSSValue;
 
 /**
  * This class is CSSStyleRule which represents a single CSS style rule.

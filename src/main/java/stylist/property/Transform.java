@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
-import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 import stylist.value.Vendor;

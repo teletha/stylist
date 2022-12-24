@@ -16,7 +16,6 @@ import java.util.function.Consumer;
 
 import kiss.Variable;
 import stylist.util.Properties;
-import stylist.value.CSSValue;
 
 public interface Style extends Consumer, Serializable {
 

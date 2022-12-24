@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+import stylist.CSSValue;
+
 /**
  * @version 2014/10/28 20:36:39
  */

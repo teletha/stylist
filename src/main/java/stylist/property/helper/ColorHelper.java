@@ -9,7 +9,7 @@
  */
 package stylist.property.helper;
 
-import stylist.value.CSSValue;
+import stylist.CSSValue;
 import stylist.value.Color;
 
 public interface ColorHelper<R> {

@@ -12,9 +12,9 @@ package stylist.property;
 import static stylist.value.Unit.px;
 import static stylist.value.Vendor.*;
 
+import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
-import stylist.value.CSSValue;
 import stylist.value.Color;
 import stylist.value.Numeric;
 import stylist.value.Shadow;

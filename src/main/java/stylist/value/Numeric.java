@@ -14,6 +14,8 @@ import static stylist.value.Vendor.*;
 
 import java.util.EnumSet;
 
+import stylist.CSSValue;
+
 public class Numeric extends CSSValue {
 
     /** The zero value. */
