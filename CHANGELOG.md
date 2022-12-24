@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.7.0](https://github.com/teletha/stylist/compare/v1.6.1...v1.7.0) (2022-12-24)
+
+
+### Features
+
+* Hide StyleRule. ([a956bc6](https://github.com/teletha/stylist/commit/a956bc6fdc6d8ad307864c7e58fa4ac648bf073c))
+
+
+### Bug Fixes
+
+* move Vendor to value package ([846a972](https://github.com/teletha/stylist/commit/846a972f0a3d8fd9759426a720de2c1f0d57208d))
+* refactoring CSSValue ([2359e8b](https://github.com/teletha/stylist/commit/2359e8be2bba0ce0539242bb041a7ed7d78e703b))
+
 ## [1.6.1](https://github.com/teletha/stylist/compare/v1.6.0...v1.6.1) (2022-12-05)
 
 
