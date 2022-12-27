@@ -22,6 +22,10 @@ import stylist.Stylist;
  */
 public abstract class CSSValue {
 
+    static {
+        new Error("Load CSSValue").printStackTrace();;
+    }
+
     /** The empty value. */
     public static final CSSValue EMPTY = new Value("");
 
