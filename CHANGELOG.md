@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/teletha/stylist/compare/v1.7.1...v1.7.2) (2022-12-27)
+
+
+### Bug Fixes
+
+* refactoring package ([75d7d15](https://github.com/teletha/stylist/commit/75d7d15f0f4e800b9b1d0d9f571c3c0eba4cce14))
+
 ## [1.7.1](https://github.com/teletha/stylist/compare/v1.7.0...v1.7.1) (2022-12-27)
 
 
