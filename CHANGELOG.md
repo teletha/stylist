@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/teletha/stylist/compare/v1.7.0...v1.7.1) (2022-12-27)
+
+
+### Bug Fixes
+
+* remove old tree builder ([980f1f9](https://github.com/teletha/stylist/commit/980f1f9883f22034414fabfa07d809fd190d096d))
+
 ## [1.7.0](https://github.com/teletha/stylist/compare/v1.6.1...v1.7.0) (2022-12-24)
 
 
