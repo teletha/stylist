@@ -2,7 +2,6 @@ const root = {
 	"docs": [],
 	"modules": [],
 	"packages": [
-		"kiss",
 		"stylist",
 		"stylist.design",
 		"stylist.image",
@@ -620,20 +619,6 @@ const root = {
 			"name": "Transition",
 			"packageName": "stylist.property",
 			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Tree",
-			"packageName": "kiss",
-			"type": "AbstractClass"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "TreeNode",
-			"packageName": "kiss",
-			"type": "AbstractClass"
 		},
 		{
 			"modifiers": {
