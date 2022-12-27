@@ -78,21 +78,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Browsers",
-			"packageName": "stylist",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "CSSFunctions",
-			"packageName": "stylist",
+			"packageName": "stylist.util",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "CSSValue",
-			"packageName": "stylist",
+			"packageName": "stylist.value",
 			"type": "AbstractClass"
 		},
 		{
@@ -289,6 +282,13 @@ const root = {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "FontSet",
 			"packageName": "stylist.value",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "FunctionDSL",
+			"packageName": "stylist",
 			"type": "Class"
 		},
 		{
