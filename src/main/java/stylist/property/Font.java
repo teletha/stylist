@@ -9,9 +9,9 @@
  */
 package stylist.property;
 
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
+import stylist.value.CSSValue;
 import stylist.value.FontSet;
 import stylist.value.Numeric;
 import stylist.value.Unit;

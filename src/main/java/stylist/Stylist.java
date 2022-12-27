@@ -37,6 +37,7 @@ import kiss.I;
 import stylist.design.DesignScheme;
 import stylist.design.DesignScheme.DefinedTheme;
 import stylist.util.Properties;
+import stylist.value.CSSValue;
 import stylist.value.Color;
 
 public final class Stylist {

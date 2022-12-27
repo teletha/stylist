@@ -23,9 +23,9 @@ import java.util.function.BiPredicate;
 import javax.imageio.ImageIO;
 
 import kiss.I;
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
+import stylist.value.CSSValue;
 import stylist.value.Color;
 import stylist.value.LinearGradient;
 import stylist.value.Numeric;

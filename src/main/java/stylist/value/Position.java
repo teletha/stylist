@@ -11,8 +11,6 @@ package stylist.value;
 
 import java.util.EnumSet;
 
-import stylist.CSSValue;
-
 /**
  * @version 2018/08/30 18:22:10
  */

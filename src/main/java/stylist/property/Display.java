@@ -9,8 +9,8 @@
  */
 package stylist.property;
 
-import stylist.CSSValue;
 import stylist.PropertyDefinition;
+import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Shadow;
 import stylist.value.Unit;

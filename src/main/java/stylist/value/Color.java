@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import stylist.CSSValue;
 import stylist.Stylist;
 
 /**

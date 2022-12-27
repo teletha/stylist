@@ -12,6 +12,7 @@ package stylist;
 import java.util.ArrayList;
 import java.util.List;
 
+import stylist.value.CSSValue;
 import stylist.value.Vendor;
 
 /**
