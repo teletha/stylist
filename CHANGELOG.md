@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.3](https://github.com/teletha/stylist/compare/v1.7.2...v1.7.3) (2022-12-27)
+
+
+### Bug Fixes
+
+* remove debug code ([e9bbd25](https://github.com/teletha/stylist/commit/e9bbd25796da3d330f6b5f1c025514b2daa3061f))
+
 ## [1.7.2](https://github.com/teletha/stylist/compare/v1.7.1...v1.7.2) (2022-12-27)
 
 
