@@ -17,14 +17,7 @@ import java.util.Objects;
 
 import stylist.Stylist;
 
-/**
- * @version 2018/09/05 12:55:50
- */
 public abstract class CSSValue {
-
-    static {
-        new Error("Load CSSValue").printStackTrace();;
-    }
 
     /** The empty value. */
     public static final CSSValue EMPTY = new Value("");
