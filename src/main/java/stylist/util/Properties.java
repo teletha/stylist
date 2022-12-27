@@ -17,9 +17,6 @@ import java.util.function.Function;
 import kiss.Variable;
 import stylist.value.CSSValue;
 
-/**
- * @version 2018/09/06 13:52:44
- */
 public final class Properties {
 
     /** The key list. */

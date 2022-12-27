@@ -15,9 +15,6 @@ import java.util.List;
 import stylist.value.CSSValue;
 import stylist.value.Vendor;
 
-/**
- * @version 2018/09/07 13:45:42
- */
 public class SelectorDSL {
 
     /** The root selector. */
