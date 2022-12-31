@@ -24,7 +24,7 @@ public class AnimationFrames {
     /**
      */
     public AnimationFrames() {
-        this.name = "Anima" + hashCode();
+        this.name = "Anime" + hashCode();
     }
 
     /**
