@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://docs.oracle.com/en/java/javase/19/"><img src="https://img.shields.io/badge/Java-Release%2019-green"/></a>
+    <a href="https://docs.oracle.com/en/java/javase/17/"><img src="https://img.shields.io/badge/Java-Release%2017-green"/></a>
     <span>&nbsp;</span>
     <a href="https://jitpack.io/#teletha/stylist"><img src="https://img.shields.io/jitpack/v/github/teletha/stylist?label=Repository&color=green"></a>
     <span>&nbsp;</span>
@@ -18,7 +18,7 @@
 
 
 ## Prerequisites
-Stylist runs on all major operating systems and requires only [Java version 19](https://docs.oracle.com/en/java/javase/19/) or later to run.
+Stylist runs on all major operating systems and requires only [Java version 17](https://docs.oracle.com/en/java/javase/17/) or later to run.
 To check, please run `java -version` from the command line interface. You should see something like this:
 ```
 > java -version
@@ -43,7 +43,7 @@ Add it into in the dependencies element like so:
 <dependency>
     <groupId>com.github.teletha</groupId>
     <artifactId>stylist</artifactId>
-    <version>1.6.1</version>
+    <version>1.7.3</version>
 </dependency>
 ```
 #### [Gradle](https://gradle.org/)
@@ -56,7 +56,7 @@ repositories {
 Add it into the dependencies section like so:
 ```gradle
 dependencies {
-    implementation 'com.github.teletha:stylist:1.6.1'
+    implementation 'com.github.teletha:stylist:1.7.3'
 }
 ```
 #### [SBT](https://www.scala-sbt.org/)
@@ -66,7 +66,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 ```
 Add it into the libraryDependencies section like so:
 ```scala
-libraryDependencies += "com.github.teletha" % "stylist" % "1.6.1"
+libraryDependencies += "com.github.teletha" % "stylist" % "1.7.3"
 ```
 #### [Leiningen](https://leiningen.org/)
 Add JitPack repository at the end of repositories in your project.clj:
@@ -75,12 +75,12 @@ Add JitPack repository at the end of repositories in your project.clj:
 ```
 Add it into the dependencies section like so:
 ```clj
-:dependencies [[com.github.teletha/stylist "1.6.1"]]
+:dependencies [[com.github.teletha/stylist "1.7.3"]]
 ```
 #### [Bee](https://teletha.github.io/bee)
 Add it into your project definition class like so:
 ```java
-require("com.github.teletha", "stylist", "1.6.1");
+require("com.github.teletha", "stylist", "1.7.3");
 ```
 <p align="right"><a href="#top">back to top</a></p>
 
@@ -113,7 +113,7 @@ Stylist depends on the following products on runtime.
 
 
 ## License
-Copyright (C) 2022 The STYLIST Development Team
+Copyright (C) 2023 The STYLIST Development Team
 
 MIT License
 
