@@ -46,4 +46,12 @@ class FontTest extends StyleTester {
         });
         assert parsed.property("letter-spacing", "1px");
     }
+
+    @Test
+    void smooth() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            font.smooth.antialiased();
+        });
+        assert parsed.property("font-smooth", "antialiased");
+    }
 }

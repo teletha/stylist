@@ -44,6 +44,12 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     public final Size size = new Size();
 
     /**
+     * The font-smooth CSS property controls the application of anti-aliasing when fonts are
+     * rendered.
+     */
+    public final Smooth smooth = new Smooth();
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -327,6 +333,65 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
          */
         public Font smaller() {
             return value("smaller");
+        }
+    }
+
+    public class Smooth extends PropertyDefinition<Font> {
+
+        /**
+         * 
+         */
+        private Smooth() {
+            super("font-smooth", Font.this);
+        }
+
+        /**
+         * Let the browser decide (Uses subpixel anti-aliasing when available; this is the default)
+         * 
+         * @return
+         */
+        public Font auto() {
+            return value("auto");
+        }
+
+        /**
+         * Turn font smoothing off; display text with jagged sharp edges.
+         * 
+         * @return
+         */
+        public Font none() {
+            return value("none");
+        }
+
+        /**
+         * Smooth the font on the level of the pixel, as opposed to the subpixel. Switching from
+         * subpixel rendering to anti-aliasing for light text on dark backgrounds makes it look
+         * lighter.
+         * 
+         * @return
+         */
+        public Font antialiased() {
+            return value("antialiased");
+        }
+
+        /**
+         * On most non-retina displays, this will give the sharpest text.
+         * 
+         * @return
+         */
+        public Font subpixelAntialiased() {
+            return value("subpixel-antialiased");
+        }
+
+        /**
+         * Render text with grayscale anti-aliasing, as opposed to the subpixel. Switching from
+         * subpixel rendering to anti-aliasing for light text on dark backgrounds makes it look
+         * lighter.
+         * 
+         * @return
+         */
+        public Font grayscale() {
+            return value("grayscale");
         }
     }
 
