@@ -259,6 +259,13 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Font.Smooth",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font.Style",
 			"packageName": "stylist.property",
 			"type": "Class"
