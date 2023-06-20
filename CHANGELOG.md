@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.8.0](https://github.com/teletha/stylist/compare/v1.7.3...v1.8.0) (2023-06-20)
+
+
+### Features
+
+* Support font-smooth property ([013564b](https://github.com/teletha/stylist/commit/013564b73f1dc79dd7f475f2190cb1722c0ce1bc))
+* Variable property is customizable. ([da5cd3d](https://github.com/teletha/stylist/commit/da5cd3d4bbfe2ab3f0a66dc7a31e7074cbbec89e))
+
+
+### Bug Fixes
+
+* typo ([4924a11](https://github.com/teletha/stylist/commit/4924a11a4ba5ffb68c8f59d4b1a2e49c0c3ea61d))
+
 ## [1.7.3](https://github.com/teletha/stylist/compare/v1.7.2...v1.7.3) (2022-12-27)
 
 
