@@ -201,7 +201,7 @@ public final class Stylist {
     }
 
     /**
-     * Format {@link CSSValue}.
+     * Format {@link Color} to normalize color code.
      * 
      * @return
      */
@@ -430,7 +430,7 @@ public final class Stylist {
 
         if (scheme != null) {
             for (DefinedTheme theme : scheme.themes) {
-                format(theme.isMain, theme, addition);
+                format(scheme, theme.isMain, theme, addition);
             }
         }
 
@@ -445,19 +445,21 @@ public final class Stylist {
      * @param theme
      * @param appendable
      */
-    final void format(boolean isDefault, DefinedTheme theme, Appendable appendable) {
+    final void format(DesignScheme scheme, boolean isDefault, DefinedTheme theme, Appendable appendable) {
         try {
-            String selector = isDefault ? ":root" : "." + theme.name + ":root";
+            String selector = isDefault ? scheme.rootClass() : "." + theme.name + scheme.rootClass();
 
             appendable.append(selector).append(afterSelector).append('{').append(afterStartBrace);
             for (int i = 0; i < theme.variables.size(); i++) {
+                CSSValue value = theme.variables.value(i);
+
                 appendable.append(beforePropertyName)
-                        .append("--")
+                        .append(scheme.variablePrefix())
                         .append(theme.variables.name(i).toString())
                         .append(afterPropertyName)
                         .append(':')
                         .append(beforePropertyValue)
-                        .append(theme.variables.value(i).toString())
+                        .append(value instanceof Color c ? color().apply(c) : value.toString())
                         .append(afterPropertyValue)
                         .append(';')
                         .append(afterPropertyLine);
@@ -774,7 +776,7 @@ public final class Stylist {
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
         String description;
-    
+
         if (parent == null) {
             selector.selector = style.selector();
             description = style.detail();
@@ -782,19 +784,19 @@ public final class Stylist {
             selector.replace(parent.internal);
             description = parent.description;
         }
-    
+
         // create child rule
         StyleRule child = new StyleRule(selector, description);
-    
+
         // swap context rule and execute it
         PropertyDefinition.rule = child;
         style.style();
         PropertyDefinition.rule = parent;
-    
+
         if (parent != null) {
             parent.children.add(child);
         }
-    
+
         // API definition
         return child;
     }

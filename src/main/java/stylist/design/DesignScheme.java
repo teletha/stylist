@@ -154,6 +154,18 @@ public abstract class DesignScheme {
         return Objects.toString(value).replaceAll("\\.", "");
     }
 
+    public String rootClass() {
+        return ":root";
+    }
+
+    public String variablePrefix() {
+        return "--";
+    }
+
+    public String variableRef(String name) {
+        return "var(--" + name + ")";
+    }
+
     /**
      * Internal theme.
      */
@@ -162,11 +174,11 @@ public abstract class DesignScheme {
         /** The name of this theme. */
         public final String name;
 
-        /** The theme type. */
-        public final boolean isMain;
-
         /** The variable manager. */
         public final Properties variables = new Properties();
+
+        /** The main state. */
+        public final boolean isMain;
 
         /**
          * @param method
@@ -212,7 +224,7 @@ public abstract class DesignScheme {
     /**
      * 
      */
-    protected static class CSSVariable<T> extends CSSValue {
+    protected class CSSVariable<T> extends CSSValue {
 
         /** The variable name. */
         private final String name;
@@ -229,7 +241,7 @@ public abstract class DesignScheme {
          */
         @Override
         public String valueFor(Vendor vendor) {
-            return "var(--" + name + ")";
+            return variableRef(name);
         }
     }
 
@@ -308,8 +320,24 @@ public abstract class DesignScheme {
          * {@inheritDoc}
          */
         @Override
+        public String toHSL() {
+            return variableRef(name);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public String toRGB() {
+            return variableRef(name);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
         public String valueFor(Vendor vendor) {
-            return "var(--" + name + ")";
+            return variableRef(name);
         }
     }
 
@@ -334,7 +362,7 @@ public abstract class DesignScheme {
          */
         @Override
         public String valueFor(Vendor vendor) {
-            return "var(--" + name + ")";
+            return variableRef(name);
         }
     }
 
@@ -357,7 +385,7 @@ public abstract class DesignScheme {
          */
         @Override
         public String valueFor(Vendor vendor) {
-            return "var(--" + name + ")";
+            return variableRef(name);
         }
     }
 }
