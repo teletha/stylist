@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/teletha/stylist/compare/v1.8.0...v1.8.1) (2023-06-21)
+
+
+### Bug Fixes
+
+* Stylist can refer the external defined css variable color. ([fe1c494](https://github.com/teletha/stylist/commit/fe1c494aa74bd1e9cd9d88f159664ca92ce88f8a))
+
 ## [1.8.0](https://github.com/teletha/stylist/compare/v1.7.3...v1.8.0) (2023-06-20)
 
 
