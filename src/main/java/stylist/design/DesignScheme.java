@@ -133,6 +133,16 @@ public abstract class DesignScheme {
     }
 
     /**
+     * Utility to refer css variable.
+     * 
+     * @param name
+     * @return
+     */
+    protected final Color color(String name) {
+        return new VariableColor(name);
+    }
+
+    /**
      * @param name A name of the target theme.
      */
     Properties variablesFor(String name) {
