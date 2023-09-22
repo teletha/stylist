@@ -53,4 +53,62 @@ public class Grid extends PropertyDefinition<Grid> {
             return value("grid-template-columns", "repeat(auto-fit,minmax(" + min + "," + max + "))");
         }
     }
+
+    /**
+     * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
+     * Initially a part of Multi-column Layout, the definition of column-gap has been broadened to
+     * include multiple layout methods. Now specified in Box Alignment, it may be used in
+     * Multi-column, Flexible Box, and Grid layouts.
+     * 
+     * @param size
+     * @param unit
+     * @return
+     */
+    public Grid columnGap(double size, Unit unit) {
+        return columnGap(Numeric.of(size, unit));
+    }
+
+    /**
+     * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
+     * Initially a part of Multi-column Layout, the definition of column-gap has been broadened to
+     * include multiple layout methods. Now specified in Box Alignment, it may be used in
+     * Multi-column, Flexible Box, and Grid layouts.
+     * 
+     * @param size
+     * @return
+     */
+    public Grid columnGap(Numeric size) {
+        value("column-gap", size);
+
+        return this;
+    }
+
+    /**
+     * The row-gap CSS property sets the size of the gap (gutter) between an element's rows. Early
+     * versions of the specification called this property grid-row-gap, and to maintain
+     * compatibility with legacy websites, browsers will still accept grid-row-gap as an alias for
+     * row-gap.
+     * 
+     * @param size
+     * @param unit
+     * @return
+     */
+    public Grid rowGap(double size, Unit unit) {
+        return rowGap(Numeric.of(size, unit));
+    }
+
+    /**
+     * The row-gap CSS property sets the size of the gap (gutter) between an element's rows. Early
+     * versions of the specification called this property grid-row-gap, and to maintain
+     * compatibility with legacy websites, browsers will still accept grid-row-gap as an alias for
+     * row-gap.
+     * 
+     * @param size
+     * @return
+     */
+    public Grid rowGap(Numeric size) {
+        value("row-gap", size);
+
+        return this;
+    }
 }
