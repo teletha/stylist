@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/teletha/stylist/compare/v1.9.0...v1.10.0) (2023-10-31)
+
+
+### Features
+
+* Enhance selector. ([0fd126f](https://github.com/teletha/stylist/commit/0fd126fe45d08fa20f84d647345240958e5b344f))
+
 ## [1.9.0](https://github.com/teletha/stylist/compare/v1.8.1...v1.9.0) (2023-09-22)
 
 
