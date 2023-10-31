@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/teletha/stylist/compare/v1.8.1...v1.9.0) (2023-09-22)
+
+
+### Features
+
+* Support some grid related properties. ([f5f582f](https://github.com/teletha/stylist/commit/f5f582f3393e0dcbd0f2f92d062c30aef85b7fa6))
+
 ## [1.8.1](https://github.com/teletha/stylist/compare/v1.8.0...v1.8.1) (2023-06-21)
 
 
