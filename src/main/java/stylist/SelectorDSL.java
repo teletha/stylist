@@ -193,6 +193,28 @@ public class SelectorDSL {
     }
 
     /**
+     * A descendant combinator — typically represented by a single space ( ) character in the form
+     * of selector₁ selector₂ — combines two selectors such that elements matched by the second
+     * selector (selector₂) are selected if they have an ancestor element matching the first
+     * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+     * selectors.
+     */
+    public final void descendant(Style descendant, Style sub) {
+        descendant(descendant.selector(), sub);
+    }
+
+    /**
+     * A descendant combinator — typically represented by a single space ( ) character in the form
+     * of selector₁ selector₂ — combines two selectors such that elements matched by the second
+     * selector (selector₂) are selected if they have an ancestor element matching the first
+     * selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+     * selectors.
+     */
+    public final void descendant(String descendant, Style sub) {
+        basic(" " + descendant).declare(sub);
+    }
+
+    /**
      * The > combinator separates two selectors and matches only those elements matched by the
      * second selector that are direct children of elements matched by the first. By contrast, when
      * two selectors are combined with the descendant selector, the combined selector expression
