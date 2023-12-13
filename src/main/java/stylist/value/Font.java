@@ -194,7 +194,7 @@ public class Font implements CharSequence {
      * @return A loaded font.
      */
     public static Font fromGoogle(String name, String... params) {
-        StringBuilder builder = new StringBuilder("https://fonts.googleapis.com/css?display=swap&family=");
+        StringBuilder builder = new StringBuilder("https://fonts.googleapis.com/css2?display=swap&family=");
         builder.append(name.replaceAll("\\s", "+"));
 
         if (params != null && params.length != 0) {
