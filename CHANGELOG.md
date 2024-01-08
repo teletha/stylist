@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.11.0](https://github.com/teletha/stylist/compare/v1.10.0...v1.11.0) (2024-01-08)
+
+
+### Features
+
+* support google font api ver2 ([278c22d](https://github.com/teletha/stylist/commit/278c22ded9024aec4337d4776199a15a531cc20b))
+
+
+### Bug Fixes
+
+* update ci process ([5f1e52d](https://github.com/teletha/stylist/commit/5f1e52db634d0184b86bca1d8f0dc6950364388a))
+* update license ([8ab4699](https://github.com/teletha/stylist/commit/8ab469956e4d056fcd7dbcab008441de959b7479))
+
 ## [1.10.0](https://github.com/teletha/stylist/compare/v1.9.0...v1.10.0) (2023-10-31)
 
 
