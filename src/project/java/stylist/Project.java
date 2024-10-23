@@ -9,14 +9,10 @@
  */
 package stylist;
 
-import javax.lang.model.SourceVersion;
-
 public class Project extends bee.api.Project {
 
     {
         product("com.github.teletha", "stylist", ref("version.txt"));
-
-        require(SourceVersion.RELEASE_19, SourceVersion.RELEASE_17);
 
         require("com.github.teletha", "sinobu");
         require("com.github.teletha", "antibug").atTest();
