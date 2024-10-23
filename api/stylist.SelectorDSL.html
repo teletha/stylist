@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. " name="description"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="h">
-		<header class="l">
-			<h1 class="m" date="Use saved searches to filter your results more quickly" ver="1.10.0"><code>Stylist</code></h1>
-			<nav class="L"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="L">
+		<header class="Q">
+			<h1 class="i" date="2023-10-31" ver="1.10.0"><code>Stylist</code></h1>
+			<nav class="V"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -27,645 +31,642 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="M">
-			<nav class="b">
+		<main class="g">
+			<nav class="J">
 				<div></div>
 			</nav>
-			<article class="Z" id="Article">
-				<section class="O"><code class="c">stylist</code>
-					<h2 class="Class j"><code class="V">SelectorDSL</code></h2>
-					<div class="P">
+			<article class="c" id="Article">
+				<section class="S"><code class="R">stylist</code>
+					<h2 class="Class W"><code class="d">SelectorDSL</code></h2>
+					<div class="Z">
 						<ul class="C G">
 							<li><code><a href="api/stylist.FunctionDSL.html">FunctionDSL</a></code></li>
 						</ul>
 					</div>
 				</section>
-				<section class="O" id="attr(java.lang.String)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">attr</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.Attribute.html">Attribute</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="attr(java.lang.String)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">attr</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.Attribute.html">Attribute</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>name</code></td>
 							<td><span><p>An attribute name.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.Attribute.html">Attribute</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>Attribute selectors select an element using the presence of a given attribute or attribute
- value.</p>
-					</span></section>
-				<section class="O" id="attr(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">attr</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+value.</p>
+</span></section>
+				<section class="S" id="attr(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">attr</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>name</code></td>
 							<td><span><p>An attribute name.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style rule.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>Attribute selectors select an element using the presence of a given attribute or attribute
- value.
- 
-							<p>
+value.</p>
+ <p>
  Represents an element with an attribute name.
  
-								<p>
- This is shorthand method of <code><a href="api/stylist.SelectorDSL.Attribute.html#exist(Style)">Attribute#exist(Style)</a></code></p>
-							</p>
+							<p>
+ This is shorthand method of <code><a href="api/stylist.SelectorDSL.Attribute.html#exist(Style)">Attribute#exist(Style)</a></code>
+</p>
 						</p>
 					</span></section>
-				<section class="O" id="attr(java.lang.String,java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">attr</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">value</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="attr(java.lang.String,java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">attr</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">value</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>name</code></td>
 							<td><span><p>An attribute name.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>value</code></td>
 							<td><span><p>An attribute value.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style rule.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>Attribute selectors select an element using the presence of a given attribute or attribute
- value.
- 
-							<p>
+value.</p>
+ <p>
  Represents an element with an attribute name.
  
-								<p>
- This is shorthand method of <code><a href="api/stylist.SelectorDSL.Attribute.html#with(Style)">Attribute#with(Style)</a></code></p>
-							</p>
+							<p>
+ This is shorthand method of <code><a href="api/stylist.SelectorDSL.Attribute.html#with(Style)">Attribute#with(Style)</a></code>
+</p>
 						</p>
 					</span></section>
-				<section class="O" id="with(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">with</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="with(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">with</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>location</code></td>
 							<td><span><p>A class location.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>In an HTML document, CSS class selectors match an element based on the contents of the
- element&#39;s class attribute.</p>
-					</span></section>
-				<section class="O" id="with(stylist.Style,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">with</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+element&#39;s class attribute.</p>
+</span></section>
+				<section class="S" id="with(stylist.Style,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">with</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>location</code></td>
 							<td><span><p>A class location.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>In an HTML document, CSS class selectors match an element based on the contents of the
- element&#39;s class attribute.</p>
-					</span></section>
-				<section class="O" id="with(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">with</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+element&#39;s class attribute.</p>
+</span></section>
+				<section class="S" id="with(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">with</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>location</code></td>
 							<td><span><p>A class location.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>In an HTML document, CSS class selectors match an element based on the contents of the
- element&#39;s class attribute.</p>
-					</span></section>
-				<section class="O" id="ancestor()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">ancestor</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+element&#39;s class attribute.</p>
+</span></section>
+				<section class="S" id="ancestor()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">ancestor</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>A descendant combinator &#8212; typically represented by a single space ( ) character in the form
- of selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="ancestor(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">ancestor</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>A descendant combinator — typically represented by a single space ( ) character in the form
+of selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="ancestor(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">ancestor</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style rule.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>A descendant combinator &#8212; typically represented by a single space ( ) character in the form
- of selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="descendant()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">descendant</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+					</table><span class="B"><p>A descendant combinator — typically represented by a single space ( ) character in the form
+of selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="descendant()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">descendant</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>A descendant combinator &#8212; typically represented by a single space ( ) character in the form
- of selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="descendant(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">descendant</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>A descendant combinator — typically represented by a single space ( ) character in the form
+of selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="descendant(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">descendant</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
-					</table><span class="B"><p>A descendant combinator &#8212; typically represented by a single space ( ) character in the form
- of selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="descendant(stylist.Style,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">descendant</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>A descendant combinator — typically represented by a single space ( ) character in the form
+of selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="descendant(stylist.Style,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">descendant</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>descendant</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
-					</table><span class="B"><p>A descendant combinator &#8212; typically represented by a single space ( ) character in the form
- of selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="descendant(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">descendant</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>A descendant combinator — typically represented by a single space ( ) character in the form
+of selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="descendant(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">descendant</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>descendant</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
-					</table><span class="B"><p>A descendant combinator &#8212; typically represented by a single space ( ) character in the form
- of selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="parent()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">parent</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+					</table><span class="B"><p>A descendant combinator — typically represented by a single space ( ) character in the form
+of selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="parent()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">parent</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>The &#62; combinator separates two selectors and matches only those elements matched by the
- second selector that are direct children of elements matched by the first. By contrast, when
- two selectors are combined with the descendant selector, the combined selector expression
- matches those elements matched by the second selector for which there exists an ancestor
- element matched by the first selector, regardless of the number of &#34;hops&#34; up the DOM.</p>
-					</span></section>
-				<section class="O" id="parent(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">parent</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>The &#38;gt; combinator separates two selectors and matches only those elements matched by the
+second selector that are direct children of elements matched by the first. By contrast, when
+two selectors are combined with the descendant selector, the combined selector expression
+matches those elements matched by the second selector for which there exists an ancestor
+element matched by the first selector, regardless of the number of &#38;quot;hops&#38;quot; up the DOM.</p>
+</span></section>
+				<section class="S" id="parent(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">parent</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
-					</table><span class="B"><p>The &#62; combinator separates two selectors and matches only those elements matched by the
- second selector that are direct children of elements matched by the first. By contrast, when
- two selectors are combined with the descendant selector, the combined selector expression
- matches those elements matched by the second selector for which there exists an ancestor
- element matched by the first selector, regardless of the number of &#34;hops&#34; up the DOM.</p>
-					</span></section>
-				<section class="O" id="child()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">child</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+					</table><span class="B"><p>The &#38;gt; combinator separates two selectors and matches only those elements matched by the
+second selector that are direct children of elements matched by the first. By contrast, when
+two selectors are combined with the descendant selector, the combined selector expression
+matches those elements matched by the second selector for which there exists an ancestor
+element matched by the first selector, regardless of the number of &#38;quot;hops&#38;quot; up the DOM.</p>
+</span></section>
+				<section class="S" id="child()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">child</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>The &#62; combinator separates two selectors and matches only those elements matched by the
- second selector that are direct children of elements matched by the first. By contrast, when
- two selectors are combined with the descendant selector, the combined selector expression
- matches those elements matched by the second selector for which there exists an ancestor
- element matched by the first selector, regardless of the number of &#34;hops&#34; up the DOM.</p>
-					</span></section>
-				<section class="O" id="child(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">child</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>The &#38;gt; combinator separates two selectors and matches only those elements matched by the
+second selector that are direct children of elements matched by the first. By contrast, when
+two selectors are combined with the descendant selector, the combined selector expression
+matches those elements matched by the second selector for which there exists an ancestor
+element matched by the first selector, regardless of the number of &#38;quot;hops&#38;quot; up the DOM.</p>
+</span></section>
+				<section class="S" id="child(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">child</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
-					</table><span class="B"><p>The &#62; combinator separates two selectors and matches only those elements matched by the
- second selector that are direct children of elements matched by the first. By contrast, when
- two selectors are combined with the descendant selector, the combined selector expression
- matches those elements matched by the second selector for which there exists an ancestor
- element matched by the first selector, regardless of the number of &#34;hops&#34; up the DOM.</p>
-					</span></section>
-				<section class="O" id="prev()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">prev</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+					</table><span class="B"><p>The &#38;gt; combinator separates two selectors and matches only those elements matched by the
+second selector that are direct children of elements matched by the first. By contrast, when
+two selectors are combined with the descendant selector, the combined selector expression
+matches those elements matched by the second selector for which there exists an ancestor
+element matched by the first selector, regardless of the number of &#38;quot;hops&#38;quot; up the DOM.</p>
+</span></section>
+				<section class="S" id="prev()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">prev</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="prev(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">prev</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="prev(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">prev</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="prev(stylist.Style,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">prev</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="prev(stylist.Style,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">prev</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>prev</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="prev(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">prev</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="prev(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">prev</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>prev</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="next()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">next</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="next()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">next</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="next(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">next</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="next(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">next</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="next(stylist.Style,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">next</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="next(stylist.Style,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">next</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>next</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="next(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">next</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="next(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">next</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>next</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="prevs()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">prevs</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="prevs()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">prevs</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="prevs(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">prevs</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="prevs(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">prevs</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="nexts()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nexts</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="nexts()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nexts</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="nexts(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nexts</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="nexts(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nexts</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>This is referred to as an adjacent selector or next-sibling selector. It will select only the
- specified element that immediately follows the former specified element.</p>
-					</span></section>
-				<section class="O" id="after(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">after</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+specified element that immediately follows the former specified element.</p>
+</span></section>
+				<section class="S" id="after(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">after</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The CSS :after pseudo-element matches a virtual last child of the selected element. Typically
- used to add cosmetic content to an element, by using the content CSS property. This element
- is inline by default.</p>
-					</span></section>
-				<section class="O" id="before(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">before</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+used to add cosmetic content to an element, by using the content CSS property. This element
+is inline by default.</p>
+</span></section>
+				<section class="S" id="before(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">before</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The CSS ::before creates a pseudo-element that is the first child of the element matched. It
- is often used to add cosmetic content to an element by using the content property. This
- element is inline by default.</p>
-					</span></section>
-				<section class="O" id="firstLetter(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">firstLetter</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+is often used to add cosmetic content to an element by using the content property. This
+element is inline by default.</p>
+</span></section>
+				<section class="S" id="firstLetter(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">firstLetter</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The ::first-letter CSS pseudo-element selects the first letter of the first line of a block,
- if it is not preceded by any other content (such as images or inline tables) on its line.</p>
-					</span></section>
-				<section class="O" id="firstLine(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">firstLine</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+if it is not preceded by any other content (such as images or inline tables) on its line.</p>
+</span></section>
+				<section class="S" id="firstLine(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">firstLine</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The ::first-line CSS pseudo-element applies styles only to the first line of an element. The
- amount of the text on the first line depends of numerous factors, like the width of the
- elements or of the document, but also of the font size of the text. As all pseudo-elements,
- the selectors containing ::first-line does not match any real HTML element.</p>
-					</span></section>
-				<section class="O" id="selection(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">selection</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+amount of the text on the first line depends of numerous factors, like the width of the
+elements or of the document, but also of the font size of the text. As all pseudo-elements,
+the selectors containing ::first-line does not match any real HTML element.</p>
+</span></section>
+				<section class="S" id="selection(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">selection</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The ::selection CSS pseudo-element applies rules to the portion of a document that has been
- highlighted (e.g., selected with the mouse or another pointing device) by the user.
- 
-							<p>
+highlighted (e.g., selected with the mouse or another pointing device) by the user.</p>
+ <p>
  Only a small subset of CSS properties can be used in a rule using ::selection in its
  selector: color, background, background-color and text-shadow. Note that, in particular,
- background-image is ignored, like any other property.</p>
-						</p>
+ background-image is ignored, like any other property.
+</p>
 					</span></section>
-				<section class="O" id="active()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">active</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="active()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">active</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :active CSS pseudo-class matches when an element is being activated by the user. It
- allows the page to give a feedback that the activation has been detected by the browser. When
- interacting with a mouse, this is typically the time between the user presses the mouse
- button and releases it. The :active pseudo-class is also typically matched when using the
- keyboard tab key. It is frequently used on <a> and <button> HTML elements, but may not be
- limited to just those.</button>
-							</a></p>
+allows the page to give a feedback that the activation has been detected by the browser. When
+interacting with a mouse, this is typically the time between the user presses the mouse
+button and releases it. The :active pseudo-class is also typically matched when using the
+keyboard tab key. It is frequently used on <a> and <button> HTML elements, but may not be
+limited to just those.</button>
+</a></p>
 					</span></section>
-				<section class="O" id="active(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">active</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="active(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">active</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :active CSS pseudo-class matches when an element is being activated by the user. It
- allows the page to give a feedback that the activation has been detected by the browser. When
- interacting with a mouse, this is typically the time between the user presses the mouse
- button and releases it. The :active pseudo-class is also typically matched when using the
- keyboard tab key. It is frequently used on <a> and <button> HTML elements, but may not be
- limited to just those.</button>
-							</a></p>
+allows the page to give a feedback that the activation has been detected by the browser. When
+interacting with a mouse, this is typically the time between the user presses the mouse
+button and releases it. The :active pseudo-class is also typically matched when using the
+keyboard tab key. It is frequently used on <a> and <button> HTML elements, but may not be
+limited to just those.</button>
+</a></p>
 					</span></section>
-				<section class="O" id="checked()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">checked</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="checked()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">checked</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :checked CSS pseudo-class selector represents any radio (
 							<input type="radio"/>), checkbox
- (
+(
 							<input type="checkbox"/>) or option (
 							<option> in a 
 								<select>) element that is checked or
- toggled to an on state. The user can change this state by clicking on the element, or
- selecting a different value, in which case the :checked pseudo-class no longer applies to
- this element, but will to the relevant one.</select>
-							</option>
+toggled to an on state. The user can change this state by clicking on the element, or
+selecting a different value, in which case the :checked pseudo-class no longer applies to
+this element, but will to the relevant one.</select>
+</option>
 						</p>
 					</span></section>
-				<section class="O" id="checked(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">checked</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="checked(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">checked</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :checked CSS pseudo-class selector represents any radio (
 							<input type="radio"/>), checkbox
- (
+(
 							<input type="checkbox"/>) or option (
 							<option> in a 
 								<select>) element that is checked or
- toggled to an on state. The user can change this state by clicking on the element, or
- selecting a different value, in which case the :checked pseudo-class no longer applies to
- this element, but will to the relevant one.</select>
-							</option>
+toggled to an on state. The user can change this state by clicking on the element, or
+selecting a different value, in which case the :checked pseudo-class no longer applies to
+this element, but will to the relevant one.</select>
+</option>
 						</p>
 					</span></section>
-				<section class="O" id="defaults()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">defaults</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="defaults()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">defaults</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :default CSS pseudo-class represents any user interface element that is the public final
- among a group of similar elements.</p>
-					</span></section>
-				<section class="O" id="defaults(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">defaults</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+among a group of similar elements.</p>
+</span></section>
+				<section class="S" id="defaults(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">defaults</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>The :default CSS pseudo-class represents any user interface element that is the public final
- among a group of similar elements.</p>
-					</span></section>
-				<section class="O" id="disabled()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">disabled</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+among a group of similar elements.</p>
+</span></section>
+				<section class="S" id="disabled()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">disabled</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :disabled CSS pseudo-class represents any disabled element. An element is disabled if it
- can&#39;t be activated (e.g. selected, clicked on or accept text input) or accept focus. The
- element also has an enabled state, in which it can be activated or accept focus.</p>
-					</span></section>
-				<section class="O" id="disabled(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">disabled</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+can&#39;t be activated (e.g. selected, clicked on or accept text input) or accept focus. The
+element also has an enabled state, in which it can be activated or accept focus.</p>
+</span></section>
+				<section class="S" id="disabled(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">disabled</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :disabled CSS pseudo-class represents any disabled element. An element is disabled if it
- can&#39;t be activated (e.g. selected, clicked on or accept text input) or accept focus. The
- element also has an enabled state, in which it can be activated or accept focus.</p>
-					</span></section>
-				<section class="O" id="empty()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">empty</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+can&#39;t be activated (e.g. selected, clicked on or accept text input) or accept focus. The
+element also has an enabled state, in which it can be activated or accept focus.</p>
+</span></section>
+				<section class="S" id="empty()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">empty</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :empty pseudo-class represents any element that has no children at all. Only element
- nodes and text (including whitespace) are considered. Comments or processing instructions do
- not affect whether an element is considered empty or not.</p>
-					</span></section>
-				<section class="O" id="empty(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">empty</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+nodes and text (including whitespace) are considered. Comments or processing instructions do
+not affect whether an element is considered empty or not.</p>
+</span></section>
+				<section class="S" id="empty(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">empty</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :empty pseudo-class represents any element that has no children at all. Only element
- nodes and text (including whitespace) are considered. Comments or processing instructions do
- not affect whether an element is considered empty or not.</p>
-					</span></section>
-				<section class="O" id="enabled()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">enabled</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+nodes and text (including whitespace) are considered. Comments or processing instructions do
+not affect whether an element is considered empty or not.</p>
+</span></section>
+				<section class="S" id="enabled()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">enabled</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>The :enabled CSS pseudo-class represents any enabled element. An element is enabled if it can
- be activated (e.g. selected, clicked on or accept text input) or accept focus. The element
- also has an disabled state, in which it can&#39;t be activated or accept focus.</p>
-					</span></section>
-				<section class="O" id="enabled(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">enabled</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+be activated (e.g. selected, clicked on or accept text input) or accept focus. The element
+also has an disabled state, in which it can&#39;t be activated or accept focus.</p>
+</span></section>
+				<section class="S" id="enabled(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">enabled</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :enabled CSS pseudo-class represents any enabled element. An element is enabled if it can
@@ -673,65 +674,65 @@
  also has an disabled state, in which it can&#39;t be activated or accept focus.
  </p>
 					</span></section>
-				<section class="O" id="firstChild()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">firstChild</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="firstChild()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">firstChild</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :first-child CSS pseudo-class represents any element that is the first child element of
  its parent.
  </p>
 					</span></section>
-				<section class="O" id="firstChild(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">firstChild</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="firstChild(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">firstChild</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :first-child CSS pseudo-class represents any element that is the first child element of
  its parent.
  </p>
 					</span></section>
-				<section class="O" id="firstType()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">firstType</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="firstType()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">firstType</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :first-of-type CSS pseudo-class represents the first sibling of its type in the list of
  children of its parent element.
  </p>
 					</span></section>
-				<section class="O" id="firstType(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">firstType</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="firstType(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">firstType</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :first-of-type CSS pseudo-class represents the first sibling of its type in the list of
  children of its parent element.
  </p>
 					</span></section>
-				<section class="O" id="focus()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">focus</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="focus()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">focus</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :focus CSS pseudo-class is applied when an element has received focus, either from the
@@ -739,13 +740,13 @@
  input).
  </p>
 					</span></section>
-				<section class="O" id="focus(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">focus</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="focus(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">focus</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :focus CSS pseudo-class is applied when an element has received focus, either from the
@@ -753,26 +754,26 @@
  input).
  </p>
 					</span></section>
-				<section class="O" id="has(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">has</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="has(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">has</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>selector</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>style</code></td>
 							<td></td>
 						</tr>
 					</table>
 				</section>
-				<section class="O" id="hover()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">hover</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="hover()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">hover</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :hover CSS pseudo-class matches when the user designates an element with a pointing
@@ -783,13 +784,13 @@
  &#8212; :hover &#8212; :active.
  </p>
 					</span></section>
-				<section class="O" id="hover(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">hover</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="hover(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">hover</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :hover CSS pseudo-class matches when the user designates an element with a pointing
@@ -800,37 +801,37 @@
  &#8212; :hover &#8212; :active.
  </p>
 					</span></section>
-				<section class="O" id="indeterminate()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">indeterminate</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="indeterminate()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">indeterminate</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :indeterminate CSS pseudo-class represents:
  </p>
 					</span></section>
-				<section class="O" id="indeterminate(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">indeterminate</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="indeterminate(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">indeterminate</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :indeterminate CSS pseudo-class represents:
  </p>
 					</span></section>
-				<section class="O" id="invalid()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">invalid</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="invalid()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">invalid</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :invalid CSS pseudo-class represents any 
@@ -841,13 +842,13 @@
  </form>
 						</p>
 					</span></section>
-				<section class="O" id="invalid(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">invalid</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="invalid(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">invalid</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :invalid CSS pseudo-class represents any 
@@ -858,65 +859,65 @@
  </form>
 						</p>
 					</span></section>
-				<section class="O" id="lastChild()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">lastChild</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="lastChild()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">lastChild</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :last-child CSS pseudo-class represents any element that is the last child element of its
  parent.
  </p>
 					</span></section>
-				<section class="O" id="lastChild(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">lastChild</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="lastChild(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">lastChild</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :last-child CSS pseudo-class represents any element that is the last child element of its
  parent.
  </p>
 					</span></section>
-				<section class="O" id="lastType()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">lastType</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="lastType()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">lastType</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :last-of-type CSS pseudo-class represents the last sibling with the given element name in
  the list of children of its parent element.
  </p>
 					</span></section>
-				<section class="O" id="lastType(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">lastType</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="lastType(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">lastType</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :last-of-type CSS pseudo-class represents the last sibling of its type in the list of
  children of its parent element.
  </p>
 					</span></section>
-				<section class="O" id="link()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">link</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="link()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">link</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :link CSS pseudo-class lets you select links inside elements. This will select any link
@@ -927,13 +928,13 @@
  or right after :hover, depending on the expected effect.
  </p>
 					</span></section>
-				<section class="O" id="link(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">link</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="link(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">link</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :link CSS pseudo-class lets you select links inside elements. This will select any link
@@ -944,17 +945,17 @@
  or right after :hover, depending on the expected effect.
  </p>
 					</span></section>
-				<section class="O" id="not(stylist.SelectorDSL)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">not</code><code class="I">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="not(stylist.SelectorDSL)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">not</code><code class="j">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code>selector</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The negation CSS pseudo-class, :not(X), is a functional notation taking a simple selector X
@@ -962,17 +963,17 @@
  contain another negation selector.
  </p>
 					</span></section>
-				<section class="O" id="not(stylist.SelectorDSL,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">not</code><code class="I">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="not(stylist.SelectorDSL,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">not</code><code class="j">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code>selector</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The negation CSS pseudo-class, :not(X), is a functional notation taking a simple selector X
@@ -980,17 +981,17 @@
  contain another negation selector.
  </p>
 					</span></section>
-				<section class="O" id="not(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">not</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="not(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">not</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>selector</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The negation CSS pseudo-class, :not(X), is a functional notation taking a simple selector X
@@ -998,17 +999,17 @@
  contain another negation selector.
  </p>
 					</span></section>
-				<section class="O" id="not(stylist.Style,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">not</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="not(stylist.Style,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">not</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>selector</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The negation CSS pseudo-class, :not(X), is a functional notation taking a simple selector X
@@ -1016,51 +1017,51 @@
  contain another negation selector.
  </p>
 					</span></section>
-				<section class="O" id="nthChild(java.lang.String)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthChild</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthChild(java.lang.String)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthChild</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-child CSS pseudo-class matches an element that has an+b-1 siblings before it in the
  document tree, for a given positive or zero value for n, and has a parent element.
  </p>
 					</span></section>
-				<section class="O" id="nthChild(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthChild</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthChild(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthChild</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-child CSS pseudo-class matches an element that has an+b-1 siblings before it in the
  document tree, for a given positive or zero value for n, and has a parent element.
  </p>
 					</span></section>
-				<section class="O" id="nthLastChild(java.lang.String)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthLastChild</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthLastChild(java.lang.String)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthLastChild</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-last-child CSS pseudo-class matches an element that has an+b-1 siblings after it in
@@ -1068,17 +1069,17 @@
  :nth-child for a more thorough description of the syntax of its argument.
  </p>
 					</span></section>
-				<section class="O" id="nthLastChild(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthLastChild</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthLastChild(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthLastChild</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-last-child CSS pseudo-class matches an element that has an+b-1 siblings after it in
@@ -1086,17 +1087,17 @@
  :nth-child for a more thorough description of the syntax of its argument.
  </p>
 					</span></section>
-				<section class="O" id="nthType(java.lang.String)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthType</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthType(java.lang.String)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthType</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-of-type CSS pseudo-class matches an element that has an+b-1 siblings with the same
@@ -1107,17 +1108,17 @@
  different tags appear before it.
  </p>
 					</span></section>
-				<section class="O" id="nthType(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthType</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthType(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthType</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-of-type CSS pseudo-class matches an element that has an+b-1 siblings with the same
@@ -1128,17 +1129,17 @@
  different tags appear before it.
  </p>
 					</span></section>
-				<section class="O" id="nthLastType(java.lang.String)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthLastType</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthLastType(java.lang.String)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthLastType</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-last-of-type CSS pseudo-class matches an element that has an+b-1 siblings with the
@@ -1147,17 +1148,17 @@
  argument.
  </p>
 					</span></section>
-				<section class="O" id="nthLastType(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">nthLastType</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="nthLastType(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">nthLastType</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>pattern</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :nth-last-of-type CSS pseudo-class matches an element that has an+b-1 siblings with the
@@ -1166,13 +1167,13 @@
  argument.
  </p>
 					</span></section>
-				<section class="O" id="onlyChild()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">onlyChild</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="onlyChild()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">onlyChild</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :only-child CSS pseudo-class represents any element which is the only child of its
@@ -1180,13 +1181,13 @@
  with a lower specificity.
  </p>
 					</span></section>
-				<section class="O" id="onlyChild(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">onlyChild</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="onlyChild(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">onlyChild</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :only-child CSS pseudo-class represents any element which is the only child of its
@@ -1194,39 +1195,39 @@
  with a lower specificity.
  </p>
 					</span></section>
-				<section class="O" id="onlyType()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">onlyType</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="onlyType()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">onlyType</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :only-of-type CSS pseudo-class represents any element that has no siblings of the given
  type.
  </p>
 					</span></section>
-				<section class="O" id="onlyType(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">onlyType</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="onlyType(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">onlyType</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :only-of-type CSS pseudo-class represents any element that has no siblings of the given
  type.
  </p>
 					</span></section>
-				<section class="O" id="optional()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">optional</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="optional()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">optional</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :optional CSS pseudo-class represents any 
@@ -1235,13 +1236,13 @@
  accordingly.
  </p>
 					</span></section>
-				<section class="O" id="optional(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">optional</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="optional(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">optional</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :optional CSS pseudo-class represents any 
@@ -1250,13 +1251,13 @@
  accordingly.
  </p>
 					</span></section>
-				<section class="O" id="required()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">required</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="required()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">required</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :required CSS pseudo-class represents any 
@@ -1265,13 +1266,13 @@
  form can be submitted.
  </p>
 					</span></section>
-				<section class="O" id="required(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">required</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="required(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">required</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :required CSS pseudo-class represents any 
@@ -1280,39 +1281,39 @@
  form can be submitted.
  </p>
 					</span></section>
-				<section class="O" id="target()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">target</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="target()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">target</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :target pseudo-class represents the unique element, if any, with an id matching the
  fragment identifier of the URI of the document.
  </p>
 					</span></section>
-				<section class="O" id="target(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">target</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="target(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">target</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :target pseudo-class represents the unique element, if any, with an id matching the
  fragment identifier of the URI of the document.
  </p>
 					</span></section>
-				<section class="O" id="valid()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">valid</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="valid()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">valid</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :valid CSS pseudo-class represents any 
@@ -1323,13 +1324,13 @@
  </form>
 						</p>
 					</span></section>
-				<section class="O" id="valid(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">valid</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="valid(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">valid</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :valid CSS pseudo-class represents any 
@@ -1340,13 +1341,13 @@
  </form>
 						</p>
 					</span></section>
-				<section class="O" id="visited()">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">visited</code><code class="I">()</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="visited()">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">visited</code><code class="j">()</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :visited CSS pseudo-class lets you select only links that have been visited. This style
@@ -1356,13 +1357,13 @@
  LVHA-order: :link &#8212; :visited &#8212; :hover &#8212; :active.
  </p>
 					</span></section>
-				<section class="O" id="visited(stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">visited</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="visited(stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">visited</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The :visited CSS pseudo-class lets you select only links that have been visited. This style
@@ -1372,31 +1373,31 @@
  LVHA-order: :link &#8212; :visited &#8212; :hover &#8212; :active.
  </p>
 					</span></section>
-				<section class="O" id="media(stylist.MediaQuery,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">media</code><code class="I">(<code><a href="api/stylist.MediaQuery.html">MediaQuery</a></code> <code class="parameterName">query</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="media(stylist.MediaQuery,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">media</code><code class="j">(<code><a href="api/stylist.MediaQuery.html">MediaQuery</a></code> <code class="parameterName">query</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.MediaQuery.html">MediaQuery</a></code> <code>query</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>style</code></td>
 							<td></td>
 						</tr>
 					</table>
 				</section>
-				<section class="O" id="select(java.lang.String)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">select</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="select(java.lang.String)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">select</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>selector</code></td>
 							<td><span><p>A css selector.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>Chainable API.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  A generic combinator &#8212; typically represented by a single space ( ) character in the form of
@@ -1406,172 +1407,172 @@
  selectors.
  </p>
 					</span></section>
-				<section class="O" id="select(java.lang.String,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">select</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="select(java.lang.String,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">select</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code>selector</code></td>
 							<td><span><p>A css selector.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>A generic combinator &#8212; typically represented by a single space ( ) character in the form of
- selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="select(stylist.Style,stylist.Style)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC"></i></i><code class="V">select</code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="R"><code>void</code></i></h2>
-					<table class="Y">
-						<tr class="a">
+					</table><span class="B"><p>A generic combinator — typically represented by a single space ( ) character in the form of
+selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="select(stylist.Style,stylist.Style)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC"></i></i><code class="d">select</code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="e"><code>void</code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>selector</code></td>
 							<td><span><p>A css selector.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.Style.html">Style</a></code> <code>sub</code></td>
 							<td><span><p>A sub style.</p>
-								</span></td>
+</span></td>
 						</tr>
-					</table><span class="B"><p>A generic combinator &#8212; typically represented by a single space ( ) character in the form of
- selector&#8321; selector&#8322; &#8212; combines two selectors such that elements matched by the second
- selector (selector&#8322;) are selected if they have an ancestor element matching the first
- selector (selector&#8321;). Selectors that utilize a descendant combinator are called descendant
- selectors.</p>
-					</span></section>
-				<section class="O" id="toString()">
-					<h2 class="g"><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code class="V">toString</code><code class="I">()</code><i class="R"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+					</table><span class="B"><p>A generic combinator — typically represented by a single space ( ) character in the form of
+selector₁ selector₂ — combines two selectors such that elements matched by the second
+selector (selector₂) are selected if they have an ancestor element matching the first
+selector (selector₁). Selectors that utilize a descendant combinator are called descendant
+selectors.</p>
+</span></section>
+				<section class="S" id="toString()">
+					<h2 class="K"><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code class="d">toString</code><code class="j">()</code><i class="e"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
 							<td></td>
 						</tr>
 					</table>
 				</section>
-				<section class="O" id="create(java.lang.Runnable)">
-					<h2 class="g"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="V">create</code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">processor</code>)</code><i class="R"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="create(java.lang.Runnable)">
+					<h2 class="K"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="d">create</code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">processor</code>)</code><i class="e"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code>processor</code></td>
 							<td><span><p>A style creation process.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
 							<td><span><p>A created selector builder.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>Create new selector builder.</p>
-					</span></section>
+</span></section>
 			</article>
-			<aside class="J" id="SubNavi">
-				<div class="e">
-					<h5 class="Q">Static Methods</h5>
+			<aside class="M" id="SubNavi">
+				<div class="I">
+					<h5 class="a">Static Methods</h5>
 					<ul>
-						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.SelectorDSL.html#create(java.lang.Runnable)">create</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">processor</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.SelectorDSL.html#create(java.lang.Runnable)">create</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Runnable.html">Runnable</a></code> <code class="parameterName">processor</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
 					</ul>
-					<h5 class="Q">Methods</h5>
+					<h5 class="a">Methods</h5>
 					<ul>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#attr(java.lang.String)">attr</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.Attribute.html">Attribute</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#attr(java.lang.String,stylist.Style)">attr</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#attr(java.lang.String,java.lang.String,stylist.Style)">attr</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">value</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#with(stylist.Style)">with</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#with(stylist.Style,stylist.Style)">with</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#with(java.lang.String,stylist.Style)">with</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#ancestor()">ancestor</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#ancestor(stylist.Style)">ancestor</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant()">descendant</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant(stylist.Style)">descendant</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant(stylist.Style,stylist.Style)">descendant</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant(java.lang.String,stylist.Style)">descendant</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#parent()">parent</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#parent(stylist.Style)">parent</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#child()">child</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#child(stylist.Style)">child</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev()">prev</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev(stylist.Style)">prev</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev(stylist.Style,stylist.Style)">prev</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev(java.lang.String,stylist.Style)">prev</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next()">next</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next(stylist.Style)">next</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next(stylist.Style,stylist.Style)">next</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next(java.lang.String,stylist.Style)">next</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prevs()">prevs</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prevs(stylist.Style)">prevs</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nexts()">nexts</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nexts(stylist.Style)">nexts</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#after(stylist.Style)">after</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#before(stylist.Style)">before</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstLetter(stylist.Style)">firstLetter</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstLine(stylist.Style)">firstLine</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#selection(stylist.Style)">selection</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#active()">active</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#active(stylist.Style)">active</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#checked()">checked</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#checked(stylist.Style)">checked</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#defaults()">defaults</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#defaults(stylist.Style)">defaults</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#disabled()">disabled</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#disabled(stylist.Style)">disabled</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#empty()">empty</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#empty(stylist.Style)">empty</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#enabled()">enabled</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#enabled(stylist.Style)">enabled</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstChild()">firstChild</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstChild(stylist.Style)">firstChild</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstType()">firstType</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstType(stylist.Style)">firstType</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#focus()">focus</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#focus(stylist.Style)">focus</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#has(java.lang.String,stylist.Style)">has</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#hover()">hover</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#hover(stylist.Style)">hover</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#indeterminate()">indeterminate</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#indeterminate(stylist.Style)">indeterminate</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#invalid()">invalid</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#invalid(stylist.Style)">invalid</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastChild()">lastChild</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastChild(stylist.Style)">lastChild</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastType()">lastType</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastType(stylist.Style)">lastType</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#link()">link</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#link(stylist.Style)">link</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.SelectorDSL)">not</a></code><code class="I">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.SelectorDSL,stylist.Style)">not</a></code><code class="I">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.Style)">not</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.Style,stylist.Style)">not</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthChild(java.lang.String)">nthChild</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthChild(java.lang.String,stylist.Style)">nthChild</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastChild(java.lang.String)">nthLastChild</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastChild(java.lang.String,stylist.Style)">nthLastChild</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthType(java.lang.String)">nthType</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthType(java.lang.String,stylist.Style)">nthType</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastType(java.lang.String)">nthLastType</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastType(java.lang.String,stylist.Style)">nthLastType</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyChild()">onlyChild</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyChild(stylist.Style)">onlyChild</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyType()">onlyType</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyType(stylist.Style)">onlyType</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#optional()">optional</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#optional(stylist.Style)">optional</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#required()">required</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#required(stylist.Style)">required</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#target()">target</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#target(stylist.Style)">target</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#valid()">valid</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#valid(stylist.Style)">valid</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#visited()">visited</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#visited(stylist.Style)">visited</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#media(stylist.MediaQuery,stylist.Style)">media</a></code><code class="I">(<code><a href="api/stylist.MediaQuery.html">MediaQuery</a></code> <code class="parameterName">query</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#select(java.lang.String)">select</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>)</code><i class="d"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#select(java.lang.String,stylist.Style)">select</a></code><code class="I">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#select(stylist.Style,stylist.Style)">select</a></code><code class="I">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="d"><code>void</code></i></li>
-						<li><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#toString()">toString</a></code><code class="I">()</code><i class="d"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#attr(java.lang.String)">attr</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.Attribute.html">Attribute</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#attr(java.lang.String,stylist.Style)">attr</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#attr(java.lang.String,java.lang.String,stylist.Style)">attr</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">name</code>, <code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">value</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#with(stylist.Style)">with</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#with(stylist.Style,stylist.Style)">with</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#with(java.lang.String,stylist.Style)">with</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">location</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#ancestor()">ancestor</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#ancestor(stylist.Style)">ancestor</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant()">descendant</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant(stylist.Style)">descendant</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant(stylist.Style,stylist.Style)">descendant</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#descendant(java.lang.String,stylist.Style)">descendant</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">descendant</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#parent()">parent</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#parent(stylist.Style)">parent</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#child()">child</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#child(stylist.Style)">child</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev()">prev</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev(stylist.Style)">prev</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev(stylist.Style,stylist.Style)">prev</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prev(java.lang.String,stylist.Style)">prev</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">prev</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next()">next</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next(stylist.Style)">next</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next(stylist.Style,stylist.Style)">next</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#next(java.lang.String,stylist.Style)">next</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">next</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prevs()">prevs</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#prevs(stylist.Style)">prevs</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nexts()">nexts</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nexts(stylist.Style)">nexts</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#after(stylist.Style)">after</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#before(stylist.Style)">before</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstLetter(stylist.Style)">firstLetter</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstLine(stylist.Style)">firstLine</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#selection(stylist.Style)">selection</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#active()">active</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#active(stylist.Style)">active</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#checked()">checked</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#checked(stylist.Style)">checked</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#defaults()">defaults</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#defaults(stylist.Style)">defaults</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#disabled()">disabled</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#disabled(stylist.Style)">disabled</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#empty()">empty</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#empty(stylist.Style)">empty</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#enabled()">enabled</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#enabled(stylist.Style)">enabled</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstChild()">firstChild</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstChild(stylist.Style)">firstChild</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstType()">firstType</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#firstType(stylist.Style)">firstType</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#focus()">focus</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#focus(stylist.Style)">focus</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#has(java.lang.String,stylist.Style)">has</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#hover()">hover</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#hover(stylist.Style)">hover</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#indeterminate()">indeterminate</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#indeterminate(stylist.Style)">indeterminate</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#invalid()">invalid</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#invalid(stylist.Style)">invalid</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastChild()">lastChild</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastChild(stylist.Style)">lastChild</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastType()">lastType</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#lastType(stylist.Style)">lastType</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#link()">link</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#link(stylist.Style)">link</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.SelectorDSL)">not</a></code><code class="j">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.SelectorDSL,stylist.Style)">not</a></code><code class="j">(<code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.Style)">not</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#not(stylist.Style,stylist.Style)">not</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthChild(java.lang.String)">nthChild</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthChild(java.lang.String,stylist.Style)">nthChild</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastChild(java.lang.String)">nthLastChild</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastChild(java.lang.String,stylist.Style)">nthLastChild</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthType(java.lang.String)">nthType</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthType(java.lang.String,stylist.Style)">nthType</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastType(java.lang.String)">nthLastType</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#nthLastType(java.lang.String,stylist.Style)">nthLastType</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">pattern</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyChild()">onlyChild</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyChild(stylist.Style)">onlyChild</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyType()">onlyType</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#onlyType(stylist.Style)">onlyType</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#optional()">optional</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#optional(stylist.Style)">optional</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#required()">required</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#required(stylist.Style)">required</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#target()">target</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#target(stylist.Style)">target</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#valid()">valid</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#valid(stylist.Style)">valid</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#visited()">visited</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#visited(stylist.Style)">visited</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#media(stylist.MediaQuery,stylist.Style)">media</a></code><code class="j">(<code><a href="api/stylist.MediaQuery.html">MediaQuery</a></code> <code class="parameterName">query</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">style</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#select(java.lang.String)">select</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>)</code><i class="h"><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#select(java.lang.String,stylist.Style)">select</a></code><code class="j">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#select(stylist.Style,stylist.Style)">select</a></code><code class="j">(<code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">selector</code>, <code><a href="api/stylist.Style.html">Style</a></code> <code class="parameterName">sub</code>)</code><i class="h"><code>void</code></i></li>
+						<li><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code><a href="api/stylist.SelectorDSL.html#toString()">toString</a></code><code class="j">()</code><i class="h"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
 					</ul>
 				</div>
 			</aside>

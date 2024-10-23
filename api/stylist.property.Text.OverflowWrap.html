@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. " name="description"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="h">
-		<header class="l">
-			<h1 class="m" date="Use saved searches to filter your results more quickly" ver="1.10.0"><code>Stylist</code></h1>
-			<nav class="L"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="L">
+		<header class="Q">
+			<h1 class="i" date="2023-10-31" ver="1.10.0"><code>Stylist</code></h1>
+			<nav class="V"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -27,60 +31,60 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="M">
-			<nav class="b">
+		<main class="g">
+			<nav class="J">
 				<div></div>
 			</nav>
-			<article class="Z" id="Article">
-				<section class="O"><code class="c">stylist.property</code>
-					<h2 class="Class j"><code class="V">Text.OverflowWrap</code></h2>
-					<div class="P">
+			<article class="c" id="Article">
+				<section class="S"><code class="R">stylist.property</code>
+					<h2 class="Class W"><code class="d">Text.OverflowWrap</code></h2>
+					<div class="Z">
 						<ul class="C E">
 							<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Text.html">Text</a></code></code></code></li>
 						</ul>
 					</div>
 				</section>
-				<section class="O" id="anywhere()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">anywhere</code><code class="I">()</code><i class="R"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="anywhere()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">anywhere</code><code class="j">()</code><i class="e"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
 							<td></td>
 						</tr>
-					</table><span class="B"><p>To prevent overflow, an otherwise unbreakable string of characters &#8212; like a long word or
- URL &#8212; may be broken at any point if there are no otherwise-acceptable break points in the
- line. No hyphenation character is inserted at the break point. Soft wrap opportunities
- introduced by the word break are considered when calculating min-content intrinsic sizes.</p>
-					</span></section>
-				<section class="O" id="normal()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">normal</code><code class="I">()</code><i class="R"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+					</table><span class="B"><p>To prevent overflow, an otherwise unbreakable string of characters — like a long word or
+URL — may be broken at any point if there are no otherwise-acceptable break points in the
+line. No hyphenation character is inserted at the break point. Soft wrap opportunities
+introduced by the word break are considered when calculating min-content intrinsic sizes.</p>
+</span></section>
+				<section class="S" id="normal()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">normal</code><code class="j">()</code><i class="e"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>Lines may only break at normal word break points (such as a space between two words).</p>
-					</span></section>
-				<section class="O" id="breakWord()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">breakWord</code><code class="I">()</code><i class="R"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+</span></section>
+				<section class="S" id="breakWord()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">breakWord</code><code class="j">()</code><i class="e"><code><a href="api/stylist.property.Text.html">Text</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>The same as the anywhere value, with normally unbreakable words allowed to be broken at
- arbitrary points if there are no otherwise acceptable break points in the line, but soft
- wrap opportunities introduced by the word break are NOT considered when calculating
- min-content intrinsic sizes.</p>
-					</span></section>
+arbitrary points if there are no otherwise acceptable break points in the line, but soft
+wrap opportunities introduced by the word break are NOT considered when calculating
+min-content intrinsic sizes.</p>
+</span></section>
 			</article>
-			<aside class="J" id="SubNavi">
-				<div class="e">
-					<h5 class="Q">Methods</h5>
+			<aside class="M" id="SubNavi">
+				<div class="I">
+					<h5 class="a">Methods</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWrap.html#anywhere()">anywhere</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWrap.html#normal()">normal</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWrap.html#breakWord()">breakWord</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWrap.html#anywhere()">anywhere</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWrap.html#normal()">normal</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.OverflowWrap.html#breakWord()">breakWord</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.property.Text.html">Text</a></code></i></li>
 					</ul>
 				</div>
 			</aside>

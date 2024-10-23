@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. " name="description"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="h">
-		<header class="l">
-			<h1 class="m" date="Use saved searches to filter your results more quickly" ver="1.10.0"><code>Stylist</code></h1>
-			<nav class="L"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="L">
+		<header class="Q">
+			<h1 class="i" date="2023-10-31" ver="1.10.0"><code>Stylist</code></h1>
+			<nav class="V"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -27,153 +31,153 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="M">
-			<nav class="b">
+		<main class="g">
+			<nav class="J">
 				<div></div>
 			</nav>
-			<article class="Z" id="Article">
-				<section class="O"><code class="c">stylist</code>
-					<h2 class="Class j"><code class="V">FunctionDSL</code></h2>
-					<div class="P">
+			<article class="c" id="Article">
+				<section class="S"><code class="R">stylist</code>
+					<h2 class="Class W"><code class="d">FunctionDSL</code></h2>
+					<div class="Z">
 						<ul class="C E">
 							<li><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></li>
 						</ul>
 					</div>
 				</section>
-				<section class="O" id="rgb(int,int,int)">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">rgb</code><code class="I">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>)</code><i class="R"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="rgb(int,int,int)">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">rgb</code><code class="j">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>)</code><i class="e"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code>int</code> <code>red</code></td>
 							<td><span><p>A red component in the range 0-255. If the specified value is out of range, it
-            will be round up to 0 or 255.</p>
-								</span></td>
+will be round up to 0 or 255.</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>green</code></td>
 							<td><span><p>A green component in the range 0-255. If the specified value is out of range, it
-            will be round up to 0 or 255.</p>
-								</span></td>
+will be round up to 0 or 255.</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>blue</code></td>
 							<td><span><p>A blue component in the range 0-255. If the specified value is out of range, it
-            will be round up to 0 or 255.</p>
-								</span></td>
+will be round up to 0 or 255.</p>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code></td>
 							<td><span><p>A new color.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  Create Color without alpha channel.
  </p>
 					</span></section>
-				<section class="O" id="rgba(int,int,int,double)">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">rgba</code><code class="I">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="R"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="rgba(int,int,int,double)">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">rgba</code><code class="j">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="e"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code>int</code> <code>red</code></td>
 							<td><span><p>A red component in the range 0-255. If the specified value is out of range, it
-            will be round up to 0 or 255.</p>
-								</span></td>
+will be round up to 0 or 255.</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>green</code></td>
 							<td><span><p>A green component in the range 0-255. If the specified value is out of range, it
-            will be round up to 0 or 255.</p>
-								</span></td>
+will be round up to 0 or 255.</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>blue</code></td>
 							<td><span><p>A blue component in the range 0-255. If the specified value is out of range, it
-            will be round up to 0 or 255.</p>
-								</span></td>
+will be round up to 0 or 255.</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>double</code> <code>alpha</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code></td>
 							<td><span><p>A new color.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  Create Color with alpha channel.
  </p>
 					</span></section>
-				<section class="O" id="hsl(int,int,int)">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">hsl</code><code class="I">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>)</code><i class="R"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="hsl(int,int,int)">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">hsl</code><code class="j">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>)</code><i class="e"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code>int</code> <code>hue</code></td>
 							<td><span><p>The attribute of a visual sensation according to which an area appears to be
-            similar to one of the perceived colors: red, yellow, green, and blue, or to a
-            combination of two of them .</p>
-								</span></td>
+similar to one of the perceived colors: red, yellow, green, and blue, or to a
+combination of two of them .</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>saturation</code></td>
 							<td><span><p>The colorfulness of a stimulus relative to its own brightness.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>lightness</code></td>
 							<td><span><p>The brightness relative to the brightness of a similarly illuminated white.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code></td>
 							<td><span><p>A new color.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  Create Color without alpha channel.
  </p>
 					</span></section>
-				<section class="O" id="hsla(int,int,int,double)">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">hsla</code><code class="I">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="R"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="hsla(int,int,int,double)">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">hsla</code><code class="j">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="e"><code><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code>int</code> <code>hue</code></td>
 							<td><span><p>The attribute of a visual sensation according to which an area appears to be
-            similar to one of the perceived colors: red, yellow, green, and blue, or to a
-            combination of two of them .</p>
-								</span></td>
+similar to one of the perceived colors: red, yellow, green, and blue, or to a
+combination of two of them .</p>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>saturation</code></td>
 							<td><span><p>The colorfulness of a stimulus relative to its own brightness.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>int</code> <code>lightness</code></td>
 							<td><span><p>The brightness relative to the brightness of a similarly illuminated white.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code>double</code> <code>alpha</code></td>
 							<td><span><p>The transparency.</p>
-								</span></td>
+</span></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code></td>
 							<td><span><p>A new color.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  Create Color without alpha channel.
  </p>
 					</span></section>
-				<section class="O" id="linear()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">linear</code><code class="I">()</code><i class="R"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="linear()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">linear</code><code class="j">()</code><i class="e"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></td>
 							<td><span><p>A new linear gradient image.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The CSS linear-gradient() function creates an 
@@ -189,21 +193,21 @@
 							</image>
 						</p>
 					</span></section>
-				<section class="O" id="linear(stylist.value.Color,stylist.value.Color)">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">linear</code><code class="I">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="R"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="linear(stylist.value.Color,stylist.value.Color)">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">linear</code><code class="j">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="e"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code> <code>start</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code> <code>end</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></td>
 							<td><span><p>A new linear gradient image.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The CSS linear-gradient() function creates an 
@@ -219,13 +223,13 @@
 							</image>
 						</p>
 					</span></section>
-				<section class="O" id="radial()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">radial</code><code class="I">()</code><i class="R"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="radial()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">radial</code><code class="j">()</code><i class="e"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></td>
 							<td><span><p>A new linear gradient image.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The CSS radial-gradient() function creates an 
@@ -237,21 +241,21 @@
 							</image>
 						</p>
 					</span></section>
-				<section class="O" id="radial(stylist.value.Color,stylist.value.Color)">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">radial</code><code class="I">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="R"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></h2>
-					<table class="Y">
-						<tr class="a">
+				<section class="S" id="radial(stylist.value.Color,stylist.value.Color)">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">radial</code><code class="j">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="e"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></h2>
+					<table class="O">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code> <code>start</code></td>
 							<td></td>
 						</tr>
-						<tr class="a">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Color.html">Color</a></code> <code>end</code></td>
 							<td></td>
 						</tr>
-						<tr class="K">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></td>
 							<td><span><p>A new linear gradient image.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The CSS radial-gradient() function creates an 
@@ -263,22 +267,22 @@
 							</image>
 						</p>
 					</span></section>
-				<section class="O" id="shadow()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">shadow</code><code class="I">()</code><i class="R"><code><a href="api/stylist.value.Shadow.html">Shadow</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="shadow()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">shadow</code><code class="j">()</code><i class="e"><code><a href="api/stylist.value.Shadow.html">Shadow</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.value.Shadow.html">Shadow</a></code></td>
 							<td><span><p>A new shadow.</p>
-								</span></td>
+</span></td>
 						</tr>
 					</table><span class="B"><p>
  The CSS shadow function creates an generic shadow representation.
  </p>
 					</span></section>
-				<section class="O" id="transit()">
-					<h2 class="g"><i class="PUBLIC"></i><code class="V">transit</code><code class="I">()</code><i class="R"><code><a href="api/stylist.property.Transition.html">Transition</a></code></i></h2>
-					<table class="Y">
-						<tr class="K">
+				<section class="S" id="transit()">
+					<h2 class="K"><i class="PUBLIC"></i><code class="d">transit</code><code class="j">()</code><i class="e"><code><a href="api/stylist.property.Transition.html">Transition</a></code></i></h2>
+					<table class="O">
+						<tr class="k">
 							<td><code><a href="api/stylist.property.Transition.html">Transition</a></code></td>
 							<td></td>
 						</tr>
@@ -287,20 +291,20 @@
  </p>
 					</span></section>
 			</article>
-			<aside class="J" id="SubNavi">
-				<div class="e">
-					<h5 class="Q">Methods</h5>
+			<aside class="M" id="SubNavi">
+				<div class="I">
+					<h5 class="a">Methods</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#rgb(int,int,int)">rgb</a></code><code class="I">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>)</code><i class="d"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#rgba(int,int,int,double)">rgba</a></code><code class="I">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="d"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#hsl(int,int,int)">hsl</a></code><code class="I">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>)</code><i class="d"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#hsla(int,int,int,double)">hsla</a></code><code class="I">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="d"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#linear()">linear</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#linear(stylist.value.Color,stylist.value.Color)">linear</a></code><code class="I">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="d"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#radial()">radial</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#radial(stylist.value.Color,stylist.value.Color)">radial</a></code><code class="I">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="d"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#shadow()">shadow</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.value.Shadow.html">Shadow</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#transit()">transit</a></code><code class="I">()</code><i class="d"><code><a href="api/stylist.property.Transition.html">Transition</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#rgb(int,int,int)">rgb</a></code><code class="j">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>)</code><i class="h"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#rgba(int,int,int,double)">rgba</a></code><code class="j">(<code>int</code> <code class="parameterName">red</code>, <code>int</code> <code class="parameterName">green</code>, <code>int</code> <code class="parameterName">blue</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="h"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#hsl(int,int,int)">hsl</a></code><code class="j">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>)</code><i class="h"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#hsla(int,int,int,double)">hsla</a></code><code class="j">(<code>int</code> <code class="parameterName">hue</code>, <code>int</code> <code class="parameterName">saturation</code>, <code>int</code> <code class="parameterName">lightness</code>, <code>double</code> <code class="parameterName">alpha</code>)</code><i class="h"><code><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#linear()">linear</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#linear(stylist.value.Color,stylist.value.Color)">linear</a></code><code class="j">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="h"><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#radial()">radial</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#radial(stylist.value.Color,stylist.value.Color)">radial</a></code><code class="j">(<code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">start</code>, <code><a href="api/stylist.value.Color.html">Color</a></code> <code class="parameterName">end</code>)</code><i class="h"><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#shadow()">shadow</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.value.Shadow.html">Shadow</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.FunctionDSL.html#transit()">transit</a></code><code class="j">()</code><i class="h"><code><a href="api/stylist.property.Transition.html">Transition</a></code></i></li>
 					</ul>
 				</div>
 			</aside>
