@@ -10,7 +10,7 @@
 package stylist.value;
 
 import java.io.ByteArrayOutputStream;
-import java.net.URL;
+import java.net.URI;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +99,7 @@ public class FontSet extends CSSValue {
         static String parse(String uri) {
             try {
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
-                URLConnection connection = new URL(uri).openConnection();
+                URLConnection connection = URI.create(uri).toURL().openConnection();
                 connection.connect();
                 connection.getInputStream().transferTo(out);
 
