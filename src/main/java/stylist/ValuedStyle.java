@@ -100,6 +100,6 @@ final class ValuedStyle<V> implements Style {
         } catch (Throwable e) {
             // ignore
         }
-        return String.valueOf(o.hashCode());
+        return String.valueOf(o.hashCode()) + "@" + o.getClass().getName();
     }
 }
