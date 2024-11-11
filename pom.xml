@@ -50,22 +50,21 @@
 		<system>github</system>
 		<url>https://github.com/teletha/stylist/issues</url>
 	</issueManagement>
-	<developers>
-		<developer>
-			<name>teletha</name>
-			<email/>
-			<url>https://github.com/teletha</url>
-		</developer>
-	</developers>
+	<developers/>
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
 					<release>23</release>
 					<compilerArgs/>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.5.1</version>
 			</plugin>
 		</plugins>
 	</build>
