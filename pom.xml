@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.teletha</groupId>
 	<artifactId>stylist</artifactId>
-	<version>1.10.0</version>
+	<version>1.11.0</version>
 	<packaging>jar</packaging>
 	<name>stylist</name>
 	<description/>
@@ -50,7 +50,13 @@
 		<system>github</system>
 		<url>https://github.com/teletha/stylist/issues</url>
 	</issueManagement>
-	<developers/>
+	<developers>
+		<developer>
+			<name>teletha</name>
+			<email/>
+			<url>https://github.com/teletha</url>
+		</developer>
+	</developers>
 	<build>
 		<plugins>
 			<plugin>
