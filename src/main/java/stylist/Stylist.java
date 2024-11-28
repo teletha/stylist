@@ -42,6 +42,12 @@ import stylist.value.Color;
 
 public final class Stylist {
 
+    /** The URL of reset css. */
+    public static final String ResetCSS = "https://cdn.jsdelivr.net/npm/modern-css-reset@1.4.0/dist/reset.min.css";
+
+    /** The URL of normalize css. */
+    public static final String NormalizeCSS = "https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css";
+
     /** The format style. */
     private String beforeSelector = "";
 
@@ -263,7 +269,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public Stylist importResetStyle() {
-        return importStyle("https://cdn.jsdelivr.net/npm/modern-css-reset@1.4.0/dist/reset.min.css");
+        return importStyle(ResetCSS);
     }
 
     /**
@@ -272,7 +278,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public Stylist importNormalizeStyle() {
-        return importStyle("https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css");
+        return importStyle(NormalizeCSS);
     }
 
     /**

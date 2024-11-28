@@ -9,7 +9,13 @@
  */
 package stylist.value;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Font implements CharSequence {
+
+    /** The managed gooogle fonts. */
+    private static final Set<Font> googles = new HashSet();
 
     /**
      * Glyphs have finishing strokes, flared or tapering ends, or have actual serifed endings. E.g.
@@ -185,9 +191,7 @@ public class Font implements CharSequence {
     }
 
     /**
-     * <p>
      * Load from <a href="https://www.google.com/fonts">Google Fonts</a>.
-     * </p>
      * 
      * @param name A name of font to load.
      * @param params A list of extra parameters.
@@ -204,6 +208,18 @@ public class Font implements CharSequence {
                 builder.append(param).append(",");
             }
         }
-        return new Font(name, builder.toString());
+
+        Font font = new Font(name, builder.toString());
+        googles.add(font);
+        return font;
+    }
+
+    /**
+     * List up all google fonts.
+     * 
+     * @return
+     */
+    public static Set<Font> fromGoogle() {
+        return googles;
     }
 }
