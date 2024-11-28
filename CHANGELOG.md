@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/teletha/stylist/compare/v1.11.0...v1.12.0) (2024-11-28)
+
+
+### Features
+
+* Font can list up all using web fonts. ([82dd81d](https://github.com/teletha/stylist/commit/82dd81dad501dd0a9870b1b4bf7567d47ec32827))
+
 ## [1.11.0](https://github.com/teletha/stylist/compare/v1.10.0...v1.11.0) (2024-11-11)
 
 
