@@ -4,17 +4,26 @@
 		<meta charset="UTF-8"/>
 		<meta content="width=device-width, initial-scale=1" name="viewport"/>
 		<meta content="Explains how to use Stylist and its API. " name="description"/>
-		<link href="https://fonts.googleapis.com" rel="preconnect"/>
 		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="preload"/>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="c">
-		<header class="l">
-			<h1 class="U" date="2024-11-11" ver="1.12.0"><code>Stylist</code></h1>
-			<nav class="h"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="h">
+		<header class="K">
+			<h1 class="W" date="2024-11-28" ver="1.12.0"><code>Stylist</code></h1>
+			<nav class="e"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -23,7 +32,7 @@
 					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#github"/>
 					</svg>Repository</a></nav>
-			<div class="X" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+			<div class="P" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#sun"/>
 					</svg>
 				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
@@ -31,95 +40,95 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="a">
-			<nav class="M">
+		<main class="V">
+			<nav class="i">
 				<div></div>
 			</nav>
-			<article class="L" id="Article">
-				<section class="S"><code class="j">stylist.design</code>
-					<h2 class="AbstractClass H"><code class="N">AbstractDesignScheme</code></h2>
-					<div class="I">
+			<article class="c" id="Article">
+				<section class="I"><code class="k">stylist.design</code>
+					<h2 class="AbstractClass l"><code class="L">AbstractDesignScheme</code></h2>
+					<div class="j">
 						<ul class="C E">
 							<li><code><a href="api/stylist.design.DesignScheme.html">DesignScheme</a></code></li>
 						</ul>
 					</div>
 				</section>
-				<section class="S" id="primary">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">primary</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="primary">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">primary</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="secondary">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">secondary</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="secondary">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">secondary</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="accent">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">accent</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="accent">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">accent</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="front">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">front</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="front">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">front</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="link">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">link</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="link">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">link</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="back">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">back</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="back">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">back</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="surface">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">surface</code><i class="Y"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
+				<section class="I" id="surface">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">surface</code><i class="a"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></h2>
 				</section>
-				<section class="S" id="base">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">base</code><i class="Y"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
+				<section class="I" id="base">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">base</code><i class="a"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
 				</section>
-				<section class="S" id="title">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">title</code><i class="Y"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
+				<section class="I" id="title">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">title</code><i class="a"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
 				</section>
-				<section class="S" id="condensed">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">condensed</code><i class="Y"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
+				<section class="I" id="condensed">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">condensed</code><i class="a"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
 				</section>
-				<section class="S" id="mono">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">mono</code><i class="Y"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
+				<section class="I" id="mono">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">mono</code><i class="a"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
 				</section>
-				<section class="S" id="icon">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">icon</code><i class="Y"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
+				<section class="I" id="icon">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">icon</code><i class="a"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></h2>
 				</section>
-				<section class="S" id="font">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">font</code><i class="Y"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
+				<section class="I" id="font">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">font</code><i class="a"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
 				</section>
-				<section class="S" id="line">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">line</code><i class="Y"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
+				<section class="I" id="line">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">line</code><i class="a"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
 				</section>
-				<section class="S" id="border">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">border</code><i class="Y"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
+				<section class="I" id="border">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">border</code><i class="a"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
 				</section>
-				<section class="S" id="radius">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">radius</code><i class="Y"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
+				<section class="I" id="radius">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">radius</code><i class="a"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></h2>
 				</section>
-				<section class="S" id="AbstractDesignScheme()">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">AbstractDesignScheme</code><code class="R">()</code></h2>
+				<section class="I" id="AbstractDesignScheme()">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">AbstractDesignScheme</code><code class="J">()</code></h2>
 				</section>
 			</article>
-			<aside class="i" id="SubNavi">
-				<div class="W">
-					<h5 class="f">Constructors</h5>
+			<aside class="X" id="SubNavi">
+				<div class="N">
+					<h5 class="Y">Constructors</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#AbstractDesignScheme()">AbstractDesignScheme</a></code><code class="R">()</code></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#AbstractDesignScheme()">AbstractDesignScheme</a></code><code class="J">()</code></li>
 					</ul>
-					<h5 class="f">Fields</h5>
+					<h5 class="Y">Fields</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#primary">primary</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#secondary">secondary</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#accent">accent</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#front">front</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#link">link</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#back">back</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#surface">surface</a></code><i class="g"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#base">base</a></code><i class="g"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#title">title</a></code><i class="g"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#condensed">condensed</a></code><i class="g"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#mono">mono</a></code><i class="g"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#icon">icon</a></code><i class="g"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#font">font</a></code><i class="g"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#line">line</a></code><i class="g"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#border">border</a></code><i class="g"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#radius">radius</a></code><i class="g"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#primary">primary</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#secondary">secondary</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#accent">accent</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#front">front</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#link">link</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#back">back</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#surface">surface</a></code><i class="R"><code class="return"><a href="api/stylist.value.Color.html">Color</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#base">base</a></code><i class="R"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#title">title</a></code><i class="R"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#condensed">condensed</a></code><i class="R"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#mono">mono</a></code><i class="R"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#icon">icon</a></code><i class="R"><code class="return"><a href="api/stylist.value.FontSet.html">FontSet</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#font">font</a></code><i class="R"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#line">line</a></code><i class="R"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#border">border</a></code><i class="R"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.design.AbstractDesignScheme.html#radius">radius</a></code><i class="R"><code class="return"><a href="api/stylist.value.Numeric.html">Numeric</a></code></i></li>
 					</ul>
 				</div>
 			</aside>

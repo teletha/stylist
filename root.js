@@ -632,7 +632,7 @@ const root = {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Unit",
 			"packageName": "stylist.value",
-			"type": "Enum"
+			"type": "Interface"
 		},
 		{
 			"modifiers": {

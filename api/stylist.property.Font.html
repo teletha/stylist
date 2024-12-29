@@ -4,17 +4,26 @@
 		<meta charset="UTF-8"/>
 		<meta content="width=device-width, initial-scale=1" name="viewport"/>
 		<meta content="Explains how to use Stylist and its API. " name="description"/>
-		<link href="https://fonts.googleapis.com" rel="preconnect"/>
 		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="preload"/>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="c">
-		<header class="l">
-			<h1 class="U" date="2024-11-11" ver="1.12.0"><code>Stylist</code></h1>
-			<nav class="h"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="h">
+		<header class="K">
+			<h1 class="W" date="2024-11-28" ver="1.12.0"><code>Stylist</code></h1>
+			<nav class="e"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -23,7 +32,7 @@
 					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#github"/>
 					</svg>Repository</a></nav>
-			<div class="X" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+			<div class="P" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#sun"/>
 					</svg>
 				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
@@ -31,14 +40,14 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="a">
-			<nav class="M">
+		<main class="V">
+			<nav class="i">
 				<div></div>
 			</nav>
-			<article class="L" id="Article">
-				<section class="S"><code class="j">stylist.property</code>
-					<h2 class="Class H"><code class="N">Font</code></h2>
-					<div class="I">
+			<article class="c" id="Article">
+				<section class="I"><code class="k">stylist.property</code>
+					<h2 class="Class l"><code class="L">Font</code></h2>
+					<div class="j">
 						<ul class="C E">
 							<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Font.html">Font</a></code></code></code></li>
 						</ul>
@@ -47,78 +56,78 @@
 						</ul>
 					</div>
 				</section>
-				<section class="S" id="style">
-					<h2 class="b"><i class="FINAL"><i class="PUBLIC"></i></i><code class="N">style</code><i class="Y"><code class="return"><a href="api/stylist.property.Font.Style.html">Style</a></code></i></h2><span class="B"><p>The font-style CSS property allows italic or oblique faces to be selected within a
+				<section class="I" id="style">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="L">style</code><i class="a"><code class="return"><a href="api/stylist.property.Font.Style.html">Style</a></code></i></h2><span class="B"><p>The font-style CSS property allows italic or oblique faces to be selected within a
 font-family.</p></span></section>
-				<section class="S" id="variant">
-					<h2 class="b"><i class="FINAL"><i class="PUBLIC"></i></i><code class="N">variant</code><i class="Y"><code class="return"><a href="api/stylist.property.Font.Variant.html">Variant</a></code></i></h2><span class="B"><p>The font-variant CSS property selects a normal, or small-caps face from a font family.
+				<section class="I" id="variant">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="L">variant</code><i class="a"><code class="return"><a href="api/stylist.property.Font.Variant.html">Variant</a></code></i></h2><span class="B"><p>The font-variant CSS property selects a normal, or small-caps face from a font family.
 Setting font-variant is also possible by using the font shorthand.</p></span></section>
-				<section class="S" id="weight">
-					<h2 class="b"><i class="FINAL"><i class="PUBLIC"></i></i><code class="N">weight</code><i class="Y"><code class="return"><a href="api/stylist.property.Font.Weight.html">Weight</a></code></i></h2><span class="B"><p>The font-weight CSS property specifies the weight or boldness of the font. However, some
+				<section class="I" id="weight">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="L">weight</code><i class="a"><code class="return"><a href="api/stylist.property.Font.Weight.html">Weight</a></code></i></h2><span class="B"><p>The font-weight CSS property specifies the weight or boldness of the font. However, some
 fonts are not available in all weights; some are available only on normal and bold.</p></span></section>
-				<section class="S" id="size">
-					<h2 class="b"><i class="FINAL"><i class="PUBLIC"></i></i><code class="N">size</code><i class="Y"><code class="return"><a href="api/stylist.property.Font.Size.html">Size</a></code></i></h2><span class="B"><p>The font-size CSS property specifies the size of the font. Setting the font size may, in
+				<section class="I" id="size">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="L">size</code><i class="a"><code class="return"><a href="api/stylist.property.Font.Size.html">Size</a></code></i></h2><span class="B"><p>The font-size CSS property specifies the size of the font. Setting the font size may, in
 turn, change the size of other items, since it is used to compute the value of em and ex
 length units.</p></span></section>
-				<section class="S" id="smooth">
-					<h2 class="b"><i class="FINAL"><i class="PUBLIC"></i></i><code class="N">smooth</code><i class="Y"><code class="return"><a href="api/stylist.property.Font.Smooth.html">Smooth</a></code></i></h2><span class="B"><p>The font-smooth CSS property controls the application of anti-aliasing when fonts are
+				<section class="I" id="smooth">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="L">smooth</code><i class="a"><code class="return"><a href="api/stylist.property.Font.Smooth.html">Smooth</a></code></i></h2><span class="B"><p>The font-smooth CSS property controls the application of anti-aliasing when fonts are
 rendered.</p></span></section>
-				<section class="S" id="Font()">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">Font</code><code class="R">()</code></h2>
+				<section class="I" id="Font()">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">Font</code><code class="J">()</code></h2>
 				</section>
-				<section class="S" id="color(stylist.value.CSSValue)">
-					<h2 class="b"><i class="OVERRIDE PUBLIC"></i><code class="N">color</code><code class="R">(<code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="color(stylist.value.CSSValue)">
+					<h2 class="H"><i class="OVERRIDE PUBLIC"></i><code class="L">color</code><code class="J">(<code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code>color</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
 					</table>
 				</section>
-				<section class="S" id="size(double,stylist.value.Unit)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">size</code><code class="R">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="size(double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">size</code><code class="J">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code>double</code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="V">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>The font-size CSS property specifies the size of the font. Setting the font size may, in
 turn, change the size of other items, since it is used to compute the value of em and ex
 length units.</p></span></section>
-				<section class="S" id="size(stylist.value.Numeric)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">size</code><code class="R">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="size(stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">size</code><code class="J">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>The font-size CSS property specifies the size of the font. Setting the font size may, in
 turn, change the size of other items, since it is used to compute the value of em and ex
 length units.</p></span></section>
-				<section class="S" id="weight(int)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">weight</code><code class="R">(<code>int</code><code class="parameterName">size</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="weight(int)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">weight</code><code class="J">(<code>int</code><code class="parameterName">size</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code>int</code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
@@ -133,14 +142,14 @@ length units.</p></span></section>
  for fonts that provide only normal and bold, 100-500 are normal, and 600-900 are bold.
  </p>
 					</span></section>
-				<section class="S" id="family(stylist.value.FontSet)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">family</code><code class="R">(<code><a href="api/stylist.value.FontSet.html">FontSet</a></code><code class="parameterName">fonts</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="family(stylist.value.FontSet)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">family</code><code class="J">(<code><a href="api/stylist.value.FontSet.html">FontSet</a></code><code class="parameterName">fonts</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.FontSet.html">FontSet</a></code><code>fonts</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
@@ -157,14 +166,14 @@ length units.</p></span></section>
  font when needed.
  </p>
 					</span></section>
-				<section class="S" id="family(java.lang.CharSequence...)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">family</code><code class="R">(<code array="var"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/CharSequence.html">CharSequence</a></code><code class="parameterName">fonts</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="family(java.lang.CharSequence...)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">family</code><code class="J">(<code array="var"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/CharSequence.html">CharSequence</a></code><code class="parameterName">fonts</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code array="var"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/CharSequence.html">CharSequence</a></code><code>fonts</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
@@ -181,60 +190,60 @@ length units.</p></span></section>
  font when needed.
  </p>
 					</span></section>
-				<section class="S" id="lineHeight(double)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">lineHeight</code><code class="R">(<code>double</code><code class="parameterName">size</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="lineHeight(double)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">lineHeight</code><code class="J">(<code>double</code><code class="parameterName">size</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code>double</code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>On inline elements, the line-height CSS property specifies the height that is used in the
 calculation of the line box height. On block level elements, line-height specifies the
 minimal height of line boxes within the element.</p></span></section>
-				<section class="S" id="lineHeight(stylist.value.Numeric)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">lineHeight</code><code class="R">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="lineHeight(stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">lineHeight</code><code class="J">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>On inline elements, the line-height CSS property specifies the height that is used in the
 calculation of the line box height. On block level elements, line-height specifies the
 minimal height of line boxes within the element.</p></span></section>
-				<section class="S" id="lineHeight(double,stylist.value.Unit)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">lineHeight</code><code class="R">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="lineHeight(double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">lineHeight</code><code class="J">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code>double</code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="V">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
 					</table><span class="B"><p>On inline elements, the line-height CSS property specifies the height that is used in the
 calculation of the line box height. On block level elements, line-height specifies the
 minimal height of line boxes within the element.</p></span></section>
-				<section class="S" id="letterSpacing(stylist.value.Numeric)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">letterSpacing</code><code class="R">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="letterSpacing(stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">letterSpacing</code><code class="J">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
@@ -242,18 +251,18 @@ minimal height of line boxes within the element.</p></span></section>
 This value is added to the natural spacing between characters while rendering the text.
 Positive values of letter-spacing causes characters to spread farther apart, while negative
 values of letter-spacing bring characters closer together.</p></span></section>
-				<section class="S" id="letterSpacing(double,stylist.value.Unit)">
-					<h2 class="b"><i class="PUBLIC"></i><code class="N">letterSpacing</code><code class="R">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="Y"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
-					<table class="O">
-						<tr class="V">
+				<section class="I" id="letterSpacing(double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="L">letterSpacing</code><code class="J">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="a"><code><a href="api/stylist.property.Font.html">Font</a></code></i></h2>
+					<table class="Z">
+						<tr class="f">
 							<td><code>double</code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="V">
+						<tr class="f">
 							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
 							<td></td>
 						</tr>
-						<tr class="P">
+						<tr class="b">
 							<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
 							<td></td>
 						</tr>
@@ -262,33 +271,33 @@ This value is added to the natural spacing between characters while rendering th
 Positive values of letter-spacing causes characters to spread farther apart, while negative
 values of letter-spacing bring characters closer together.</p></span></section>
 			</article>
-			<aside class="i" id="SubNavi">
-				<div class="W">
-					<h5 class="f">Constructors</h5>
+			<aside class="X" id="SubNavi">
+				<div class="N">
+					<h5 class="Y">Constructors</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#Font()">Font</a></code><code class="R">()</code></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#Font()">Font</a></code><code class="J">()</code></li>
 					</ul>
-					<h5 class="f">Fields</h5>
+					<h5 class="Y">Fields</h5>
 					<ul>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#style">style</a></code><i class="g"><code class="return"><a href="api/stylist.property.Font.Style.html">Style</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#variant">variant</a></code><i class="g"><code class="return"><a href="api/stylist.property.Font.Variant.html">Variant</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#weight">weight</a></code><i class="g"><code class="return"><a href="api/stylist.property.Font.Weight.html">Weight</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#size">size</a></code><i class="g"><code class="return"><a href="api/stylist.property.Font.Size.html">Size</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#smooth">smooth</a></code><i class="g"><code class="return"><a href="api/stylist.property.Font.Smooth.html">Smooth</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#style">style</a></code><i class="R"><code class="return"><a href="api/stylist.property.Font.Style.html">Style</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#variant">variant</a></code><i class="R"><code class="return"><a href="api/stylist.property.Font.Variant.html">Variant</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#weight">weight</a></code><i class="R"><code class="return"><a href="api/stylist.property.Font.Weight.html">Weight</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#size">size</a></code><i class="R"><code class="return"><a href="api/stylist.property.Font.Size.html">Size</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Font.html#smooth">smooth</a></code><i class="R"><code class="return"><a href="api/stylist.property.Font.Smooth.html">Smooth</a></code></i></li>
 					</ul>
-					<h5 class="f">Methods</h5>
+					<h5 class="Y">Methods</h5>
 					<ul>
-						<li><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.property.Font.html#color(stylist.value.CSSValue)">color</a></code><code class="R">(<code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#size(double,stylist.value.Unit)">size</a></code><code class="R">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#size(stylist.value.Numeric)">size</a></code><code class="R">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#weight(int)">weight</a></code><code class="R">(<code>int</code><code class="parameterName">size</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#family(stylist.value.FontSet)">family</a></code><code class="R">(<code><a href="api/stylist.value.FontSet.html">FontSet</a></code><code class="parameterName">fonts</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#family(java.lang.CharSequence...)">family</a></code><code class="R">(<code array="var"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/CharSequence.html">CharSequence</a></code><code class="parameterName">fonts</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#lineHeight(double)">lineHeight</a></code><code class="R">(<code>double</code><code class="parameterName">size</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#lineHeight(stylist.value.Numeric)">lineHeight</a></code><code class="R">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#lineHeight(double,stylist.value.Unit)">lineHeight</a></code><code class="R">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#letterSpacing(stylist.value.Numeric)">letterSpacing</a></code><code class="R">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#letterSpacing(double,stylist.value.Unit)">letterSpacing</a></code><code class="R">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="g"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.property.Font.html#color(stylist.value.CSSValue)">color</a></code><code class="J">(<code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#size(double,stylist.value.Unit)">size</a></code><code class="J">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#size(stylist.value.Numeric)">size</a></code><code class="J">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#weight(int)">weight</a></code><code class="J">(<code>int</code><code class="parameterName">size</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#family(stylist.value.FontSet)">family</a></code><code class="J">(<code><a href="api/stylist.value.FontSet.html">FontSet</a></code><code class="parameterName">fonts</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#family(java.lang.CharSequence...)">family</a></code><code class="J">(<code array="var"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/CharSequence.html">CharSequence</a></code><code class="parameterName">fonts</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#lineHeight(double)">lineHeight</a></code><code class="J">(<code>double</code><code class="parameterName">size</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#lineHeight(stylist.value.Numeric)">lineHeight</a></code><code class="J">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#lineHeight(double,stylist.value.Unit)">lineHeight</a></code><code class="J">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#letterSpacing(stylist.value.Numeric)">letterSpacing</a></code><code class="J">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Font.html#letterSpacing(double,stylist.value.Unit)">letterSpacing</a></code><code class="J">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="R"><code><a href="api/stylist.property.Font.html">Font</a></code></i></li>
 					</ul>
 				</div>
 			</aside>
