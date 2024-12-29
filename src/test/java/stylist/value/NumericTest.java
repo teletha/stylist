@@ -9,9 +9,7 @@
  */
 package stylist.value;
 
-import static stylist.value.Unit.deg;
-import static stylist.value.Unit.em;
-import static stylist.value.Unit.px;
+import static stylist.value.Unit.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -57,5 +55,19 @@ class NumericTest {
         Numeric numeric = Numeric.of(10, px).divide(1, em);
 
         assert numeric.toString().equals("calc(10px / 1em)");
+    }
+
+    @Test
+    void max() {
+        Numeric numeric = Numeric.max(Numeric.of(10, px), Numeric.of(1, em));
+
+        assert numeric.toString().equals("max(10px, 1em)");
+    }
+
+    @Test
+    void min() {
+        Numeric numeric = Numeric.min(Numeric.of(10, px), Numeric.of(1, em));
+
+        assert numeric.toString().equals("min(10px, 1em)");
     }
 }

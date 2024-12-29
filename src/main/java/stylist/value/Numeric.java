@@ -13,6 +13,7 @@ import static stylist.value.Unit.*;
 import static stylist.value.Vendor.*;
 
 import java.util.EnumSet;
+import java.util.StringJoiner;
 
 public class Numeric extends CSSValue {
 
@@ -44,7 +45,7 @@ public class Numeric extends CSSValue {
     protected final String expression;
 
     /** The flag. */
-    private final boolean calculated;
+    private final String function;
 
     /**
      * <p>
@@ -82,7 +83,7 @@ public class Numeric extends CSSValue {
         this.size = value;
         this.unit = unit;
         this.expression = value();
-        this.calculated = false;
+        this.function = null;
     }
 
     /**
@@ -104,11 +105,11 @@ public class Numeric extends CSSValue {
      * 
      * @param expression A string expression.
      */
-    protected Numeric(String expression) {
+    protected Numeric(String function, String expression) {
         this.size = 0;
         this.unit = null;
         this.expression = expression;
-        this.calculated = true;
+        this.function = function;
     }
 
     /**
@@ -122,7 +123,7 @@ public class Numeric extends CSSValue {
         this.size = numeric.size;
         this.unit = numeric.unit;
         this.expression = numeric.expression;
-        this.calculated = numeric.calculated;
+        this.function = numeric.function;
     }
 
     /**
@@ -156,7 +157,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size + value.size, unit);
         } else {
-            return new Numeric(expression + " + " + value.expression);
+            return new Numeric("calc", expression + " + " + value.expression);
         }
     }
 
@@ -191,7 +192,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size - value.size, unit);
         } else {
-            return new Numeric(expression + " - " + value.expression);
+            return new Numeric("calc", expression + " - " + value.expression);
         }
     }
 
@@ -226,7 +227,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size * value.size, unit);
         } else {
-            return new Numeric(expression + " * " + value.expression);
+            return new Numeric("calc", expression + " * " + value.expression);
         }
     }
 
@@ -261,7 +262,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size / value.size, unit);
         } else {
-            return new Numeric(expression + " / " + value.expression);
+            return new Numeric("calc", expression + " / " + value.expression);
         }
     }
 
@@ -297,7 +298,7 @@ public class Numeric extends CSSValue {
      */
     @Override
     public EnumSet<Vendor> vendors() {
-        if (calculated) {
+        if (function != null) {
             return EnumSet.of(Standard, Webkit);
         } else {
             return NoVendors;
@@ -309,7 +310,7 @@ public class Numeric extends CSSValue {
      */
     @Override
     public String valueFor(Vendor vendor) {
-        if (!calculated) {
+        if (function == null) {
             vendor = Standard;
         }
         return vendor + value();
@@ -323,8 +324,8 @@ public class Numeric extends CSSValue {
      * @return A string expression.
      */
     private String value() {
-        if (calculated) {
-            return "calc(" + expression + ")";
+        if (function != null) {
+            return function + "(" + expression + ")";
         }
 
         int integer = (int) size;
@@ -357,5 +358,39 @@ public class Numeric extends CSSValue {
      */
     public static Numeric of(double size, Unit unit) {
         return new Numeric(size, unit);
+    }
+
+    /**
+     * The max() CSS function lets you set the largest (most positive) value from a list of
+     * comma-separated expressions as the value of a CSS property value. The max() function can be
+     * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
+     * is allowed.
+     * 
+     * @param values
+     * @return
+     */
+    public static Numeric max(Numeric... values) {
+        return function("max", values);
+    }
+
+    /**
+     * The min() CSS function lets you set the smallest (most negative) value from a list of
+     * comma-separated expressions as the value of a CSS property value. The min() function can be
+     * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
+     * is allowed.
+     * 
+     * @param values
+     * @return
+     */
+    public static Numeric min(Numeric... values) {
+        return function("min", values);
+    }
+
+    private static Numeric function(String name, Numeric[] values) {
+        StringJoiner joiner = new StringJoiner(", ");
+        for (Numeric value : values) {
+            joiner.add(value.expression);
+        }
+        return new Numeric(name, joiner.toString());
     }
 }

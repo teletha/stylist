@@ -260,7 +260,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
          * Hide
          */
         private Auto() {
-            super("auto");
+            super("calc", "auto");
         }
 
         /**
