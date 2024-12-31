@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.13.0](https://github.com/teletha/stylist/compare/v1.12.0...v1.13.0) (2024-12-31)
+
+
+### Features
+
+* drop Style#value and #properties ([c0360d5](https://github.com/teletha/stylist/commit/c0360d5ac644805efcb0559b1a2512aae734e14d))
+* support max() and min() ([ee2ee5d](https://github.com/teletha/stylist/commit/ee2ee5d3c563cd44bb30eebd2fb104105ce2ae34))
+* support new units ([8ac00a2](https://github.com/teletha/stylist/commit/8ac00a2355095beba96f35d5fb3c68aedbde6abf))
+
 ## [1.12.0](https://github.com/teletha/stylist/compare/v1.11.0...v1.12.0) (2024-11-28)
 
 
