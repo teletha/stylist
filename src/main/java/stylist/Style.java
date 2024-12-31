@@ -14,10 +14,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 
-import kiss.Variable;
-import stylist.util.Properties;
-import stylist.value.CSSValue;
-
 public interface Style extends Consumer, Serializable {
 
     /** The empty {@link Style} for reuse. */
@@ -87,25 +83,6 @@ public interface Style extends Consumer, Serializable {
         String name = selector();
 
         return name.charAt(0) == '.' ? new String[] {name.substring(1)} : new String[0];
-    }
-
-    /**
-     * Get the specified property's value.
-     * 
-     * @param propertyName A target property name.
-     * @return A property value, may be empty.
-     */
-    default Variable<CSSValue> value(String propertyName) {
-        return properties().get(propertyName);
-    }
-
-    /**
-     * List up all properties (names and values).
-     * 
-     * @return
-     */
-    default Properties properties() {
-        return Stylist.create(this).properties;
     }
 
     /**
