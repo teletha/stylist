@@ -14,9 +14,11 @@ import java.util.Objects;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-public class MediaQuery {
+public class Query {
 
-    private String type;
+    private String kind;
+
+    private String name;
 
     private String orientation;
 
@@ -32,11 +34,10 @@ public class MediaQuery {
 
     /**
      * Hide constructor.
-     * 
-     * @param type A media type.
      */
-    private MediaQuery(String type) {
-        this.type = type;
+    private Query(String kind, String name) {
+        this.kind = kind;
+        this.name = name;
     }
 
     /**
@@ -45,7 +46,7 @@ public class MediaQuery {
      * @param width
      * @return
      */
-    public MediaQuery maxWidth(int width, Unit unit) {
+    public Query maxWidth(int width, Unit unit) {
         this.maxWidth = Numeric.of(width, unit);
         return this;
     }
@@ -56,7 +57,7 @@ public class MediaQuery {
      * @param width
      * @return
      */
-    public MediaQuery minWidth(int width, Unit unit) {
+    public Query minWidth(int width, Unit unit) {
         this.minWidth = Numeric.of(width, unit);
         return this;
     }
@@ -67,7 +68,7 @@ public class MediaQuery {
      * @param height
      * @return
      */
-    public MediaQuery maxHeight(int height, Unit unit) {
+    public Query maxHeight(int height, Unit unit) {
         this.maxHeight = Numeric.of(height, unit);
         return this;
     }
@@ -78,7 +79,7 @@ public class MediaQuery {
      * @param height
      * @return
      */
-    public MediaQuery minHeight(int height, Unit unit) {
+    public Query minHeight(int height, Unit unit) {
         this.minHeight = Numeric.of(height, unit);
         return this;
     }
@@ -88,7 +89,7 @@ public class MediaQuery {
      * 
      * @return
      */
-    public MediaQuery landscape() {
+    public Query landscape() {
         this.orientation = "landscape";
         return this;
     }
@@ -98,7 +99,7 @@ public class MediaQuery {
      * 
      * @return
      */
-    public MediaQuery portrait() {
+    public Query portrait() {
         this.orientation = "portrait";
         return this;
     }
@@ -108,7 +109,7 @@ public class MediaQuery {
      * 
      * @return
      */
-    public MediaQuery hover() {
+    public Query hover() {
         this.hover = "hover";
         return this;
     }
@@ -118,7 +119,7 @@ public class MediaQuery {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(hover, maxHeight, maxWidth, minHeight, minWidth, orientation, type);
+        return Objects.hash(hover, maxHeight, maxWidth, minHeight, minWidth, orientation, name);
     }
 
     /**
@@ -129,11 +130,11 @@ public class MediaQuery {
         if (this == obj) return true;
         if (obj == null) return false;
         if (getClass() != obj.getClass()) return false;
-        MediaQuery other = (MediaQuery) obj;
+        Query other = (Query) obj;
         return Objects.equals(hover, other.hover) && Objects.equals(maxHeight, other.maxHeight) && Objects
                 .equals(maxWidth, other.maxWidth) && Objects.equals(minHeight, other.minHeight) && Objects
                         .equals(minWidth, other.minWidth) && Objects
-                                .equals(orientation, other.orientation) && Objects.equals(type, other.type);
+                                .equals(orientation, other.orientation) && Objects.equals(name, other.name);
     }
 
     /**
@@ -142,7 +143,7 @@ public class MediaQuery {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("@media ").append(type);
+        builder.append("@").append(kind).append(" ").append(name);
         if (orientation != null) {
             builder.append(" and (orientation:").append(orientation).append(")");
         }
@@ -166,38 +167,56 @@ public class MediaQuery {
     }
 
     /**
-     * Create {@link MediaQuery} for all.
+     * Create {@link Query} for container.
      * 
      * @return
      */
-    public static MediaQuery all() {
-        return new MediaQuery("all");
+    public static Query container() {
+        return new Query("container", "");
     }
 
     /**
-     * Create {@link MediaQuery} for print.
+     * Create {@link Query} for the named container.
      * 
      * @return
      */
-    public static MediaQuery print() {
-        return new MediaQuery("print");
+    public static Query container(String name) {
+        return new Query("container", Objects.requireNonNullElse(name, ""));
     }
 
     /**
-     * Create {@link MediaQuery} for screen.
+     * Create {@link Query} for all.
      * 
      * @return
      */
-    public static MediaQuery screen() {
-        return new MediaQuery("screen");
+    public static Query all() {
+        return new Query("media", "all");
     }
 
     /**
-     * Create {@link MediaQuery} for speech.
+     * Create {@link Query} for print.
      * 
      * @return
      */
-    public static MediaQuery speech() {
-        return new MediaQuery("speech");
+    public static Query print() {
+        return new Query("media", "print");
+    }
+
+    /**
+     * Create {@link Query} for screen.
+     * 
+     * @return
+     */
+    public static Query screen() {
+        return new Query("media", "screen");
+    }
+
+    /**
+     * Create {@link Query} for speech.
+     * 
+     * @return
+     */
+    public static Query speech() {
+        return new Query("media", "speech");
     }
 }

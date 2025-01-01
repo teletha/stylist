@@ -183,6 +183,7 @@ public class StyleTester implements StyleDSL {
                 return new ValidatableStyle(rule);
             }
 
+            System.out.println(rule.children);
             for (int i = 0; i < rule.children.size(); i++) {
                 ValidatableStyle found = find(rule.children.get(i), selector, pseudoClass, pseudoElement);
 

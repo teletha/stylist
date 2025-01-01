@@ -36,7 +36,7 @@ class StyleRule implements Comparable<StyleRule> {
     final ArrayList<StyleRule> children = new ArrayList();
 
     /** The media rules. */
-    final Variable<MediaQuery> query = Variable.empty();
+    final Variable<Query> query = Variable.empty();
 
     /**
      * Define style rule.

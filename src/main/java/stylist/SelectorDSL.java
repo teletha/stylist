@@ -1205,9 +1205,9 @@ public class SelectorDSL {
         return this;
     }
 
-    public final void media(MediaQuery query, Style style) {
-        StyleRule create = Stylist.create(style, create(processor));
-        create.query.set(query);
+    public final void on(Query query, Style style) {
+        StyleRule rule = Stylist.create(style, create(processor));
+        rule.query.set(query);
     }
 
     /**

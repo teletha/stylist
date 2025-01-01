@@ -96,11 +96,11 @@ public final class Stylist {
     /** The target styles. */
     private final Set<Style> styles = new HashSet();
 
+    /** The queried styles. */
+    private Map<Query, Set<Style>> queried = new ConcurrentHashMap();
+
     /** The user scheme. */
     private DesignScheme scheme;
-
-    /** The media queried styles. */
-    private Map<MediaQuery, StringBuilder> queried = new ConcurrentHashMap();
 
     /**
      * Hide constructor.
@@ -418,7 +418,7 @@ public final class Stylist {
             format(e, builder);
         });
 
-        for (Entry<MediaQuery, StringBuilder> entry : queried.entrySet()) {
+        for (Entry<Query, Set<Style>> entry : queried.entrySet()) {
             builder.append(entry.getKey()).append(afterSelector).append('{').append(afterStartBrace);
             builder.append(entry.getValue());
             builder.append(beforeEndBrace).append('}').append(afterEndBrace);
@@ -533,10 +533,6 @@ public final class Stylist {
                 format(child, appendable);
             }
             return;
-        }
-
-        if (rule.query.isPresent()) {
-            appendable = queried.computeIfAbsent(rule.query.v, query -> new StringBuilder());
         }
 
         try {
