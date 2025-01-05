@@ -16,15 +16,64 @@ import stylist.StyleTester;
 
 public class QueryTest extends StyleTester {
 
-    Query media = Query.all().minWidth(600, px);
+    private boolean check(Query query, String expected) {
+        assert query.toString().equals(expected);
+        return true;
+    }
 
     @Test
-    void media() {
-        ValidatableStyle parsed = writeStyle(() -> {
-            $.on(media, () -> {
-                font.size(10, px);
-            });
-        });
-        ValidatableStyle sub = parsed.sub("@media");
+    void all() {
+        assert check(Query.all(), "@media all");
+
+    }
+
+    @Test
+    void print() {
+        assert check(Query.print(), "@media print");
+    }
+
+    @Test
+    void screen() {
+        assert check(Query.screen(), "@media screen");
+    }
+
+    @Test
+    void speech() {
+        assert check(Query.speech(), "@media speech");
+    }
+
+    @Test
+    void container() {
+        assert check(Query.container(), "@container");
+    }
+
+    @Test
+    void width() {
+        assert check(Query.container().width(100, 200, px), "@container (100px <= width < 200px)");
+    }
+
+    @Test
+    void minWidth() {
+        assert check(Query.container().minWidth(100, px), "@container (100px <= width)");
+    }
+
+    @Test
+    void maxWidth() {
+        assert check(Query.container().maxWidth(200, px), "@container (width < 200px)");
+    }
+
+    @Test
+    void height() {
+        assert check(Query.container().height(100, 200, px), "@container (100px <= height < 200px)");
+    }
+
+    @Test
+    void minHeight() {
+        assert check(Query.container().minHeight(100, px), "@container (100px <= height)");
+    }
+
+    @Test
+    void maxHeight() {
+        assert check(Query.container().maxHeight(200, px), "@container (height < 200px)");
     }
 }

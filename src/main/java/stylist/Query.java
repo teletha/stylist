@@ -10,15 +10,14 @@
 package stylist;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
 public class Query {
 
-    private String kind;
-
-    private String name;
+    private String type;
 
     private String orientation;
 
@@ -35,9 +34,17 @@ public class Query {
     /**
      * Hide constructor.
      */
-    private Query(String kind, String name) {
-        this.kind = kind;
-        this.name = name;
+    private Query(String type) {
+        this.type = "@" + type;
+    }
+
+    /**
+     * Set the width.
+     */
+    public Query width(int min, int max, Unit unit) {
+        this.minWidth = Numeric.of(min, unit);
+        this.maxWidth = Numeric.of(max, unit);
+        return this;
     }
 
     /**
@@ -59,6 +66,15 @@ public class Query {
      */
     public Query minWidth(int width, Unit unit) {
         this.minWidth = Numeric.of(width, unit);
+        return this;
+    }
+
+    /**
+     * Set the height.
+     */
+    public Query height(int min, int max, Unit unit) {
+        this.minHeight = Numeric.of(min, unit);
+        this.maxHeight = Numeric.of(max, unit);
         return this;
     }
 
@@ -119,7 +135,7 @@ public class Query {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(hover, maxHeight, maxWidth, minHeight, minWidth, orientation, name);
+        return Objects.hash(hover, maxHeight, maxWidth, minHeight, minWidth, orientation, type);
     }
 
     /**
@@ -134,7 +150,7 @@ public class Query {
         return Objects.equals(hover, other.hover) && Objects.equals(maxHeight, other.maxHeight) && Objects
                 .equals(maxWidth, other.maxWidth) && Objects.equals(minHeight, other.minHeight) && Objects
                         .equals(minWidth, other.minWidth) && Objects
-                                .equals(orientation, other.orientation) && Objects.equals(name, other.name);
+                                .equals(orientation, other.orientation) && Objects.equals(type, other.type);
     }
 
     /**
@@ -142,28 +158,30 @@ public class Query {
      */
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("@").append(kind).append(" ").append(name);
+        StringJoiner join = new StringJoiner(") and (", type + " (", ")").setEmptyValue(type);
         if (orientation != null) {
-            builder.append(" and (orientation:").append(orientation).append(")");
+            join.add("orientation:" + orientation);
         }
         if (hover != null) {
-            builder.append(" and (hover:").append(hover).append(")");
-        }
-        if (maxWidth != null) {
-            builder.append(" and (max-width:").append(maxWidth).append(")");
-        }
-        if (minWidth != null) {
-            builder.append(" and (min-width:").append(minWidth).append(")");
-        }
-        if (maxHeight != null) {
-            builder.append(" and (max-height:").append(maxHeight).append(")");
-        }
-        if (minHeight != null) {
-            builder.append(" and (min-height:").append(minHeight).append(")");
+            join.add("hover:" + hover);
         }
 
-        return builder.toString();
+        if (minHeight != null && maxHeight != null) {
+            join.add(minHeight + " <= height < " + maxHeight);
+        } else if (minHeight != null) {
+            join.add(minHeight + " <= height");
+        } else if (maxHeight != null) {
+            join.add("height < " + maxHeight);
+        }
+
+        if (minWidth != null && maxWidth != null) {
+            join.add(minWidth + " <= width < " + maxWidth);
+        } else if (minWidth != null) {
+            join.add(minWidth + " <= width");
+        } else if (maxWidth != null) {
+            join.add("width < " + maxWidth);
+        }
+        return join.toString();
     }
 
     /**
@@ -172,7 +190,7 @@ public class Query {
      * @return
      */
     public static Query container() {
-        return new Query("container", "");
+        return new Query("container");
     }
 
     /**
@@ -181,7 +199,7 @@ public class Query {
      * @return
      */
     public static Query container(String name) {
-        return new Query("container", Objects.requireNonNullElse(name, ""));
+        return new Query("container " + name);
     }
 
     /**
@@ -190,7 +208,7 @@ public class Query {
      * @return
      */
     public static Query all() {
-        return new Query("media", "all");
+        return new Query("media all");
     }
 
     /**
@@ -199,7 +217,7 @@ public class Query {
      * @return
      */
     public static Query print() {
-        return new Query("media", "print");
+        return new Query("media print");
     }
 
     /**
@@ -208,7 +226,7 @@ public class Query {
      * @return
      */
     public static Query screen() {
-        return new Query("media", "screen");
+        return new Query("media screen");
     }
 
     /**
@@ -217,6 +235,6 @@ public class Query {
      * @return
      */
     public static Query speech() {
-        return new Query("media", "speech");
+        return new Query("media speech");
     }
 }

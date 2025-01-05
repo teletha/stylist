@@ -78,6 +78,15 @@ public class StyleTester implements StyleDSL {
         }
 
         /**
+         * Calculate the query.
+         * 
+         * @return
+         */
+        public String query() {
+            return rules.query.exact().toString();
+        }
+
+        /**
          * Check the property which is specialized for {@link Vendor#Standard}.
          * 
          * @param name
@@ -183,12 +192,27 @@ public class StyleTester implements StyleDSL {
                 return new ValidatableStyle(rule);
             }
 
-            System.out.println(rule.children);
             for (int i = 0; i < rule.children.size(); i++) {
+                System.out.println(rule.children.get(i).query + "   " + rule.query);
                 ValidatableStyle found = find(rule.children.get(i), selector, pseudoClass, pseudoElement);
 
                 if (found != null) {
                     return found;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Find {@link StyleRule} for the specified query.
+         * 
+         * @param media
+         * @return
+         */
+        public ValidatableStyle subBy(Query media) {
+            for (StyleRule rule : rules.children) {
+                if (rule.query.is(media)) {
+                    return new ValidatableStyle(rule);
                 }
             }
             return null;

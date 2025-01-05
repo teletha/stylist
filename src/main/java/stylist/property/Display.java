@@ -10,6 +10,7 @@
 package stylist.property;
 
 import stylist.PropertyDefinition;
+import stylist.Style;
 import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Shadow;
@@ -519,6 +520,17 @@ public final class Display extends PropertyDefinition<Display> {
      */
     public Display shadow(Shadow... shadows) {
         return value("box-shadow", join(shadows, v -> v.toString()));
+    }
+
+    /**
+     * The container shorthand CSS property establishes the element as a query container and
+     * specifies the name and type of the containment context used in a container query.
+     * 
+     * @param container
+     * @return
+     */
+    public Display container(Style container) {
+        return value("container", container.selector().substring(1) + "/size");
     }
 
     /**
