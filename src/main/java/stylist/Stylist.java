@@ -27,7 +27,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -47,6 +46,9 @@ public final class Stylist {
 
     /** The URL of normalize css. */
     public static final String NormalizeCSS = "https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css";
+
+    /** The animation manager. */
+    static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
 
     /** The format style. */
     private String beforeSelector = "";
@@ -314,7 +316,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public final Stylist styles(List<Class<StyleDeclarable>> definitions) {
-        I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
+        I.signal(definitions).flatIterable(Stylist::collectStyles).toCollection(styles);
         return this;
     }
 
@@ -325,7 +327,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public final Stylist styles(Class... definitions) {
-        I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
+        I.signal(definitions).flatIterable(Stylist::collectStyles).toCollection(styles);
         return this;
     }
 
@@ -336,7 +338,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public final Stylist styles(StyleDeclarable... definitions) {
-        I.signal(definitions).flatIterable(Stylist::styles).toCollection(styles);
+        I.signal(definitions).flatIterable(Stylist::collectStyles).toCollection(styles);
         return this;
     }
 
@@ -347,9 +349,7 @@ public final class Stylist {
      * @return Chainable API.
      */
     public final Stylist styles(Style... styles) {
-        for (Style style : styles) {
-            this.styles.add(style);
-        }
+        I.signal(styles).toCollection(this.styles);
         return this;
     }
 
@@ -359,7 +359,7 @@ public final class Stylist {
      * @return
      */
     public final String format() {
-        return format(styles.isEmpty() ? I.signal(id.keySet()).as(Style.class).toList() : styles);
+        return format(styles.isEmpty() ? StyleManager.names.keySet() : styles);
     }
 
     /**
@@ -605,52 +605,13 @@ public final class Stylist {
         return new Stylist();
     }
 
-    /** 1byte charset. */
-    private static final char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
-
-    /** The start index. */
-    private static final int base = chars.length;
-
-    /** The managed locations. */
-    private static final Map<Style, String> id = new ConcurrentHashMap();
-
-    /** The id manager. */
-    private static final AtomicInteger counter = new AtomicInteger();
-
     /** The external stylesheets. */
     private static final Set<String> externals = new HashSet();
 
-    /** The animation manager. */
-    static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
-
     static {
         for (Class domain : I.findAs(StyleDeclarable.class)) {
-            styles(domain).forEach(Style::selector);
+            collectStyles(domain).forEach(Style::selector);
         }
-    }
-
-    /**
-     * Compute identifier for the specified {@link Style}.
-     * 
-     * @param location A target location.
-     * @return An identifier.
-     */
-    static String id(Style location) {
-        return id.computeIfAbsent(location, key -> {
-            int id = counter.getAndIncrement();
-
-            if (id == 0) {
-                return "." + String.valueOf(chars[0]);
-            }
-
-            StringBuilder builder = new StringBuilder();
-
-            while (id != 0) {
-                builder.append(chars[id % base]);
-                id /= base;
-            }
-            return "." + builder.toString();
-        });
     }
 
     /**
@@ -659,7 +620,7 @@ public final class Stylist {
      * @param definition The style definitions
      * @return
      */
-    private static List<Style> styles(Class definition) {
+    private static List<Style> collectStyles(Class definition) {
         List<Style> styles = new ArrayList();
 
         for (Field field : definition.getFields()) {
@@ -707,7 +668,7 @@ public final class Stylist {
      * @param definition The style definitions
      * @return
      */
-    private static List<Style> styles(StyleDeclarable definition) {
+    private static List<Style> collectStyles(StyleDeclarable definition) {
         List<Style> styles = new ArrayList();
 
         for (Field field : definition.getClass().getDeclaredFields()) {

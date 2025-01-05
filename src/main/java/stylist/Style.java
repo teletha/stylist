@@ -69,7 +69,7 @@ public interface Style extends Consumer, Serializable {
      * @return CSS selector expression (For example .name, #id or element).
      */
     default String selector() {
-        return Stylist.id(this);
+        return StyleManager.computeName(this);
     }
 
     /**
