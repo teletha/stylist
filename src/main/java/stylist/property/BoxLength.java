@@ -65,12 +65,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
         return this;
     }
 
-    /**
-     * <p>
-     * </p>
-     * 
-     * @return
-     */
     public BoxLength auto() {
         right(new Auto());
         left(new Auto());
@@ -181,6 +175,44 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      */
     public BoxLength right(Numeric value) {
         return value(name + "-right", value);
+    }
+
+    /**
+     * The *-inline-end CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     * 
+     * @param size
+     * @param unit
+     */
+    public BoxLength start(double size, Unit unit) {
+        return start(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-inline-end CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     */
+    public BoxLength start(Numeric value) {
+        return value(name + "-inline-start", value);
+    }
+
+    /**
+     * The *-inline-end CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     * 
+     * @param size
+     * @param unit
+     */
+    public BoxLength end(double size, Unit unit) {
+        return end(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-inline-end CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     */
+    public BoxLength end(Numeric value) {
+        return value(name + "-inline-end", value);
     }
 
     /**

@@ -15,9 +15,6 @@ import stylist.StyleTester;
 import stylist.value.Numeric;
 import stylist.value.Vendor;
 
-/**
- * @version 2018/09/05 11:23:42
- */
 class MarginTest extends StyleTester {
 
     @Test
@@ -32,6 +29,16 @@ class MarginTest extends StyleTester {
         assert parsed.property("margin-bottom", "20px");
         assert parsed.property("margin-left", "30%");
         assert parsed.property("margin-right", "10ex");
+    }
+
+    @Test
+    void inline() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            margin.start(10, em);
+            margin.end(20, px);
+        });
+        assert parsed.property("margin-inline-start", "10em");
+        assert parsed.property("margin-inline-end", "20px");
     }
 
     @Test

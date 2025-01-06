@@ -14,9 +14,6 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 import stylist.value.Numeric;
 
-/**
- * @version 2018/08/30 18:40:05
- */
 public class PaddingTest extends StyleTester {
 
     @Test
@@ -31,6 +28,16 @@ public class PaddingTest extends StyleTester {
         assert parsed.property("padding-bottom", "20px");
         assert parsed.property("padding-left", "30%");
         assert parsed.property("padding-right", "10ex");
+    }
+
+    @Test
+    public void inline() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            padding.start(10, em);
+            padding.end(20, px);
+        });
+        assert parsed.property("padding-inline-start", "10em");
+        assert parsed.property("padding-inline-end", "20px");
     }
 
     @Test
