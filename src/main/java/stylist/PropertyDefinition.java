@@ -115,6 +115,31 @@ public class PropertyDefinition<T> {
     }
 
     /**
+     * The revert CSS keyword reverts the cascaded value of the property from its current value to
+     * the value the property would have had if no changes had been made by the current style origin
+     * to the current element. Thus, it resets the property either to user agent set value, to user
+     * set value, to its inherited value (if it is inheritable), or to initial value. It can be
+     * applied to any CSS property, including the CSS shorthand property all.
+     * 
+     * @return
+     */
+    public T revert() {
+        return value("revert");
+    }
+
+    /**
+     * The revert-layer CSS-wide keyword rolls back the value of a property in a cascade layer to
+     * the value of the property in a CSS rule matching the element in a previous cascade layer. The
+     * value of a property with this keyword is recalculated as if no rules were specified on the
+     * target element in the current cascade layer.
+     * 
+     * @return
+     */
+    public T revertLayer() {
+        return value("revert-layer");
+    }
+
+    /**
      * Set property.
      * 
      * @param value A property value.
