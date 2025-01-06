@@ -31,7 +31,7 @@ class StyleManager {
      * @return An identifier.
      */
     static String computeName(Style style) {
-        return names.computeIfAbsent(style, _ -> {
+        return names.computeIfAbsent(style, x -> {
             int id = counter.getAndIncrement();
 
             if (id == 0) {

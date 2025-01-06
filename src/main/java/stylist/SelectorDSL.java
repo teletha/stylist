@@ -1205,7 +1205,7 @@ public class SelectorDSL {
         return this;
     }
 
-    public final void on(Query query, Style style) {
+    public final void when(Query query, Style style) {
         StyleRule rule = Stylist.create(style, create(processor));
         rule.query.set(query);
     }

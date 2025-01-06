@@ -10,16 +10,12 @@
 package stylist.property;
 
 import stylist.PropertyDefinition;
-import stylist.Style;
 import stylist.value.CSSValue;
 import stylist.value.Numeric;
 import stylist.value.Shadow;
 import stylist.value.Unit;
 import stylist.value.Vendor;
 
-/**
- * @version 2018/08/30 18:25:18
- */
 public final class Display extends PropertyDefinition<Display> {
 
     /**
@@ -523,14 +519,73 @@ public final class Display extends PropertyDefinition<Display> {
     }
 
     /**
-     * The container shorthand CSS property establishes the element as a query container and
-     * specifies the name and type of the containment context used in a container query.
+     * An element can be established as a query container for container size queries using the
+     * container-type CSS property. container-type is used to define the type of size containment
+     * used in a container query.
+     * <p>
+     * Establishes a query container for container size queries in both the inline and block
+     * dimensions. Applies layout containment, style containment, and size containment to the
+     * container.
+     * <p>
+     * Size containment is applied to the element in both the inline and block directions. The size
+     * of the element can be computed in isolation, ignoring the child elements.
      * 
-     * @param container
      * @return
      */
-    public Display container(Style container) {
-        return value("container", container.selector().substring(1) + "/size");
+    public Display container() {
+        return value("container-type", "size");
+    }
+
+    /**
+     * An element can be established as a query container for container size queries using the
+     * container-type CSS property. container-type is used to define the type of size containment
+     * used in a container query.
+     * <p>
+     * Establishes a query container for container size queries in both the inline and block
+     * dimensions. Applies layout containment, style containment, and size containment to the
+     * container.
+     * <p>
+     * Size containment is applied to the element in both the inline and block directions. The size
+     * of the element can be computed in isolation, ignoring the child elements.
+     * 
+     * @return
+     */
+    public Display container(String name) {
+        return value("container", name + "/size");
+    }
+
+    /**
+     * An element can be established as a query container for container size queries using the
+     * container-type CSS property. container-type is used to define the type of size containment
+     * used in a container query.
+     * <p>
+     * Establishes a query container for dimensional queries on the inline axis of the container.
+     * Applies layout, style, and inline-size containment to the element.
+     * <p>
+     * Inline size containment is applied to the element. The inline size of the element can be
+     * computed in isolation, ignoring the child elements.
+     * 
+     * @return
+     */
+    public Display containerInline() {
+        return value("container-type", "inline-size");
+    }
+
+    /**
+     * An element can be established as a query container for container size queries using the
+     * container-type CSS property. container-type is used to define the type of size containment
+     * used in a container query.
+     * <p>
+     * Establishes a query container for dimensional queries on the inline axis of the container.
+     * Applies layout, style, and inline-size containment to the element.
+     * <p>
+     * Inline size containment is applied to the element. The inline size of the element can be
+     * computed in isolation, ignoring the child elements.
+     * 
+     * @return
+     */
+    public Display containerInline(String name) {
+        return value("container", name + "/inline-size");
     }
 
     /**

@@ -41,6 +41,14 @@ public class Query {
     /**
      * Set the width.
      */
+    public Query width(int min, Unit unit) {
+        this.minWidth = Numeric.of(min, unit);
+        return this;
+    }
+
+    /**
+     * Set the width.
+     */
     public Query width(int min, int max, Unit unit) {
         this.minWidth = Numeric.of(min, unit);
         this.maxWidth = Numeric.of(max, unit);
@@ -48,24 +56,10 @@ public class Query {
     }
 
     /**
-     * Set the max-width.
-     * 
-     * @param width
-     * @return
+     * Set the height.
      */
-    public Query maxWidth(int width, Unit unit) {
-        this.maxWidth = Numeric.of(width, unit);
-        return this;
-    }
-
-    /**
-     * Set the min-width.
-     * 
-     * @param width
-     * @return
-     */
-    public Query minWidth(int width, Unit unit) {
-        this.minWidth = Numeric.of(width, unit);
+    public Query height(int min, Unit unit) {
+        this.minHeight = Numeric.of(min, unit);
         return this;
     }
 
@@ -75,28 +69,6 @@ public class Query {
     public Query height(int min, int max, Unit unit) {
         this.minHeight = Numeric.of(min, unit);
         this.maxHeight = Numeric.of(max, unit);
-        return this;
-    }
-
-    /**
-     * Set the max-height.
-     * 
-     * @param height
-     * @return
-     */
-    public Query maxHeight(int height, Unit unit) {
-        this.maxHeight = Numeric.of(height, unit);
-        return this;
-    }
-
-    /**
-     * Set the min-height.
-     * 
-     * @param height
-     * @return
-     */
-    public Query minHeight(int height, Unit unit) {
-        this.minHeight = Numeric.of(height, unit);
         return this;
     }
 

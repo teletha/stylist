@@ -17,30 +17,62 @@ import stylist.StyleTester;
 public class QueryUserTest extends StyleTester {
 
     @Test
-    void use() {
-        Query query = Query.all().minWidth(600, px);
+    void media() {
+        Query small = Query.all().width(0, 600, px);
+        Query middle = Query.all().width(600, 1200, px);
+        Query large = Query.all().width(1200, px);
 
         ValidatableStyle parsed = writeStyle(() -> {
-            $.on(query, () -> {
+            $.when(small, () -> {
                 font.size(10, px);
+            });
+
+            $.when(middle, () -> {
+                font.size(12, px);
+            });
+
+            $.when(large, () -> {
+                font.size(14, px);
             });
         });
 
-        ValidatableStyle sub = parsed.subBy(query);
-        assert sub.property("font-size", "10px");
+        ValidatableStyle smallStyle = parsed.subBy(small);
+        assert smallStyle.property("font-size", "10px");
+
+        ValidatableStyle middleStyle = parsed.subBy(middle);
+        assert middleStyle.property("font-size", "12px");
+
+        ValidatableStyle largeStyle = parsed.subBy(large);
+        assert largeStyle.property("font-size", "14px");
     }
 
     @Test
-    void use2() {
-        Query media = Query.all().minWidth(600, px);
+    void container() {
+        Query small = Query.container().width(0, 600, px);
+        Query middle = Query.container().width(600, 1200, px);
+        Query large = Query.container().width(1200, px);
 
         ValidatableStyle parsed = writeStyle(() -> {
-            $.on(media, () -> {
+            $.when(small, () -> {
                 font.size(10, px);
+            });
+
+            $.when(middle, () -> {
+                font.size(12, px);
+            });
+
+            $.when(large, () -> {
+                font.size(14, px);
             });
         });
 
-        ValidatableStyle sub = parsed.subBy(media);
-        assert sub.property("font-size", "10px");
+        ValidatableStyle smallStyle = parsed.subBy(small);
+        assert smallStyle.property("font-size", "10px");
+
+        ValidatableStyle middleStyle = parsed.subBy(middle);
+        assert middleStyle.property("font-size", "12px");
+
+        ValidatableStyle largeStyle = parsed.subBy(large);
+        assert largeStyle.property("font-size", "14px");
     }
 }

@@ -48,18 +48,18 @@ public class QueryTest extends StyleTester {
     }
 
     @Test
+    void containerNamed() {
+        assert check(Query.container("test"), "@container test");
+    }
+
+    @Test
     void width() {
         assert check(Query.container().width(100, 200, px), "@container (100px <= width < 200px)");
     }
 
     @Test
     void minWidth() {
-        assert check(Query.container().minWidth(100, px), "@container (100px <= width)");
-    }
-
-    @Test
-    void maxWidth() {
-        assert check(Query.container().maxWidth(200, px), "@container (width < 200px)");
+        assert check(Query.container().width(100, px), "@container (100px <= width)");
     }
 
     @Test
@@ -69,11 +69,6 @@ public class QueryTest extends StyleTester {
 
     @Test
     void minHeight() {
-        assert check(Query.container().minHeight(100, px), "@container (100px <= height)");
-    }
-
-    @Test
-    void maxHeight() {
-        assert check(Query.container().maxHeight(200, px), "@container (height < 200px)");
+        assert check(Query.container().height(100, px), "@container (100px <= height)");
     }
 }
