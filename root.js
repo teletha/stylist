@@ -105,6 +105,13 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Container",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Content",
 			"packageName": "stylist.property",
 			"type": "Class"

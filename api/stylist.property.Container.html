@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. " name="description"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="preload"/>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<script src="mimic.js" type="module"></script>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="i">
+		<header class="Y">
+			<h1 class="M" date="2024-12-31" ver="1.13.0"><code>Stylist</code></h1>
+			<nav class="a"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#package"/>
+					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>Repository</a></nav>
+			<div class="U" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg>
+				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<main class="j">
+			<nav class="Z">
+				<div></div>
+			</nav>
+			<article class="X" id="Article">
+				<section class="T"><code class="V">stylist.property</code>
+					<h2 class="Class g"><code class="J">Container</code></h2>
+					<div class="O">
+						<ul class="C E">
+							<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Container.html">Container</a></code></code></code></li>
+						</ul>
+					</div>
+				</section>
+				<section class="T" id="Container()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="J">Container</code><code class="b">()</code></h2>
+				</section>
+				<section class="T" id="size()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="J">size</code><code class="b">()</code><i class="Q"><code><a href="api/stylist.property.Container.html">Container</a></code></i></h2>
+					<table class="k">
+						<tr class="L">
+							<td><code><a href="api/stylist.property.Container.html">Container</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>Establishes a query container for container size queries in both the inline and block
+dimensions. Applies layout containment, style containment, and size containment to the
+container.</p><p>
+ Size containment is applied to the element in both the inline and block directions. The size
+ of the element can be computed in isolation, ignoring the child elements.
+</p>
+					</span></section>
+				<section class="T" id="inlineSize()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="J">inlineSize</code><code class="b">()</code><i class="Q"><code><a href="api/stylist.property.Container.html">Container</a></code></i></h2>
+					<table class="k">
+						<tr class="L">
+							<td><code><a href="api/stylist.property.Container.html">Container</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>Establishes a query container for dimensional queries on the inline axis of the container.
+Applies layout, style, and inline-size containment to the element.</p><p>
+ Inline size containment is applied to the element. The inline size of the element can be
+ computed in isolation, ignoring the child elements.
+</p>
+					</span></section>
+				<section class="T" id="normal()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="J">normal</code><code class="b">()</code><i class="Q"><code><a href="api/stylist.property.Container.html">Container</a></code></i></h2>
+					<table class="k">
+						<tr class="L">
+							<td><code><a href="api/stylist.property.Container.html">Container</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>Default value. The element is not a query container for any container size queries, but
+remains a query container for container style queries.</p></span></section>
+				<section class="T" id="name(java.lang.String)">
+					<h2 class="e"><i class="PUBLIC"></i><code class="J">name</code><code class="b">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">name</code>)</code><i class="Q"><code><a href="api/stylist.property.Container.html">Container</a></code></i></h2>
+					<table class="k">
+						<tr class="K">
+							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code>name</code></td>
+							<td></td>
+						</tr>
+						<tr class="L">
+							<td><code><a href="api/stylist.property.Container.html">Container</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>The container-name CSS property specifies a list of query container names used by
+the @container at-rule in a container query. A container query will apply styles to elements
+based on the size of the nearest ancestor with a containment context. When a containment
+context is given a name, it can be specifically targeted using the @container at-rule instead
+of the nearest ancestor with containment.</p></span></section>
+			</article>
+			<aside class="f" id="SubNavi">
+				<div class="N">
+					<h5 class="l">Constructors</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Container.html#Container()">Container</a></code><code class="b">()</code></li>
+					</ul>
+					<h5 class="l">Methods</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Container.html#size()">size</a></code><code class="b">()</code><i class="W"><code><a href="api/stylist.property.Container.html">Container</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Container.html#inlineSize()">inlineSize</a></code><code class="b">()</code><i class="W"><code><a href="api/stylist.property.Container.html">Container</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Container.html#normal()">normal</a></code><code class="b">()</code><i class="W"><code><a href="api/stylist.property.Container.html">Container</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Container.html#name(java.lang.String)">name</a></code><code class="b">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">name</code>)</code><i class="W"><code><a href="api/stylist.property.Container.html">Container</a></code></i></li>
+					</ul>
+				</div>
+			</aside>
+		</main>
+		<script src="root.js"></script>
+		<script src="main.js" type="module"></script>
+	</body>
+</html>
