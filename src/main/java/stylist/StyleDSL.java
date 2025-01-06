@@ -16,6 +16,7 @@ import stylist.property.Appearance;
 import stylist.property.Background;
 import stylist.property.Borders;
 import stylist.property.BoxLength;
+import stylist.property.Container;
 import stylist.property.Content;
 import stylist.property.Cursor;
 import stylist.property.Display;
@@ -93,6 +94,23 @@ public interface StyleDSL extends StyleDeclarable, Unit {
      * </p>
      */
     public static final Content content = new Content();
+
+    /**
+     * An element can be established as a query container for container size queries using the
+     * container-type CSS property. container-type is used to define the type of size containment
+     * used in a container query.
+     * <p>
+     * Size containment turns off the ability of an element to get size information from its
+     * contents, which is important for container queries to avoid infinite loops. If this were not
+     * the case, a CSS rule inside a container query could change the content size, which in turn
+     * could make the query evaluate to false and change the parent element's size, which in turn
+     * could change the content size and flip the query back to true, and so on.
+     * <p>
+     * The container size has to be set explicitly or by context — for example, block elements, flex
+     * containers, and grid containers stretching to the full width of their parent. If an explicit
+     * or contextual size is not available, elements with size containment will collapse.
+     */
+    public static final Container container = new Container();
 
     /**
      * <p>

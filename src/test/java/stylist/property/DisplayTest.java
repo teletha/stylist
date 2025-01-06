@@ -101,7 +101,7 @@ class DisplayTest extends StyleTester {
     @Test
     void container() {
         ValidatableStyle style = writeStyle(() -> {
-            display.container();
+            container.size();
         });
         assert style.property("container-type", "size");
     }
@@ -109,24 +109,16 @@ class DisplayTest extends StyleTester {
     @Test
     void containerInlineSize() {
         ValidatableStyle style = writeStyle(() -> {
-            display.containerInline();
+            container.inlineSize();
         });
         assert style.property("container-type", "inline-size");
     }
 
     @Test
-    void namedContainerSize() {
+    void namedContainer() {
         ValidatableStyle style = writeStyle(() -> {
-            display.container("test");
+            container.name("test");
         });
-        assert style.property("container", "test/size");
-    }
-
-    @Test
-    void namedContainerInlineSize() {
-        ValidatableStyle style = writeStyle(() -> {
-            display.containerInline("test");
-        });
-        assert style.property("container", "test/inline-size");
+        assert style.property("container-name", "test");
     }
 }
