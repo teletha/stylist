@@ -343,13 +343,6 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "MediaQuery",
-			"packageName": "stylist",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Numeric",
 			"packageName": "stylist.value",
 			"type": "Class"
@@ -414,6 +407,13 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "PropertyDefinition",
+			"packageName": "stylist",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Query",
 			"packageName": "stylist",
 			"type": "Class"
 		},
