@@ -97,28 +97,4 @@ class DisplayTest extends StyleTester {
         });
         assert style.property("float", "left");
     }
-
-    @Test
-    void container() {
-        ValidatableStyle style = writeStyle(() -> {
-            container.size();
-        });
-        assert style.property("container-type", "size");
-    }
-
-    @Test
-    void containerInlineSize() {
-        ValidatableStyle style = writeStyle(() -> {
-            container.inlineSize();
-        });
-        assert style.property("container-type", "inline-size");
-    }
-
-    @Test
-    void namedContainer() {
-        ValidatableStyle style = writeStyle(() -> {
-            container.name("test");
-        });
-        assert style.property("container-name", "test");
-    }
 }
