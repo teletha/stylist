@@ -62,14 +62,6 @@ public interface StyleDSL extends StyleDeclarable, Unit {
 
     /**
      * <p>
-     * The cursor CSS property specifies the mouse cursor displayed when the mouse pointer is over
-     * an element.
-     * </p>
-     */
-    public static final Cursor cursor = new Cursor();
-
-    /**
-     * <p>
      * The background CSS property is a shorthand for setting the individual background values in a
      * single place in the style sheet. background can be used to set the values for one or more of:
      * background-color, background-image, background-position, background-repeat, background-size,
@@ -85,15 +77,6 @@ public interface StyleDSL extends StyleDeclarable, Unit {
      * </p>
      */
     public static final Borders border = new Borders();
-
-    /**
-     * <p>
-     * The content CSS property is used with the ::before and ::after pseudo-elements to generate
-     * content in an element. Objects inserting using the content property are anonymous replaced
-     * elements.
-     * </p>
-     */
-    public static final Content content = new Content();
 
     /**
      * An element can be established as a query container for container size queries using the
@@ -114,15 +97,27 @@ public interface StyleDSL extends StyleDeclarable, Unit {
 
     /**
      * <p>
+     * The content CSS property is used with the ::before and ::after pseudo-elements to generate
+     * content in an element. Objects inserting using the content property are anonymous replaced
+     * elements.
+     * </p>
+     */
+    public static final Content content = new Content();
+
+    /**
+     * The cursor CSS property specifies the mouse cursor displayed when the mouse pointer is over
+     * an element.
+     */
+    public static final Cursor cursor = new Cursor();
+
+    /**
      * The display CSS property specifies the type of rendering box used for an element. In HTML,
      * default display property values are taken from behaviors described in the HTML specifications
      * or from the browser/user default stylesheet. The default value in XML is inline.
-     * </p>
      * <p>
      * In addition to the many different display box types, the value none lets you turn off the
      * display of an element; when you use none, all child elements also have their display turned
      * off. The document is rendered as though the element doesn't exist in the document tree.
-     * </p>
      */
     public static final Display display = new Display();
 
