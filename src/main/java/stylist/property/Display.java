@@ -251,40 +251,31 @@ public final class Display extends PropertyDefinition<Display> {
     }
 
     /**
-     * <p>
      * Setting width and height properties.
-     * </p>
      * 
-     * @param size
-     * @param unit
-     * @return
+     * @param size A box width.
+     * @param unit A unit.
+     * @return Chainable API.
      */
     public Display size(double size, Unit unit) {
         return size(new Numeric(size, unit));
     }
 
     /**
-     * <p>
      * Setting width and height properties.
-     * </p>
      * 
-     * @return
+     * @param value A size value.
+     * @return Chainable API.
      */
     public Display size(Numeric value) {
-        width(value);
-        height(value);
-
-        return this;
+        return width(value).height(value);
     }
 
     /**
-     * <p>
      * The width CSS property specifies the width of the content area of an element. The content
      * area is inside the padding, border, and margin of the element.
-     * </p>
      * <p>
      * The min-width and max-width properties override width.
-     * </p>
      * 
      * @param size A box width.
      * @param unit A unit.
@@ -295,14 +286,12 @@ public final class Display extends PropertyDefinition<Display> {
     }
 
     /**
-     * <p>
      * The width CSS property specifies the width of the content area of an element. The content
      * area is inside the padding, border, and margin of the element.
-     * </p>
      * <p>
      * The min-width and max-width properties override width.
-     * </p>
      * 
+     * @param value A size value.
      * @return Chainable API.
      */
     public Display width(Numeric value) {
@@ -310,71 +299,62 @@ public final class Display extends PropertyDefinition<Display> {
     }
 
     /**
-     * <p>
      * The min-width CSS property is used to set the minimum width of a given element. It prevents
      * the used value of the width property from becoming smaller than the value specified for
      * min-width.
-     * </p>
      * 
-     * @param size
-     * @param unit
-     * @return
+     * @param size A box width.
+     * @param unit A unit.
+     * @return Chainable API.
      */
     public Display minWidth(double size, Unit unit) {
         return minWidth(new Numeric(size, unit));
     }
 
     /**
-     * <p>
      * The min-width CSS property is used to set the minimum width of a given element. It prevents
      * the used value of the width property from becoming smaller than the value specified for
      * min-width.
-     * </p>
      * 
-     * @return
+     * @param value A size value.
+     * @return Chainable API.
      */
     public Display minWidth(Numeric value) {
         return value("min-width", value);
     }
 
     /**
-     * <p>
      * The max-width CSS property is used to set the maximum width of a given element. It prevents
      * the used value of the width property from becoming larger than the value specified for
      * max-width.
-     * </p>
      * 
-     * @param size
-     * @param unit
-     * @return
+     * @param size A box width.
+     * @param unit A unit.
+     * @return Chainable API.
      */
     public Display maxWidth(double size, Unit unit) {
         return maxWidth(new Numeric(size, unit));
     }
 
     /**
-     * <p>
      * The max-width CSS property is used to set the maximum width of a given element. It prevents
      * the used value of the width property from becoming larger than the value specified for
      * max-width.
-     * </p>
      * 
-     * @return
+     * @param value A size value.
+     * @return Chainable API.
      */
     public Display maxWidth(Numeric value) {
         return value("max-width", value);
     }
 
     /**
-     * <p>
      * The height CSS property specifies the height of the content area of an element. The content
      * area is inside the padding, border, and margin of the element.
-     * </p>
      * <p>
      * The min-height and max-height properties override height.
-     * </p>
      * 
-     * @param size A box width.
+     * @param size A size value.
      * @param unit A unit.
      * @return Chainable API.
      */
@@ -383,14 +363,12 @@ public final class Display extends PropertyDefinition<Display> {
     }
 
     /**
-     * <p>
      * The height CSS property specifies the height of the content area of an element. The content
      * area is inside the padding, border, and margin of the element.
-     * </p>
      * <p>
      * The min-height and max-height properties override height.
-     * </p>
      * 
+     * @param value A size value.
      * @return Chainable API.
      */
     public Display height(Numeric value) {
@@ -398,59 +376,255 @@ public final class Display extends PropertyDefinition<Display> {
     }
 
     /**
-     * <p>
      * The min-height CSS property is used to set the minimum height of a given element. It prevents
      * the used value of the height property from becoming smaller than the value specified for
      * min-height.
-     * </p>
      * 
-     * @param size
-     * @param unit
-     * @return
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
      */
     public Display minHeight(double size, Unit unit) {
         return minHeight(new Numeric(size, unit));
     }
 
     /**
-     * <p>
      * The min-height CSS property is used to set the minimum height of a given element. It prevents
      * the used value of the height property from becoming smaller than the value specified for
      * min-height.
-     * </p>
      * 
-     * @return
+     * @param value A size value.
+     * @return Chainable API.
      */
     public Display minHeight(Numeric value) {
         return value("min-height", value);
     }
 
     /**
-     * <p>
      * The max-height CSS property is used to set the maximum height of a given element. It prevents
      * the used value of the height property from becoming larger than the value specified for
      * max-height.
-     * </p>
      * 
-     * @param size
-     * @param unit
-     * @return
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
      */
     public Display maxHeight(double size, Unit unit) {
         return maxHeight(new Numeric(size, unit));
     }
 
     /**
-     * <p>
      * The max-height CSS property is used to set the maximum height of a given element. It prevents
      * the used value of the height property from becoming larger than the value specified for
      * max-height.
-     * </p>
      * 
-     * @return
+     * @param value A size value.
+     * @return Chainable API.
      */
     public Display maxHeight(Numeric value) {
         return value("max-height", value);
+    }
+
+    /**
+     * The inline-size CSS property defines the horizontal or vertical size of an element's block,
+     * depending on its writing mode. It corresponds to either the width or the height property,
+     * depending on the value of writing-mode.
+     * 
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display inline(double size, Unit unit) {
+        return inline(new Numeric(size, unit));
+    }
+
+    /**
+     * The inline-size CSS property defines the horizontal or vertical size of an element's block,
+     * depending on its writing mode. It corresponds to either the width or the height property,
+     * depending on the value of writing-mode.
+     * 
+     * @param value A size value.
+     * @return Chainable API.
+     */
+    public Display inline(Numeric value) {
+        return value("inline-size", value);
+    }
+
+    /**
+     * Short hand to set min, max and default size.
+     * 
+     * @param min A minimum size.
+     * @param size A preferred size.
+     * @param max A maximum size.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display inline(double min, double size, double max, Unit unit) {
+        return inline(size, unit).minInline(min, unit).maxInline(max, unit);
+    }
+
+    /**
+     * Short hand to set min, max and default size.
+     * 
+     * @param min A minimum size.
+     * @param size A preferred size.
+     * @param max A maximum size.
+     * @return Chainable API.
+     */
+    public Display inline(Numeric min, Numeric size, Numeric max) {
+        return inline(size).minInline(min).maxInline(max);
+    }
+
+    /**
+     * The min-inline-size CSS property defines the horizontal or vertical minimal size of an
+     * element's block, depending on its writing mode. It corresponds to either the min-width or the
+     * min-height property, depending on the value of writing-mode.
+     * 
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display minInline(double size, Unit unit) {
+        return minInline(new Numeric(size, unit));
+    }
+
+    /**
+     * The min-inline-size CSS property defines the horizontal or vertical minimal size of an
+     * element's block, depending on its writing mode. It corresponds to either the min-width or the
+     * min-height property, depending on the value of writing-mode.
+     * 
+     * @param value A size value.
+     * @return Chainable API.
+     */
+    public Display minInline(Numeric value) {
+        return value("min-inline-size", value);
+    }
+
+    /**
+     * The max-inline-size CSS property defines the horizontal or vertical maximum size of an
+     * element's block, depending on its writing mode. It corresponds to either the max-width or the
+     * max-height property, depending on the value of writing-mode.
+     * 
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display maxInline(double size, Unit unit) {
+        return maxInline(new Numeric(size, unit));
+    }
+
+    /**
+     * The max-inline-size CSS property defines the horizontal or vertical maximum size of an
+     * element's block, depending on its writing mode. It corresponds to either the max-width or the
+     * max-height property, depending on the value of writing-mode.
+     * 
+     * @param value A size value.
+     * @return Chainable API.
+     */
+    public Display maxInline(Numeric value) {
+        return value("max-inline-size", value);
+    }
+
+    /**
+     * The block-size CSS property defines the horizontal or vertical size of an element's block,
+     * depending on its writing mode. It corresponds to either the width or the height property,
+     * depending on the value of writing-mode.
+     * 
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display block(double size, Unit unit) {
+        return block(new Numeric(size, unit));
+    }
+
+    /**
+     * The block-size CSS property defines the horizontal or vertical size of an element's block,
+     * depending on its writing mode. It corresponds to either the width or the height property,
+     * depending on the value of writing-mode.
+     * 
+     * @param value A size value.
+     * @return Chainable API.
+     */
+    public Display block(Numeric value) {
+        return value("block-size", value);
+    }
+
+    /**
+     * Short hand to set min, max and default size.
+     * 
+     * @param min A minimum size.
+     * @param size A preferred size.
+     * @param max A maximum size.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display block(double min, double size, double max, Unit unit) {
+        return block(size, unit).minBlock(min, unit).maxBlock(max, unit);
+    }
+
+    /**
+     * Short hand to set min, max and default size.
+     * 
+     * @param min A minimum size.
+     * @param size A preferred size.
+     * @param max A maximum size.
+     * @return Chainable API.
+     */
+    public Display block(Numeric min, Numeric size, Numeric max) {
+        return block(size).minBlock(min).maxBlock(max);
+    }
+
+    /**
+     * The min-block-size CSS property defines the minimum horizontal or vertical size of an
+     * element's block, depending on its writing mode. It corresponds to either the min-width or the
+     * min-height property, depending on the value of writing-mode.
+     * 
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display minBlock(double size, Unit unit) {
+        return minBlock(new Numeric(size, unit));
+    }
+
+    /**
+     * The min-block-size CSS property defines the minimum horizontal or vertical size of an
+     * element's block, depending on its writing mode. It corresponds to either the min-width or the
+     * min-height property, depending on the value of writing-mode.
+     * 
+     * @param value A size value.
+     * @return Chainable API.
+     */
+    public Display minBlock(Numeric value) {
+        return value("min-block-size", value);
+    }
+
+    /**
+     * The max-block-size CSS property specifies the maximum size of an element in the direction
+     * opposite that of the writing direction as specified by writing-mode. That is, if the writing
+     * direction is horizontal, then max-block-size is equivalent to max-height; if the writing
+     * direction is vertical, max-block-size is the same as max-width.
+     * 
+     * @param size A size value.
+     * @param unit A unit.
+     * @return Chainable API.
+     */
+    public Display maxBlock(double size, Unit unit) {
+        return maxBlock(new Numeric(size, unit));
+    }
+
+    /**
+     * The max-block-size CSS property specifies the maximum size of an element in the direction
+     * opposite that of the writing direction as specified by writing-mode. That is, if the writing
+     * direction is horizontal, then max-block-size is equivalent to max-height; if the writing
+     * direction is vertical, max-block-size is the same as max-width.
+     * 
+     * @param value A size value.
+     * @return Chainable API.
+     */
+    public Display maxBlock(Numeric value) {
+        return value("max-block-size", value);
     }
 
     /**

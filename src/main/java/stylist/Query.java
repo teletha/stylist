@@ -73,6 +73,40 @@ public class Query {
     }
 
     /**
+     * Set the inline size.
+     */
+    public Query inline(int min, Unit unit) {
+        this.minWidth = Numeric.of(min, unit);
+        return this;
+    }
+
+    /**
+     * Set the inline size.
+     */
+    public Query inline(int min, int max, Unit unit) {
+        this.minWidth = Numeric.of(min, unit);
+        this.maxWidth = Numeric.of(max, unit);
+        return this;
+    }
+
+    /**
+     * Set the block size.
+     */
+    public Query block(int min, Unit unit) {
+        this.minHeight = Numeric.of(min, unit);
+        return this;
+    }
+
+    /**
+     * Set the block size.
+     */
+    public Query block(int min, int max, Unit unit) {
+        this.minHeight = Numeric.of(min, unit);
+        this.maxHeight = Numeric.of(max, unit);
+        return this;
+    }
+
+    /**
      * Set the orientation.
      * 
      * @return

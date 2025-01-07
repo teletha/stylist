@@ -14,10 +14,10 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 import stylist.value.Numeric;
 
-public class PaddingTest extends StyleTester {
+class PaddingTest extends StyleTester {
 
     @Test
-    public void each() {
+    void each() {
         ValidatableStyle parsed = writeStyle(() -> {
             padding.top(10, em);
             padding.bottom(20, px);
@@ -31,7 +31,16 @@ public class PaddingTest extends StyleTester {
     }
 
     @Test
-    public void inline() {
+    void inline() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            padding.inline(10, em);
+        });
+        assert parsed.property("padding-inline-start", "10em");
+        assert parsed.property("padding-inline-end", "10em");
+    }
+
+    @Test
+    void inlineStartEnd() {
         ValidatableStyle parsed = writeStyle(() -> {
             padding.inlineStart(10, em);
             padding.inlineEnd(20, px);
@@ -43,6 +52,15 @@ public class PaddingTest extends StyleTester {
     @Test
     void block() {
         ValidatableStyle parsed = writeStyle(() -> {
+            padding.block(10, em);
+        });
+        assert parsed.property("padding-block-start", "10em");
+        assert parsed.property("padding-block-end", "10em");
+    }
+
+    @Test
+    void blockStartEnd() {
+        ValidatableStyle parsed = writeStyle(() -> {
             padding.blockStart(10, em);
             padding.blockEnd(20, px);
         });
@@ -51,16 +69,16 @@ public class PaddingTest extends StyleTester {
     }
 
     @Test
-    public void auto() {
+    void auto() {
         ValidatableStyle parsed = writeStyle(() -> {
             padding.auto();
         });
-        assert parsed.property("padding-left", "auto");
-        assert parsed.property("padding-right", "auto");
+        assert parsed.property("padding-inline-start", "auto");
+        assert parsed.property("padding-inline-end", "auto");
     }
 
     @Test
-    public void shorthand() {
+    void shorthand() {
         ValidatableStyle parsed = writeStyle(() -> {
             padding.horizontal(1, em);
         });

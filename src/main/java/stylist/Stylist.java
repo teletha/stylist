@@ -265,13 +265,26 @@ public final class Stylist {
         return this;
     }
 
+    /**
+     * Apply the post-processor which renames physical property name to logical property name.
+     * 
+     * @return
+     */
     public Stylist forceLogicalProperty() {
         postProcessor(properties -> {
             properties.rename(p -> {
                 if (p.match("width")) {
                     return CSSValue.of("inline-size");
+                } else if (p.match("max-width")) {
+                    return CSSValue.of("max-inline-size");
+                } else if (p.match("min-width")) {
+                    return CSSValue.of("max-inline-size");
                 } else if (p.match("height")) {
                     return CSSValue.of("block-size");
+                } else if (p.match("max-height")) {
+                    return CSSValue.of("max-block-size");
+                } else if (p.match("min-height")) {
+                    return CSSValue.of("min-block-size");
                 } else if (p.match("padding-left")) {
                     return CSSValue.of("padding-inline-start");
                 } else if (p.match("padding-right")) {

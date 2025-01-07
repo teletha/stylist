@@ -16,9 +16,6 @@ import stylist.value.Numeric;
 import stylist.value.Unit;
 import stylist.value.Vendor;
 
-/**
- * @version 2018/08/30 18:24:37
- */
 public class BoxLength extends PropertyDefinition<BoxLength> {
 
     /** The property name. */
@@ -32,149 +29,140 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
     }
 
     /**
-     * <p>
-     * The margin CSS property of an element sets the margin space required on the top of an
-     * element. A negative value is also allowed.
-     * </p>
+     * Apply auto value to inline property.
      * 
-     * @param size
-     * @param unit
      * @return
+     */
+    public BoxLength auto() {
+        return inline(new Auto());
+    }
+
+    /**
+     * The CSS property of an element sets the box space required on the top of an
+     * element. A negative value is also allowed.
      */
     public BoxLength size(double size, Unit unit) {
-        horizontal(size, unit);
-        vertical(size, unit);
-
-        // Chainable API
-        return this;
+        return size(new Numeric(size, unit));
     }
 
     /**
-     * <p>
-     * The margin CSS property of an element sets the margin space required on the top of an
+     * The CSS property of an element sets the box space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
      */
     public BoxLength size(Numeric value) {
-        horizontal(value);
-        vertical(value);
-
-        // Chainable API
-        return this;
-    }
-
-    public BoxLength auto() {
-        right(new Auto());
-        left(new Auto());
-
-        // Chainable API
-        return this;
+        return horizontal(value).vertical(value);
     }
 
     /**
-     * <p>
-     * The margin-top CSS property of an element sets the margin space required on the top of an
+     * The *-top and *-bottom CSS property of an element sets the margin space required on
+     * the top of an element. A negative value is also allowed.
+     */
+    public BoxLength vertical(double size, Unit unit) {
+        return vertical(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-top and *-bottom CSS property of an element sets the margin space required on
+     * the top of an element. A negative value is also allowed.
+     */
+    public BoxLength vertical(Numeric value) {
+        return top(value).bottom(value);
+    }
+
+    /**
+     * The *-top CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @param size
-     * @param unit
-     * @return
      */
     public BoxLength top(double size, Unit unit) {
         return top(new Numeric(size, unit));
     }
 
     /**
-     * <p>
-     * The margin-top CSS property of an element sets the margin space required on the top of an
+     * The *-top CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
      */
     public BoxLength top(Numeric value) {
         return value(name + "-top", value);
     }
 
     /**
-     * <p>
-     * The margin-bottom CSS property of an element sets the margin space required on the top of an
+     * The *-bottom CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @param size
-     * @param unit
-     * @return
      */
     public BoxLength bottom(double size, Unit unit) {
         return bottom(new Numeric(size, unit));
     }
 
     /**
-     * <p>
-     * The margin-bottom CSS property of an element sets the margin space required on the top of an
+     * The *-bottom CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
      */
     public BoxLength bottom(Numeric value) {
         return value(name + "-bottom", value);
     }
 
     /**
-     * <p>
-     * The margin-left CSS property of an element sets the margin space required on the top of an
+     * The *-left and *-right CSS property of an element sets the margin space required on
+     * the top of an element. A negative value is also allowed.
+     */
+    public BoxLength horizontal(double size, Unit unit) {
+        return horizontal(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-left and *-right CSS property of an element sets the margin space required on
+     * the top of an element. A negative value is also allowed.
+     */
+    public BoxLength horizontal(Numeric value) {
+        return left(value).right(value);
+    }
+
+    /**
+     * The *-left CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @param size
-     * @param unit
-     * @return
      */
     public BoxLength left(double size, Unit unit) {
         return left(new Numeric(size, unit));
     }
 
     /**
-     * <p>
-     * The margin-left CSS property of an element sets the margin space required on the top of an
+     * The *-left CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
      */
     public BoxLength left(Numeric value) {
         return value(name + "-left", value);
     }
 
     /**
-     * <p>
-     * The margin-right CSS property of an element sets the margin space required on the top of an
+     * The *-right CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @param size
-     * @param unit
-     * @return
      */
     public BoxLength right(double size, Unit unit) {
         return right(new Numeric(size, unit));
     }
 
     /**
-     * <p>
-     * The margin-right CSS property of an element sets the margin space required on the top of an
+     * The *-right CSS property of an element sets the margin space required on the top of an
      * element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
      */
     public BoxLength right(Numeric value) {
         return value(name + "-right", value);
+    }
+
+    /**
+     * The *-inline-start and *-inline-end CSS property of an element sets the margin space required
+     * on the top of an element. A negative value is also allowed.
+     */
+    public BoxLength inline(double size, Unit unit) {
+        return inline(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-inline-start and *-inline-end CSS property of an element sets the margin space required
+     * on the top of an element. A negative value is also allowed.
+     */
+    public BoxLength inline(Numeric value) {
+        return inlineStart(value).inlineEnd(value);
     }
 
     /**
@@ -210,6 +198,22 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
     }
 
     /**
+     * The *-block-start and *-block-end CSS property of an element sets the margin space required
+     * on the top of an element. A negative value is also allowed.
+     */
+    public BoxLength block(double size, Unit unit) {
+        return block(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-block-start and *-block-end CSS property of an element sets the margin space required
+     * on the top of an element. A negative value is also allowed.
+     */
+    public BoxLength block(Numeric value) {
+        return blockStart(value).blockEnd(value);
+    }
+
+    /**
      * The *-block-start CSS property of an element sets the space required on the top of an
      * element. A negative value is also allowed.
      */
@@ -241,77 +245,6 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
         return value(name + "-block-end", value);
     }
 
-    /**
-     * <p>
-     * The margin-left and margin-right CSS property of an element sets the margin space required on
-     * the top of an element. A negative value is also allowed.
-     * </p>
-     * 
-     * @param size
-     * @param unit
-     * @return
-     */
-    public BoxLength horizontal(double size, Unit unit) {
-        left(size, unit);
-        right(size, unit);
-
-        // Chainable API
-        return this;
-    }
-
-    /**
-     * <p>
-     * The margin-left and margin-right CSS property of an element sets the margin space required on
-     * the top of an element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
-     */
-    public BoxLength horizontal(Numeric value) {
-        left(value);
-        right(value);
-
-        // Chainable API
-        return this;
-    }
-
-    /**
-     * <p>
-     * The margin-top and margin-bottom CSS property of an element sets the margin space required on
-     * the top of an element. A negative value is also allowed.
-     * </p>
-     * 
-     * @param size
-     * @param unit
-     * @return
-     */
-    public BoxLength vertical(double size, Unit unit) {
-        top(size, unit);
-        bottom(size, unit);
-
-        // Chainable API
-        return this;
-    }
-
-    /**
-     * <p>
-     * The margin-top and margin-bottom CSS property of an element sets the margin space required on
-     * the top of an element. A negative value is also allowed.
-     * </p>
-     * 
-     * @return
-     */
-    public BoxLength vertical(Numeric value) {
-        top(value);
-        bottom(value);
-
-        // Chainable API
-        return this;
-    }
-
-    /**
-     * @version 2018/09/02 7:06:43
-     */
     private static class Auto extends Numeric {
 
         /**

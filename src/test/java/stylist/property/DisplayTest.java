@@ -97,4 +97,72 @@ class DisplayTest extends StyleTester {
         });
         assert style.property("float", "left");
     }
+
+    @Test
+    void width() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.width(50, px);
+            display.maxWidth(100, px);
+            display.minWidth(10, px);
+        });
+        assert style.property("width", "50px");
+        assert style.property("max-width", "100px");
+        assert style.property("min-width", "10px");
+    }
+
+    @Test
+    void height() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.height(50, px);
+            display.maxHeight(100, px);
+            display.minHeight(10, px);
+        });
+        assert style.property("height", "50px");
+        assert style.property("max-height", "100px");
+        assert style.property("min-height", "10px");
+    }
+
+    @Test
+    void inlineSize() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.inline(50, px);
+            display.maxInline(100, px);
+            display.minInline(10, px);
+        });
+        assert style.property("inline-size", "50px");
+        assert style.property("max-inline-size", "100px");
+        assert style.property("min-inline-size", "10px");
+    }
+
+    @Test
+    void inlineShorthand() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.inline(10, 50, 100, px);
+        });
+        assert style.property("inline-size", "50px");
+        assert style.property("max-inline-size", "100px");
+        assert style.property("min-inline-size", "10px");
+    }
+
+    @Test
+    void blockSize() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.block(50, px);
+            display.maxBlock(100, px);
+            display.minBlock(10, px);
+        });
+        assert style.property("block-size", "50px");
+        assert style.property("max-block-size", "100px");
+        assert style.property("min-block-size", "10px");
+    }
+
+    @Test
+    void blockShorthand() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.block(10, 50, 100, px);
+        });
+        assert style.property("block-size", "50px");
+        assert style.property("max-block-size", "100px");
+        assert style.property("min-block-size", "10px");
+    }
 }
