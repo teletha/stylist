@@ -178,41 +178,67 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
     }
 
     /**
-     * The *-inline-end CSS property of an element sets the space required on the top of an
+     * The *-inline-start CSS property of an element sets the space required on the top of an
      * element. A negative value is also allowed.
-     * 
-     * @param size
-     * @param unit
      */
-    public BoxLength start(double size, Unit unit) {
-        return start(new Numeric(size, unit));
+    public BoxLength inlineStart(double size, Unit unit) {
+        return inlineStart(new Numeric(size, unit));
     }
 
     /**
-     * The *-inline-end CSS property of an element sets the space required on the top of an
+     * The *-inline-start CSS property of an element sets the space required on the top of an
      * element. A negative value is also allowed.
      */
-    public BoxLength start(Numeric value) {
+    public BoxLength inlineStart(Numeric value) {
         return value(name + "-inline-start", value);
     }
 
     /**
      * The *-inline-end CSS property of an element sets the space required on the top of an
      * element. A negative value is also allowed.
-     * 
-     * @param size
-     * @param unit
      */
-    public BoxLength end(double size, Unit unit) {
-        return end(new Numeric(size, unit));
+    public BoxLength inlineEnd(double size, Unit unit) {
+        return inlineEnd(new Numeric(size, unit));
     }
 
     /**
      * The *-inline-end CSS property of an element sets the space required on the top of an
      * element. A negative value is also allowed.
      */
-    public BoxLength end(Numeric value) {
+    public BoxLength inlineEnd(Numeric value) {
         return value(name + "-inline-end", value);
+    }
+
+    /**
+     * The *-block-start CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     */
+    public BoxLength blockStart(double size, Unit unit) {
+        return blockStart(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-block-start CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     */
+    public BoxLength blockStart(Numeric value) {
+        return value(name + "-block-start", value);
+    }
+
+    /**
+     * The *-block-end CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     */
+    public BoxLength blockEnd(double size, Unit unit) {
+        return blockEnd(new Numeric(size, unit));
+    }
+
+    /**
+     * The *-block-end CSS property of an element sets the space required on the top of an
+     * element. A negative value is also allowed.
+     */
+    public BoxLength blockEnd(Numeric value) {
+        return value(name + "-block-end", value);
     }
 
     /**

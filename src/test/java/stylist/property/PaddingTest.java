@@ -33,11 +33,21 @@ public class PaddingTest extends StyleTester {
     @Test
     public void inline() {
         ValidatableStyle parsed = writeStyle(() -> {
-            padding.start(10, em);
-            padding.end(20, px);
+            padding.inlineStart(10, em);
+            padding.inlineEnd(20, px);
         });
         assert parsed.property("padding-inline-start", "10em");
         assert parsed.property("padding-inline-end", "20px");
+    }
+
+    @Test
+    void block() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            padding.blockStart(10, em);
+            padding.blockEnd(20, px);
+        });
+        assert parsed.property("padding-block-start", "10em");
+        assert parsed.property("padding-block-end", "20px");
     }
 
     @Test

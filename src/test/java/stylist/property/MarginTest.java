@@ -34,11 +34,21 @@ class MarginTest extends StyleTester {
     @Test
     void inline() {
         ValidatableStyle parsed = writeStyle(() -> {
-            margin.start(10, em);
-            margin.end(20, px);
+            margin.inlineStart(10, em);
+            margin.inlineEnd(20, px);
         });
         assert parsed.property("margin-inline-start", "10em");
         assert parsed.property("margin-inline-end", "20px");
+    }
+
+    @Test
+    void block() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            margin.blockStart(10, em);
+            margin.blockEnd(20, px);
+        });
+        assert parsed.property("margin-block-start", "10em");
+        assert parsed.property("margin-block-end", "20px");
     }
 
     @Test

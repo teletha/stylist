@@ -265,6 +265,37 @@ public final class Stylist {
         return this;
     }
 
+    public Stylist forceLogicalProperty() {
+        postProcessor(properties -> {
+            properties.rename(p -> {
+                if (p.match("width")) {
+                    return CSSValue.of("inline-size");
+                } else if (p.match("height")) {
+                    return CSSValue.of("block-size");
+                } else if (p.match("padding-left")) {
+                    return CSSValue.of("padding-inline-start");
+                } else if (p.match("padding-right")) {
+                    return CSSValue.of("padding-inline-end");
+                } else if (p.match("padding-top")) {
+                    return CSSValue.of("padding-block-start");
+                } else if (p.match("padding-bottom")) {
+                    return CSSValue.of("padding-block-end");
+                } else if (p.match("margin-left")) {
+                    return CSSValue.of("margin-inline-start");
+                } else if (p.match("margin-right")) {
+                    return CSSValue.of("margin-inline-end");
+                } else if (p.match("margin-top")) {
+                    return CSSValue.of("margin-block-start");
+                } else if (p.match("margin-bottom")) {
+                    return CSSValue.of("margin-block-end");
+                } else {
+                    return p;
+                }
+            });
+        });
+        return this;
+    }
+
     /**
      * Import reset stylesheet.
      * 
