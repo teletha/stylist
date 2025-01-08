@@ -10,8 +10,10 @@
 package stylist.property;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 import stylist.PropertyDefinition;
+import stylist.Style;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -21,16 +23,14 @@ public class Grid extends PropertyDefinition<Grid> {
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
      */
-    public final TemplateColumns templateColumns = new TemplateColumns();
+    public final TemplateRows templateColumns = new TemplateRows();
 
     /**
-     * 
+     * The grid-template-columns CSS property defines the line names and track sizing functions of
+     * the grid columns.
      */
-    public final class TemplateColumns extends PropertyDefinition<Grid> {
+    public final class TemplateColumns extends PropertyDefinition<Grid> implements SizeDefinable<Grid> {
 
-        /**
-         * 
-         */
         private TemplateColumns() {
             super("grid-template-columns", Grid.this);
         }
@@ -38,11 +38,12 @@ public class Grid extends PropertyDefinition<Grid> {
         /**
          * Is a non-negative length.
          * 
-         * @param widths
+         * @param sizes
          * @return
          */
-        public Grid width(Numeric... widths) {
-            return value("grid-template-columns", List.of(widths), " ");
+        @Override
+        public Grid size(Numeric... sizes) {
+            return value(name, List.of(sizes), " ");
         }
 
         public Grid repeat(double minSize, Unit minUnit, double maxSize, Unit maxUnit) {
@@ -50,8 +51,94 @@ public class Grid extends PropertyDefinition<Grid> {
         }
 
         public Grid repeat(Numeric min, Numeric max) {
-            return value("grid-template-columns", "repeat(auto-fit,minmax(" + min + "," + max + "))");
+            return value(name, "repeat(auto-fit,minmax(" + min + "," + max + "))");
         }
+    }
+
+    /**
+     * The grid-template-rows CSS property defines the line names and track sizing functions of the
+     * grid rows.
+     */
+    public final TemplateRows templateRows = new TemplateRows();
+
+    /**
+     * The grid-template-rows CSS property defines the line names and track sizing functions of the
+     * grid rows.
+     */
+    public final class TemplateRows extends PropertyDefinition<Grid> implements SizeDefinable<Grid> {
+
+        private TemplateRows() {
+            super("grid-template-rows", Grid.this);
+        }
+
+        /**
+         * Is a non-negative length.
+         * 
+         * @param sizes
+         * @return
+         */
+        @Override
+        public Grid size(Numeric... sizes) {
+            return value(name, List.of(sizes), " ");
+        }
+
+        public Grid repeat(double minSize, Unit minUnit, double maxSize, Unit maxUnit) {
+            return repeat(Numeric.of(minSize, minUnit), Numeric.of(maxSize, maxUnit));
+        }
+
+        public Grid repeat(Numeric min, Numeric max) {
+            return value(name, "repeat(auto-fit,minmax(" + min + "," + max + "))");
+        }
+    }
+
+    /**
+     * This property is specified as a value for <'row-gap'>, followed optionally by a value for
+     * <'column-gap'>. If <'column-gap'> is omitted, it is set to the same value as <'row-gap'>.
+     * Both <'row-gap'> and <'column-gap'> can each be specified as a <length> or a <percentage>.
+     * 
+     * @return
+     */
+    public Grid gap(double gap, Unit unit) {
+        return rowGap(gap, unit).columnGap(gap, unit);
+    }
+
+    /**
+     * This property is specified as a value for <'row-gap'>, followed optionally by a value for
+     * <'column-gap'>. If <'column-gap'> is omitted, it is set to the same value as <'row-gap'>.
+     * Both <'row-gap'> and <'column-gap'> can each be specified as a <length> or a <percentage>.
+     * 
+     * @return
+     */
+    public Grid gap(Numeric gap) {
+        return rowGap(gap).columnGap(gap);
+    }
+
+    /**
+     * This property is specified as a value for <'row-gap'>, followed optionally by a value for
+     * <'column-gap'>. If <'column-gap'> is omitted, it is set to the same value as <'row-gap'>.
+     * Both <'row-gap'> and <'column-gap'> can each be specified as a <length> or a <percentage>.
+     * 
+     * @param row
+     * @param rowUnit
+     * @param column
+     * @param columnUnit
+     * @return
+     */
+    public Grid gap(double row, Unit rowUnit, double column, Unit columnUnit) {
+        return rowGap(row, rowUnit).columnGap(column, columnUnit);
+    }
+
+    /**
+     * This property is specified as a value for <'row-gap'>, followed optionally by a value for
+     * <'column-gap'>. If <'column-gap'> is omitted, it is set to the same value as <'row-gap'>.
+     * Both <'row-gap'> and <'column-gap'> can each be specified as a <length> or a <percentage>.
+     * 
+     * @param row
+     * @param column
+     * @return
+     */
+    public Grid gap(Numeric row, Numeric column) {
+        return rowGap(row).columnGap(column);
     }
 
     /**
@@ -110,5 +197,18 @@ public class Grid extends PropertyDefinition<Grid> {
         value("row-gap", size);
 
         return this;
+    }
+
+    public Grid templateAreas(Style... areas) {
+        StringJoiner joiner = new StringJoiner(" ", "\"", "\"");
+        for (Style area : areas) {
+            if (area == null) {
+                joiner.add(".");
+            } else {
+                joiner.add(area.selector().substring(1));
+                registerGridArea(area);
+            }
+        }
+        return value("grid-template-areas", readValueAsString("grid-template-areas", "") + joiner.toString());
     }
 }

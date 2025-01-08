@@ -34,7 +34,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * @return
      */
     public BoxLength auto() {
-        return inline(new Auto());
+        return horizontal(new Auto());
     }
 
     /**

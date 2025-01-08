@@ -25,7 +25,7 @@ public class PropertyDefinition<T> {
     protected static StyleRule rule;
 
     /** The property name. */
-    private final String name;
+    protected final String name;
 
     /** The context property. */
     private final T context;
@@ -236,6 +236,18 @@ public class PropertyDefinition<T> {
      * @return
      */
     protected final String readValueAsString(String defaultValue) {
+        return readValueAsString(name, defaultValue);
+    }
+
+    /**
+     * Read the current value as {@link String}. If it is not specified yet, your default value will
+     * be returned.
+     * 
+     * @param name A target property name.
+     * @param defaultValue
+     * @return
+     */
+    protected final String readValueAsString(String name, String defaultValue) {
         return rule.properties.get(name).map(CSSValue::toString).or(defaultValue);
     }
 
@@ -314,5 +326,12 @@ public class PropertyDefinition<T> {
      */
     protected static final void registerAnimation(AnimationFrames anime) {
         Stylist.animations.add(anime);
+    }
+
+    /**
+     * INTERNAL USAGE : Bypass to animation manager.
+     */
+    protected static final void registerGridArea(Style style) {
+        Stylist.gridAreas.add(style);
     }
 }

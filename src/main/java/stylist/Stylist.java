@@ -50,6 +50,9 @@ public final class Stylist {
     /** The animation manager. */
     static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
 
+    /** The grid-area manager. */
+    static final Set<Style> gridAreas = ConcurrentHashMap.newKeySet();
+
     /** The format style. */
     private String beforeSelector = "";
 
@@ -99,7 +102,7 @@ public final class Stylist {
     private final Set<Style> styles = new HashSet();
 
     /** The queried styles. */
-    private Map<Query, Set<Style>> queried = new ConcurrentHashMap();
+    private Map<Query, StringBuilder> queried = new ConcurrentHashMap();
 
     /** The user scheme. */
     private DesignScheme scheme;
@@ -462,7 +465,7 @@ public final class Stylist {
             format(e, builder);
         });
 
-        for (Entry<Query, Set<Style>> entry : queried.entrySet()) {
+        for (Entry<Query, StringBuilder> entry : queried.entrySet()) {
             builder.append(entry.getKey()).append(afterSelector).append('{').append(afterStartBrace);
             builder.append(entry.getValue());
             builder.append(beforeEndBrace).append('}').append(afterEndBrace);
@@ -577,6 +580,10 @@ public final class Stylist {
                 format(child, appendable);
             }
             return;
+        }
+
+        if (rule.query.isPresent()) {
+            appendable = queried.computeIfAbsent(rule.query.v, query -> new StringBuilder());
         }
 
         try {
