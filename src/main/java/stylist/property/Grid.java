@@ -205,8 +205,9 @@ public class Grid extends PropertyDefinition<Grid> {
             if (area == null) {
                 joiner.add(".");
             } else {
-                joiner.add(area.selector().substring(1));
-                registerGridArea(area);
+                String name = area.selector().substring(1);
+                retriveProperty(area).set("grid-area", name);
+                joiner.add(name);
             }
         }
         return value("grid-template-areas", readValueAsString("grid-template-areas", "") + joiner.toString());

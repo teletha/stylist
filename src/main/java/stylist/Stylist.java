@@ -50,9 +50,6 @@ public final class Stylist {
     /** The animation manager. */
     static final Set<AnimationFrames> animations = ConcurrentHashMap.newKeySet();
 
-    /** The grid-area manager. */
-    static final Set<Style> gridAreas = ConcurrentHashMap.newKeySet();
-
     /** The format style. */
     private String beforeSelector = "";
 
@@ -777,7 +774,7 @@ public final class Stylist {
      * @return A create new {@link StyleRule}.
      */
     static StyleRule create(Style style) {
-        return create(style, SelectorDSL.create(null));
+        return create(style, null);
     }
 
     /**
@@ -787,6 +784,15 @@ public final class Stylist {
      * @return A create new {@link StyleRule}.
      */
     static synchronized StyleRule create(Style style, SelectorDSL selector) {
+        StyleRule rule = rules.get(style);
+        if (rule != null) {
+            return rule;
+        }
+
+        if (selector == null) {
+            selector = SelectorDSL.create(null);
+        }
+
         // store parent rule
         StyleRule parent = PropertyDefinition.rule;
         String description;
@@ -811,7 +817,11 @@ public final class Stylist {
             parent.children.add(child);
         }
 
+        rules.put(style, child);
+
         // API definition
         return child;
     }
+
+    private static final Map<Style, StyleRule> rules = new ConcurrentHashMap();
 }

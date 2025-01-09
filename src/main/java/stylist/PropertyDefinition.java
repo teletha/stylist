@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
+import stylist.util.Properties;
 import stylist.value.CSSValue;
 import stylist.value.Vendor;
 
@@ -329,9 +330,9 @@ public class PropertyDefinition<T> {
     }
 
     /**
-     * INTERNAL USAGE : Bypass to animation manager.
+     * INTERNAL USAGE.
      */
-    protected static final void registerGridArea(Style style) {
-        Stylist.gridAreas.add(style);
+    protected static final Properties retriveProperty(Style style) {
+        return Stylist.create(style).properties;
     }
 }
