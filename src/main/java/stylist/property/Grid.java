@@ -9,11 +9,18 @@
  */
 package stylist.property;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.StringJoiner;
 
+import kiss.I;
+import kiss.Managed;
+import kiss.Singleton;
+import stylist.PostProcessor;
 import stylist.PropertyDefinition;
 import stylist.Style;
+import stylist.util.Properties;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
@@ -23,7 +30,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
      */
-    public final TemplateRows templateColumns = new TemplateRows();
+    public final TemplateColumns templateColumns = new TemplateColumns();
 
     /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of
@@ -200,16 +207,35 @@ public class Grid extends PropertyDefinition<Grid> {
     }
 
     public Grid templateAreas(Style... areas) {
+        GridAreaProcessor post = I.make(GridAreaProcessor.class);
+
         StringJoiner joiner = new StringJoiner(" ", "\"", "\"");
         for (Style area : areas) {
             if (area == null) {
                 joiner.add(".");
             } else {
                 String name = area.selector().substring(1);
-                retriveProperty(area).set("grid-area", name);
                 joiner.add(name);
+                post.selectors.add(name);
             }
         }
         return value("grid-template-areas", readValueAsString("grid-template-areas", "") + joiner.toString());
+    }
+
+    @Managed(Singleton.class)
+    private static class GridAreaProcessor implements PostProcessor {
+
+        private Set<String> selectors = new HashSet();
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void accept(String selector, Properties properties) {
+            String name = selector.substring(1);
+            if (selectors.contains(name)) {
+                properties.set("grid-area", name);
+            }
+        }
     }
 }

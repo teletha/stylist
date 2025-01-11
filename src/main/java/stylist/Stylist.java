@@ -27,7 +27,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -90,7 +89,7 @@ public final class Stylist {
     private boolean showEmptyStyle = false;
 
     /** The manager of post processors. */
-    private final List<Consumer<Properties>> posts = new ArrayList();
+    private final List<PostProcessor> posts = new ArrayList(I.find(PostProcessor.class));
 
     /** The imported stylesheets. */
     private final Set<String> imports = new ConcurrentSkipListSet();
@@ -258,7 +257,7 @@ public final class Stylist {
      * @param processor
      * @return
      */
-    public Stylist postProcessor(Consumer<Properties> processor) {
+    public Stylist postProcessor(PostProcessor processor) {
         if (processor != null) {
             posts.add(processor);
         }
@@ -271,7 +270,7 @@ public final class Stylist {
      * @return
      */
     public Stylist forceLogicalProperty() {
-        postProcessor(properties -> {
+        postProcessor((selector, properties) -> {
             properties.rename(p -> {
                 if (p.match("width")) {
                     return CSSValue.of("inline-size");
@@ -572,20 +571,20 @@ public final class Stylist {
      * @param appendable An output for the formatted text.
      */
     final void format(StyleRule rule, Appendable appendable) {
-        if (showEmptyStyle == false && rule.properties.size() == 0) {
-            for (StyleRule child : rule.children) {
-                format(child, appendable);
-            }
-            return;
-        }
-
         if (rule.query.isPresent()) {
             appendable = queried.computeIfAbsent(rule.query.v, query -> new StringBuilder());
         }
 
         try {
-            for (Consumer<Properties> processor : posts) {
-                processor.accept(rule.properties);
+            for (PostProcessor processor : posts) {
+                processor.accept(rule.selector.toString(), rule.properties);
+            }
+
+            if (showEmptyStyle == false && rule.properties.size() == 0) {
+                for (StyleRule child : rule.children) {
+                    format(child, appendable);
+                }
+                return;
             }
 
             appendable.append(beforeSelector)
@@ -657,6 +656,8 @@ public final class Stylist {
     private static final Set<String> externals = new HashSet();
 
     static {
+        I.load(Stylist.class);
+
         for (Class domain : I.findAs(StyleDeclarable.class)) {
             collectStyles(domain).forEach(Style::selector);
         }
@@ -784,11 +785,6 @@ public final class Stylist {
      * @return A create new {@link StyleRule}.
      */
     static synchronized StyleRule create(Style style, SelectorDSL selector) {
-        StyleRule rule = rules.get(style);
-        if (rule != null) {
-            return rule;
-        }
-
         if (selector == null) {
             selector = SelectorDSL.create(null);
         }
@@ -817,11 +813,7 @@ public final class Stylist {
             parent.children.add(child);
         }
 
-        rules.put(style, child);
-
         // API definition
         return child;
     }
-
-    private static final Map<Style, StyleRule> rules = new ConcurrentHashMap();
 }

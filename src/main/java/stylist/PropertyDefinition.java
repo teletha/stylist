@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Function;
 
-import stylist.util.Properties;
 import stylist.value.CSSValue;
 import stylist.value.Vendor;
 
@@ -327,12 +326,5 @@ public class PropertyDefinition<T> {
      */
     protected static final void registerAnimation(AnimationFrames anime) {
         Stylist.animations.add(anime);
-    }
-
-    /**
-     * INTERNAL USAGE.
-     */
-    protected static final Properties retriveProperty(Style style) {
-        return Stylist.create(style).properties;
     }
 }
