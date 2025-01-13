@@ -13,52 +13,39 @@ import static stylist.value.Vendor.*;
 
 import stylist.PropertyDefinition;
 
-/**
- * @version 2018/08/30 18:25:41
- */
 public class Flex extends PropertyDefinition<Flex> {
 
     /**
-     * <p>
      * The CSS flex-direction property specifies how flex items are placed in the flex container
      * defining the main axis and the direction (normal or reversed).
-     * </p>
      */
     public final Direction direction = new Direction();
 
     /**
-     * <p>
      * The CSS flex-wrap property specifies whether the children are forced into a single line or if
      * the items can be flowed on multiple lines.
-     * </p>
      */
     public final Wrap wrap = new Wrap();
 
     /**
-     * <p>
      * The CSS align-content property aligns a flex container's lines within the flex container when
      * there is extra space on the cross-axis. This property has no effect on single line flexible
      * boxes.
-     * </p>
      */
     public final AlignContent alignContent = new AlignContent();
 
     /**
-     * <p>
      * The CSS align-items property aligns flex items of the current flex line the same way as
      * justify-content but in the perpendicular direction.
-     * </p>
      */
-    public final AlignItems alignItems = new AlignItems();
+    public final AlignItems<Flex> alignItems = new AlignItems(this);
 
     /**
-     * <p>
      * The CSS justify-content property defines how a browser distributes available space between
      * and around elements when aligning flex items in the main-axis of the current line. The
      * alignment is done after the lengths and auto margins are applied, meaning that, if there is
      * at least one flexible element, with flex-grow different than 0, it will have no effect as
      * there won't be any available space.
-     * </p>
      */
     public final JustifyContent justifyContent = new JustifyContent();
 
@@ -334,113 +321,6 @@ public class Flex extends PropertyDefinition<Flex> {
          * Lines stretch to use the remaining space. The free-space is split equally between all the
          * lines.
          * </p>
-         * 
-         * @return
-         */
-        public Flex stretch() {
-            return value("stretch");
-        }
-    }
-
-    /**
-     * @version 2013/07/22 11:33:09
-     */
-    public class AlignItems extends PropertyDefinition<Flex> {
-
-        /**
-         * 
-         */
-        private AlignItems() {
-            super("align-items", Flex.this, Webkit);
-        }
-
-        /**
-         * The cross-start margin edge of the flex item is flushed with the cross-start edge of the
-         * line.
-         * 
-         * @return
-         */
-        public Flex start() {
-            return value("flex-start");
-        }
-
-        /**
-         * The cross-end margin edge of the flex item is flushed with the cross-end edge of the
-         * line.
-         * 
-         * @return
-         */
-        public Flex end() {
-            return value("flex-end");
-        }
-
-        /**
-         * The flex item's margin box is centered within the line on the cross-axis. If the
-         * cross-size of the item is larger than the flex container, it will overflow equally in
-         * both directions.
-         * 
-         * @return
-         */
-        public Flex center() {
-            return value("center");
-        }
-
-        /**
-         * All flex items are aligned such that their baselines align. The item with the largest
-         * distance between its cross-start margin edge and its baseline is flushed with the
-         * cross-start edge of the line.
-         * 
-         * @return
-         */
-        public Flex baseline() {
-            return value("baseline");
-        }
-
-        /**
-         * All flex items are aligned such that their flex container baselines align. The item with
-         * the largest distance between its cross-start margin edge and its baseline is flushed with
-         * the cross-start edge of the line.
-         * 
-         * @return
-         */
-        public Flex firstBaseline() {
-            return value("first baseline");
-        }
-
-        /**
-         * All flex items are aligned such that their flex container baselines align. The item with
-         * the largest distance between its cross-start margin edge and its baseline is flushed with
-         * the cross-start edge of the line.
-         * 
-         * @return
-         */
-        public Flex lastBaseline() {
-            return value("last baseline");
-        }
-
-        /**
-         * The items are packed flush to the edge of the alignment container of the start side of
-         * the item, in the appropriate axis.
-         * 
-         * @return
-         */
-        public Flex selfStart() {
-            return value("self-start");
-        }
-
-        /**
-         * The items are packed flush to the edge of the alignment container of the end side of the
-         * item, in the appropriate axis.
-         * 
-         * @return
-         */
-        public Flex selfEnd() {
-            return value("self-end");
-        }
-
-        /**
-         * Flex items are stretched such as the cross-size of the item's margin box is the same as
-         * the line while respecting width and height constraints.
          * 
          * @return
          */

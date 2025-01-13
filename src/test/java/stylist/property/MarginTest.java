@@ -74,8 +74,8 @@ class MarginTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             margin.auto();
         });
-        assert parsed.property("margin-inline-start", "auto");
-        assert parsed.property("margin-inline-end", "auto");
+        assert parsed.property("margin-left", "auto");
+        assert parsed.property("margin-right", "auto");
     }
 
     @Test

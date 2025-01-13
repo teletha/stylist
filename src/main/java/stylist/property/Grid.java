@@ -27,6 +27,13 @@ import stylist.value.Unit;
 public class Grid extends PropertyDefinition<Grid> {
 
     /**
+     * The CSS align-items property sets the align-self value on all direct children as a group. In
+     * flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls
+     * the alignment of items on the block axis within their grid areas.
+     */
+    public final AlignItems<Flex> alignItems = new AlignItems(this);
+
+    /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
      */

@@ -73,8 +73,8 @@ class PaddingTest extends StyleTester {
         ValidatableStyle parsed = writeStyle(() -> {
             padding.auto();
         });
-        assert parsed.property("padding-inline-start", "auto");
-        assert parsed.property("padding-inline-end", "auto");
+        assert parsed.property("padding-left", "auto");
+        assert parsed.property("padding-right", "auto");
     }
 
     @Test
