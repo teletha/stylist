@@ -41,7 +41,7 @@ public class AlignItems<C> extends PropertyDefinition<C> {
      * @return
      */
     public C start() {
-        return value("flex-start");
+        return value("start");
     }
 
     /**
@@ -51,7 +51,7 @@ public class AlignItems<C> extends PropertyDefinition<C> {
      * @return
      */
     public C end() {
-        return value("flex-end");
+        return value("end");
     }
 
     /**
