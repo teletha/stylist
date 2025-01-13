@@ -32,6 +32,24 @@ public class Numeric extends CSSValue {
     /** The numerical value. */
     public static final Numeric Bottom = new Numeric(100, percent);
 
+    /**
+     * Represents the largest max-content contribution of the grid items occupying the grid track.
+     */
+    public static final Numeric MaxContent = new Numeric("", "max-content");
+
+    /**
+     * Represents the largest min-content contribution of the grid items occupying the grid track.
+     */
+    public static final Numeric MinContent = new Numeric("", "min-content");
+
+    /**
+     * As min, it represents the largest minimum size (as specified by min-width/min-height) of the
+     * grid items occupying the grid track. As max, it is identical to max-content. However, unlike
+     * max-content, it allows expansion of the track by the align-content and justify-content
+     * property values like normal and stretch.
+     */
+    public static final Numeric Auto = new Numeric("", "auto");
+
     /** The numerical value. */
     public static final Numeric Right = Bottom;
 
@@ -325,7 +343,11 @@ public class Numeric extends CSSValue {
      */
     private String value() {
         if (function != null) {
-            return function + "(" + expression + ")";
+            if (function.equals("")) {
+                return expression;
+            } else {
+                return function + "(" + expression + ")";
+            }
         }
 
         int integer = (int) size;
@@ -384,6 +406,26 @@ public class Numeric extends CSSValue {
      */
     public static Numeric min(Numeric... values) {
         return function("min", values);
+    }
+
+    /**
+     * The minmax() CSS function defines a size range greater than or equal to min and less than or
+     * equal to max. It is used with CSS grids.
+     * 
+     * @return
+     */
+    public static Numeric minmax(double min, Unit minUnit, double max, Unit maxUnit) {
+        return minmax(of(min, minUnit), of(max, maxUnit));
+    }
+
+    /**
+     * The minmax() CSS function defines a size range greater than or equal to min and less than or
+     * equal to max. It is used with CSS grids.
+     * 
+     * @return
+     */
+    public static Numeric minmax(Numeric min, Numeric max) {
+        return function("minmax", new Numeric[] {min, max});
     }
 
     private static Numeric function(String name, Numeric[] values) {
