@@ -26,6 +26,7 @@ import stylist.property.Font;
 import stylist.property.ListStyle;
 import stylist.property.Outline;
 import stylist.property.Overflows;
+import stylist.property.PlaceSelf;
 import stylist.property.PointerEvents;
 import stylist.property.Position;
 import stylist.property.Scroll;
@@ -44,37 +45,29 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Animation animation = new Animation();
 
     /**
-     * <p>
      * The all CSS shorthand property sets all of an element's properties (other than unicode-bidi
      * and direction) to their initial or inherited values, or to the values specified in another
      * stylesheet origin.
-     * </p>
      */
     public static final PropertyDefinition all = new PropertyDefinition("all");
 
     /**
-     * <p>
      * The appearance CSS property is used in Gecko (Firefox) to display an element using a
      * platform-native styling based on the operating system's theme.
-     * </p>
      */
     public static final Appearance appearance = new Appearance();
 
     /**
-     * <p>
      * The background CSS property is a shorthand for setting the individual background values in a
      * single place in the style sheet. background can be used to set the values for one or more of:
      * background-color, background-image, background-position, background-repeat, background-size,
-     * </p>
      */
     public static final Background background = new Background();
 
     /**
-     * <p>
      * The border CSS property is a shorthand property for setting the individual border property
      * values in a single place in the style sheet. border can be used to set the values for one or
      * more of: border-width, border-style, border-color.
-     * </p>
      */
     public static final Borders border = new Borders();
 
@@ -96,11 +89,9 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Container container = new Container();
 
     /**
-     * <p>
      * The content CSS property is used with the ::before and ::after pseudo-elements to generate
      * content in an element. Objects inserting using the content property are anonymous replaced
      * elements.
-     * </p>
      */
     public static final Content content = new Content();
 
@@ -125,52 +116,40 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Fill fill = new Fill();
 
     /**
-     * <p>
      * The flex CSS property is a shorthand property specifying the ability of a flex item to alter
      * its dimensions to fill available space. Flex items can be stretched to use available space
      * proportional to their flex grow factor or their flex shrink factor to prevent overflow.
-     * </p>
      */
     public static final FlexItem flexItem = new FlexItem();
 
     /**
-     * <p>
      * The font CSS property is either a shorthand property for setting font-style, font-variant,
      * font-weight, font-size, line-height and font-family, or a way to set the element's font to a
      * system font, using specific keywords.
-     * </p>
      */
     public static final Font font = new Font();
 
     /**
-     * <p>
      * The list-style CSS property is a shorthand property for setting list-style-type,
      * list-style-image and list-style-position.
-     * </p>
      */
     public static final ListStyle listStyle = new ListStyle();
 
     /**
-     * <p>
      * The margin CSS property sets the margin for all four sides. It is a shorthand to avoid
      * setting each side separately with the other margin properties: margin-top, margin-right,
      * margin-bottom and margin-left. Negative value are also allowed.
-     * </p>
      * <p>
      * One single value applies to all four sides.
-     * </p>
      */
     public static final BoxLength margin = new BoxLength("margin");
 
     /**
-     * <p>
      * The CSS outline property is a shorthand property for setting one or more of the individual
      * outline properties outline-style, outline-width and outline-color in a single rule. In most
      * cases the use of this shortcut is preferable and more convenient.
-     * </p>
      * <p>
      * Outlines differ from borders in the following ways:
-     * </p>
      * <ul>
      * <li>Outlines do not take up space, they are drawn above the content.</li>
      * <li>Outlines may be non-rectangular. They are rectangular in Gecko/Firefox. But e.g. Opera
@@ -180,10 +159,8 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Outline outline = new Outline();
 
     /**
-     * <p>
      * The overflow CSS property specifies whether to clip content, render scroll bars or display
      * overflow content of a block-level element.
-     * </p>
      * <p>
      * Using the overflow property with a value different than visible, its default, will create a
      * new block formatting context. This is technically necessary as if a float would intersect
@@ -191,45 +168,43 @@ public interface StyleDSL extends StyleDeclarable, Unit {
      * around intruding floats. The rewrap would happen after each scroll step and would be lead to
      * a far too slow scrolling experience. Note that, by programmatically setting scrollTop to the
      * relevant HTML element, even when overflow has the hidden value an element may need to scroll.
-     * </p>
      */
     public static final Overflows overflow = new Overflows();
 
     /**
-     * <p>
      * The padding CSS property sets the required padding space on all sides of an element. The
      * padding area is the space between the content of the element and its border. Negative values
      * are not allowed.
-     * </p>
      * <p>
      * The padding property is a shorthand to avoid setting each side separately (padding-top,
      * padding-right, padding-bottom, padding-left).
-     * </p>
      */
     public static final BoxLength padding = new BoxLength("padding");
 
     /**
-     * <p>
+     * The place-self CSS shorthand property allows you to align an individual item in both the
+     * block and inline directions at once (i.e. the align-self and justify-self properties). This
+     * property applies to block-level boxes, absolutely-positioned boxes, and grid items. If the
+     * second value is not present, the first value is also used for it.
+     */
+    public static final PlaceSelf place = new PlaceSelf();
+
+    /**
      * The CSS property pointer-events allows authors to control under what circumstances (if any) a
      * particular graphic element can become the target of mouse events. When this property is
      * unspecified, the same characteristics of the visiblePainted value apply to SVG content.
-     * </p>
      */
     public static final PointerEvents pointerEvents = new PointerEvents();
 
     /**
-     * <p>
      * The position CSS property chooses alternative rules for positioning elements, designed to be
      * useful for scripted animation effects.
-     * </p>
      */
     public static final Position position = new Position();
 
     /**
-     * <p>
      * The scroll-behavior CSS property sets the behavior for a scrolling box when scrolling is
      * triggered by the navigation or CSSOM scrolling APIs.
-     * </p>
      */
     public static final Scroll scroll = new Scroll();
 
@@ -240,15 +215,12 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Text text = new Text();
 
     /**
-     * <p>
      * The CSS transform property lets you modify the coordinate space of the CSS visual formatting
      * model. Using it, elements can be translated, rotated, scaled, and skewed according to the
      * values set.
-     * </p>
      * <p>
      * If the property has a value different than none, a stacking context will be created. In that
      * case the object will act as a containing block for position: fixed elements that it contains.
-     * </p>
      */
     public static final Transform transform = new Transform();
 

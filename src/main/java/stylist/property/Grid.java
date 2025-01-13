@@ -31,7 +31,13 @@ public class Grid extends PropertyDefinition<Grid> {
      * flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls
      * the alignment of items on the block axis within their grid areas.
      */
-    public final AlignItems<Grid> alignItems = new AlignItems<>(this);
+    public final AlignItems<Grid> alignItems = new AlignItems<>("align-itemst", this);
+
+    /**
+     * The CSS justify-items property defines the default justify-self for all items of the box,
+     * giving them all a default way of justifying each box along the appropriate axis.
+     */
+    public final AlignItems<Grid> justifyItems = new AlignItems<>("justify-itemst", this);
 
     /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of

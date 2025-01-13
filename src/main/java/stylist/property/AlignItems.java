@@ -18,8 +18,8 @@ import stylist.PropertyDefinition;
  */
 public class AlignItems<C> extends PropertyDefinition<C> {
 
-    public AlignItems(C context) {
-        super("align-items", context);
+    public AlignItems(String name, C context) {
+        super(name, context);
     }
 
     /// The effect of this keyword is dependent of the layout mode we are in:

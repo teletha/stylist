@@ -38,7 +38,13 @@ public class Flex extends PropertyDefinition<Flex> {
      * The CSS align-items property aligns flex items of the current flex line the same way as
      * justify-content but in the perpendicular direction.
      */
-    public final AlignItems<Flex> alignItems = new AlignItems(this);
+    public final AlignItems<Flex> alignItems = new AlignItems<>("align-items", this);
+
+    /**
+     * The CSS justify-items property defines the default justify-self for all items of the box,
+     * giving them all a default way of justifying each box along the appropriate axis.
+     */
+    public final AlignItems<Flex> justifyItems = new AlignItems<>("justify-items", this);
 
     /**
      * The CSS justify-content property defines how a browser distributes available space between
