@@ -77,6 +77,13 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Box",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "BoxLength",
 			"packageName": "stylist.property",
 			"type": "Class"
@@ -161,13 +168,6 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Display.Height",
-			"packageName": "stylist.property",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Display.Sizing",
 			"packageName": "stylist.property",
 			"type": "Class"
@@ -176,13 +176,6 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Display.Visibility",
-			"packageName": "stylist.property",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Display.Width",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},

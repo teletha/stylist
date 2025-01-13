@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. " name="description"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Inter" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="preload"/>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<script src="mimic.js" type="module"></script>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="i">
+		<header class="Q">
+			<h1 class="b" date="2024-12-31" ver="1.13.0"><code>Stylist</code></h1>
+			<nav class="M"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#package"/>
+					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>Repository</a></nav>
+			<div class="m" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg>
+				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<main class="Y">
+			<nav class="S">
+				<div></div>
+			</nav>
+			<article class="I" id="Article">
+				<section class="Z"><code class="H">stylist.property</code>
+					<h2 class="Class h"><code class="k">Box</code><code class="K">&#60;<code>C</code>&#62;</code></h2>
+					<div class="l">
+						<ul class="C D">
+							<li><code>C</code></li>
+						</ul>
+						<ul class="C E">
+							<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code>C</code></code></code></li>
+						</ul>
+					</div>
+				</section>
+				<section class="Z" id="auto()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="k">auto</code><code class="K">()</code><i class="j"><code>C</code></i></h2>
+					<table class="W">
+						<tr class="J">
+							<td><code>C</code></td>
+							<td><span><p>Chainable API.</p></span></td>
+						</tr>
+					</table><span class="B"><p>The browser will calculate and select a height for the specified element.</p></span></section>
+				<section class="Z" id="maxContent()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="k">maxContent</code><code class="K">()</code><i class="j"><code>C</code></i></h2>
+					<table class="W">
+						<tr class="J">
+							<td><code>C</code></td>
+							<td><span><p>Chainable API.</p></span></td>
+						</tr>
+					</table><span class="B"><p>The intrinsic preferred height.</p></span></section>
+				<section class="Z" id="minContent()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="k">minContent</code><code class="K">()</code><i class="j"><code>C</code></i></h2>
+					<table class="W">
+						<tr class="J">
+							<td><code>C</code></td>
+							<td><span><p>Chainable API.</p></span></td>
+						</tr>
+					</table><span class="B"><p>The intrinsic minimum height.</p></span></section>
+				<section class="Z" id="fitContent()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="k">fitContent</code><code class="K">()</code><i class="j"><code>C</code></i></h2>
+					<table class="W">
+						<tr class="J">
+							<td><code>C</code></td>
+							<td><span><p>Chainable API.</p></span></td>
+						</tr>
+					</table><span class="B"><p>The larger of: the intrinsic minimum height the smaller of the intrinsic preferred height
+and the available height</p></span></section>
+				<section class="Z" id="fill()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="k">fill</code><code class="K">()</code><i class="j"><code>C</code></i></h2>
+					<table class="W">
+						<tr class="J">
+							<td><code>C</code></td>
+							<td><span><p>Chainable API.</p></span></td>
+						</tr>
+					</table><span class="B"><p>Use the fill-available inline size or fill-available block size, as appropriate to the
+writing mode.</p></span></section>
+				<section class="Z" id="stretch()">
+					<h2 class="e"><i class="PUBLIC"></i><code class="k">stretch</code><code class="K">()</code><i class="j"><code>C</code></i></h2>
+					<table class="W">
+						<tr class="J">
+							<td><code>C</code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>Sets the width of the element&#39;s margin box to the width of its containing block. It
+attempts to make the margin box fill the available space in the containing block, so in a
+way behaving similar to 100% but applying the resulting size to the margin box rather
+than the box determined by box-sizing.</p></span></section>
+			</article>
+			<aside class="U" id="SubNavi">
+				<div class="V">
+					<h5 class="T">Methods</h5>
+					<ul>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Box.html#auto()">auto</a></code><code class="K">()</code><i class="c"><code>C</code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Box.html#maxContent()">maxContent</a></code><code class="K">()</code><i class="c"><code>C</code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Box.html#minContent()">minContent</a></code><code class="K">()</code><i class="c"><code>C</code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Box.html#fitContent()">fitContent</a></code><code class="K">()</code><i class="c"><code>C</code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Box.html#fill()">fill</a></code><code class="K">()</code><i class="c"><code>C</code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Box.html#stretch()">stretch</a></code><code class="K">()</code><i class="c"><code>C</code></i></li>
+					</ul>
+				</div>
+			</aside>
+		</main>
+		<script src="root.js"></script>
+		<script src="main.js" type="module"></script>
+	</body>
+</html>
