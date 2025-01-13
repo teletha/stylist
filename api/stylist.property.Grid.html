@@ -20,10 +20,10 @@
 		<script src="mimic.js" type="module"></script>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="J">
-		<header class="c">
-			<h1 class="a" date="2024-12-31" ver="1.13.0"><code>Stylist</code></h1>
-			<nav class="R"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="b">
+		<header class="m">
+			<h1 class="K" date="2024-12-31" ver="1.13.0"><code>Stylist</code></h1>
+			<nav class="U"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
 					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#user"/>
@@ -32,7 +32,7 @@
 					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#github"/>
 					</svg>Repository</a></nav>
-			<div class="U" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
+			<div class="l" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
 						<use href="main.svg#sun"/>
 					</svg>
 				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
@@ -40,37 +40,140 @@
 					</svg>
 				</a></div>
 		</header>
-		<main class="g">
-			<nav class="d">
+		<main class="S">
+			<nav class="c">
 				<div></div>
 			</nav>
-			<article class="H" id="Article">
-				<section class="j"><code class="W">stylist.property</code>
-					<h2 class="Class l"><code class="Y">Grid</code></h2>
-					<div class="i">
+			<article class="M" id="Article">
+				<section class="a"><code class="P">stylist.property</code>
+					<h2 class="Class Q"><code class="X">Grid</code></h2>
+					<div class="L">
 						<ul class="C E">
 							<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Grid.html">Grid</a></code></code></code></li>
 						</ul>
 					</div>
 				</section>
-				<section class="j" id="templateColumns">
-					<h2 class="T"><i class="FINAL"><i class="PUBLIC"></i></i><code class="Y">templateColumns</code><i class="Z"><code class="return"><a href="api/stylist.property.Grid.TemplateColumns.html">TemplateColumns</a></code></i></h2><span class="B"><p>The grid-template-columns CSS property defines the line names and track sizing functions of
+				<section class="a" id="alignItems">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="X">alignItems</code><i class="V"><code class="return"><a href="api/stylist.property.AlignItems.html">AlignItems</a><code class="parameters"><code><a href="api/stylist.property.Grid.html">Grid</a></code></code></code></i></h2><span class="B"><p>The CSS align-items property sets the align-self value on all direct children as a group. In
+flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls
+the alignment of items on the block axis within their grid areas.</p></span></section>
+				<section class="a" id="templateColumns">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="X">templateColumns</code><i class="V"><code class="return"><a href="api/stylist.property.Grid.TemplateColumns.html">TemplateColumns</a></code></i></h2><span class="B"><p>The grid-template-columns CSS property defines the line names and track sizing functions of
 the grid columns.</p></span></section>
-				<section class="j" id="Grid()">
-					<h2 class="T"><i class="PUBLIC"></i><code class="Y">Grid</code><code class="K">()</code></h2>
+				<section class="a" id="templateRows">
+					<h2 class="H"><i class="FINAL"><i class="PUBLIC"></i></i><code class="X">templateRows</code><i class="V"><code class="return"><a href="api/stylist.property.Grid.TemplateRows.html">TemplateRows</a></code></i></h2><span class="B"><p>The grid-template-rows CSS property defines the line names and track sizing functions of the
+grid rows.</p></span></section>
+				<section class="a" id="Grid()">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">Grid</code><code class="k">()</code></h2>
 				</section>
-				<section class="j" id="columnGap(double,stylist.value.Unit)">
-					<h2 class="T"><i class="PUBLIC"></i><code class="Y">columnGap</code><code class="K">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="Z"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
-					<table class="O">
-						<tr class="I">
-							<td><code>double</code><code>size</code></td>
+				<section class="a" id="gap(double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">gap</code><code class="k">(<code>double</code><code class="parameterName">gap</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
+							<td><code>double</code><code>gap</code></td>
 							<td></td>
 						</tr>
-						<tr class="I">
+						<tr class="J">
 							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
 							<td></td>
 						</tr>
-						<tr class="S">
+						<tr class="i">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>This property is specified as a value for &#39;row-gap&#39;&#38;gt;, followed optionally by a value for
+&#39;column-gap&#39;&#38;gt;. If &#39;column-gap&#39;&#38;gt; is omitted, it is set to the same value as &#39;row-gap&#39;&#38;gt;.
+Both &#39;row-gap&#39;&#38;gt; and &#39;column-gap&#39;&#38;gt; can each be specified as a 
+							<length> or a 
+								<percentage>.</percentage>
+							</length>
+						</p>
+					</span></section>
+				<section class="a" id="gap(stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">gap</code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">gap</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>gap</code></td>
+							<td></td>
+						</tr>
+						<tr class="i">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>This property is specified as a value for &#39;row-gap&#39;&#38;gt;, followed optionally by a value for
+&#39;column-gap&#39;&#38;gt;. If &#39;column-gap&#39;&#38;gt; is omitted, it is set to the same value as &#39;row-gap&#39;&#38;gt;.
+Both &#39;row-gap&#39;&#38;gt; and &#39;column-gap&#39;&#38;gt; can each be specified as a 
+							<length> or a 
+								<percentage>.</percentage>
+							</length>
+						</p>
+					</span></section>
+				<section class="a" id="gap(double,stylist.value.Unit,double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">gap</code><code class="k">(<code>double</code><code class="parameterName">row</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">rowUnit</code>, <code>double</code><code class="parameterName">column</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">columnUnit</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
+							<td><code>double</code><code>row</code></td>
+							<td></td>
+						</tr>
+						<tr class="J">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>rowUnit</code></td>
+							<td></td>
+						</tr>
+						<tr class="J">
+							<td><code>double</code><code>column</code></td>
+							<td></td>
+						</tr>
+						<tr class="J">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>columnUnit</code></td>
+							<td></td>
+						</tr>
+						<tr class="i">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>This property is specified as a value for &#39;row-gap&#39;&#38;gt;, followed optionally by a value for
+&#39;column-gap&#39;&#38;gt;. If &#39;column-gap&#39;&#38;gt; is omitted, it is set to the same value as &#39;row-gap&#39;&#38;gt;.
+Both &#39;row-gap&#39;&#38;gt; and &#39;column-gap&#39;&#38;gt; can each be specified as a 
+							<length> or a 
+								<percentage>.</percentage>
+							</length>
+						</p>
+					</span></section>
+				<section class="a" id="gap(stylist.value.Numeric,stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">gap</code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">row</code>, <code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">column</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>row</code></td>
+							<td></td>
+						</tr>
+						<tr class="J">
+							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>column</code></td>
+							<td></td>
+						</tr>
+						<tr class="i">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table><span class="B"><p>This property is specified as a value for &#39;row-gap&#39;&#38;gt;, followed optionally by a value for
+&#39;column-gap&#39;&#38;gt;. If &#39;column-gap&#39;&#38;gt; is omitted, it is set to the same value as &#39;row-gap&#39;&#38;gt;.
+Both &#39;row-gap&#39;&#38;gt; and &#39;column-gap&#39;&#38;gt; can each be specified as a 
+							<length> or a 
+								<percentage>.</percentage>
+							</length>
+						</p>
+					</span></section>
+				<section class="a" id="columnGap(double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">columnGap</code><code class="k">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
+							<td><code>double</code><code>size</code></td>
+							<td></td>
+						</tr>
+						<tr class="J">
+							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
+							<td></td>
+						</tr>
+						<tr class="i">
 							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
 							<td></td>
 						</tr>
@@ -78,14 +181,14 @@ the grid columns.</p></span></section>
 Initially a part of Multi-column Layout, the definition of column-gap has been broadened to
 include multiple layout methods. Now specified in Box Alignment, it may be used in
 Multi-column, Flexible Box, and Grid layouts.</p></span></section>
-				<section class="j" id="columnGap(stylist.value.Numeric)">
-					<h2 class="T"><i class="PUBLIC"></i><code class="Y">columnGap</code><code class="K">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="Z"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
-					<table class="O">
-						<tr class="I">
+				<section class="a" id="columnGap(stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">columnGap</code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
 							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="S">
+						<tr class="i">
 							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
 							<td></td>
 						</tr>
@@ -93,18 +196,18 @@ Multi-column, Flexible Box, and Grid layouts.</p></span></section>
 Initially a part of Multi-column Layout, the definition of column-gap has been broadened to
 include multiple layout methods. Now specified in Box Alignment, it may be used in
 Multi-column, Flexible Box, and Grid layouts.</p></span></section>
-				<section class="j" id="rowGap(double,stylist.value.Unit)">
-					<h2 class="T"><i class="PUBLIC"></i><code class="Y">rowGap</code><code class="K">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="Z"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
-					<table class="O">
-						<tr class="I">
+				<section class="a" id="rowGap(double,stylist.value.Unit)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">rowGap</code><code class="k">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
 							<td><code>double</code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="I">
+						<tr class="J">
 							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
 							<td></td>
 						</tr>
-						<tr class="S">
+						<tr class="i">
 							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
 							<td></td>
 						</tr>
@@ -112,14 +215,14 @@ Multi-column, Flexible Box, and Grid layouts.</p></span></section>
 versions of the specification called this property grid-row-gap, and to maintain
 compatibility with legacy websites, browsers will still accept grid-row-gap as an alias for
 row-gap.</p></span></section>
-				<section class="j" id="rowGap(stylist.value.Numeric)">
-					<h2 class="T"><i class="PUBLIC"></i><code class="Y">rowGap</code><code class="K">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="Z"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
-					<table class="O">
-						<tr class="I">
+				<section class="a" id="rowGap(stylist.value.Numeric)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">rowGap</code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
 							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>size</code></td>
 							<td></td>
 						</tr>
-						<tr class="S">
+						<tr class="i">
 							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
 							<td></td>
 						</tr>
@@ -127,23 +230,43 @@ row-gap.</p></span></section>
 versions of the specification called this property grid-row-gap, and to maintain
 compatibility with legacy websites, browsers will still accept grid-row-gap as an alias for
 row-gap.</p></span></section>
+				<section class="a" id="templateAreas(stylist.Style...)">
+					<h2 class="H"><i class="PUBLIC"></i><code class="X">templateAreas</code><code class="k">(<code array="var"><a href="api/stylist.Style.html">Style</a></code><code class="parameterName">areas</code>)</code><i class="V"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></h2>
+					<table class="T">
+						<tr class="J">
+							<td><code array="var"><a href="api/stylist.Style.html">Style</a></code><code>areas</code></td>
+							<td></td>
+						</tr>
+						<tr class="i">
+							<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
 			</article>
-			<aside class="Q" id="SubNavi">
-				<div class="k">
-					<h5 class="m">Constructors</h5>
+			<aside class="O" id="SubNavi">
+				<div class="j">
+					<h5 class="I">Constructors</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#Grid()">Grid</a></code><code class="K">()</code></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#Grid()">Grid</a></code><code class="k">()</code></li>
 					</ul>
-					<h5 class="m">Fields</h5>
+					<h5 class="I">Fields</h5>
 					<ul>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Grid.html#templateColumns">templateColumns</a></code><i class="h"><code class="return"><a href="api/stylist.property.Grid.TemplateColumns.html">TemplateColumns</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Grid.html#alignItems">alignItems</a></code><i class="N"><code class="return"><a href="api/stylist.property.AlignItems.html">AlignItems</a><code class="parameters"><code><a href="api/stylist.property.Grid.html">Grid</a></code></code></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Grid.html#templateColumns">templateColumns</a></code><i class="N"><code class="return"><a href="api/stylist.property.Grid.TemplateColumns.html">TemplateColumns</a></code></i></li>
+						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Grid.html#templateRows">templateRows</a></code><i class="N"><code class="return"><a href="api/stylist.property.Grid.TemplateRows.html">TemplateRows</a></code></i></li>
 					</ul>
-					<h5 class="m">Methods</h5>
+					<h5 class="I">Methods</h5>
 					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#columnGap(double,stylist.value.Unit)">columnGap</a></code><code class="K">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#columnGap(stylist.value.Numeric)">columnGap</a></code><code class="K">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="h"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#rowGap(double,stylist.value.Unit)">rowGap</a></code><code class="K">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#rowGap(stylist.value.Numeric)">rowGap</a></code><code class="K">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="h"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#gap(double,stylist.value.Unit)">gap</a></code><code class="k">(<code>double</code><code class="parameterName">gap</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#gap(stylist.value.Numeric)">gap</a></code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">gap</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#gap(double,stylist.value.Unit,double,stylist.value.Unit)">gap</a></code><code class="k">(<code>double</code><code class="parameterName">row</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">rowUnit</code>, <code>double</code><code class="parameterName">column</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">columnUnit</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#gap(stylist.value.Numeric,stylist.value.Numeric)">gap</a></code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">row</code>, <code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">column</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#columnGap(double,stylist.value.Unit)">columnGap</a></code><code class="k">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#columnGap(stylist.value.Numeric)">columnGap</a></code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#rowGap(double,stylist.value.Unit)">rowGap</a></code><code class="k">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#rowGap(stylist.value.Numeric)">rowGap</a></code><code class="k">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">size</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
+						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Grid.html#templateAreas(stylist.Style...)">templateAreas</a></code><code class="k">(<code array="var"><a href="api/stylist.Style.html">Style</a></code><code class="parameterName">areas</code>)</code><i class="N"><code><a href="api/stylist.property.Grid.html">Grid</a></code></i></li>
 					</ul>
 				</div>
 			</aside>

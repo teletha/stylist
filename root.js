@@ -21,6 +21,13 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "AlignItems",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Animation",
 			"packageName": "stylist.property",
 			"type": "Class"
@@ -203,13 +210,6 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Flex.AlignItems",
-			"packageName": "stylist.property",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Flex.Direction",
 			"packageName": "stylist.property",
 			"type": "Class"
@@ -246,14 +246,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
@@ -316,6 +316,13 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Grid.TemplateColumns",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Grid.TemplateRows",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
@@ -393,15 +400,22 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "PostProcessor",
+			"packageName": "stylist",
+			"type": "Functional"
 		},
 		{
 			"modifiers": {
@@ -458,6 +472,13 @@ const root = {
 			"name": "Shadow",
 			"packageName": "stylist.value",
 			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "SizeDefinable",
+			"packageName": "stylist.property",
+			"type": "Functional"
 		},
 		{
 			"modifiers": {
