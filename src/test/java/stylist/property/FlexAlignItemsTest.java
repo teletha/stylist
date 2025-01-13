@@ -12,11 +12,7 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.value.Vendor;
 
-/**
- * @version 2018/09/05 11:19:08
- */
 class FlexAlignItemsTest extends StyleTester {
 
     @Test
@@ -25,8 +21,7 @@ class FlexAlignItemsTest extends StyleTester {
             display.flex().alignItems.start();
         });
 
-        assert style.property("align-items", "flex-start");
-        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "flex-start");
+        assert style.property("align-items", "start");
     }
 
     @Test
@@ -35,8 +30,7 @@ class FlexAlignItemsTest extends StyleTester {
             display.flex().alignItems.end();
         });
 
-        assert style.property("align-items", "flex-end");
-        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "flex-end");
+        assert style.property("align-items", "end");
     }
 
     @Test
@@ -46,7 +40,6 @@ class FlexAlignItemsTest extends StyleTester {
         });
 
         assert style.property("align-items", "center");
-        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "center");
     }
 
     @Test
@@ -56,7 +49,6 @@ class FlexAlignItemsTest extends StyleTester {
         });
 
         assert style.property("align-items", "baseline");
-        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "baseline");
     }
 
     @Test
@@ -66,6 +58,5 @@ class FlexAlignItemsTest extends StyleTester {
         });
 
         assert style.property("align-items", "stretch");
-        assert style.property("align-items", Vendor.Webkit, "-webkit-align-items", "stretch");
     }
 }

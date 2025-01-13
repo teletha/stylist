@@ -14,15 +14,12 @@ import org.junit.jupiter.api.Test;
 import stylist.StyleTester;
 import stylist.value.Vendor;
 
-/**
- * @version 2018/09/05 11:38:24
- */
 class FlexboxTest extends StyleTester {
 
     @Test
     void flex() {
         ValidatableStyle parsed = writeStyle(() -> {
-            display.flex().direction.row().alignContent.center().wrap.enable().justifyContent.center().alignItems.end();
+            display.flex().direction.row().alignContent.center().wrap.enable().justifyContent.center().alignItems.flexEnd();
         });
         assert parsed.property("display", "flex");
         assert parsed.property("flex-direction", "row");
@@ -36,7 +33,6 @@ class FlexboxTest extends StyleTester {
         assert parsed.property("flex-wrap", Vendor.Webkit, "-webkit-flex-wrap", "wrap");
         assert parsed.property("align-content", Vendor.Webkit, "-webkit-align-content", "center");
         assert parsed.property("justify-content", Vendor.Webkit, "-webkit-justify-content", "center");
-        assert parsed.property("align-items", Vendor.Webkit, "-webkit-align-items", "flex-end");
     }
 
     @Test
