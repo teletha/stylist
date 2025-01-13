@@ -1210,6 +1210,11 @@ public class SelectorDSL {
         rule.query.set(query);
     }
 
+    public final void when(Query query1, Query query2, Style style) {
+        when(query1, style);
+        when(query2, style);
+    }
+
     /**
      * <p>
      * A generic combinator — typically represented by a single space ( ) character in the form of

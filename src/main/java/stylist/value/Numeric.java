@@ -428,6 +428,16 @@ public class Numeric extends CSSValue {
         return function("minmax", new Numeric[] {min, max});
     }
 
+    /**
+     * The minmax() CSS function defines a size range greater than or equal to min and less than or
+     * equal to max. It is used with CSS grids.
+     * 
+     * @return
+     */
+    public static Numeric auto(double max, Unit unit) {
+        return minmax(Auto, of(max, unit));
+    }
+
     private static Numeric function(String name, Numeric[] values) {
         StringJoiner joiner = new StringJoiner(", ");
         for (Numeric value : values) {

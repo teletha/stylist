@@ -214,7 +214,7 @@ public class Query {
      * @return
      */
     public static Query all() {
-        return new Query("media all");
+        return new Query("media all and");
     }
 
     /**
@@ -223,7 +223,7 @@ public class Query {
      * @return
      */
     public static Query print() {
-        return new Query("media print");
+        return new Query("media print and");
     }
 
     /**
@@ -232,7 +232,7 @@ public class Query {
      * @return
      */
     public static Query screen() {
-        return new Query("media screen");
+        return new Query("media screen and");
     }
 
     /**
@@ -241,6 +241,6 @@ public class Query {
      * @return
      */
     public static Query speech() {
-        return new Query("media speech");
+        return new Query("media speech and");
     }
 }
