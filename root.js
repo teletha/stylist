@@ -308,15 +308,8 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Grid.TemplateColumns",
-			"packageName": "stylist.property",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Grid.TemplateRows",
-			"packageName": "stylist.property",
+			"name": "GridNumerics",
+			"packageName": "stylist.property.helper",
 			"type": "Class"
 		},
 		{
@@ -325,6 +318,13 @@ const root = {
 			"name": "Image",
 			"packageName": "stylist.image",
 			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Items",
+			"packageName": "stylist.property.helper",
+			"type": "Enum"
 		},
 		{
 			"modifiers": {
@@ -352,6 +352,13 @@ const root = {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Numeric",
 			"packageName": "stylist.value",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Numerics",
+			"packageName": "stylist.property.helper",
 			"type": "Class"
 		},
 		{
@@ -472,13 +479,6 @@ const root = {
 			"name": "Shadow",
 			"packageName": "stylist.value",
 			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "SizeDefinable",
-			"packageName": "stylist.property",
-			"type": "Functional"
 		},
 		{
 			"modifiers": {
