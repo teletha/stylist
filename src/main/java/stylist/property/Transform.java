@@ -701,7 +701,7 @@ public class Transform extends PropertyDefinition<Transform> {
          * @return
          */
         public Transform position(double horizontal, Unit horizontalUnit, double vertical, Unit verticalUnit) {
-            return position(Numeric.of(horizontal, horizontalUnit), Numeric.of(vertical, verticalUnit));
+            return position(Numeric.num(horizontal, horizontalUnit), Numeric.num(vertical, verticalUnit));
         }
 
         /**

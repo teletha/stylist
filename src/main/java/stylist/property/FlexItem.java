@@ -37,7 +37,7 @@ public class FlexItem extends PropertyDefinition<FlexItem> {
      * @return
      */
     public FlexItem basis(int size, Unit unit) {
-        return basis(Numeric.of(size, unit));
+        return basis(Numeric.num(size, unit));
     }
 
     /**

@@ -740,7 +740,7 @@ public class Text extends PropertyDefinition<Text> {
          * @return
          */
         public Text length(int length, Unit unit) {
-            return length(Numeric.of(length, unit));
+            return length(Numeric.num(length, unit));
         }
 
         /**

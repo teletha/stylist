@@ -86,7 +86,7 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
      * @return Chainable API.
      */
     public T color(Color color, int percentage) {
-        return color(color, Numeric.of(percentage, percent));
+        return color(color, Numeric.num(percentage, percent));
     }
 
     /**
@@ -102,7 +102,7 @@ public class LinearGradient<T extends LinearGradient> extends CSSValue {
      * @return Chainable API.
      */
     public T color(Color color, int size, Unit unit) {
-        return color(color, Numeric.of(size, unit));
+        return color(color, Numeric.num(size, unit));
     }
 
     /**

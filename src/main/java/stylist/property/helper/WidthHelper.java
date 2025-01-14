@@ -15,7 +15,7 @@ import stylist.value.Unit;
 public interface WidthHelper<R> {
 
     default R width(double width, Unit unit) {
-        return width(Numeric.of(width, unit));
+        return width(Numeric.num(width, unit));
     }
 
     R width(Numeric width);

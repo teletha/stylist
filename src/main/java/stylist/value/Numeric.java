@@ -42,14 +42,6 @@ public class Numeric extends CSSValue {
      */
     public static final Numeric MinContent = new Numeric("", "min-content");
 
-    /**
-     * As min, it represents the largest minimum size (as specified by min-width/min-height) of the
-     * grid items occupying the grid track. As max, it is identical to max-content. However, unlike
-     * max-content, it allows expansion of the track by the align-content and justify-content
-     * property values like normal and stretch.
-     */
-    public static final Numeric Auto = new Numeric("", "auto");
-
     /** The numerical value. */
     public static final Numeric Right = Bottom;
 
@@ -367,7 +359,7 @@ public class Numeric extends CSSValue {
      * @param size
      * @return
      */
-    public static Numeric of(double size) {
+    public static Numeric num(double size) {
         return new Numeric(size);
     }
 
@@ -378,7 +370,7 @@ public class Numeric extends CSSValue {
      * @param unit
      * @return
      */
-    public static Numeric of(double size, Unit unit) {
+    public static Numeric num(double size, Unit unit) {
         return new Numeric(size, unit);
     }
 
@@ -406,36 +398,6 @@ public class Numeric extends CSSValue {
      */
     public static Numeric min(Numeric... values) {
         return function("min", values);
-    }
-
-    /**
-     * The minmax() CSS function defines a size range greater than or equal to min and less than or
-     * equal to max. It is used with CSS grids.
-     * 
-     * @return
-     */
-    public static Numeric minmax(double min, Unit minUnit, double max, Unit maxUnit) {
-        return minmax(of(min, minUnit), of(max, maxUnit));
-    }
-
-    /**
-     * The minmax() CSS function defines a size range greater than or equal to min and less than or
-     * equal to max. It is used with CSS grids.
-     * 
-     * @return
-     */
-    public static Numeric minmax(Numeric min, Numeric max) {
-        return function("minmax", new Numeric[] {min, max});
-    }
-
-    /**
-     * The minmax() CSS function defines a size range greater than or equal to min and less than or
-     * equal to max. It is used with CSS grids.
-     * 
-     * @return
-     */
-    public static Numeric auto(double max, Unit unit) {
-        return minmax(Auto, of(max, unit));
     }
 
     private static Numeric function(String name, Numeric[] values) {

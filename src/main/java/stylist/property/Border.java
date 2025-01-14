@@ -222,7 +222,7 @@ public abstract class Border extends PropertyDefinition<Border> implements Color
      * </p>
      */
     public final Border spacing(double length, Unit unit) {
-        return spacing(Numeric.of(length, unit));
+        return spacing(Numeric.num(length, unit));
     }
 
     /**
@@ -244,7 +244,7 @@ public abstract class Border extends PropertyDefinition<Border> implements Color
      * </p>
      */
     public final Border spacing(double horizontalLength, Unit horizontalUnit, double verticalLength, Unit vertivalUnit) {
-        return spacing(Numeric.of(horizontalLength, horizontalUnit), Numeric.of(verticalLength, vertivalUnit));
+        return spacing(Numeric.num(horizontalLength, horizontalUnit), Numeric.num(verticalLength, vertivalUnit));
     }
 
     /**

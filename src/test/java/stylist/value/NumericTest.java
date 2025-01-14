@@ -31,42 +31,42 @@ class NumericTest {
 
     @Test
     void plus() {
-        Numeric numeric = Numeric.of(10, px).plus(1, em);
+        Numeric numeric = Numeric.num(10, px).plus(1, em);
 
         assert numeric.toString().equals("calc(10px + 1em)");
     }
 
     @Test
     void subtract() {
-        Numeric numeric = Numeric.of(10, px).subtract(1, em);
+        Numeric numeric = Numeric.num(10, px).subtract(1, em);
 
         assert numeric.toString().equals("calc(10px - 1em)");
     }
 
     @Test
     void multiply() {
-        Numeric numeric = Numeric.of(10, px).multiply(1, em);
+        Numeric numeric = Numeric.num(10, px).multiply(1, em);
 
         assert numeric.toString().equals("calc(10px * 1em)");
     }
 
     @Test
     void divide() {
-        Numeric numeric = Numeric.of(10, px).divide(1, em);
+        Numeric numeric = Numeric.num(10, px).divide(1, em);
 
         assert numeric.toString().equals("calc(10px / 1em)");
     }
 
     @Test
     void max() {
-        Numeric numeric = Numeric.max(Numeric.of(10, px), Numeric.of(1, em));
+        Numeric numeric = Numeric.max(Numeric.num(10, px), Numeric.num(1, em));
 
         assert numeric.toString().equals("max(10px, 1em)");
     }
 
     @Test
     void min() {
-        Numeric numeric = Numeric.min(Numeric.of(10, px), Numeric.of(1, em));
+        Numeric numeric = Numeric.min(Numeric.num(10, px), Numeric.num(1, em));
 
         assert numeric.toString().equals("min(10px, 1em)");
     }

@@ -10,9 +10,10 @@
 package stylist.property;
 
 import java.util.HashSet;
-import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.function.UnaryOperator;
 
 import kiss.I;
 import kiss.Managed;
@@ -20,6 +21,8 @@ import kiss.Singleton;
 import stylist.PostProcessor;
 import stylist.PropertyDefinition;
 import stylist.Style;
+import stylist.property.helper.GridNumerics;
+import stylist.property.helper.Items;
 import stylist.util.Properties;
 import stylist.value.Numeric;
 import stylist.value.Unit;
@@ -31,84 +34,48 @@ public class Grid extends PropertyDefinition<Grid> {
      * flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls
      * the alignment of items on the block axis within their grid areas.
      */
-    public final AlignItems<Grid> alignItems = new AlignItems<>("align-items", this);
+    public Grid align(Items align) {
+        return value("align-items", Objects.requireNonNull(align).value);
+    }
 
     /**
      * The CSS justify-items property defines the default justify-self for all items of the box,
      * giving them all a default way of justifying each box along the appropriate axis.
      */
-    public final AlignItems<Grid> justifyItems = new AlignItems<>("justify-items", this);
+    public Grid justify(Items align) {
+        return value("justify-items", Objects.requireNonNull(align).value);
+    }
 
     /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
      */
-    public final TemplateColumns templateColumns = new TemplateColumns();
+    public Grid column(UnaryOperator<GridNumerics> values) {
+        return value("grid-template-columns", values.apply(new GridNumerics()));
+    }
 
     /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
      */
-    public final class TemplateColumns extends PropertyDefinition<Grid> implements SizeDefinable<Grid> {
-
-        private TemplateColumns() {
-            super("grid-template-columns", Grid.this);
-        }
-
-        /**
-         * Is a non-negative length.
-         * 
-         * @param sizes
-         * @return
-         */
-        @Override
-        public Grid size(Numeric... sizes) {
-            return value(name, List.of(sizes), " ");
-        }
-
-        public Grid repeat(double minSize, Unit minUnit, double maxSize, Unit maxUnit) {
-            return repeat(Numeric.of(minSize, minUnit), Numeric.of(maxSize, maxUnit));
-        }
-
-        public Grid repeat(Numeric min, Numeric max) {
-            return value(name, "repeat(auto-fit,minmax(" + min + "," + max + "))");
-        }
+    public Grid column(Numeric... values) {
+        return column(x -> x.size(values));
     }
 
     /**
      * The grid-template-rows CSS property defines the line names and track sizing functions of the
      * grid rows.
      */
-    public final TemplateRows templateRows = new TemplateRows();
+    public Grid row(UnaryOperator<GridNumerics> values) {
+        return value("grid-template-rows", values.apply(new GridNumerics()));
+    }
 
     /**
      * The grid-template-rows CSS property defines the line names and track sizing functions of the
      * grid rows.
      */
-    public final class TemplateRows extends PropertyDefinition<Grid> implements SizeDefinable<Grid> {
-
-        private TemplateRows() {
-            super("grid-template-rows", Grid.this);
-        }
-
-        /**
-         * Is a non-negative length.
-         * 
-         * @param sizes
-         * @return
-         */
-        @Override
-        public Grid size(Numeric... sizes) {
-            return value(name, List.of(sizes), " ");
-        }
-
-        public Grid repeat(double minSize, Unit minUnit, double maxSize, Unit maxUnit) {
-            return repeat(Numeric.of(minSize, minUnit), Numeric.of(maxSize, maxUnit));
-        }
-
-        public Grid repeat(Numeric min, Numeric max) {
-            return value(name, "repeat(auto-fit,minmax(" + min + "," + max + "))");
-        }
+    public Grid row(Numeric... values) {
+        return row(x -> x.size(values));
     }
 
     /**
@@ -172,7 +139,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * @return
      */
     public Grid columnGap(double size, Unit unit) {
-        return columnGap(Numeric.of(size, unit));
+        return columnGap(Numeric.num(size, unit));
     }
 
     /**
@@ -201,7 +168,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * @return
      */
     public Grid rowGap(double size, Unit unit) {
-        return rowGap(Numeric.of(size, unit));
+        return rowGap(Numeric.num(size, unit));
     }
 
     /**
@@ -219,7 +186,7 @@ public class Grid extends PropertyDefinition<Grid> {
         return this;
     }
 
-    public Grid templateAreas(Style... areas) {
+    public Grid area(Style... areas) {
         GridAreaProcessor post = I.make(GridAreaProcessor.class);
 
         StringJoiner joiner = new StringJoiner(" ", "\"", "\"");

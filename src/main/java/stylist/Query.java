@@ -19,6 +19,8 @@ public class Query {
 
     private String type;
 
+    private String media;
+
     private String orientation;
 
     private String hover;
@@ -34,15 +36,16 @@ public class Query {
     /**
      * Hide constructor.
      */
-    private Query(String type) {
+    private Query(String type, String media) {
         this.type = "@" + type;
+        this.media = media;
     }
 
     /**
      * Set the width.
      */
     public Query width(int min, Unit unit) {
-        this.minWidth = Numeric.of(min, unit);
+        this.minWidth = Numeric.num(min, unit);
         return this;
     }
 
@@ -50,8 +53,8 @@ public class Query {
      * Set the width.
      */
     public Query width(int min, int max, Unit unit) {
-        this.minWidth = Numeric.of(min, unit);
-        this.maxWidth = Numeric.of(max, unit);
+        this.minWidth = Numeric.num(min, unit);
+        this.maxWidth = Numeric.num(max, unit);
         return this;
     }
 
@@ -59,7 +62,7 @@ public class Query {
      * Set the height.
      */
     public Query height(int min, Unit unit) {
-        this.minHeight = Numeric.of(min, unit);
+        this.minHeight = Numeric.num(min, unit);
         return this;
     }
 
@@ -67,8 +70,8 @@ public class Query {
      * Set the height.
      */
     public Query height(int min, int max, Unit unit) {
-        this.minHeight = Numeric.of(min, unit);
-        this.maxHeight = Numeric.of(max, unit);
+        this.minHeight = Numeric.num(min, unit);
+        this.maxHeight = Numeric.num(max, unit);
         return this;
     }
 
@@ -76,7 +79,7 @@ public class Query {
      * Set the inline size.
      */
     public Query inline(int min, Unit unit) {
-        this.minWidth = Numeric.of(min, unit);
+        this.minWidth = Numeric.num(min, unit);
         return this;
     }
 
@@ -84,8 +87,8 @@ public class Query {
      * Set the inline size.
      */
     public Query inline(int min, int max, Unit unit) {
-        this.minWidth = Numeric.of(min, unit);
-        this.maxWidth = Numeric.of(max, unit);
+        this.minWidth = Numeric.num(min, unit);
+        this.maxWidth = Numeric.num(max, unit);
         return this;
     }
 
@@ -93,7 +96,7 @@ public class Query {
      * Set the block size.
      */
     public Query block(int min, Unit unit) {
-        this.minHeight = Numeric.of(min, unit);
+        this.minHeight = Numeric.num(min, unit);
         return this;
     }
 
@@ -101,8 +104,8 @@ public class Query {
      * Set the block size.
      */
     public Query block(int min, int max, Unit unit) {
-        this.minHeight = Numeric.of(min, unit);
-        this.maxHeight = Numeric.of(max, unit);
+        this.minHeight = Numeric.num(min, unit);
+        this.maxHeight = Numeric.num(max, unit);
         return this;
     }
 
@@ -164,28 +167,32 @@ public class Query {
      */
     @Override
     public String toString() {
-        StringJoiner join = new StringJoiner(") and (", type + " (", ")").setEmptyValue(type);
+        StringJoiner join = new StringJoiner(" and ", type + " ", "").setEmptyValue(type);
+        if (media != null) {
+            join.add(media);
+        }
+
         if (orientation != null) {
-            join.add("orientation:" + orientation);
+            join.add("(orientation:" + orientation + ")");
         }
         if (hover != null) {
-            join.add("hover:" + hover);
+            join.add("(hover:" + hover + ")");
         }
 
         if (minHeight != null && maxHeight != null) {
-            join.add(minHeight + " <= height < " + maxHeight);
+            join.add("(" + minHeight + " <= height < " + maxHeight + ")");
         } else if (minHeight != null) {
-            join.add(minHeight + " <= height");
+            join.add("(" + minHeight + " <= height)");
         } else if (maxHeight != null) {
-            join.add("height < " + maxHeight);
+            join.add("(height < " + maxHeight + ")");
         }
 
         if (minWidth != null && maxWidth != null) {
-            join.add(minWidth + " <= width < " + maxWidth);
+            join.add("(" + minWidth + " <= width < " + maxWidth + ")");
         } else if (minWidth != null) {
-            join.add(minWidth + " <= width");
+            join.add("(" + minWidth + " <= width)");
         } else if (maxWidth != null) {
-            join.add("width < " + maxWidth);
+            join.add("(width < " + maxWidth + ")");
         }
         return join.toString();
     }
@@ -196,7 +203,7 @@ public class Query {
      * @return
      */
     public static Query container() {
-        return new Query("container");
+        return new Query("container", null);
     }
 
     /**
@@ -205,7 +212,7 @@ public class Query {
      * @return
      */
     public static Query container(String name) {
-        return new Query("container " + name);
+        return new Query("container " + name, null);
     }
 
     /**
@@ -214,7 +221,7 @@ public class Query {
      * @return
      */
     public static Query all() {
-        return new Query("media all and");
+        return new Query("media", "all");
     }
 
     /**
@@ -223,7 +230,7 @@ public class Query {
      * @return
      */
     public static Query print() {
-        return new Query("media print and");
+        return new Query("media", "print");
     }
 
     /**
@@ -232,7 +239,7 @@ public class Query {
      * @return
      */
     public static Query screen() {
-        return new Query("media screen and");
+        return new Query("media", "screen");
     }
 
     /**
@@ -241,6 +248,6 @@ public class Query {
      * @return
      */
     public static Query speech() {
-        return new Query("media speech and");
+        return new Query("media", "speech");
     }
 }

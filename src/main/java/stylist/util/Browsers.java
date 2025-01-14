@@ -38,15 +38,15 @@ public final class Browsers {
         return Style.named("[" + attributeName + "]", () -> {
             position.relative();
 
-            Numeric arrow = Numeric.of(10, px);
-            Numeric gap = Numeric.of(5, px);
+            Numeric arrow = Numeric.num(10, px);
+            Numeric gap = Numeric.num(5, px);
 
             $.before(() -> {
                 position.absolute().left(50, percent);
                 if (showOnTop) {
-                    position.bottom(Numeric.of(100, percent).plus(gap).plus(arrow));
+                    position.bottom(Numeric.num(100, percent).plus(gap).plus(arrow));
                 } else {
-                    position.top(Numeric.of(100, percent).subtract(gap).subtract(arrow));
+                    position.top(Numeric.num(100, percent).subtract(gap).subtract(arrow));
                 }
 
                 pointerEvents.none();
@@ -69,9 +69,9 @@ public final class Browsers {
             $.after(() -> {
                 position.absolute().left(50, percent);
                 if (showOnTop) {
-                    position.bottom(Numeric.of(100, percent).plus(gap));
+                    position.bottom(Numeric.num(100, percent).plus(gap));
                 } else {
-                    position.top(Numeric.of(100, percent).subtract(gap));
+                    position.top(Numeric.num(100, percent).subtract(gap));
                 }
 
                 pointerEvents.none();

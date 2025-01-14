@@ -12,8 +12,10 @@ package stylist;
 import stylist.property.Transition;
 import stylist.value.Color;
 import stylist.value.LinearGradient;
+import stylist.value.Numeric;
 import stylist.value.RadialGradient;
 import stylist.value.Shadow;
+import stylist.value.Unit;
 
 public final class FunctionDSL extends SelectorDSL {
 
@@ -159,14 +161,23 @@ public final class FunctionDSL extends SelectorDSL {
     }
 
     /**
-     * <p>
      * Create transitable style rule.
-     * </p>
      * 
      * @return
      */
     public Transition transit() {
         return new Transition();
+    }
+
+    /**
+     * Create {@link Numeric} value.
+     * 
+     * @param size
+     * @param unit
+     * @return
+     */
+    public Numeric num(double size, Unit unit) {
+        return Numeric.num(size, unit);
     }
 
     /**
