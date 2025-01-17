@@ -119,7 +119,7 @@ public enum Items {
     public final String value;
 
     private Items() {
-        this.value = name();
+        this.value = name().toLowerCase();
     }
 
     private Items(String value) {

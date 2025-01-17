@@ -10,15 +10,19 @@
 package stylist.property;
 
 import static stylist.StyleDSL.*;
+import static stylist.value.Unit.*;
 
 import stylist.PropertyDefinition;
 import stylist.value.Numeric;
 import stylist.value.Unit;
 
-/**
- * @version 2018/08/30 18:27:17
- */
 public final class Position extends PropertyDefinition<Position> {
+
+    /**
+     * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left
+     * properties. It has the same multi-value syntax of the margin shorthand.
+     */
+    public final BoxLength inset = new BoxLength("inset", "");
 
     /**
      * <p>

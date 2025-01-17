@@ -18,14 +18,19 @@ import stylist.value.Vendor;
 
 public class BoxLength extends PropertyDefinition<BoxLength> {
 
-    /** The property name. */
-    private final String name;
+    private final String prefix;
+
+    public BoxLength(String name) {
+        this(name, name + "-");
+    }
 
     /**
      * @param name The property name.
      */
-    public BoxLength(String name) {
-        this.name = name;
+    public BoxLength(String name, String prefix) {
+        super(name);
+
+        this.prefix = prefix;
     }
 
     /**
@@ -82,7 +87,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      */
     public BoxLength top(Numeric value) {
-        return value(name + "-top", value);
+        return value(prefix + "top", value);
     }
 
     /**
@@ -98,7 +103,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      */
     public BoxLength bottom(Numeric value) {
-        return value(name + "-bottom", value);
+        return value(prefix + "bottom", value);
     }
 
     /**
@@ -130,7 +135,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      */
     public BoxLength left(Numeric value) {
-        return value(name + "-left", value);
+        return value(prefix + "left", value);
     }
 
     /**
@@ -146,7 +151,7 @@ public class BoxLength extends PropertyDefinition<BoxLength> {
      * element. A negative value is also allowed.
      */
     public BoxLength right(Numeric value) {
-        return value(name + "-right", value);
+        return value(prefix + "right", value);
     }
 
     /**
