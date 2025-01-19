@@ -16,6 +16,14 @@ import stylist.value.Unit;
 
 public class GridNumerics extends Numerics<GridNumerics> {
 
+    public GridNumerics minmax(Numeric min, double max, Unit maxUnit) {
+        return minmax(min, num(max, maxUnit));
+    }
+
+    public GridNumerics minmax(double min, Unit minUnit, Numeric max) {
+        return minmax(num(min, minUnit), max);
+    }
+
     public GridNumerics minmax(double min, Unit minUnit, double max, Unit maxUnit) {
         return minmax(num(min, minUnit), num(max, maxUnit));
     }
