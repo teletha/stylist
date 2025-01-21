@@ -10,7 +10,6 @@
 package stylist.property;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import java.util.StringJoiner;
 import java.util.function.UnaryOperator;
@@ -33,22 +32,39 @@ public class Grid extends PropertyDefinition<Grid> {
      * The CSS align-items property sets the align-self value on all direct children as a group. In
      * flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls
      * the alignment of items on the block axis within their grid areas.
+     * 
+     * @return Chainable API
      */
     public Grid align(Items align) {
-        return value("align-items", Objects.requireNonNull(align).value);
+        return value("align-items", align.value);
     }
 
     /**
      * The CSS justify-items property defines the default justify-self for all items of the box,
      * giving them all a default way of justifying each box along the appropriate axis.
+     * 
+     * @return Chainable API
      */
-    public Grid justify(Items align) {
-        return value("justify-items", Objects.requireNonNull(align).value);
+    public Grid justify(Items justify) {
+        return value("justify-items", justify.value);
+    }
+
+    /**
+     * The CSS place-items shorthand property aligns items along both the block and inline
+     * directions at once. It sets the values of the align-items and justify-items properties. If
+     * the second value is not set, the first value is also used for it.
+     * 
+     * @return Chainable API
+     */
+    public Grid place(Items alignAndJustify) {
+        return value("place-items", alignAndJustify.value);
     }
 
     /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
+     * 
+     * @return Chainable API
      */
     public Grid column(UnaryOperator<GridNumerics> values) {
         return value("grid-template-columns", values.apply(new GridNumerics()));
@@ -57,6 +73,8 @@ public class Grid extends PropertyDefinition<Grid> {
     /**
      * The grid-template-columns CSS property defines the line names and track sizing functions of
      * the grid columns.
+     * 
+     * @return Chainable API
      */
     public Grid column(Numeric... values) {
         return column(x -> x.size(values));
@@ -65,6 +83,8 @@ public class Grid extends PropertyDefinition<Grid> {
     /**
      * The grid-template-rows CSS property defines the line names and track sizing functions of the
      * grid rows.
+     * 
+     * @return Chainable API
      */
     public Grid row(UnaryOperator<GridNumerics> values) {
         return value("grid-template-rows", values.apply(new GridNumerics()));
@@ -73,6 +93,8 @@ public class Grid extends PropertyDefinition<Grid> {
     /**
      * The grid-template-rows CSS property defines the line names and track sizing functions of the
      * grid rows.
+     * 
+     * @return Chainable API
      */
     public Grid row(Numeric... values) {
         return row(x -> x.size(values));
@@ -83,7 +105,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * <'column-gap'>. If <'column-gap'> is omitted, it is set to the same value as <'row-gap'>.
      * Both <'row-gap'> and <'column-gap'> can each be specified as a <length> or a <percentage>.
      * 
-     * @return
+     * @return Chainable API
      */
     public Grid gap(double gap, Unit unit) {
         return rowGap(gap, unit).columnGap(gap, unit);
@@ -94,7 +116,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * <'column-gap'>. If <'column-gap'> is omitted, it is set to the same value as <'row-gap'>.
      * Both <'row-gap'> and <'column-gap'> can each be specified as a <length> or a <percentage>.
      * 
-     * @return
+     * @return Chainable API
      */
     public Grid gap(Numeric gap) {
         return rowGap(gap).columnGap(gap);
@@ -109,7 +131,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * @param rowUnit
      * @param column
      * @param columnUnit
-     * @return
+     * @return Chainable API
      */
     public Grid gap(double row, Unit rowUnit, double column, Unit columnUnit) {
         return rowGap(row, rowUnit).columnGap(column, columnUnit);
@@ -122,7 +144,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * 
      * @param row
      * @param column
-     * @return
+     * @return Chainable API
      */
     public Grid gap(Numeric row, Numeric column) {
         return rowGap(row).columnGap(column);
@@ -136,7 +158,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * 
      * @param size
      * @param unit
-     * @return
+     * @return Chainable API
      */
     public Grid columnGap(double size, Unit unit) {
         return columnGap(Numeric.num(size, unit));
@@ -149,7 +171,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * Multi-column, Flexible Box, and Grid layouts.
      * 
      * @param size
-     * @return
+     * @return Chainable API
      */
     public Grid columnGap(Numeric size) {
         value("column-gap", size);
@@ -165,7 +187,7 @@ public class Grid extends PropertyDefinition<Grid> {
      * 
      * @param size
      * @param unit
-     * @return
+     * @return Chainable API
      */
     public Grid rowGap(double size, Unit unit) {
         return rowGap(Numeric.num(size, unit));
@@ -178,11 +200,58 @@ public class Grid extends PropertyDefinition<Grid> {
      * row-gap.
      * 
      * @param size
-     * @return
+     * @return Chainable API
      */
     public Grid rowGap(Numeric size) {
         value("row-gap", size);
 
+        return this;
+    }
+
+    /**
+     * The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying
+     * exactly how auto-placed items get flowed into the grid.
+     * 
+     * Items are placed by filling each row in turn, adding new rows as necessary. If neither row
+     * nor column is provided, row is assumed.
+     * 
+     * @return Chainable API
+     */
+    public Grid flowRow() {
+        value("grid-auto-flow", "row");
+        return this;
+    }
+
+    /**
+     * The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying
+     * exactly how auto-placed items get flowed into the grid.
+     * 
+     * Items are placed by filling each column in turn, adding new columns as necessary.
+     * 
+     * @return Chainable API
+     */
+    public Grid flowColumn() {
+        value("grid-auto-flow", "column");
+        return this;
+    }
+
+    /**
+     * The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying
+     * exactly how auto-placed items get flowed into the grid.
+     * 
+     * "dense" packing algorithm attempts to fill in holes earlier in the grid, if smaller items
+     * come up later. This may cause items to appear out-of-order, when doing so would fill in holes
+     * left by larger items.
+     * 
+     * If it is omitted, a "sparse" algorithm is used, where the placement algorithm only ever moves
+     * "forward" in the grid when placing items, never backtracking to fill holes. This ensures that
+     * all of the auto-placed items appear "in order", even if this leaves holes that could have
+     * been filled by later items.
+     * 
+     * @return Chainable API
+     */
+    public Grid flowDense() {
+        value("grid-auto-flow", "dense");
         return this;
     }
 

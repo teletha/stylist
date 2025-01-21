@@ -47,6 +47,14 @@ public class GridNumerics extends Numerics<GridNumerics> {
         return repeatAutoFit(num(minSize, minUnit), num(maxSize, maxUnit));
     }
 
+    public GridNumerics repeatAutoFit(Numeric min, double maxSize, Unit maxUnit) {
+        return repeatAutoFit(min, num(maxSize, maxUnit));
+    }
+
+    public GridNumerics repeatAutoFit(double minSize, Unit minUnit, Numeric max) {
+        return repeatAutoFit(num(minSize, minUnit), max);
+    }
+
     public GridNumerics repeatAutoFit(Numeric min, Numeric max) {
         values.add("repeat(auto-fit,minmax(" + min + "," + max + "))");
         return this;
