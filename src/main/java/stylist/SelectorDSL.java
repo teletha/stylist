@@ -681,6 +681,10 @@ public class SelectorDSL {
         pseudo(false, "has(" + selector + ")").declare(style);
     }
 
+    public final void has(Style selector, Style style) {
+        has(selector.selector(), style);
+    }
+
     /**
      * <p>
      * The :hover CSS pseudo-class matches when the user designates an element with a pointing
