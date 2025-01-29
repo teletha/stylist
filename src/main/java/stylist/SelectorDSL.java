@@ -373,6 +373,14 @@ public class SelectorDSL {
     }
 
     /**
+     * This is referred to as an adjacent selector or next-sibling selector. It will select only the
+     * specified element that immediately follows the former specified element.
+     */
+    public final void nexts(Style next, Style sub) {
+        basic("~" + next.selector()).declare(sub);
+    }
+
+    /**
      * Write combinator.
      * 
      * @param type A combinator type.
