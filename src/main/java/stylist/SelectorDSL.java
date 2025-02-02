@@ -111,6 +111,17 @@ public class SelectorDSL {
      * element's class attribute.
      * 
      * @param location A class location.
+     * @return Chainable API.
+     */
+    public final SelectorDSL with(String location) {
+        return basic(location);
+    }
+
+    /**
+     * In an HTML document, CSS class selectors match an element based on the contents of the
+     * element's class attribute.
+     * 
+     * @param location A class location.
      */
     public final void with(Style location, Style sub) {
         with(location.selector(), sub);
@@ -819,6 +830,14 @@ public class SelectorDSL {
      */
     public final void lastType(Style sub) {
         lastType().declare(sub);
+    }
+
+    public final void firstMatch(String selector, Style sub) {
+        with(selector).not(select(selector + " ~ " + selector), sub);
+    }
+
+    public final void lastMatch(String selector, Style sub) {
+        with(selector).not(select(":has(~ " + selector + ")"), sub);
     }
 
     /**
