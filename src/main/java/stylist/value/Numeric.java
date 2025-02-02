@@ -153,7 +153,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size + value.size, unit);
         } else {
-            return new Numeric("calc", expression + " + (" + value.expression + ")");
+            return new Numeric("calc", expression + " + " + value.value());
         }
     }
 
@@ -184,7 +184,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size - value.size, unit);
         } else {
-            return new Numeric("calc", expression + " - (" + value.expression + ")");
+            return new Numeric("calc", expression + " - " + value.value());
         }
     }
 
@@ -215,7 +215,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size * value.size, unit);
         } else {
-            return new Numeric("calc", expression + " * (" + value.expression + ")");
+            return new Numeric("calc", expression + " * " + value.value());
         }
     }
 
@@ -246,7 +246,7 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size / value.size, unit);
         } else {
-            return new Numeric("calc", expression + " / (" + value.expression + ")");
+            return new Numeric("calc", expression + " / " + value.value());
         }
     }
 
