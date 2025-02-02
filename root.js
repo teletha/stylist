@@ -127,6 +127,13 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Content",
+			"packageName": "stylist.property.helper",
+			"type": "Enum"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Content",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
