@@ -40,6 +40,17 @@ public class Grid extends PropertyDefinition<Grid> {
     }
 
     /**
+     * The CSS align-items property sets the align-self value on all direct children as a group. In
+     * flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls
+     * the alignment of items on the block axis within their grid areas.
+     * 
+     * @return Chainable API
+     */
+    public Grid align(stylist.property.helper.Content align) {
+        return value("align-content", align.value);
+    }
+
+    /**
      * The CSS justify-items property defines the default justify-self for all items of the box,
      * giving them all a default way of justifying each box along the appropriate axis.
      * 
@@ -47,6 +58,16 @@ public class Grid extends PropertyDefinition<Grid> {
      */
     public Grid justify(Items justify) {
         return value("justify-items", justify.value);
+    }
+
+    /**
+     * The CSS justify-items property defines the default justify-self for all items of the box,
+     * giving them all a default way of justifying each box along the appropriate axis.
+     * 
+     * @return Chainable API
+     */
+    public Grid justify(stylist.property.helper.Content justify) {
+        return value("justify-content", justify.value);
     }
 
     /**
