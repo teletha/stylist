@@ -58,18 +58,14 @@ public class Numeric extends CSSValue {
     private final String function;
 
     /**
-     * <p>
      * {@link Numeric} value for zero.
-     * </p>
      */
     public Numeric() {
         this(0, px);
     }
 
     /**
-     * <p>
      * {@link Numeric} value as number.
-     * </p>
      * 
      * @param size A numeric size.
      */
@@ -78,9 +74,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * {@link Numeric} value.
-     * </p>
      * 
      * @param value A numeric size.
      * @param unit A unit.
@@ -109,9 +103,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * {@link Numeric} value for string expression.
-     * </p>
      * 
      * @param expression A string expression.
      */
@@ -123,9 +115,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Copy {@link Numeric} value.
-     * </p>
      * 
      * @param numeric A valut to copy..
      */
@@ -137,9 +127,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Addition.
-     * </p>
      * 
      * @param value
      * @return
@@ -156,9 +144,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Addition.
-     * </p>
      * 
      * @param value
      * @return
@@ -167,14 +153,12 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size + value.size, unit);
         } else {
-            return new Numeric("calc", expression + " + " + value.expression);
+            return new Numeric("calc", expression + " + (" + value.expression + ")");
         }
     }
 
     /**
-     * <p>
      * Subtraction.
-     * </p>
      * 
      * @param value
      * @return
@@ -191,9 +175,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Subtraction.
-     * </p>
      * 
      * @param value
      * @return
@@ -202,14 +184,12 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size - value.size, unit);
         } else {
-            return new Numeric("calc", expression + " - " + value.expression);
+            return new Numeric("calc", expression + " - (" + value.expression + ")");
         }
     }
 
     /**
-     * <p>
      * Multiply.
-     * </p>
      * 
      * @param value
      * @return
@@ -226,9 +206,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Multiply.
-     * </p>
      * 
      * @param value
      * @return
@@ -237,14 +215,12 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size * value.size, unit);
         } else {
-            return new Numeric("calc", expression + " * " + value.expression);
+            return new Numeric("calc", expression + " * (" + value.expression + ")");
         }
     }
 
     /**
-     * <p>
      * Division.
-     * </p>
      * 
      * @param value
      * @return
@@ -261,9 +237,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Division.
-     * </p>
      * 
      * @param value
      * @return
@@ -272,14 +246,11 @@ public class Numeric extends CSSValue {
         if (unit == value.unit) {
             return new Numeric(size / value.size, unit);
         } else {
-            return new Numeric("calc", expression + " / " + value.expression);
+            return new Numeric("calc", expression + " / (" + value.expression + ")");
         }
     }
 
     /**
-     * <p>
-     * </p>
-     * 
      * @return
      */
     public Numeric negate() {
@@ -327,9 +298,7 @@ public class Numeric extends CSSValue {
     }
 
     /**
-     * <p>
      * Helper method to stringize this value.
-     * </p>
      * 
      * @return A string expression.
      */
@@ -380,11 +349,59 @@ public class Numeric extends CSSValue {
      * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
      * is allowed.
      * 
+     * @return
+     */
+    public static Numeric max(double value1, Unit unit1, double value2, Unit unit2) {
+        return max(num(value1, unit1), num(value2, unit2));
+    }
+
+    /**
+     * The max() CSS function lets you set the largest (most positive) value from a list of
+     * comma-separated expressions as the value of a CSS property value. The max() function can be
+     * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
+     * is allowed.
+     * 
+     * @return
+     */
+    public static Numeric max(double value1, Unit unit1, double value2, Unit unit2, double value3, Unit unit3) {
+        return max(num(value1, unit1), num(value2, unit2), num(value3, unit3));
+    }
+
+    /**
+     * The max() CSS function lets you set the largest (most positive) value from a list of
+     * comma-separated expressions as the value of a CSS property value. The max() function can be
+     * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
+     * is allowed.
+     * 
      * @param values
      * @return
      */
     public static Numeric max(Numeric... values) {
         return function("max", values);
+    }
+
+    /**
+     * The min() CSS function lets you set the smallest (most negative) value from a list of
+     * comma-separated expressions as the value of a CSS property value. The min() function can be
+     * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
+     * is allowed.
+     * 
+     * @return
+     */
+    public static Numeric min(double value1, Unit unit1, double value2, Unit unit2) {
+        return min(num(value1, unit1), num(value2, unit2));
+    }
+
+    /**
+     * The min() CSS function lets you set the smallest (most negative) value from a list of
+     * comma-separated expressions as the value of a CSS property value. The min() function can be
+     * used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer>
+     * is allowed.
+     * 
+     * @return
+     */
+    public static Numeric min(double value1, Unit unit1, double value2, Unit unit2, double value3, Unit unit3) {
+        return min(num(value1, unit1), num(value2, unit2), num(value3, unit3));
     }
 
     /**
