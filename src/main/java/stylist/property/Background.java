@@ -346,6 +346,18 @@ public class Background extends PropertyDefinition<Background> implements ColorH
         return value("background-position", horizontalSize + " " + verticalSize);
     }
 
+    public Background positionY(double position, Unit unit) {
+        return positionY(Numeric.num(position, unit));
+    }
+
+    /**
+     * The background-position CSS property sets the initial position, relative to the background
+     * position layer defined by background-origin for each defined background image.
+     */
+    public Background positionY(Numeric position) {
+        return value("background-position-y", position);
+    }
+
     /**
      * <p>
      * The background-position CSS property sets the initial position, relative to the background

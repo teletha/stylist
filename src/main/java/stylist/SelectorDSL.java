@@ -700,6 +700,10 @@ public class SelectorDSL {
         pseudo(false, "has(" + selector + ")").declare(style);
     }
 
+    public final void has(SelectorDSL selector, Style style) {
+        has(selector.selector, style);
+    }
+
     public final void has(Style selector, Style style) {
         has(selector.selector(), style);
     }
@@ -832,8 +836,12 @@ public class SelectorDSL {
         lastType().declare(sub);
     }
 
+    public final SelectorDSL firstMatch(String selector) {
+        return with(selector).not(select(selector + " ~ " + selector));
+    }
+
     public final void firstMatch(String selector, Style sub) {
-        with(selector).not(select(selector + " ~ " + selector), sub);
+        firstMatch(selector).declare(sub);
     }
 
     public final void lastMatch(String selector, Style sub) {
