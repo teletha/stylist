@@ -392,13 +392,6 @@ const root = {
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
-			"name": "Overflows.Scrollbar",
-			"packageName": "stylist.property",
-			"type": "Class"
-		},
-		{
-			"modifiers": {
-				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "PlaceSelf",
 			"packageName": "stylist.property",
 			"type": "Class"
