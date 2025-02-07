@@ -10,6 +10,7 @@
 package stylist.util;
 
 import static stylist.StyleDSL.*;
+import static stylist.value.Unit.*;
 
 import stylist.Style;
 import stylist.property.Background.BackgroundImage;
@@ -150,7 +151,8 @@ public final class Browsers {
             border.radius(3, px);
             transition.duration(0.5, s).whenever();
             outline.none();
-            overflow.hidden().scrollbar.none();
+            overflow.hidden();
+            scroll.none();
 
             $.focus(() -> {
                 display.height(120, px);

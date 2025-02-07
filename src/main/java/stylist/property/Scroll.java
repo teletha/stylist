@@ -9,9 +9,13 @@
  */
 package stylist.property;
 
-import stylist.PropertyDefinition;
+import java.util.List;
 
-public class Scroll extends PropertyDefinition<Scroll> {
+import stylist.PropertyDefinition;
+import stylist.property.helper.ColorHelper;
+import stylist.value.CSSValue;
+
+public class Scroll extends PropertyDefinition<Scroll> implements ColorHelper<Scroll> {
 
     /**
      * <p>
@@ -70,5 +74,40 @@ public class Scroll extends PropertyDefinition<Scroll> {
      */
     public Scroll smooth() {
         return value("scroll-behavior", "smooth");
+    }
+
+    /**
+     * <p>
+     * A thin scrollbar width variant on platforms that provide that option, or a thinner
+     * scrollbar than the default platform scrollbar width.
+     * </p>
+     * 
+     * @return
+     */
+    public Scroll thin() {
+        return value("scrollbar-width", "thin");
+    }
+
+    /**
+     * <p>
+     * No scrollbar shown, however the element will still be scrollable.
+     * </p>
+     * 
+     * @return
+     */
+    public Scroll none() {
+        return value("scrollbar-width", "none");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Scroll color(CSSValue color) {
+        return color(color, color);
+    }
+
+    public Scroll color(CSSValue color, CSSValue back) {
+        return value("scrollbar-color", List.of(color, back), " ");
     }
 }

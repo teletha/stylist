@@ -12,7 +12,6 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
-import stylist.value.Color;
 
 class OverflowTest extends StyleTester {
 
@@ -50,15 +49,5 @@ class OverflowTest extends StyleTester {
 
         assert style.property("overflow-x", "auto");
         assert style.property("overflow-y", "hidden");
-    }
-
-    @Test
-    void scrollbar() {
-        ValidatableStyle style = writeStyle(() -> {
-            overflow.scrollbar.color(Color.Black).scrollbar.width(10, px);
-        });
-
-        assert style.property("scrollbar-width", "10px");
-        assert style.property("scrollbar-color", "black");
     }
 }

@@ -12,6 +12,7 @@ package stylist.property;
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
+import stylist.value.Color;
 
 class ScrollTest extends StyleTester {
 
@@ -46,5 +47,15 @@ class ScrollTest extends StyleTester {
         });
         assert parsed.property("scroll-padding-top", "10px");
         assert parsed.property("scroll-padding-bottom", "10px");
+    }
+
+    @Test
+    void scrollbar() {
+        ValidatableStyle style = writeStyle(() -> {
+            scroll.color(Color.Black).thin();
+        });
+
+        assert style.property("scrollbar-width", "thin");
+        assert style.property("scrollbar-color", "black black");
     }
 }

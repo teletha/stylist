@@ -9,6 +9,8 @@
  */
 package stylist.property;
 
+import java.util.List;
+
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
 import stylist.property.helper.WidthHelper;
@@ -53,86 +55,9 @@ public class Overflows extends Overflow<Overflows> {
     public final Overflow<Overflows> y = new Overflow("overflow-y", this);
 
     /**
-     * The scrollbar-color CSS property sets the color of the scrollbar track and thumb. The track
-     * refers to the background of the scrollbar, which is generally fixed regardless of the
-     * scrolling position. The thumb refers to the moving part of the scrollbar, which usually
-     * floats on top of the track. The scrollbar-width property allows the author to set the maximum
-     * thickness of an element’s scrollbars when they are shown.
-     */
-    public final Scrollbar scrollbar = new Scrollbar();
-
-    /**
      * Create property.
      */
     public Overflows() {
         super("overflow");
-    }
-
-    /**
-     * The scrollbar-color CSS property sets the color of the scrollbar track and thumb. The track
-     * refers to the background of the scrollbar, which is generally fixed regardless of the
-     * scrolling position. The thumb refers to the moving part of the scrollbar, which usually
-     * floats on top of the track. The scrollbar-width property allows the author to set the maximum
-     * thickness of an element’s scrollbars when they are shown.
-     */
-    public class Scrollbar<T extends Scrollbar> extends PropertyDefinition<Overflows>
-            implements ColorHelper<Overflows>, WidthHelper<Overflows> {
-
-        /**
-         * Hide
-         */
-        private Scrollbar() {
-            super("scrollbar", Overflows.this);
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public Overflows color(CSSValue color) {
-            return value("scrollbar-color", color);
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public Overflows width(Numeric width) {
-            return value("scrollbar-width", width);
-        }
-
-        /**
-         * <p>
-         * A thin scrollbar width variant on platforms that provide that option, or a thinner
-         * scrollbar than the default platform scrollbar width.
-         * </p>
-         * 
-         * @return
-         */
-        public Overflows thin() {
-            return value("scrollbar-width", "thin");
-        }
-
-        /**
-         * <p>
-         * No scrollbar shown, however the element will still be scrollable.
-         * </p>
-         * 
-         * @return
-         */
-        public Overflows none() {
-            return value("scrollbar-width", "none");
-        }
-
-        /**
-         * <p>
-         * The default scrollbar width for the platform.
-         * </p>
-         * 
-         * @return
-         */
-        public Overflows auto() {
-            return value("scrollbar-width", "auto");
-        }
     }
 }
