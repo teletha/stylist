@@ -9,8 +9,7 @@
  */
 package stylist.property;
 
-import static stylist.value.Unit.px;
-import static stylist.value.Vendor.*;
+import static stylist.value.Unit.*;
 
 import stylist.PropertyDefinition;
 import stylist.property.helper.ColorHelper;
@@ -234,16 +233,18 @@ public class Text extends PropertyDefinition<Text> {
     }
 
     /**
-     * <p>
+     * Helper method to make text selectable.
+     */
+    public Text selectable() {
+        return value("user-select", "all");
+    }
+
+    /**
      * Helper method to make text unselectable.
-     * </p>
      */
     public Text unselectable() {
-        value(CSSValue.of("user-select", Mozilla, MS, Webkit), "none");
-
         BuiltinStyle.unselectable.style();
-
-        return this;
+        return value("user-select", "none");
     }
 
     /**
