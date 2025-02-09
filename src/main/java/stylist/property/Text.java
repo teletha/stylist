@@ -146,6 +146,29 @@ public class Text extends PropertyDefinition<Text> {
     public final WordBreak wordBreak = new WordBreak();
 
     /**
+     * The text-decoration-thickness CSS property sets the stroke thickness of the decoration line
+     * that is used on text in an element, such as a line-through, underline, or overline.
+     * 
+     * @param size
+     * @param unit
+     * @return
+     */
+    public Text decorationThickness(double size, Unit unit) {
+        return decorationThickness(Numeric.num(size, unit));
+    }
+
+    /**
+     * The text-decoration-thickness CSS property sets the stroke thickness of the decoration line
+     * that is used on text in an element, such as a line-through, underline, or overline.
+     * 
+     * @param size
+     * @return
+     */
+    public Text decorationThickness(Numeric size) {
+        return value("text-decoration-thickness", size);
+    }
+
+    /**
      * <p>
      * The text-indent CSS property specifies how much horizontal space should be left before the
      * beginning of the first line of the text content of an element. Horizontal spacing is with
