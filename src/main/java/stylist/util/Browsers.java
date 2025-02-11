@@ -88,7 +88,7 @@ public final class Browsers {
 
             $.hover().after(() -> {
                 display.opacity(1).visibility.visible();
-                transform.translateX(-50, percent).scaleY(1);
+                transform.translate(-50, percent, -1, px).scaleY(1);
                 transition.duration(0.2, s).delay(0.2, s).whenever();
             });
         });
