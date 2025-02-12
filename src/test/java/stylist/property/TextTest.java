@@ -9,8 +9,6 @@
  */
 package stylist.property;
 
-import static stylist.value.Vendor.*;
-
 import org.junit.jupiter.api.Test;
 
 import stylist.StyleTester;
@@ -51,11 +49,19 @@ class TextTest extends StyleTester {
     }
 
     @Test
+    void selectable() {
+        ValidatableStyle parsed = writeStyle(() -> {
+            text.selectable();
+        });
+        assert parsed.property("user-select", "all");
+    }
+
+    @Test
     void unselectable() {
         ValidatableStyle parsed = writeStyle(() -> {
             text.unselectable();
         });
-        assert parsed.property("user-select", "none", Mozilla, MS, Webkit);
+        assert parsed.property("user-select", "none");
         assert parsed.property("cursor", "default");
 
         ValidatableStyle selection = parsed.sub("selection");
