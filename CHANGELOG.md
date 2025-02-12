@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.14.0](https://github.com/teletha/stylist/compare/v1.13.0...v1.14.0) (2025-02-12)
+
+
+### Features
+
+* add Numeric#min and #max ([5f87335](https://github.com/teletha/stylist/commit/5f8733502ff35b3f9e6410297714719b680f6816))
+* provide Container class ([042bff6](https://github.com/teletha/stylist/commit/042bff6472065b74f468dfb923c1ba1c680d1a8d))
+* provide PostProcessor extension ([141ccf5](https://github.com/teletha/stylist/commit/141ccf5ad56bca17d557eabbcb7dbe0844262082))
+* provide StyleManager ([3412bfd](https://github.com/teletha/stylist/commit/3412bfd02dcc844329c9b9df0ed26a9cbb9d4ec3))
+* support *-block-start and *-block-end properties ([beee22a](https://github.com/teletha/stylist/commit/beee22a90c90d01b3b6911fa442e8b185013318a))
+* support *-inline-start and *-inline-end properties ([1b2b33c](https://github.com/teletha/stylist/commit/1b2b33c67e622fe6b72438f4a080faedc5da2a01))
+* support align-content and justify-content properties ([a50bcf6](https://github.com/teletha/stylist/commit/a50bcf649b4dad7da4df0593db3c13d59b551c9c))
+* support align-items property ([41d640d](https://github.com/teletha/stylist/commit/41d640d35a8537a2cbccbd00c935428200e0a56b))
+* support background-position-y property ([88a5aaa](https://github.com/teletha/stylist/commit/88a5aaafe2fc7c35b777ef5b986a1f7ebbc9c49b))
+* support container property ([c2ccd4b](https://github.com/teletha/stylist/commit/c2ccd4b04bdd0ea0c9f90a055d3cbbd3b4d306e8))
+* support firstMatch and lastMatch selector ([03f2315](https://github.com/teletha/stylist/commit/03f23159e99c165eb450b5a3d75d587f8e8db2bd))
+* support global values 'revert' and 'revert-layer' ([0231973](https://github.com/teletha/stylist/commit/02319731e67a916d8d1bc51ca87e5b1a49c87b28))
+* support grid-auto-flow property ([f010935](https://github.com/teletha/stylist/commit/f010935939df6d27293394704ebc1d7025010b04))
+* support grid-template-rows and grid-template-areas properties ([8650225](https://github.com/teletha/stylist/commit/8650225f2dae287d9f1ac5c53e88ae68d6d3d1d4))
+* support has selector by style class ([ddaf3a2](https://github.com/teletha/stylist/commit/ddaf3a208c7036afc17528413163b23661dea4c4))
+* support inline-size and block-size properties ([74de740](https://github.com/teletha/stylist/commit/74de740aff23ff264f4ad9e84fa96f1492b81506))
+* support inset property ([c4a025e](https://github.com/teletha/stylist/commit/c4a025ec9c0113731d8090e1897c539d2f97c1cf))
+* support justify-items and place-self properties ([bd0c257](https://github.com/teletha/stylist/commit/bd0c25727681bba9f823ccda53e950875e186c3c))
+* support minmax function on grid ([d74558e](https://github.com/teletha/stylist/commit/d74558e11c1a4c7d66349832264e23347e22a9fd))
+* support nexts with style ([8e87a06](https://github.com/teletha/stylist/commit/8e87a063e9dc637748d32f9f6d0bc139ce73dc8c))
+* support scrollbar-color and scrollbar-width properties ([e65d5d9](https://github.com/teletha/stylist/commit/e65d5d966c7c57bcf87b406654502479d9a82c18))
+* support stretch value in width and height properties ([d6ce076](https://github.com/teletha/stylist/commit/d6ce076f3343c11a2425c40d4f24c19220b59aa7))
+* support text-decoration-thickness property ([21d3f25](https://github.com/teletha/stylist/commit/21d3f25ad9aa28d0afe17921b7e034af90166e92))
+* support user-select:all ([c9f897a](https://github.com/teletha/stylist/commit/c9f897a1080ec366127bfc44b6c553770b8e722f))
+
+
+### Bug Fixes
+
+* failed test ([bf23c70](https://github.com/teletha/stylist/commit/bf23c70f73b14f886e2628ed22fe8779144b1386))
+* nested calc function ([965fa28](https://github.com/teletha/stylist/commit/965fa28a01438404c71716fe8da0e10fab29377d))
+* refactoring test ([4cc6757](https://github.com/teletha/stylist/commit/4cc6757568ed5301b75308c6693c657bd1a1bdd8))
+* test container property ([6bb1f2a](https://github.com/teletha/stylist/commit/6bb1f2ab28ac8db7e4788899f2ba6453344edd70))
+
 ## [1.13.0](https://github.com/teletha/stylist/compare/v1.12.0...v1.13.0) (2024-12-31)
 
 
