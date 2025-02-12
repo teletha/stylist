@@ -246,14 +246,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
@@ -407,14 +407,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
