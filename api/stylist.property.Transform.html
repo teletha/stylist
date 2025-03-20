@@ -13,48 +13,47 @@
 		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
 		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" rel="preload"/>
 		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
-		<link as="style" fetchpriority="high" href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="preload"/>
-		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="O">
-		<header class="T">
-			<h1 class="Z" date="2024-12-31" ver="1.14.0"><code>Stylist</code></h1>
-			<nav class="l"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="a">
+		<header class="R" date="2025-02-12" ver="1.14.0">
+			<h1 class="S"><code>Stylist</code></h1>
+			<nav class="T"><a href="api/" id="API"><svg class="package A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
-					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#user"/>
-					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#activity"/>
-					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#github"/>
-					</svg>Repository</a></nav>
-			<div class="L" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#sun"/>
 					</svg>
-				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>
+				</a><a href="doc/changelog.html" id="Activity"><svg class="activity A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>
+				</a></nav>
+			<div class="U"><a aria-label="Change color scheme" id="theme"><svg class="sun A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg><svg class="moon A svg" viewBox="0 0 24 24">
 						<use href="main.svg#moon"/>
 					</svg>
 				</a></div>
 		</header>
-		<main class="I">
-			<nav class="M">
-				<div></div>
-			</nav>
-			<article class="j" id="Article">
-				<section class="m"><code class="N">stylist.property</code>
-					<h2 class="Class f"><code class="R">Transform</code></h2>
-					<div class="P">
-						<ul class="C E">
-							<li><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a href="api/stylist.property.Transform.html">Transform</a></code></code></code></li>
-						</ul>
-					</div>
-				</section>
-				<section class="m" id="origin">
-					<h2 class="S"><i class="FINAL"><i class="PUBLIC"></i></i><code class="R">origin</code><i class="b"><code class="return"><a href="api/stylist.property.Transform.Origin.html">Origin</a></code></i></h2><span class="B"><p>
+		<nav class="b"></nav>
+		<article class="O" id="Article">
+			<section class="k"><code class="m">stylist.property</code>
+				<h2 class="Class V"><code class="J">Transform</code></h2>
+				<div class="L">
+					<ul class="C E">
+						<li><code><a aria-label="stylist.PropertyDefinition" href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></code></code></li>
+					</ul>
+				</div>
+			</section>
+			<section class="k" id="origin">
+				<h2 class="j"><i class="FINAL"><i class="PUBLIC"></i></i><code class="J">origin</code><i class="h"><code class="return"><a aria-label="stylist.property.Transform.Origin" href="api/stylist.property.Transform.Origin.html">Origin</a></code></i></h2><span class="B"><p>
  The transform-origin CSS property sets the origin for an element&#39;s transformations. The
  transformation origin is the point around which a transformation is applied. For example, the
  transformation origin of the rotate() function is the center of rotation.
@@ -63,686 +62,686 @@
  applying the element&#39;s transform, then translating by the negated property value. This means,
  this definition
  </p>
-					</span></section>
-				<section class="m" id="Transform()">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">Transform</code><code class="c">()</code></h2><span class="B"><p>
+				</span></section>
+			<section class="k" id="Transform()">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">Transform</code><code class="f">()</code></h2><span class="B"><p>
  Create empty property.
  </p>
-					</span></section>
-				<section class="m" id="rotate(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotate</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotate(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotate</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotate() CSS function defines a transformation that moves the element around a fixed
  point (as specified by the transform-origin property) without deforming it. The amount of
  movement is defined by the specified angle; if positive, the movement will be clockwise, if
  negative, it will be counter-clockwise. A rotation by 180&#176; is called point reflection.
  </p>
-					</span></section>
-				<section class="m" id="rotate(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotate</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>angle</code></td>
-							<td><span><p>the angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotate(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotate</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code></td>
+						<td><span><p>the angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotate() CSS function defines a transformation that moves the element around a fixed
  point (as specified by the transform-origin property) without deforming it. The amount of
  movement is defined by the specified angle; if positive, the movement will be clockwise, if
  negative, it will be counter-clockwise. A rotation by 180&#176; is called point reflection.
  </p>
-					</span></section>
-				<section class="m" id="rotateX(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotateX</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotateX(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotateX</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotateX()CSS function defines a transformation that moves the element around the abscissa
  without deforming it. The amount of movement is defined by the specified angle; if positive,
  the movement will be clockwise, if negative, it will be counter-clockwise.
  </p>
-					</span></section>
-				<section class="m" id="rotateX(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotateX</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>angle</code></td>
-							<td><span><p>the angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotateX(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotateX</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code></td>
+						<td><span><p>the angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotateX()CSS function defines a transformation that moves the element around the abscissa
  without deforming it. The amount of movement is defined by the specified angle; if positive,
  the movement will be clockwise, if negative, it will be counter-clockwise.
  </p>
-					</span></section>
-				<section class="m" id="rotateY(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotateY</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotateY(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotateY</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotateY()CSS function defines a transformation that moves the element around the ordinate
  without deforming it. The amount of movement is defined by the specified angle; if positive,
  the movement will be clockwise, if negative, it will be counter-clockwise.
  </p>
-					</span></section>
-				<section class="m" id="rotateY(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotateY</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>angle</code></td>
-							<td><span><p>the angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotateY(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotateY</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code></td>
+						<td><span><p>the angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotateY()CSS function defines a transformation that moves the element around the ordinate
  without deforming it. The amount of movement is defined by the specified angle; if positive,
  the movement will be clockwise, if negative, it will be counter-clockwise.
  </p>
-					</span></section>
-				<section class="m" id="rotateZ(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotateZ</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotateZ(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotateZ</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotateZ()CSS function defines a transformation that moves the element around the z-axis
  without deforming it. The amount of movement is defined by the specified angle; if positive,
  the movement will be clockwise, if negative, it will be counter-clockwise.
  </p>
-					</span></section>
-				<section class="m" id="rotateZ(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">rotateZ</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>angle</code></td>
-							<td><span><p>the angle of the rotation.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="rotateZ(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">rotateZ</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code></td>
+						<td><span><p>the angle of the rotation.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The rotateZ()CSS function defines a transformation that moves the element around the z-axis
  without deforming it. The amount of movement is defined by the specified angle; if positive,
  the movement will be clockwise, if negative, it will be counter-clockwise.
  </p>
-					</span></section>
-				<section class="m" id="scale(double)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">scale</code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>scale</code></td>
-							<td><span><p>The abscissa and ordinate of the scaling vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="scale(double)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">scale</code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">scale</code></td>
+						<td><span><p>The abscissa and ordinate of the scaling vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The scale() CSS function modify the size of the element. It can either augment or decrease
  its size and as the amount of scaling is defined by a vector, if can do so more in one
  direction than in another one.
  </p>
-					</span></section>
-				<section class="m" id="scale(double,double)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">scale</code><code class="c">(<code>double</code><code class="parameterName">scaleX</code>, <code>double</code><code class="parameterName">scaleY</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>scaleX</code></td>
-							<td><span><p>The abscissa of the scaling vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code>double</code><code>scaleY</code></td>
-							<td><span><p>The ordinate of the scaling vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="scale(double,double)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">scale</code><code class="f">(<code>double</code><code class="parameterName">scaleX</code>, <code>double</code><code class="parameterName">scaleY</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">scaleX</code></td>
+						<td><span><p>The abscissa of the scaling vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">scaleY</code></td>
+						<td><span><p>The ordinate of the scaling vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The scale() CSS function modify the size of the element. It can either augment or decrease
  its size and as the amount of scaling is defined by a vector, if can do so more in one
  direction than in another one.
  </p>
-					</span></section>
-				<section class="m" id="scaleX(double)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">scaleX</code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>scale</code></td>
-							<td><span><p>The scaling factor to apply on the abscissa of each point of the element.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="scaleX(double)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">scaleX</code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">scale</code></td>
+						<td><span><p>The scaling factor to apply on the abscissa of each point of the element.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The scaleX() CSS function modifies the abscissa of each element point by a constant factor,
  except if this scale factor is 1, in which case the function is the identity transform. The
  scaling is not isotropic and the angles of the element are not conserved.
  </p>
-					</span></section>
-				<section class="m" id="scaleY(double)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">scaleY</code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>scale</code></td>
-							<td><span><p>The scaling factor to apply on the ordinate of each point of the element.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="scaleY(double)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">scaleY</code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">scale</code></td>
+						<td><span><p>The scaling factor to apply on the ordinate of each point of the element.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The scaleY() CSS function modifies the ordinate of each element point by a constant factor
  except if this scale factor is 1, in which case the function is the identity transform. The
  scaling is not isotropic and the angles of the element are not conserved.
  </p>
-					</span></section>
-				<section class="m" id="scaleZ(double)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">scaleZ</code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>scale</code></td>
-							<td><span><p>The scaling factor to apply on the z-coordinate of each point of the element.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="scaleZ(double)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">scaleZ</code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">scale</code></td>
+						<td><span><p>The scaling factor to apply on the z-coordinate of each point of the element.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The scaleZ() CSS function modifies the z-coordinate of each element point by a constant
  facto, except if this scale factor is 1, in which case the function is the identity
  transform. The scaling is not isotropic and the angles of the element are not conserved.
  </p>
-					</span></section>
-				<section class="m" id="skew(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skew</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle to use to distort the element along the abscissa and ordinate.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit to use to distort the element along the abscissa and ordinate.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skew(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skew</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle to use to distort the element along the abscissa and ordinate.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit to use to distort the element along the abscissa and ordinate.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skew() CSS function is a shear mapping, or transvection, distorting each point of an
  element by a certain angle in each direction. It is done by increasing each coordinate by a
  value proportionate to the specified angle and to the distance to the origin. The more far
  from the origin, the more away the point is, the greater will be the value added to it.
  </p>
-					</span></section>
-				<section class="m" id="skew(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skew</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The angle to use to distort the element along the abscissa and ordinate.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skew(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skew</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The angle to use to distort the element along the abscissa and ordinate.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skew() CSS function is a shear mapping, or transvection, distorting each point of an
  element by a certain angle in each direction. It is done by increasing each coordinate by a
  value proportionate to the specified angle and to the distance to the origin. The more far
  from the origin, the more away the point is, the greater will be the value added to it.
  </p>
-					</span></section>
-				<section class="m" id="skew(double,stylist.value.Unit,double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skew</code><code class="c">(<code>double</code><code class="parameterName">angleX</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">angleY</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angleX</code></td>
-							<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unitX</code></td>
-							<td><span><p>The unit to use to distort the element along the abscissa.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code>double</code><code>angleY</code></td>
-							<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unitY</code></td>
-							<td><span><p>The unit to use to distort the element along the ordinate.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skew(double,stylist.value.Unit,double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skew</code><code class="f">(<code>double</code><code class="parameterName">angleX</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">angleY</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angleX</code></td>
+						<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code></td>
+						<td><span><p>The unit to use to distort the element along the abscissa.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angleY</code></td>
+						<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code></td>
+						<td><span><p>The unit to use to distort the element along the ordinate.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skew() CSS function is a shear mapping, or transvection, distorting each point of an
  element by a certain angle in each direction. It is done by increasing each coordinate by a
  value proportionate to the specified angle and to the distance to the origin. The more far
  from the origin, the more away the point is, the greater will be the value added to it.
  </p>
-					</span></section>
-				<section class="m" id="skew(stylist.value.Numeric,stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skew</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleX</code>, <code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleY</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>angleX</code></td>
-							<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>angleY</code></td>
-							<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skew(stylist.value.Numeric,stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skew</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleX</code>, <code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleY</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleX</code></td>
+						<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleY</code></td>
+						<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skew() CSS function is a shear mapping, or transvection, distorting each point of an
  element by a certain angle in each direction. It is done by increasing each coordinate by a
  value proportionate to the specified angle and to the distance to the origin. The more far
  from the origin, the more away the point is, the greater will be the value added to it.
  </p>
-					</span></section>
-				<section class="m" id="skewX(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skewX</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit to use to distort the element along the abscissa.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skewX(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skewX</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit to use to distort the element along the abscissa.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skewX() CSS function is an horizontal shear mapping distorting each point of an element
  by a certain angle in the horizontal direction. It is done by increasing the abscissa
  coordinate by a value proportionate to the specified angle and to the distance to the origin.
  The more far from the origin, the more away the point is, the greater will be the value added
  to it.
  </p>
-					</span></section>
-				<section class="m" id="skewX(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skewX</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skewX(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skewX</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The angle to use to distort the element along the abscissa.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skewX() CSS function is an horizontal shear mapping distorting each point of an element
  by a certain angle in the horizontal direction. It is done by increasing the abscissa
  coordinate by a value proportionate to the specified angle and to the distance to the origin.
  The more far from the origin, the more away the point is, the greater will be the value added
  to it.
  </p>
-					</span></section>
-				<section class="m" id="skewY(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skewY</code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>angle</code></td>
-							<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit to use to distort the element along the ordinate.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skewY(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skewY</code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">angle</code></td>
+						<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit to use to distort the element along the ordinate.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skewY() CSS function is an vertical shear mapping distorting each point of an element by
  a certain angle in the vertical direction. It is done by increasing the ordinate coordinate
  by a value proportionate to the specified angle and to the distance to the origin. The more
  far from the origin, the more away the point is, the greater will be the value added to it.
  </p>
-					</span></section>
-				<section class="m" id="skewY(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">skewY</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="skewY(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">skewY</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The angle to use to distort the element along the ordinate.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The skewY() CSS function is an vertical shear mapping distorting each point of an element by
  a certain angle in the vertical direction. It is done by increasing the ordinate coordinate
  by a value proportionate to the specified angle and to the distance to the origin. The more
  far from the origin, the more away the point is, the greater will be the value added to it.
  </p>
-					</span></section>
-				<section class="m" id="translate(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translate</code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>size</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="translate(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translate</code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">size</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translate() CSS function moves the position of the element on the plane. This
  transformation is characterized by a vector whose coordinates define how much it moves in
  each direction.
  </p>
-					</span></section>
-				<section class="m" id="translate(double,stylist.value.Unit,double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translate</code><code class="c">(<code>double</code><code class="parameterName">translateX</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">translateY</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>translateX</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unitX</code></td>
-							<td><span><p>The unit of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code>double</code><code>translateY</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unitY</code></td>
-							<td><span><p>The unit of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="translate(double,stylist.value.Unit,double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translate</code><code class="f">(<code>double</code><code class="parameterName">translateX</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">translateY</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">translateX</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code></td>
+						<td><span><p>The unit of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">translateY</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code></td>
+						<td><span><p>The unit of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translate() CSS function moves the position of the element on the plane. This
  transformation is characterized by a vector whose coordinates define how much it moves in
  each direction.
  </p>
-					</span></section>
-				<section class="m" id="translate(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translate</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="translate(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translate</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translate() CSS function moves the position of the element on the plane. This
  transformation is characterized by a vector whose coordinates define how much it moves in
  each direction.
  </p>
-					</span></section>
-				<section class="m" id="translate(stylist.value.Numeric,stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translate</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateX</code>, <code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateY</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>translateX</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>translateY</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="translate(stylist.value.Numeric,stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translate</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateX</code>, <code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateY</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateX</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateY</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translate() CSS function moves the position of the element on the plane. This
  transformation is characterized by a vector whose coordinates define how much it moves in
  each direction.
  </p>
-					</span></section>
-				<section class="m" id="translateX(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translateX</code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>size</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+				</span></section>
+			<section class="k" id="translateX(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translateX</code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">size</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translateX() CSS function moves horizontally the element on the plane. This
  transformation is characterized by a 
-							<length> defining how much it moves horizontally.
+						<length> defining how much it moves horizontally.
  </length>
-						</p>
-					</span></section>
-				<section class="m" id="translateX(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translateX</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The abscissa of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+					</p>
+				</span></section>
+			<section class="k" id="translateX(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translateX</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The abscissa of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translateX() CSS function moves horizontally the element on the plane. This
  transformation is characterized by a 
-							<length> defining how much it moves horizontally.
+						<length> defining how much it moves horizontally.
  </length>
-						</p>
-					</span></section>
-				<section class="m" id="translateY(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translateY</code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>size</code></td>
-							<td><span><p>The ordinate of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+					</p>
+				</span></section>
+			<section class="k" id="translateY(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translateY</code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">size</code></td>
+						<td><span><p>The ordinate of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translateY() CSS function moves vertically the element on the plane. This transformation
  is characterized by a 
-							<length> defining how much it moves vertically.
+						<length> defining how much it moves vertically.
  </length>
-						</p>
-					</span></section>
-				<section class="m" id="translateY(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translateY</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The ordinate of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+					</p>
+				</span></section>
+			<section class="k" id="translateY(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translateY</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The ordinate of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translateY() CSS function moves vertically the element on the plane. This transformation
  is characterized by a 
-							<length> defining how much it moves vertically.
+						<length> defining how much it moves vertically.
  </length>
-						</p>
-					</span></section>
-				<section class="m" id="translateZ(double,stylist.value.Unit)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translateZ</code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code>double</code><code>size</code></td>
-							<td><span><p>The z-component of the translating vector.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Unit.html">Unit</a></code><code>unit</code></td>
-							<td><span><p>The unit of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+					</p>
+				</span></section>
+			<section class="k" id="translateZ(double,stylist.value.Unit)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translateZ</code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code>double</code><code class="parameterName">size</code></td>
+						<td><span><p>The z-component of the translating vector.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code></td>
+						<td><span><p>The unit of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translateZ() CSS function moves the element along the z-axis of the 3D space. This
  transformation is characterized by a 
-							<length> defining how much it moves.
+						<length> defining how much it moves.
  </length>
-						</p>
-					</span></section>
-				<section class="m" id="translateZ(stylist.value.Numeric)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">translateZ</code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="b"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code>value</code></td>
-							<td><span><p>The z-component of the translating vector.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
-							<td><span><p>Chainable API.</p></span></td>
-						</tr>
-					</table><span class="B"><p>
+					</p>
+				</span></section>
+			<section class="k" id="translateZ(stylist.value.Numeric)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">translateZ</code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="h"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code></td>
+						<td><span><p>The z-component of the translating vector.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="B"><p>
  The translateZ() CSS function moves the element along the z-axis of the 3D space. This
  transformation is characterized by a 
-							<length> defining how much it moves.
+						<length> defining how much it moves.
  </length>
-						</p>
-					</span></section>
-			</article>
-			<aside class="e" id="SubNavi">
-				<div class="h">
-					<h5 class="d">Constructors</h5>
-					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#Transform()">Transform</a></code><code class="c">()</code></li>
-					</ul>
-					<h5 class="d">Fields</h5>
-					<ul>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Transform.html#origin">origin</a></code><i class="K"><code class="return"><a href="api/stylist.property.Transform.Origin.html">Origin</a></code></i></li>
-					</ul>
-					<h5 class="d">Methods</h5>
-					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotate(double,stylist.value.Unit)">rotate</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotate(stylist.value.Numeric)">rotate</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateX(double,stylist.value.Unit)">rotateX</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateX(stylist.value.Numeric)">rotateX</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateY(double,stylist.value.Unit)">rotateY</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateY(stylist.value.Numeric)">rotateY</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateZ(double,stylist.value.Unit)">rotateZ</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateZ(stylist.value.Numeric)">rotateZ</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scale(double)">scale</a></code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scale(double,double)">scale</a></code><code class="c">(<code>double</code><code class="parameterName">scaleX</code>, <code>double</code><code class="parameterName">scaleY</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scaleX(double)">scaleX</a></code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scaleY(double)">scaleY</a></code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scaleZ(double)">scaleZ</a></code><code class="c">(<code>double</code><code class="parameterName">scale</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(double,stylist.value.Unit)">skew</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(stylist.value.Numeric)">skew</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(double,stylist.value.Unit,double,stylist.value.Unit)">skew</a></code><code class="c">(<code>double</code><code class="parameterName">angleX</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">angleY</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(stylist.value.Numeric,stylist.value.Numeric)">skew</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleX</code>, <code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleY</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewX(double,stylist.value.Unit)">skewX</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewX(stylist.value.Numeric)">skewX</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewY(double,stylist.value.Unit)">skewY</a></code><code class="c">(<code>double</code><code class="parameterName">angle</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewY(stylist.value.Numeric)">skewY</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(double,stylist.value.Unit)">translate</a></code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(double,stylist.value.Unit,double,stylist.value.Unit)">translate</a></code><code class="c">(<code>double</code><code class="parameterName">translateX</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">translateY</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(stylist.value.Numeric)">translate</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(stylist.value.Numeric,stylist.value.Numeric)">translate</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateX</code>, <code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateY</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateX(double,stylist.value.Unit)">translateX</a></code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateX(stylist.value.Numeric)">translateX</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateY(double,stylist.value.Unit)">translateY</a></code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateY(stylist.value.Numeric)">translateY</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateZ(double,stylist.value.Unit)">translateZ</a></code><code class="c">(<code>double</code><code class="parameterName">size</code>, <code><a href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateZ(stylist.value.Numeric)">translateZ</a></code><code class="c">(<code><a href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="K"><code><a href="api/stylist.property.Transform.html">Transform</a></code></i></li>
-					</ul>
-				</div>
-			</aside>
-		</main>
-		<script src="root.js"></script>
-		<script src="main.js" type="module"></script>
+					</p>
+				</span></section>
+		</article>
+		<aside class="c">
+			<div class="q">
+				<h5 class="H">Constructors</h5>
+				<ul>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#Transform()">Transform</a></code><code class="f">()</code></li>
+				</ul>
+				<h5 class="H">Fields</h5>
+				<ul>
+					<li class="N"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Transform.html#origin">origin</a></code><i class="s"><code class="return"><a aria-label="stylist.property.Transform.Origin" href="api/stylist.property.Transform.Origin.html">Origin</a></code></i></li>
+				</ul>
+				<h5 class="H">Methods</h5>
+				<ul>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotate(double,stylist.value.Unit)">rotate</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotate(stylist.value.Numeric)">rotate</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateX(double,stylist.value.Unit)">rotateX</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateX(stylist.value.Numeric)">rotateX</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateY(double,stylist.value.Unit)">rotateY</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateY(stylist.value.Numeric)">rotateY</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateZ(double,stylist.value.Unit)">rotateZ</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#rotateZ(stylist.value.Numeric)">rotateZ</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angle</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scale(double)">scale</a></code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scale(double,double)">scale</a></code><code class="f">(<code>double</code><code class="parameterName">scaleX</code>, <code>double</code><code class="parameterName">scaleY</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scaleX(double)">scaleX</a></code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scaleY(double)">scaleY</a></code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#scaleZ(double)">scaleZ</a></code><code class="f">(<code>double</code><code class="parameterName">scale</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(double,stylist.value.Unit)">skew</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(stylist.value.Numeric)">skew</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(double,stylist.value.Unit,double,stylist.value.Unit)">skew</a></code><code class="f">(<code>double</code><code class="parameterName">angleX</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">angleY</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skew(stylist.value.Numeric,stylist.value.Numeric)">skew</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleX</code>, <code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">angleY</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewX(double,stylist.value.Unit)">skewX</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewX(stylist.value.Numeric)">skewX</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewY(double,stylist.value.Unit)">skewY</a></code><code class="f">(<code>double</code><code class="parameterName">angle</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#skewY(stylist.value.Numeric)">skewY</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(double,stylist.value.Unit)">translate</a></code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(double,stylist.value.Unit,double,stylist.value.Unit)">translate</a></code><code class="f">(<code>double</code><code class="parameterName">translateX</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitX</code>, <code>double</code><code class="parameterName">translateY</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unitY</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(stylist.value.Numeric)">translate</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translate(stylist.value.Numeric,stylist.value.Numeric)">translate</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateX</code>, <code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">translateY</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateX(double,stylist.value.Unit)">translateX</a></code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateX(stylist.value.Numeric)">translateX</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateY(double,stylist.value.Unit)">translateY</a></code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateY(stylist.value.Numeric)">translateY</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateZ(double,stylist.value.Unit)">translateZ</a></code><code class="f">(<code>double</code><code class="parameterName">size</code>, <code><a aria-label="stylist.value.Unit" href="api/stylist.value.Unit.html">Unit</a></code><code class="parameterName">unit</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.property.Transform.html#translateZ(stylist.value.Numeric)">translateZ</a></code><code class="f">(<code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code><code class="parameterName">value</code>)</code><i class="s"><code><a aria-label="stylist.property.Transform" href="api/stylist.property.Transform.html">Transform</a></code></i></li>
+				</ul>
+			</div>
+		</aside>
+		<footer class="I"/>
 	</body>
+	<script src="root.js"></script>
+	<script src="main.js" type="module"></script>
 </html>

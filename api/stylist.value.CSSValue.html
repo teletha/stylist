@@ -13,202 +13,201 @@
 		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Material+Icons" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
 		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" rel="preload"/>
 		<link href="https://fonts.googleapis.com/css2?display=swap&#38;family=Vollkorn" media="print" onload="this.media=&#39;all&#39;" rel="stylesheet"/>
-		<link as="style" fetchpriority="high" href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="preload"/>
-		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<title>Stylist API</title>
 		<base href="../"/>
 		<script src="mimic.js" type="module"></script>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="O">
-		<header class="T">
-			<h1 class="Z" date="2024-12-31" ver="1.14.0"><code>Stylist</code></h1>
-			<nav class="l"><a href="api/"><svg class="A svg" viewBox="0 0 24 24">
+	<body class="a">
+		<header class="R" date="2025-02-12" ver="1.14.0">
+			<h1 class="S"><code>Stylist</code></h1>
+			<nav class="T"><a href="api/" id="API"><svg class="package A svg" viewBox="0 0 24 24">
 						<use href="main.svg#package"/>
-					</svg><code>API</code></a><a href="https://github.com/teletha/stylist/discussions" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#user"/>
-					</svg>Community</a><a href="doc/changelog.html"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#activity"/>
-					</svg>Activity</a><a href="https://github.com/teletha/stylist" target="_blank"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#github"/>
-					</svg>Repository</a></nav>
-			<div class="L" id="ViewMode"><a id="light" title="Change to a brighter color scheme"><svg class="A svg" viewBox="0 0 24 24">
-						<use href="main.svg#sun"/>
 					</svg>
-				</a><a id="dark" title="Change to a darker color scheme"><svg class="A svg" viewBox="0 0 24 24">
+				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user A svg" viewBox="0 0 24 24">
+						<use href="main.svg#user"/>
+					</svg>
+				</a><a href="doc/changelog.html" id="Activity"><svg class="activity A svg" viewBox="0 0 24 24">
+						<use href="main.svg#activity"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github A svg" viewBox="0 0 24 24">
+						<use href="main.svg#github"/>
+					</svg>
+				</a></nav>
+			<div class="U"><a aria-label="Change color scheme" id="theme"><svg class="sun A svg" viewBox="0 0 24 24">
+						<use href="main.svg#sun"/>
+					</svg><svg class="moon A svg" viewBox="0 0 24 24">
 						<use href="main.svg#moon"/>
 					</svg>
 				</a></div>
 		</header>
-		<main class="I">
-			<nav class="M">
-				<div></div>
-			</nav>
-			<article class="j" id="Article">
-				<section class="m"><code class="N">stylist.value</code>
-					<h2 class="AbstractClass f"><code class="R">CSSValue</code></h2>
-					<div class="P">
-						<ul class="C G">
-							<li><code><a href="api/stylist.design.DesignScheme.CSSVariable.html">CSSVariable</a><code class="parameters"><code>T</code></code></code></li>
-							<li><code><a href="api/stylist.value.Color.html">Color</a></code></li>
-							<li><code><a href="api/stylist.value.FontSet.html">FontSet</a></code></li>
-							<li><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a><code class="parameters"><code>T</code></code></code></li>
-							<li><code><a href="api/stylist.value.Numeric.html">Numeric</a></code></li>
-							<li><code><a href="api/stylist.value.Position.html">Position</a></code></li>
-							<li><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></li>
-						</ul>
-					</div>
-				</section>
-				<section class="m" id="EMPTY">
-					<h2 class="S"><i class="FINAL"><i class="STATIC PUBLIC"></i></i><code class="R">EMPTY</code><i class="b"><code class="return"><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2><span class="B"><p>The empty value.</p></span></section>
-				<section class="m" id="NoVendors">
-					<h2 class="S"><i class="FINAL"><i class="STATIC PROTECTED"></i></i><code class="R">NoVendors</code><i class="b"><code class="return"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></h2><span class="B"><p>For reuse.</p></span></section>
-				<section class="m" id="CSSValue()">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">CSSValue</code><code class="c">()</code></h2>
-				</section>
-				<section class="m" id="vendors()">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">vendors</code><code class="c">()</code><i class="b"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></h2>
-					<table class="W">
-						<tr class="i">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B"><p>Get all required vendors.</p></span></section>
-				<section class="m" id="valueFor(stylist.value.Vendor)">
-					<h2 class="S"><i class="ABSTRACT"><i class="PUBLIC"></i></i><code class="R">valueFor</code><code class="c">(<code><a href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code>)</code><i class="b"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.Vendor.html">Vendor</a></code><code>vendor</code></td>
-							<td><span><p>A target <code><a href="api/stylist.value.Vendor.html">Vendor</a></code>.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B"><p>Compute the vendor specific value.</p></span></section>
-				<section class="m" id="match(java.lang.String)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">match</code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code>)</code><i class="b"><code>boolean</code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code>value</code></td>
-							<td></td>
-						</tr>
-						<tr class="i">
-							<td><code>boolean</code></td>
-							<td></td>
-						</tr>
-					</table><span class="B"><p>Test whether the specified value matches this <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></section>
-				<section class="m" id="join(stylist.value.CSSValue)">
-					<h2 class="S"><i class="FINAL"><i class="PUBLIC"></i></i><code class="R">join</code><code class="c">(<code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="b"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code>other</code></td>
-							<td><span><p>A target to join.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
-							<td><span><p>A joined <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></td>
-						</tr>
-					</table><span class="B"><p>Join this value and the specified <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code> by whitespace.</p></span></section>
-				<section class="m" id="join(java.lang.String,stylist.value.CSSValue)">
-					<h2 class="S"><i class="FINAL"><i class="PUBLIC"></i></i><code class="R">join</code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">separator</code>, <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="b"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code>separator</code></td>
-							<td><span><p>A separator value.</p></span></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code>other</code></td>
-							<td><span><p>A target to join.</p></span></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
-							<td><span><p>A joined <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></td>
-						</tr>
-					</table><span class="B"><p>Join this value and the specified <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code> by the specified separator.</p></span></section>
-				<section class="m" id="format(stylist.Stylist)">
-					<h2 class="S"><i class="PUBLIC"></i><code class="R">format</code><code class="c">(<code><a href="api/stylist.Stylist.html">Stylist</a></code><code class="parameterName">formatter</code>)</code><i class="b"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="api/stylist.Stylist.html">Stylist</a></code><code>formatter</code></td>
-							<td></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B"><p>Format this value.</p></span></section>
-				<section class="m" id="toString()">
-					<h2 class="S"><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code class="R">toString</code><code class="c">()</code><i class="b"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
-					<table class="W">
-						<tr class="i">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
-							<td><span><p>A <code><a href="api/stylist.value.Vendor.html#Standard">Vendor#Standard</a></code> value.</p></span></td>
-						</tr>
-					</table><span class="B"><p>Returns <code><a href="api/stylist.value.Vendor.html#Standard">Vendor#Standard</a></code> value.</p></span></section>
-				<section class="m" id="of(java.lang.Object,stylist.value.Vendor...)">
-					<h2 class="S"><i class="STATIC PUBLIC"></i><code class="R">of</code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code array="var"><a href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendors</code>)</code><i class="b"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code>value</code></td>
-							<td></td>
-						</tr>
-						<tr class="J">
-							<td><code array="var"><a href="api/stylist.value.Vendor.html">Vendor</a></code><code>vendors</code></td>
-							<td></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B"><p>Create simple text <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></section>
-				<section class="m" id="of(java.lang.Object,java.util.EnumSet)">
-					<h2 class="S"><i class="STATIC PUBLIC"></i><code class="R">of</code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code><code class="parameterName">vendors</code>)</code><i class="b"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
-					<table class="W">
-						<tr class="J">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code>value</code></td>
-							<td></td>
-						</tr>
-						<tr class="J">
-							<td><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code><code>vendors</code></td>
-							<td></td>
-						</tr>
-						<tr class="i">
-							<td><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
-							<td></td>
-						</tr>
-					</table><span class="B"><p>Create simple text <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></section>
-			</article>
-			<aside class="e" id="SubNavi">
-				<div class="h">
-					<h5 class="d">Constructors</h5>
-					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#CSSValue()">CSSValue</a></code><code class="c">()</code></li>
-					</ul>
-					<h5 class="d">Static Fields</h5>
-					<ul>
-						<li><i class="FINAL"><i class="STATIC PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#EMPTY">EMPTY</a></code><i class="K"><code class="return"><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
-						<li><i class="FINAL"><i class="STATIC PROTECTED"></i></i><code><a href="api/stylist.value.CSSValue.html#NoVendors">NoVendors</a></code><i class="K"><code class="return"><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></li>
-					</ul>
-					<h5 class="d">Static Methods</h5>
-					<ul>
-						<li><i class="STATIC PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#of(java.lang.Object,stylist.value.Vendor...)">of</a></code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code array="var"><a href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendors</code>)</code><i class="K"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
-						<li><i class="STATIC PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#of(java.lang.Object,java.util.EnumSet)">of</a></code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code><code class="parameterName">vendors</code>)</code><i class="K"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
-					</ul>
-					<h5 class="d">Methods</h5>
-					<ul>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#vendors()">vendors</a></code><code class="c">()</code><i class="K"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></li>
-						<li><i class="ABSTRACT"><i class="PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#valueFor(stylist.value.Vendor)">valueFor</a></code><code class="c">(<code><a href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code>)</code><i class="K"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#match(java.lang.String)">match</a></code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code>)</code><i class="K"><code>boolean</code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#join(stylist.value.CSSValue)">join</a></code><code class="c">(<code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="K"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
-						<li><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#join(java.lang.String,stylist.value.CSSValue)">join</a></code><code class="c">(<code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">separator</code>, <code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="K"><code><a href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
-						<li><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#format(stylist.Stylist)">format</a></code><code class="c">(<code><a href="api/stylist.Stylist.html">Stylist</a></code><code class="parameterName">formatter</code>)</code><i class="K"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
-						<li><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#toString()">toString</a></code><code class="c">()</code><i class="K"><code><a href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+		<nav class="b"></nav>
+		<article class="O" id="Article">
+			<section class="k"><code class="m">stylist.value</code>
+				<h2 class="AbstractClass V"><code class="J">CSSValue</code></h2>
+				<div class="L">
+					<ul class="C G">
+						<li><code><a aria-label="stylist.design.DesignScheme.CSSVariable" href="api/stylist.design.DesignScheme.CSSVariable.html">CSSVariable</a><code class="parameters"><code>T</code></code></code></li>
+						<li><code><a aria-label="stylist.value.Color" href="api/stylist.value.Color.html">Color</a></code></li>
+						<li><code><a aria-label="stylist.value.FontSet" href="api/stylist.value.FontSet.html">FontSet</a></code></li>
+						<li><code><a aria-label="stylist.value.LinearGradient" href="api/stylist.value.LinearGradient.html">LinearGradient</a><code class="parameters"><code>T</code></code></code></li>
+						<li><code><a aria-label="stylist.value.Numeric" href="api/stylist.value.Numeric.html">Numeric</a></code></li>
+						<li><code><a aria-label="stylist.value.Position" href="api/stylist.value.Position.html">Position</a></code></li>
+						<li><code><a aria-label="stylist.value.RadialGradient" href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></li>
 					</ul>
 				</div>
-			</aside>
-		</main>
-		<script src="root.js"></script>
-		<script src="main.js" type="module"></script>
+			</section>
+			<section class="k" id="EMPTY">
+				<h2 class="j"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code class="J">EMPTY</code><i class="h"><code class="return"><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2><span class="B"><p>The empty value.</p></span></section>
+			<section class="k" id="NoVendors">
+				<h2 class="j"><i class="FINAL"><i class="STATIC PROTECTED"></i></i><code class="J">NoVendors</code><i class="h"><code class="return"><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></h2><span class="B"><p>For reuse.</p></span></section>
+			<section class="k" id="CSSValue()">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">CSSValue</code><code class="f">()</code></h2>
+			</section>
+			<section class="k" id="vendors()">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">vendors</code><code class="f">()</code><i class="h"><code><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></h2>
+				<table class="g">
+					<tr class="e">
+						<td><code><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></td>
+						<td></td>
+					</tr>
+				</table><span class="B"><p>Get all required vendors.</p></span></section>
+			<section class="k" id="valueFor(stylist.value.Vendor)">
+				<h2 class="j"><i class="ABSTRACT"><i class="PUBLIC"></i></i><code class="J">valueFor</code><code class="f">(<code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code>)</code><i class="h"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code></td>
+						<td><span><p>A target <code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code>.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="B"><p>Compute the vendor specific value.</p></span></section>
+			<section class="k" id="match(java.lang.String)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">match</code><code class="f">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code>)</code><i class="h"><code>boolean</code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code></td>
+						<td></td>
+					</tr>
+					<tr class="e">
+						<td><code>boolean</code></td>
+						<td></td>
+					</tr>
+				</table><span class="B"><p>Test whether the specified value matches this <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></section>
+			<section class="k" id="join(stylist.value.CSSValue)">
+				<h2 class="j"><i class="FINAL"><i class="PUBLIC"></i></i><code class="J">join</code><code class="f">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="h"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code></td>
+						<td><span><p>A target to join.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
+						<td><span><p>A joined <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></td>
+					</tr>
+				</table><span class="B"><p>Join this value and the specified <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code> by whitespace.</p></span></section>
+			<section class="k" id="join(java.lang.String,stylist.value.CSSValue)">
+				<h2 class="j"><i class="FINAL"><i class="PUBLIC"></i></i><code class="J">join</code><code class="f">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">separator</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="h"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">separator</code></td>
+						<td><span><p>A separator value.</p></span></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code></td>
+						<td><span><p>A target to join.</p></span></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
+						<td><span><p>A joined <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></td>
+					</tr>
+				</table><span class="B"><p>Join this value and the specified <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code> by the specified separator.</p></span></section>
+			<section class="k" id="format(stylist.Stylist)">
+				<h2 class="j"><i class="PUBLIC"></i><code class="J">format</code><code class="f">(<code><a aria-label="stylist.Stylist" href="api/stylist.Stylist.html">Stylist</a></code><code class="parameterName">formatter</code>)</code><i class="h"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="stylist.Stylist" href="api/stylist.Stylist.html">Stylist</a></code><code class="parameterName">formatter</code></td>
+						<td></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="B"><p>Format this value.</p></span></section>
+			<section class="k" id="toString()">
+				<h2 class="j"><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code class="J">toString</code><code class="f">()</code><i class="h"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+				<table class="g">
+					<tr class="e">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></td>
+						<td><span><p>A <code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html#Standard">Vendor#Standard</a></code> value.</p></span></td>
+					</tr>
+				</table><span class="B"><p>Returns <code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html#Standard">Vendor#Standard</a></code> value.</p></span></section>
+			<section class="k" id="of(java.lang.Object,stylist.value.Vendor...)">
+				<h2 class="j"><i class="PUBLIC STATIC"></i><code class="J">of</code><code class="f">(<code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code array="var"><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendors</code>)</code><i class="h"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code></td>
+						<td></td>
+					</tr>
+					<tr class="i">
+						<td><code array="var"><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendors</code></td>
+						<td></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="B"><p>Create simple text <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></section>
+			<section class="k" id="of(java.lang.Object,java.util.EnumSet)">
+				<h2 class="j"><i class="PUBLIC STATIC"></i><code class="J">of</code><code class="f">(<code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code><code class="parameterName">vendors</code>)</code><i class="h"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></h2>
+				<table class="g">
+					<tr class="i">
+						<td><code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code></td>
+						<td></td>
+					</tr>
+					<tr class="i">
+						<td><code><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code><code class="parameterName">vendors</code></td>
+						<td></td>
+					</tr>
+					<tr class="e">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="B"><p>Create simple text <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code>.</p></span></section>
+		</article>
+		<aside class="c">
+			<div class="q">
+				<h5 class="H">Constructors</h5>
+				<ul>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#CSSValue()">CSSValue</a></code><code class="f">()</code></li>
+				</ul>
+				<h5 class="H">Static Fields</h5>
+				<ul>
+					<li class="N"><i class="FINAL"><i class="PUBLIC STATIC"></i></i><code><a href="api/stylist.value.CSSValue.html#EMPTY">EMPTY</a></code><i class="s"><code class="return"><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
+					<li class="N"><i class="FINAL"><i class="STATIC PROTECTED"></i></i><code><a href="api/stylist.value.CSSValue.html#NoVendors">NoVendors</a></code><i class="s"><code class="return"><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></li>
+				</ul>
+				<h5 class="H">Static Methods</h5>
+				<ul>
+					<li class="N"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.CSSValue.html#of(java.lang.Object,stylist.value.Vendor...)">of</a></code><code class="f">(<code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code array="var"><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendors</code>)</code><i class="s"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
+					<li class="N"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.CSSValue.html#of(java.lang.Object,java.util.EnumSet)">of</a></code><code class="f">(<code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">value</code>, <code><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code><code class="parameterName">vendors</code>)</code><i class="s"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
+				</ul>
+				<h5 class="H">Methods</h5>
+				<ul>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#vendors()">vendors</a></code><code class="f">()</code><i class="s"><code><a aria-label="java.util.EnumSet 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/EnumSet.html">EnumSet</a><code class="parameters"><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code></code></code></i></li>
+					<li class="N"><i class="ABSTRACT"><i class="PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#valueFor(stylist.value.Vendor)">valueFor</a></code><code class="f">(<code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code>)</code><i class="s"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#match(java.lang.String)">match</a></code><code class="f">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code>)</code><i class="s"><code>boolean</code></i></li>
+					<li class="N"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#join(stylist.value.CSSValue)">join</a></code><code class="f">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="s"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
+					<li class="N"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#join(java.lang.String,stylist.value.CSSValue)">join</a></code><code class="f">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">separator</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">other</code>)</code><i class="s"><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></i></li>
+					<li class="N"><i class="PUBLIC"></i><code><a href="api/stylist.value.CSSValue.html#format(stylist.Stylist)">format</a></code><code class="f">(<code><a aria-label="stylist.Stylist" href="api/stylist.Stylist.html">Stylist</a></code><code class="parameterName">formatter</code>)</code><i class="s"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+					<li class="N"><i class="FINAL"><i class="OVERRIDE PUBLIC"></i></i><code><a href="api/stylist.value.CSSValue.html#toString()">toString</a></code><code class="f">()</code><i class="s"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+				</ul>
+			</div>
+		</aside>
+		<footer class="I"/>
 	</body>
+	<script src="root.js"></script>
+	<script src="main.js" type="module"></script>
 </html>
