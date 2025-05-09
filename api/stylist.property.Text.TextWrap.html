@@ -45,92 +45,74 @@
 		<nav class="H"></nav>
 		<article class="c" id="Article">
 			<section class="j"><code class="a">stylist.property</code>
-				<h2 class="Class l"><code class="g">Text.Decoration</code></h2>
+				<h2 class="Class l"><code class="g">Text.TextWrap</code></h2>
 				<div class="Y">
 					<ul class="C E">
 						<li><code><a aria-label="stylist.PropertyDefinition" href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></code></code></li>
 					</ul>
 				</div>
 			</section>
-			<section class="j" id="none()">
-				<h2 class="e"><i class="PUBLIC"></i><code class="g">none</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+			<section class="j" id="nowrap()">
+				<h2 class="e"><i class="PUBLIC"></i><code class="g">nowrap</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
 				<table class="n">
 					<tr class="f">
 						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- The text-decoration CSS property is used to set the text formatting to underline,
- overline, line-through or blink.
- </p><p>
- Produces no text decoration.
- </p>
-				</span></section>
-			<section class="j" id="underline()">
-				<h2 class="e"><i class="PUBLIC"></i><code class="g">underline</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				</table><span class="B"><p>Text does not wrap across lines. It will overflow its containing element rather than
+breaking onto a new line.</p></span></section>
+			<section class="j" id="wrap()">
+				<h2 class="e"><i class="PUBLIC"></i><code class="g">wrap</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
 				<table class="n">
 					<tr class="f">
 						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- The text-decoration CSS property is used to set the text formatting to underline,
- overline, line-through or blink.
- </p><p>
- Each line of text is underlined.
- </p>
-				</span></section>
-			<section class="j" id="overline()">
-				<h2 class="e"><i class="PUBLIC"></i><code class="g">overline</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				</table><span class="B"><p>Text is wrapped across lines at appropriate characters (for example spaces, in languages
+like English that use space separators) to minimize overflow. This is the default value.</p></span></section>
+			<section class="j" id="balance()">
+				<h2 class="e"><i class="PUBLIC"></i><code class="g">balance</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
 				<table class="n">
 					<tr class="f">
 						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- The text-decoration CSS property is used to set the text formatting to underline,
- overline, line-through or blink.
- </p><p>
- Each line of text has a line above it.
- </p>
-				</span></section>
-			<section class="j" id="lineThrough()">
-				<h2 class="e"><i class="PUBLIC"></i><code class="g">lineThrough</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				</table><span class="B"><p>Text is wrapped in a way that best balances the number of characters on each line,
+enhancing layout quality and legibility. Because counting characters and balancing them
+across multiple lines is computationally expensive, this value is only supported for
+blocks of text spanning a limited number of lines (six or less for Chromium and ten or
+less for Firefox).</p></span></section>
+			<section class="j" id="pretty()">
+				<h2 class="e"><i class="PUBLIC"></i><code class="g">pretty</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
 				<table class="n">
 					<tr class="f">
 						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- The text-decoration CSS property is used to set the text formatting to underline,
- overline, line-through or blink.
- </p><p>
- Each line of text has a line through the middle.
- </p>
-				</span></section>
-			<section class="j" id="blink()">
-				<h2 class="e"><i class="PUBLIC"></i><code class="g">blink</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				</table><span class="B"><p>Results in the same behavior as wrap, except that the user agent will use a slower
+algorithm that favors better layout over speed. This is intended for body copy where good
+typography is favored over performance (for example, when the number of orphans should be
+kept to a minimum).</p></span></section>
+			<section class="j" id="stable()">
+				<h2 class="e"><i class="PUBLIC"></i><code class="g">stable</code><code class="s">()</code><i class="O"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
 				<table class="n">
 					<tr class="f">
 						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- Text blinks. Browsers may ignore this value (without making the declaration invalid), as
- Internet Explorer and Safari does. Supported by Firefox (Gecko) and Opera. Note that not
- blinking the text is one technique to satisfy checkpoint 3.3 of WAI-UAAG
- </p>
-				</span></section>
+				</table><span class="B"><p>Results in the same behavior as wrap, except that when the user is editing the content,
+the lines that come before the lines they are editing remain static rather than the whole
+block of text re-wrapping.</p></span></section>
 		</article>
 		<aside class="N">
 			<div class="U">
 				<h5 class="R">Methods</h5>
 				<ul>
-					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.Decoration.html#none()">none</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
-					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.Decoration.html#underline()">underline</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
-					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.Decoration.html#overline()">overline</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
-					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.Decoration.html#lineThrough()">lineThrough</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
-					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.Decoration.html#blink()">blink</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.TextWrap.html#nowrap()">nowrap</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.TextWrap.html#wrap()">wrap</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.TextWrap.html#balance()">balance</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.TextWrap.html#pretty()">pretty</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="q"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.TextWrap.html#stable()">stable</a></code><code class="s">()</code><i class="S"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
 				</ul>
 			</div>
 		</aside>

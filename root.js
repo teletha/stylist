@@ -127,15 +127,15 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Content",
-			"packageName": "stylist.property",
-			"type": "Class"
+			"packageName": "stylist.property.helper",
+			"type": "Enum"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Content",
-			"packageName": "stylist.property.helper",
-			"type": "Enum"
+			"packageName": "stylist.property",
+			"type": "Class"
 		},
 		{
 			"modifiers": {
@@ -246,14 +246,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Font",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
@@ -407,14 +407,14 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.property",
+			"packageName": "stylist.value",
 			"type": "Class"
 		},
 		{
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Position",
-			"packageName": "stylist.value",
+			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
@@ -582,6 +582,13 @@ const root = {
 			"modifiers": {
 				"#": "java.util.Collections$UnmodifiableSet",},
 			"name": "Text.OverflowWrap",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"modifiers": {
+				"#": "java.util.Collections$UnmodifiableSet",},
+			"name": "Text.TextWrap",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
