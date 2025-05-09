@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.15.0](https://github.com/teletha/stylist/compare/v1.14.0...1.15.0) (2025-05-09)
+
+
+### Features
+
+* add Background#viewportInline(Color) ([ab1df8e](https://github.com/teletha/stylist/commit/ab1df8e1f891d26b64b5bcd192b6758946ca6b07))
+* support text-wrap property ([0f467de](https://github.com/teletha/stylist/commit/0f467de71c03e8082e23803fe5c015361c3d8bc4))
+
 ## [1.14.0](https://github.com/teletha/stylist/compare/v1.13.0...v1.14.0) (2025-02-12)
 
 
