@@ -483,6 +483,16 @@ public class Background extends PropertyDefinition<Background> implements ColorH
     }
 
     /**
+     * Pseudo fills the entire viewport with the specified color for inline axes.
+     * 
+     * @param color
+     * @return
+     */
+    public Background viewportInline(Color color) {
+        return value("border-image", " linear-gradient(" + color.toHSL() + " 0 0) fill 0 // 0 100vi");
+    }
+
+    /**
      * <p>
      * Normalize the specified image URL.
      * </p>
