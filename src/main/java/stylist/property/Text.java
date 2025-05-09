@@ -146,6 +146,11 @@ public class Text extends PropertyDefinition<Text> {
     public final WordBreak wordBreak = new WordBreak();
 
     /**
+     * The text-wrap CSS shorthand property controls how text inside an element is wrapped.
+     */
+    public final TextWrap wrap = new TextWrap();
+
+    /**
      * The text-decoration-thickness CSS property sets the stroke thickness of the decoration line
      * that is used on text in an element, such as a line-through, underline, or overline.
      * 
@@ -997,6 +1002,72 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text breakWord() {
             return value("break-word");
+        }
+    }
+
+    public class TextWrap extends PropertyDefinition<Text> {
+
+        /**
+         * Hide.
+         */
+        private TextWrap() {
+            super("text-wrap", Text.this);
+        }
+
+        /**
+         * Text does not wrap across lines. It will overflow its containing element rather than
+         * breaking onto a new line.
+         * 
+         * @return
+         */
+        public Text nowrap() {
+            return value("nowrap");
+        }
+
+        /**
+         * Text is wrapped across lines at appropriate characters (for example spaces, in languages
+         * like English that use space separators) to minimize overflow. This is the default value.
+         * 
+         * @return
+         */
+        public Text wrap() {
+            return value("wrap");
+        }
+
+        /**
+         * Text is wrapped in a way that best balances the number of characters on each line,
+         * enhancing layout quality and legibility. Because counting characters and balancing them
+         * across multiple lines is computationally expensive, this value is only supported for
+         * blocks of text spanning a limited number of lines (six or less for Chromium and ten or
+         * less for Firefox).
+         * 
+         * @return
+         */
+        public Text balance() {
+            return value("balance");
+        }
+
+        /**
+         * Results in the same behavior as wrap, except that the user agent will use a slower
+         * algorithm that favors better layout over speed. This is intended for body copy where good
+         * typography is favored over performance (for example, when the number of orphans should be
+         * kept to a minimum).
+         * 
+         * @return
+         */
+        public Text pretty() {
+            return value("pretty");
+        }
+
+        /**
+         * Results in the same behavior as wrap, except that when the user is editing the content,
+         * the lines that come before the lines they are editing remain static rather than the whole
+         * block of text re-wrapping.
+         * 
+         * @return
+         */
+        public Text stable() {
+            return value("stable");
         }
     }
 }
