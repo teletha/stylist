@@ -198,6 +198,20 @@ public class Text extends PropertyDefinition<Text> {
     }
 
     /**
+     * The word-spacing CSS property sets the length of space between words and between tags.
+     */
+    public Text wordSpacing(double size, Unit unit) {
+        return wordSpacing(new Numeric(size, unit));
+    }
+
+    /**
+     * The word-spacing CSS property sets the length of space between words and between tags.
+     */
+    public Text wordSpacing(Numeric size) {
+        return value("word-spacing", size);
+    }
+
+    /**
      * <p>
      * The text-shadow CSS property adds shadows to text. It accepts a comma-separated list of
      * shadows to be applied to the text and text-decorations of the element.
