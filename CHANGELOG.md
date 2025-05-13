@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/teletha/stylist/compare/1.15.0...1.16.0) (2025-05-13)
+
+
+### Features
+
+* support word-spacing property ([181f15e](https://github.com/teletha/stylist/commit/181f15eef52a2d07b9fd89db81e89df8536274de))
+
 ## [1.15.0](https://github.com/teletha/stylist/compare/v1.14.0...1.15.0) (2025-05-09)
 
 
