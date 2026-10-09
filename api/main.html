@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. CSS in Java" name="description"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Material+Icons" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Vollkorn" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<script src="mimic.js" type="module"></script>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="HB">
+		<header class="p" date="2025-05-13">
+			<h1 class="j"><a href="index.html"><code>Stylist</code></a></h1>
+			<nav class="M"><a href="api/main.html" id="API"><svg class="package">
+						<use href="main.svg#package"/>
+					</svg>
+				</a><a href="doc/changelog.html" id="Activity"><svg class="activity">
+						<use href="main.svg#activity"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user">
+						<use href="main.svg#user"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github">
+						<use href="main.svg#github"/>
+					</svg>
+				</a></nav>
+			<div class="O"><a aria-label="Change color scheme" id="theme"><svg class="sun">
+						<use href="main.svg#sun"/>
+					</svg><svg class="moon">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<nav class="i"></nav>
+		<article class="IB" id="Article">
+			<div class="g">
+				<section class="A">
+					<h2>Stylist API Overview</h2>
+					<p>This page provides a concise overview of the available APIs, including their purpose, key functionalities, and usage patterns. It serves as a starting point for developers to understand how to integrate and interact with the system effectively.</p>
+					<section class="A">
+						<h4>🛠️ Interface</h4>
+						<table>
+							<tr>
+								<td><code><a href="api/stylist.StyleDSL.html">StyleDSL</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.Unit.html">Unit</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.StyleDeclarable.html">StyleDeclarable</a></code></td>
+								<td>This is marker interface and extension point to declare your styles.</td>
+							</tr>
+						</table>
+					</section>
+					<section class="A">
+						<h4>🛠️ Functional Interface</h4>
+						<table>
+							<tr>
+								<td><code><a href="api/stylist.Style.html">Style</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.PostProcessor.html">PostProcessor</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.ValueStyle.html">ValueStyle</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.helper.WidthHelper.html">WidthHelper</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.helper.ColorHelper.html">ColorHelper</a></code></td>
+								<td>no description</td>
+							</tr>
+						</table>
+					</section>
+					<section class="A">
+						<h4>🛠️ Class</h4>
+						<table>
+							<tr>
+								<td><code><a href="api/stylist.Query.html">Query</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.PropertyDefinition.html">PropertyDefinition</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.SelectorDSL.html">SelectorDSL</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.SelectorDSL.Attribute.html">SelectorDSL.Attribute</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.design.DesignScheme.CSSVariable.html">DesignScheme.CSSVariable</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.design.DesignScheme.DefinedTheme.html">DesignScheme.DefinedTheme</a></code></td>
+								<td>Internal theme.</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.image.Image.html">Image</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.Stylist.html">Stylist</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.LinearGradient.html">LinearGradient</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.LinearGradient.Step.html">LinearGradient.Step</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.Position.html">Position</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.Font.html">Font</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.Numeric.html">Numeric</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.RadialGradient.html">RadialGradient</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.Shadow.html">Shadow</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.FontSet.html">FontSet</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.value.Color.html">Color</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.FunctionDSL.html">FunctionDSL</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.util.Properties.html">Properties</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.util.Browsers.html">Browsers</a></code></td>
+								<td>Common desing for the standard web browser environment.</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Position.html">Position</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.html">Text</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.TextWrap.html">Text.TextWrap</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.OverflowWrap.html">Text.OverflowWrap</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.WordBreak.html">Text.WordBreak</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.WhiteSpace.html">Text.WhiteSpace</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.UnderlinePosition.html">Text.UnderlinePosition</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.UnderlineOffset.html">Text.UnderlineOffset</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.Transform.html">Text.Transform</a></code></td>
+								<td>
+The text-transform CSS property specifies how to capitalize an element&apos;s text. It can be used
+to make text appear in all-uppercase or all-lowercase, or with each word capitalized. It also
+can help improve legibility for ruby.
+</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.Overflow.html">Text.Overflow</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.DecorationStyle.html">Text.DecorationStyle</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.DecorationColor.html">Text.DecorationColor</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.Decoration.html">Text.Decoration</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.VerticalAlign.html">Text.VerticalAlign</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Text.Align.html">Text.Align</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Font.html">Font</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Font.Variant.html">Font.Variant</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Font.Weight.html">Font.Weight</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Font.Style.html">Font.Style</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Font.Smooth.html">Font.Smooth</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Font.Size.html">Font.Size</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Fill.html">Fill</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Content.html">Content</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Container.html">Container</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Background.html">Background</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Background.BackgroundImage.html">Background.BackgroundImage</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.PointerEvents.html">PointerEvents</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.BoxLength.html">BoxLength</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.AlignItems.html">AlignItems</a></code></td>
+								<td>The CSS align-items property sets the align-self value on all direct children as a group. In
+flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls the
+alignment of items on the block axis within their grid areas.</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Stroke.html">Stroke</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Stroke.LineJoin.html">Stroke.LineJoin</a></code></td>
+								<td>
+‘stroke-linejoin’ specifies the shape to be used at the corners of paths or basic shapes when
+they are stroked. For further details see the path implementation notes.
+</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Stroke.LineCap.html">Stroke.LineCap</a></code></td>
+								<td>
+‘stroke-linecap’ specifies the shape to be used at the end of open subpaths when they are
+stroked. For further details see the path implementation notes.
+</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Stroke.Width.html">Stroke.Width</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Animation.html">Animation</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.helper.Numerics.html">Numerics</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.helper.GridNumerics.html">GridNumerics</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Outline.html">Outline</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Display.html">Display</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Display.Visibility.html">Display.Visibility</a></code></td>
+								<td>Property for visibility.</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Display.Sizing.html">Display.Sizing</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Overflows.html">Overflows</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Grid.html">Grid</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Scroll.html">Scroll</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Overflow.html">Overflow</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.FlexItem.html">FlexItem</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.FlexItem.AlignSelf.html">FlexItem.AlignSelf</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Transform.html">Transform</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Transform.Origin.html">Transform.Origin</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Transition.html">Transition</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Borders.html">Borders</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.ListStyle.html">ListStyle</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Appearance.html">Appearance</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.PlaceSelf.html">PlaceSelf</a></code></td>
+								<td>The place-self CSS shorthand property allows you to align an individual item in both the block
+and inline directions at once (i.e. the align-self and justify-self properties). This property
+applies to block-level boxes, absolutely-positioned boxes, and grid items. If the second value is
+not present, the first value is also used for it.</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Cursor.html">Cursor</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Box.html">Box</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Flex.html">Flex</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Flex.AlignContent.html">Flex.AlignContent</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Flex.JustifyContent.html">Flex.JustifyContent</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Flex.Wrap.html">Flex.Wrap</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.Flex.Direction.html">Flex.Direction</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.AnimationFrames.html">AnimationFrames</a></code></td>
+								<td>no description</td>
+							</tr>
+						</table>
+					</section>
+					<section class="A">
+						<h4>🛠️ Enum</h4>
+						<table>
+							<tr>
+								<td><code><a href="api/stylist.value.Vendor.html">Vendor</a></code></td>
+								<td>no description</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.helper.Content.html">Content</a></code></td>
+								<td>The CSS align-content property sets the distribution of space between and around content items
+along a flexbox&apos;s cross axis, or a grid or block-level element&apos;s block axis.</td>
+							</tr>
+							<tr>
+								<td><code><a href="api/stylist.property.helper.Items.html">Items</a></code></td>
+								<td>The CSS align-items property sets the align-self value on all direct children as a group. In
+flexbox, it controls the alignment of items on the cross axis. In grid layout, it controls the
+alignment of items on the block axis within their grid areas.</td>
+							</tr>
+						</table>
+					</section>
+					<section class="A">
+						<h4>🛠️ Annotation</h4>
+						<table>
+							<tr>
+								<td><code><a href="api/stylist.design.Theme.html">Theme</a></code></td>
+								<td>no description</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+			</div>
+		</article>
+		<aside class="k"></aside>
+		<footer class="o">
+			<p>Powered by <a href="https://github.com/teletha/evergarden" target="_">Evergarden</a></p>
+		</footer>
+	</body>
+	<script src="root.js"></script>
+	<script src="main.js" type="module"></script>
+</html>

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<meta content="width=device-width, initial-scale=1" name="viewport"/>
-		<meta content="Explains how to use Stylist and its API. " name="description"/>
+		<meta content="Explains how to use Stylist and its API. CSS in Java" name="description"/>
 		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
 		<link href="https://fonts.googleapis.com" rel="preconnect"/>
 		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,173 +19,175 @@
 		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
 		<link href="main.css" rel="stylesheet"/>
 	</head>
-	<body class="p">
-		<header class="V" date="2025-05-09" ver="1.16.0">
-			<h1 class="W"><code>Stylist</code></h1>
-			<nav class="X"><a href="api/" id="API"><svg class="package A svg" viewBox="0 0 24 24">
+	<body class="HB">
+		<header class="p" date="2025-05-13">
+			<h1 class="j"><a href="index.html"><code>Stylist</code></a></h1>
+			<nav class="M"><a href="api/main.html" id="API"><svg class="package">
 						<use href="main.svg#package"/>
 					</svg>
-				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user A svg" viewBox="0 0 24 24">
-						<use href="main.svg#user"/>
-					</svg>
-				</a><a href="doc/changelog.html" id="Activity"><svg class="activity A svg" viewBox="0 0 24 24">
+				</a><a href="doc/changelog.html" id="Activity"><svg class="activity">
 						<use href="main.svg#activity"/>
 					</svg>
-				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github A svg" viewBox="0 0 24 24">
+				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user">
+						<use href="main.svg#user"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github">
 						<use href="main.svg#github"/>
 					</svg>
 				</a></nav>
-			<div class="Y"><a aria-label="Change color scheme" id="theme"><svg class="sun A svg" viewBox="0 0 24 24">
+			<div class="O"><a aria-label="Change color scheme" id="theme"><svg class="sun">
 						<use href="main.svg#sun"/>
-					</svg><svg class="moon A svg" viewBox="0 0 24 24">
+					</svg><svg class="moon">
 						<use href="main.svg#moon"/>
 					</svg>
 				</a></div>
 		</header>
-		<nav class="R"></nav>
-		<article class="S" id="Article">
-			<section class="Z"><code class="N">stylist.property</code>
-				<h2 class="Class r"><code class="i">Scroll</code></h2>
-				<div class="s">
-					<ul class="C E">
+		<nav class="i"></nav>
+		<article class="IB" id="Article">
+			<section class="g"><code class="FB">stylist.property</code>
+				<h2 class="Class y"><code class="K">Scroll</code></h2>
+				<div class="b">
+					<ul class="E G">
 						<li><code><a aria-label="stylist.PropertyDefinition" href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></code></code></li>
 					</ul>
-					<ul class="C F">
+					<ul class="E H">
 						<li><code><a aria-label="stylist.property.helper.ColorHelper" href="api/stylist.property.helper.ColorHelper.html">ColorHelper</a><code class="parameters"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></code></code></li>
 					</ul>
 				</div>
 			</section>
-			<section class="Z" id="margin">
-				<h2 class="J"><i class="FINAL"><i class="PUBLIC"></i></i><code class="i">margin</code><i class="l"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></h2><span class="B"><p>
- The scroll-margin property is a shorthand property which sets all of the scroll-margin
- longhands, assigning values much like the margin property does for the margin-* longhands
- </p><p>
- In these examples, you can see the effect of scroll-margin by scrolling the output box to a
- point partway between two of the &quot;pages&quot; of the example&apos;s content. The value specified for
- scroll-margin determines how much of the page that&apos;s primarily outside the snapport should
- remain visible.
- </p><p>
- Thus, the scroll-margin values represent outsets defining the scroll snap area that is used
- for snapping this box to the snapport. The scroll snap area is determined by taking the
- transformed border box, finding its rectangular bounding box (axis-aligned in the scroll
- container’s coordinate space), then adding the specified outsets.
- </p>
+			<section class="g" id="margin">
+				<h2 class="X"><i class="FINAL"><i class="PUBLIC"></i></i><code class="K">margin</code><i class="KB"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></h2><span class="A"><p>
+The scroll-margin property is a shorthand property which sets all of the scroll-margin
+longhands, assigning values much like the margin property does for the margin-* longhands
+</p><p>
+In these examples, you can see the effect of scroll-margin by scrolling the output box to a
+point partway between two of the &quot;pages&quot; of the example&apos;s content. The value specified for
+scroll-margin determines how much of the page that&apos;s primarily outside the snapport should
+remain visible.
+</p><p>
+Thus, the scroll-margin values represent outsets defining the scroll snap area that is used
+for snapping this box to the snapport. The scroll snap area is determined by taking the
+transformed border box, finding its rectangular bounding box (axis-aligned in the scroll
+container’s coordinate space), then adding the specified outsets.
+</p>
 				</span></section>
-			<section class="Z" id="padding">
-				<h2 class="J"><i class="FINAL"><i class="PUBLIC"></i></i><code class="i">padding</code><i class="l"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></h2><span class="B"><p>
- The scroll-padding property is a shorthand property that sets all of the scroll-padding-*
- longhands. It assigns values much like the padding property does for the padding-* longhands.
- </p><p>
- The scroll-padding-* properties define offsets for the optimal viewing region of the
- scrollport: the region used as the target region for placing things in view of the user. This
- allows the author to exclude regions of the scrollport that are obscured by other content
- (such as fixed-positioned toolbars or sidebars), or simply to put more breathing room between
- a targeted element and the edges of the scrollport.
- </p>
+			<section class="g" id="padding">
+				<h2 class="X"><i class="FINAL"><i class="PUBLIC"></i></i><code class="K">padding</code><i class="KB"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></h2><span class="A"><p>
+The scroll-padding property is a shorthand property that sets all of the scroll-padding-*
+longhands. It assigns values much like the padding property does for the padding-* longhands.
+</p><p>
+The scroll-padding-* properties define offsets for the optimal viewing region of the
+scrollport: the region used as the target region for placing things in view of the user. This
+allows the author to exclude regions of the scrollport that are obscured by other content
+(such as fixed-positioned toolbars or sidebars), or simply to put more breathing room between
+a targeted element and the edges of the scrollport.
+</p>
 				</span></section>
-			<section class="Z" id="Scroll()">
-				<h2 class="J"><i class="PUBLIC"></i><code class="i">Scroll</code><code class="h">()</code></h2>
+			<section class="g" id="Scroll()">
+				<h2 class="X"><i class="PUBLIC"></i><code class="K">Scroll</code><code class="z">()</code></h2>
 			</section>
-			<section class="Z" id="auto()">
-				<h2 class="J"><i class="PUBLIC"></i><code class="i">auto</code><code class="h">()</code><i class="l"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
-				<table class="a">
-					<tr class="d">
+			<section class="g" id="auto()">
+				<h2 class="X"><i class="PUBLIC"></i><code class="K">auto</code><code class="z">()</code><i class="KB"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
+				<table class="c">
+					<tr class="m">
 						<td><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- The scrolling box scrolls instantly.
- </p>
+				</table><span class="A"><p>
+The scrolling box scrolls instantly.
+</p>
 				</span></section>
-			<section class="Z" id="smooth()">
-				<h2 class="J"><i class="PUBLIC"></i><code class="i">smooth</code><code class="h">()</code><i class="l"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
-				<table class="a">
-					<tr class="d">
+			<section class="g" id="smooth()">
+				<h2 class="X"><i class="PUBLIC"></i><code class="K">smooth</code><code class="z">()</code><i class="KB"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
+				<table class="c">
+					<tr class="m">
 						<td><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- The scrolling box scrolls in a smooth fashion using a user-agent-defined timing function over
- a user-agent-defined period of time. User agents should follow platform conventions, if any.
- </p>
+				</table><span class="A"><p>
+The scrolling box scrolls in a smooth fashion using a user-agent-defined timing function over
+a user-agent-defined period of time. User agents should follow platform conventions, if any.
+</p>
 				</span></section>
-			<section class="Z" id="thin()">
-				<h2 class="J"><i class="PUBLIC"></i><code class="i">thin</code><code class="h">()</code><i class="l"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
-				<table class="a">
-					<tr class="d">
+			<section class="g" id="thin()">
+				<h2 class="X"><i class="PUBLIC"></i><code class="K">thin</code><code class="z">()</code><i class="KB"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
+				<table class="c">
+					<tr class="m">
 						<td><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- A thin scrollbar width variant on platforms that provide that option, or a thinner
- scrollbar than the default platform scrollbar width.
- </p>
+				</table><span class="A"><p>
+A thin scrollbar width variant on platforms that provide that option, or a thinner
+scrollbar than the default platform scrollbar width.
+</p>
 				</span></section>
-			<section class="Z" id="none()">
-				<h2 class="J"><i class="PUBLIC"></i><code class="i">none</code><code class="h">()</code><i class="l"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
-				<table class="a">
-					<tr class="d">
+			<section class="g" id="none()">
+				<h2 class="X"><i class="PUBLIC"></i><code class="K">none</code><code class="z">()</code><i class="KB"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
+				<table class="c">
+					<tr class="m">
 						<td><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></td>
 						<td></td>
 					</tr>
-				</table><span class="B"><p>
- No scrollbar shown, however the element will still be scrollable.
- </p>
+				</table><span class="A"><p>
+No scrollbar shown, however the element will still be scrollable.
+</p>
 				</span></section>
-			<section class="Z" id="color(stylist.value.CSSValue)">
-				<h2 class="J"><i class="OVERRIDE PUBLIC"></i><code class="i">color</code><code class="h">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="l"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
-				<table class="a">
-					<tr class="K">
+			<section class="g" id="color(stylist.value.CSSValue)">
+				<h2 class="X"><i class="OVERRIDE PUBLIC"></i><code class="K">color</code><code class="z">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="KB"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
+				<table class="c">
+					<tr class="e">
 						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code></td>
 						<td></td>
 					</tr>
-					<tr class="d">
+					<tr class="m">
 						<td><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></td>
 						<td></td>
 					</tr>
 				</table>
 			</section>
-			<section class="Z" id="color(stylist.value.CSSValue,stylist.value.CSSValue)">
-				<h2 class="J"><i class="PUBLIC"></i><code class="i">color</code><code class="h">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">back</code>)</code><i class="l"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
-				<table class="a">
-					<tr class="K">
+			<section class="g" id="color(stylist.value.CSSValue,stylist.value.CSSValue)">
+				<h2 class="X"><i class="PUBLIC"></i><code class="K">color</code><code class="z">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">back</code>)</code><i class="KB"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></h2>
+				<table class="c">
+					<tr class="e">
 						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code></td>
 						<td></td>
 					</tr>
-					<tr class="K">
+					<tr class="e">
 						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">back</code></td>
 						<td></td>
 					</tr>
-					<tr class="d">
+					<tr class="m">
 						<td><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></td>
 						<td></td>
 					</tr>
 				</table>
 			</section>
 		</article>
-		<aside class="f">
-			<div class="T">
-				<h5 class="L">Constructors</h5>
+		<aside class="k">
+			<div class="r">
+				<h5 class="s">Constructors</h5>
 				<ul>
-					<li class="I"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#Scroll()">Scroll</a></code><code class="h">()</code></li>
+					<li class="JB"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#Scroll()">Scroll</a></code><code class="z">()</code></li>
 				</ul>
-				<h5 class="L">Fields</h5>
+				<h5 class="s">Fields</h5>
 				<ul>
-					<li class="I"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Scroll.html#margin">margin</a></code><i class="o"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></li>
-					<li class="I"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Scroll.html#padding">padding</a></code><i class="o"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></li>
+					<li class="JB"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Scroll.html#margin">margin</a></code><i class="V"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></li>
+					<li class="JB"><i class="FINAL"><i class="PUBLIC"></i></i><code><a href="api/stylist.property.Scroll.html#padding">padding</a></code><i class="V"><code class="return"><a aria-label="stylist.property.BoxLength" href="api/stylist.property.BoxLength.html">BoxLength</a></code></i></li>
 				</ul>
-				<h5 class="L">Methods</h5>
+				<h5 class="s">Methods</h5>
 				<ul>
-					<li class="I"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#auto()">auto</a></code><code class="h">()</code><i class="o"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
-					<li class="I"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#smooth()">smooth</a></code><code class="h">()</code><i class="o"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
-					<li class="I"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#thin()">thin</a></code><code class="h">()</code><i class="o"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
-					<li class="I"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#none()">none</a></code><code class="h">()</code><i class="o"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
-					<li class="I"><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#color(stylist.value.CSSValue)">color</a></code><code class="h">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="o"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
-					<li class="I"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#color(stylist.value.CSSValue,stylist.value.CSSValue)">color</a></code><code class="h">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">back</code>)</code><i class="o"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
+					<li class="JB"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#auto()">auto</a></code><code class="z">()</code><i class="V"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
+					<li class="JB"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#smooth()">smooth</a></code><code class="z">()</code><i class="V"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
+					<li class="JB"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#thin()">thin</a></code><code class="z">()</code><i class="V"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
+					<li class="JB"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#none()">none</a></code><code class="z">()</code><i class="V"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
+					<li class="JB"><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#color(stylist.value.CSSValue)">color</a></code><code class="z">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>)</code><i class="V"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
+					<li class="JB"><i class="PUBLIC"></i><code><a href="api/stylist.property.Scroll.html#color(stylist.value.CSSValue,stylist.value.CSSValue)">color</a></code><code class="z">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">color</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">back</code>)</code><i class="V"><code><a aria-label="stylist.property.Scroll" href="api/stylist.property.Scroll.html">Scroll</a></code></i></li>
 				</ul>
 			</div>
 		</aside>
-		<footer class="M"/>
+		<footer class="o">
+			<p>Powered by <a href="https://github.com/teletha/evergarden" target="_">Evergarden</a></p>
+		</footer>
 	</body>
 	<script src="root.js"></script>
 	<script src="main.js" type="module"></script>
