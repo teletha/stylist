@@ -572,7 +572,7 @@ public final class Stylist {
      */
     final void format(StyleRule rule, Appendable appendable) {
         if (rule.query.isPresent()) {
-            appendable = queried.computeIfAbsent(rule.query.v, query -> new StringBuilder());
+            appendable = queried.computeIfAbsent(rule.query.get(), query -> new StringBuilder());
         }
 
         try {
