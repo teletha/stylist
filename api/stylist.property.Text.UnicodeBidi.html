@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. CSS in Java" name="description"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Material+Icons" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Vollkorn" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<script src="mimic.js" type="module"></script>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="DB">
+		<header class="P" date="2026-10-15">
+			<h1 class="Q"><a href="index.html"><code>Stylist</code></a></h1>
+			<nav class="R"><a href="api/main.html" id="API"><svg class="package">
+						<use href="main.svg#package"/>
+					</svg>
+				</a><a href="doc/changelog.html" id="Activity"><svg class="activity">
+						<use href="main.svg#activity"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user">
+						<use href="main.svg#user"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github">
+						<use href="main.svg#github"/>
+					</svg>
+				</a></nav>
+			<div class="S"><a aria-label="Change color scheme" id="theme"><svg class="sun">
+						<use href="main.svg#sun"/>
+					</svg><svg class="moon">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<nav class="CB"></nav>
+		<article class="x" id="Article">
+			<section class="K"><code class="EB">stylist.property</code>
+				<h2 class="Class j"><code class="LB">Text.UnicodeBidi</code></h2>
+				<div class="p">
+					<ul class="E G">
+						<li><code><a aria-label="stylist.PropertyDefinition" href="api/stylist.PropertyDefinition.html">PropertyDefinition</a><code class="parameters"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></code></code></li>
+					</ul>
+				</div>
+			</section>
+			<section class="K" id="normal()">
+				<h2 class="h"><i class="PUBLIC"></i><code class="LB">normal</code><code class="g">()</code><i class="y"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="A"><p>The element does not offer an additional level of embedding with respect to the
+bidirectional algorithm. For inline elements, implicit reordering works across element
+boundaries.</p></span></section>
+			<section class="K" id="embed()">
+				<h2 class="h"><i class="PUBLIC"></i><code class="LB">embed</code><code class="g">()</code><i class="y"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="A"><p>If the element is inline, this value opens an additional level of embedding with respect
+to the bidirectional algorithm.</p></span></section>
+			<section class="K" id="isolate()">
+				<h2 class="h"><i class="PUBLIC"></i><code class="LB">isolate</code><code class="g">()</code><i class="y"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="A"><p>The element is treated as a neutral character within the bidirectional algorithm.</p></span></section>
+			<section class="K" id="plaintext()">
+				<h2 class="h"><i class="PUBLIC"></i><code class="LB">plaintext</code><code class="g">()</code><i class="y"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="A"><p>This is equivalent to the isolate value, but the directionality is not inherited.</p></span></section>
+			<section class="K" id="bidiOverride()">
+				<h2 class="h"><i class="PUBLIC"></i><code class="LB">bidiOverride</code><code class="g">()</code><i class="y"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="A"><p>For inline elements this creates an override.</p></span></section>
+			<section class="K" id="isolateOverride()">
+				<h2 class="h"><i class="PUBLIC"></i><code class="LB">isolateOverride</code><code class="g">()</code><i class="y"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></td>
+						<td><span><p>Chainable API.</p></span></td>
+					</tr>
+				</table><span class="A"><p>This is equivalent to the isolate and bidi-override values combined.</p></span></section>
+		</article>
+		<aside class="t">
+			<div class="n">
+				<h5 class="Z">Methods</h5>
+				<ul>
+					<li class="e"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.UnicodeBidi.html#normal()">normal</a></code><code class="g">()</code><i class="HB"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="e"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.UnicodeBidi.html#embed()">embed</a></code><code class="g">()</code><i class="HB"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="e"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.UnicodeBidi.html#isolate()">isolate</a></code><code class="g">()</code><i class="HB"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="e"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.UnicodeBidi.html#plaintext()">plaintext</a></code><code class="g">()</code><i class="HB"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="e"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.UnicodeBidi.html#bidiOverride()">bidiOverride</a></code><code class="g">()</code><i class="HB"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+					<li class="e"><i class="PUBLIC"></i><code><a href="api/stylist.property.Text.UnicodeBidi.html#isolateOverride()">isolateOverride</a></code><code class="g">()</code><i class="HB"><code><a aria-label="stylist.property.Text" href="api/stylist.property.Text.html">Text</a></code></i></li>
+				</ul>
+			</div>
+		</aside>
+		<footer class="s">
+			<p>Powered by <a href="https://github.com/teletha/evergarden" target="_">Evergarden</a></p>
+		</footer>
+	</body>
+	<script src="root.js"></script>
+	<script src="main.js" type="module"></script>
+</html>

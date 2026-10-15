@@ -127,6 +127,11 @@ const root = {
 			"type": "Class"
 		},
 		{
+			"name": "ModernColor",
+			"packageName": "stylist.value",
+			"type": "Class"
+		},
+		{
 			"name": "CSSValue",
 			"packageName": "stylist.value",
 			"type": "AbstractClass"
@@ -167,7 +172,42 @@ const root = {
 			"type": "Class"
 		},
 		{
+			"name": "ObjectPosition",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
 			"name": "Text",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Text.UserSelect",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Text.WritingMode",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Text.UnicodeBidi",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Text.Direction",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Text.AlignLast",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Text.Hyphens",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
@@ -238,6 +278,11 @@ const root = {
 		},
 		{
 			"name": "Font",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Font.OpticalSizing",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
@@ -372,6 +417,11 @@ const root = {
 			"type": "Class"
 		},
 		{
+			"name": "ObjectFit",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
 			"name": "Display",
 			"packageName": "stylist.property",
 			"type": "Class"
@@ -402,6 +452,31 @@ const root = {
 			"type": "Class"
 		},
 		{
+			"name": "Scroll.Behavior",
+			"packageName": "stylist.property",
+			"type": "Enum"
+		},
+		{
+			"name": "Scroll.Overscroll",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Scroll.SnapStop",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Scroll.SnapAlign",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Scroll.SnapType",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
 			"name": "Overflow",
 			"packageName": "stylist.property",
 			"type": "Class"
@@ -422,7 +497,27 @@ const root = {
 			"type": "Class"
 		},
 		{
+			"name": "Transform.PerspectiveOrigin",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Transform.Backface",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Transform.Style",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
 			"name": "Transform.Origin",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "ClipPath",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
@@ -442,12 +537,62 @@ const root = {
 			"type": "Class"
 		},
 		{
+			"name": "Blend",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Blend.Mode",
+			"packageName": "stylist.property",
+			"type": "Enum"
+		},
+		{
 			"name": "Appearance",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},
 		{
 			"name": "PlaceSelf",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Interaction",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Interaction.WillChange",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Interaction.Resize",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Interaction.Accent",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Interaction.Caret",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Interaction.Touch",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Filter",
+			"packageName": "stylist.property",
+			"type": "Class"
+		},
+		{
+			"name": "Filter.Backdrop",
 			"packageName": "stylist.property",
 			"type": "Class"
 		},

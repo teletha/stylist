@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Explains how to use Stylist and its API. CSS in Java" name="description"/>
+		<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link crossorigin="null" href="https://fonts.gstatic.com" rel="preconnect"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Material+Icons" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Material+Icons" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<link as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Vollkorn" rel="preload"/>
+		<link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Vollkorn" media="print" onload="this.media=&apos;all&apos;" rel="stylesheet"/>
+		<title>Stylist API</title>
+		<base href="../"/>
+		<script src="mimic.js" type="module"></script>
+		<link href="https://cdn.jsdelivr.net/npm/ress@4.0.0/dist/ress.min.css" rel="stylesheet"/>
+		<link href="main.css" rel="stylesheet"/>
+	</head>
+	<body class="DB">
+		<header class="P" date="2026-10-15">
+			<h1 class="Q"><a href="index.html"><code>Stylist</code></a></h1>
+			<nav class="R"><a href="api/main.html" id="API"><svg class="package">
+						<use href="main.svg#package"/>
+					</svg>
+				</a><a href="doc/changelog.html" id="Activity"><svg class="activity">
+						<use href="main.svg#activity"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist/discussions" id="Community" target="_blank"><svg class="user">
+						<use href="main.svg#user"/>
+					</svg>
+				</a><a href="https://github.com/teletha/stylist" id="Repository" target="_blank"><svg class="github">
+						<use href="main.svg#github"/>
+					</svg>
+				</a></nav>
+			<div class="S"><a aria-label="Change color scheme" id="theme"><svg class="sun">
+						<use href="main.svg#sun"/>
+					</svg><svg class="moon">
+						<use href="main.svg#moon"/>
+					</svg>
+				</a></div>
+		</header>
+		<nav class="CB"></nav>
+		<article class="x" id="Article">
+			<section class="K"><code class="EB">stylist.value</code>
+				<h2 class="Class j"><code class="LB">ModernColor</code></h2>
+				<div class="p">
+					<ul class="E G">
+						<li><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code></li>
+					</ul>
+				</div><span class="A"><p>A family of modern CSS color functions which are not expressible as a plain <code><a aria-label="stylist.value.Color" href="api/stylist.value.Color.html">Color</a></code>
+(e.g. <code>oklch()</code>, <code>color-mix()</code> or <code>light-dark()</code>). The rendered expression is
+emitted verbatim.</p></span></section>
+			<section class="K" id="ModernColor(java.lang.String)">
+				<h2 class="h"><i class="PROTECTED"></i><code class="LB">ModernColor</code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code>)</code></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code></td>
+						<td><span><p>A rendered expression.</p></span></td>
+					</tr>
+				</table>
+			</section>
+			<section class="K" id="valueFor(stylist.value.Vendor)">
+				<h2 class="h"><i class="OVERRIDE PUBLIC"></i><code class="LB">valueFor</code><code class="g">(<code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code>)</code><i class="y"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code></td>
+						<td></td>
+					</tr>
+				</table>
+			</section>
+			<section class="K" id="hashCode()">
+				<h2 class="h"><i class="OVERRIDE PUBLIC"></i><code class="LB">hashCode</code><code class="g">()</code><i class="y"><code>int</code></i></h2>
+				<table class="w">
+					<tr class="f">
+						<td><code>int</code></td>
+						<td></td>
+					</tr>
+				</table>
+			</section>
+			<section class="K" id="equals(java.lang.Object)">
+				<h2 class="h"><i class="OVERRIDE PUBLIC"></i><code class="LB">equals</code><code class="g">(<code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">obj</code>)</code><i class="y"><code>boolean</code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">obj</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code>boolean</code></td>
+						<td></td>
+					</tr>
+				</table>
+			</section>
+			<section class="K" id="oklch(double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">oklch</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">chroma</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">hue</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS oklch() function.</p></span></section>
+			<section class="K" id="oklch(double,double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">oklch</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">chroma</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">hue</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">alpha</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS oklch() function.</p></span></section>
+			<section class="K" id="oklab(double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">oklab</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">a</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">b</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS oklab() function.</p></span></section>
+			<section class="K" id="oklab(double,double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">oklab</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">a</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">b</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">alpha</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS oklab() function.</p></span></section>
+			<section class="K" id="lch(double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">lch</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">chroma</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">hue</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS lch() function.</p></span></section>
+			<section class="K" id="lch(double,double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">lch</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">chroma</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">hue</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">alpha</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS lch() function.</p></span></section>
+			<section class="K" id="lab(double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">lab</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">a</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">b</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS lab() function.</p></span></section>
+			<section class="K" id="lab(double,double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">lab</code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">lightness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">a</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">b</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">alpha</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS lab() function.</p></span></section>
+			<section class="K" id="hwb(double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">hwb</code><code class="g">(<code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">whiteness</code>, <code>double</code><code class="parameterName">blackness</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">hue</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">whiteness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">blackness</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS hwb() function.</p></span></section>
+			<section class="K" id="hwb(double,double,double,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">hwb</code><code class="g">(<code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">whiteness</code>, <code>double</code><code class="parameterName">blackness</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">hue</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">whiteness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">blackness</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">alpha</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS hwb() function.</p></span></section>
+			<section class="K" id="color(java.lang.String,java.lang.String)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">color</code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">channels</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">channels</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS color() function.</p></span></section>
+			<section class="K" id="color(java.lang.String,double...)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">color</code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code array="var">double</code><code class="parameterName">channels</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code array="var">double</code><code class="parameterName">channels</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS color() function.</p></span></section>
+			<section class="K" id="colorMix(stylist.value.CSSValue,stylist.value.CSSValue)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">colorMix</code><code class="g">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS color-mix() function.</p></span></section>
+			<section class="K" id="colorMix(java.lang.String,stylist.value.CSSValue,stylist.value.CSSValue)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">colorMix</code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS color-mix() function.</p></span></section>
+			<section class="K" id="colorMix(java.lang.String,stylist.value.CSSValue,double,stylist.value.CSSValue,double)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">colorMix</code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code>, <code>double</code><code class="parameterName">firstWeight</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code>, <code>double</code><code class="parameterName">secondWeight</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">firstWeight</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code>double</code><code class="parameterName">secondWeight</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS color-mix() function with weights.</p></span></section>
+			<section class="K" id="lightDark(stylist.value.CSSValue,stylist.value.CSSValue)">
+				<h2 class="h"><i class="PUBLIC STATIC"></i><code class="LB">lightDark</code><code class="g">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">light</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">dark</code>)</code><i class="y"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></h2>
+				<table class="w">
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">light</code></td>
+						<td></td>
+					</tr>
+					<tr class="L">
+						<td><code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">dark</code></td>
+						<td></td>
+					</tr>
+					<tr class="f">
+						<td><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></td>
+						<td></td>
+					</tr>
+				</table><span class="A"><p>The CSS light-dark() function.</p></span></section>
+		</article>
+		<aside class="t">
+			<div class="n">
+				<h5 class="Z">Constructors</h5>
+				<ul>
+					<li class="e"><i class="PROTECTED"></i><code><a href="api/stylist.value.ModernColor.html#ModernColor(java.lang.String)">ModernColor</a></code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">value</code>)</code></li>
+				</ul>
+				<h5 class="Z">Static Methods</h5>
+				<ul>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#oklch(double,double,double)">oklch</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#oklch(double,double,double,double)">oklch</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#oklab(double,double,double)">oklab</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#oklab(double,double,double,double)">oklab</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#lch(double,double,double)">lch</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#lch(double,double,double,double)">lch</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">chroma</code>, <code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#lab(double,double,double)">lab</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#lab(double,double,double,double)">lab</a></code><code class="g">(<code>double</code><code class="parameterName">lightness</code>, <code>double</code><code class="parameterName">a</code>, <code>double</code><code class="parameterName">b</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#hwb(double,double,double)">hwb</a></code><code class="g">(<code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">whiteness</code>, <code>double</code><code class="parameterName">blackness</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#hwb(double,double,double,double)">hwb</a></code><code class="g">(<code>double</code><code class="parameterName">hue</code>, <code>double</code><code class="parameterName">whiteness</code>, <code>double</code><code class="parameterName">blackness</code>, <code>double</code><code class="parameterName">alpha</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#color(java.lang.String,java.lang.String)">color</a></code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">channels</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#color(java.lang.String,double...)">color</a></code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code array="var">double</code><code class="parameterName">channels</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#colorMix(stylist.value.CSSValue,stylist.value.CSSValue)">colorMix</a></code><code class="g">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#colorMix(java.lang.String,stylist.value.CSSValue,stylist.value.CSSValue)">colorMix</a></code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#colorMix(java.lang.String,stylist.value.CSSValue,double,stylist.value.CSSValue,double)">colorMix</a></code><code class="g">(<code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code><code class="parameterName">colorSpace</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">first</code>, <code>double</code><code class="parameterName">firstWeight</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">second</code>, <code>double</code><code class="parameterName">secondWeight</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+					<li class="e"><i class="PUBLIC STATIC"></i><code><a href="api/stylist.value.ModernColor.html#lightDark(stylist.value.CSSValue,stylist.value.CSSValue)">lightDark</a></code><code class="g">(<code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">light</code>, <code><a aria-label="stylist.value.CSSValue" href="api/stylist.value.CSSValue.html">CSSValue</a></code><code class="parameterName">dark</code>)</code><i class="HB"><code><a aria-label="stylist.value.ModernColor" href="api/stylist.value.ModernColor.html">ModernColor</a></code></i></li>
+				</ul>
+				<h5 class="Z">Methods</h5>
+				<ul>
+					<li class="e"><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.value.ModernColor.html#valueFor(stylist.value.Vendor)">valueFor</a></code><code class="g">(<code><a aria-label="stylist.value.Vendor" href="api/stylist.value.Vendor.html">Vendor</a></code><code class="parameterName">vendor</code>)</code><i class="HB"><code><a aria-label="java.lang.String 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/String.html">String</a></code></i></li>
+					<li class="e"><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.value.ModernColor.html#hashCode()">hashCode</a></code><code class="g">()</code><i class="HB"><code>int</code></i></li>
+					<li class="e"><i class="OVERRIDE PUBLIC"></i><code><a href="api/stylist.value.ModernColor.html#equals(java.lang.Object)">equals</a></code><code class="g">(<code><a aria-label="java.lang.Object 🚀" href="https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/lang/Object.html">Object</a></code><code class="parameterName">obj</code>)</code><i class="HB"><code>boolean</code></i></li>
+				</ul>
+			</div>
+		</aside>
+		<footer class="s">
+			<p>Powered by <a href="https://github.com/teletha/evergarden" target="_">Evergarden</a></p>
+		</footer>
+	</body>
+	<script src="root.js"></script>
+	<script src="main.js" type="module"></script>
+</html>
