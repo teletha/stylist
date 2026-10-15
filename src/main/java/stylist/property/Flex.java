@@ -12,6 +12,9 @@ package stylist.property;
 import static stylist.value.Vendor.*;
 
 import stylist.PropertyDefinition;
+import stylist.property.helper.Items;
+import stylist.value.Numeric;
+import stylist.value.Unit;
 
 public class Flex extends PropertyDefinition<Flex> {
 
@@ -54,6 +57,119 @@ public class Flex extends PropertyDefinition<Flex> {
      * there won't be any available space.
      */
     public final JustifyContent justifyContent = new JustifyContent();
+
+    /**
+     * The row-gap CSS property sets the size of the gap (gutter) between an element's rows.
+     * 
+     * @param size A gap size.
+     * @param unit A gap unit.
+     * @return Chainable API.
+     */
+    public Flex rowGap(double size, Unit unit) {
+        return rowGap(Numeric.num(size, unit));
+    }
+
+    /**
+     * The row-gap CSS property sets the size of the gap (gutter) between an element's rows.
+     * 
+     * @param size A gap size.
+     * @return Chainable API.
+     */
+    public Flex rowGap(Numeric size) {
+        value("row-gap", size);
+
+        return this;
+    }
+
+    /**
+     * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
+     * 
+     * @param size A gap size.
+     * @param unit A gap unit.
+     * @return Chainable API.
+     */
+    public Flex columnGap(double size, Unit unit) {
+        return columnGap(Numeric.num(size, unit));
+    }
+
+    /**
+     * The column-gap CSS property sets the size of the gap (gutter) between an element's columns.
+     * 
+     * @param size A gap size.
+     * @return Chainable API.
+     */
+    public Flex columnGap(Numeric size) {
+        value("column-gap", size);
+
+        return this;
+    }
+
+    /**
+     * The gap CSS shorthand property sets the gaps (gutters) between rows and columns.
+     * 
+     * @param size A gap size.
+     * @param unit A gap unit.
+     * @return Chainable API.
+     */
+    public Flex gap(double size, Unit unit) {
+        return gap(Numeric.num(size, unit));
+    }
+
+    /**
+     * The gap CSS shorthand property sets the gaps (gutters) between rows and columns.
+     * 
+     * @param size A gap size.
+     * @return Chainable API.
+     */
+    public Flex gap(Numeric size) {
+        return rowGap(size).columnGap(size);
+    }
+
+    /**
+     * The gap CSS shorthand property sets the gaps (gutters) between rows and columns.
+     * 
+     * @param row A row gap.
+     * @param rowUnit A row gap unit.
+     * @param column A column gap.
+     * @param columnUnit A column gap unit.
+     * @return Chainable API.
+     */
+    public Flex gap(double row, Unit rowUnit, double column, Unit columnUnit) {
+        return rowGap(row, rowUnit).columnGap(column, columnUnit);
+    }
+
+    /**
+     * The gap CSS shorthand property sets the gaps (gutters) between rows and columns.
+     * 
+     * @param row A row gap.
+     * @param column A column gap.
+     * @return Chainable API.
+     */
+    public Flex gap(Numeric row, Numeric column) {
+        return rowGap(row).columnGap(column);
+    }
+
+    /**
+     * The place-content CSS shorthand property allows you to align content along both the block and
+     * inline directions at once (i.e. the align-content and justify-content properties).
+     * 
+     * @param content A content alignment.
+     * @return Chainable API.
+     */
+    public Flex placeContent(stylist.property.helper.Content content) {
+        return value("place-content", content.value);
+    }
+
+    /**
+     * The place-items CSS shorthand property allows you to align items along both the block and
+     * inline directions at once (i.e. the align-items and justify-items properties).
+     * 
+     * @param items An item alignment.
+     * @return Chainable API.
+     */
+    public Flex placeItems(Items items) {
+        return value("place-items", items.value);
+    }
 
     /**
      * @version 2014/10/21 16:21:12

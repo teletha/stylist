@@ -50,6 +50,39 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
     public final Smooth smooth = new Smooth();
 
     /**
+     * The font-optical-sizing CSS property sets whether text rendering is optimized for viewing at
+     * different sizes.
+     */
+    public final OpticalSizing opticalSizing = new OpticalSizing();
+
+    /**
+     * <p>
+     * The font-feature-settings CSS property controls advanced typographic features in OpenType
+     * fonts.
+     * </p>
+     * 
+     * @param settings A list of feature settings.
+     * @return Chainable API.
+     */
+    public Font featureSettings(String... settings) {
+        return value("font-feature-settings", String.join(", ", settings));
+    }
+
+    /**
+     * <p>
+     * The font-variation-settings CSS property provides low-level control over variable font
+     * characteristics by specifying the four letter axis names of the characteristics you want to
+     * vary along with their variation values.
+     * </p>
+     * 
+     * @param settings A list of axis settings.
+     * @return Chainable API.
+     */
+    public Font variationSettings(String... settings) {
+        return value("font-variation-settings", String.join(", ", settings));
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -554,6 +587,31 @@ public class Font extends PropertyDefinition<Font> implements ColorHelper<Font> 
          */
         public Font normal() {
             return value("normal");
+        }
+    }
+
+    public class OpticalSizing extends PropertyDefinition<Font> {
+
+        private OpticalSizing() {
+            super("font-optical-sizing", Font.this);
+        }
+
+        /**
+         * The browser will modify the shape of glyphs for optimal viewing.
+         * 
+         * @return Chainable API.
+         */
+        public Font auto() {
+            return value("auto");
+        }
+
+        /**
+         * The browser will not modify the shape of glyphs for optimal viewing.
+         * 
+         * @return Chainable API.
+         */
+        public Font none() {
+            return value("none");
         }
     }
 }

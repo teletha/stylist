@@ -151,6 +151,62 @@ public class Text extends PropertyDefinition<Text> {
     public final TextWrap wrap = new TextWrap();
 
     /**
+     * The hyphens CSS property specifies how words should be hyphenated when text wraps across
+     * multiple lines.
+     */
+    public final Hyphens hyphens = new Hyphens();
+
+    /**
+     * The text-align-last CSS property describes how the last line of a block or a line, right
+     * before a forced line break, is aligned.
+     */
+    public final AlignLast alignLast = new AlignLast();
+
+    /**
+     * The direction CSS property sets the direction of text, table columns, and horizontal
+     * overflow. Use rtl for languages written from right to left (like Hebrew or Arabic), and ltr
+     * for those written from left to right (like English and most other languages).
+     */
+    public final Direction direction = new Direction();
+
+    /**
+     * The unicode-bidi CSS property, together with the direction property, determines how
+     * bidirectional text is handled in a document.
+     */
+    public final UnicodeBidi unicodeBidi = new UnicodeBidi();
+
+    /**
+     * The writing-mode CSS property sets whether lines of text are laid out horizontally or
+     * vertically, as well as the direction in which blocks progress.
+     */
+    public final WritingMode writingMode = new WritingMode();
+
+    /**
+     * The user-select CSS property controls whether the user can select text.
+     */
+    public final UserSelect userSelect = new UserSelect();
+
+    /**
+     * The tab-size CSS property is used to customize the width of tab characters (U+0009).
+     * 
+     * @param size A tab width.
+     * @return Chainable API.
+     */
+    public Text tabSize(double size) {
+        return value("tab-size", size);
+    }
+
+    /**
+     * The tab-size CSS property is used to customize the width of tab characters (U+0009).
+     * 
+     * @param size A tab width.
+     * @return Chainable API.
+     */
+    public Text tabSize(Numeric size) {
+        return value("tab-size", size);
+    }
+
+    /**
      * The text-decoration-thickness CSS property sets the stroke thickness of the decoration line
      * that is used on text in an element, such as a line-through, underline, or overline.
      * 
@@ -1082,6 +1138,310 @@ public class Text extends PropertyDefinition<Text> {
          */
         public Text stable() {
             return value("stable");
+        }
+    }
+
+    public class Hyphens extends PropertyDefinition<Text> {
+
+        private Hyphens() {
+            super("hyphens", Text.this);
+        }
+
+        /**
+         * Words are not broken at line breaks, even if characters inside the word suggest line
+         * break points.
+         * 
+         * @return Chainable API.
+         */
+        public Text none() {
+            return value("none");
+        }
+
+        /**
+         * Words are only broken at line breaks where there are characters inside the word that
+         * suggest line break points.
+         * 
+         * @return Chainable API.
+         */
+        public Text manual() {
+            return value("manual");
+        }
+
+        /**
+         * Words can be broken at appropriate hyphenation points either as determined by line
+         * breaking rules or as indicated by the hyphenation dictionary.
+         * 
+         * @return Chainable API.
+         */
+        public Text auto() {
+            return value("auto");
+        }
+    }
+
+    public class AlignLast extends PropertyDefinition<Text> {
+
+        private AlignLast() {
+            super("text-align-last", Text.this);
+        }
+
+        /**
+         * The browser chooses the alignment for the last line.
+         * 
+         * @return Chainable API.
+         */
+        public Text auto() {
+            return value("auto");
+        }
+
+        /**
+         * The inline contents are aligned to the left edge of the line box.
+         * 
+         * @return Chainable API.
+         */
+        public Text left() {
+            return value("left");
+        }
+
+        /**
+         * The inline contents are aligned to the right edge of the line box.
+         * 
+         * @return Chainable API.
+         */
+        public Text right() {
+            return value("right");
+        }
+
+        /**
+         * The inline contents are centered within the line box.
+         * 
+         * @return Chainable API.
+         */
+        public Text center() {
+            return value("center");
+        }
+
+        /**
+         * The text is justified.
+         * 
+         * @return Chainable API.
+         */
+        public Text justify() {
+            return value("justify");
+        }
+
+        /**
+         * The same as left if direction is left-to-right and right if direction is right-to-left.
+         * 
+         * @return Chainable API.
+         */
+        public Text start() {
+            return value("start");
+        }
+
+        /**
+         * The same as right if direction is left-to-right and left if direction is right-to-left.
+         * 
+         * @return Chainable API.
+         */
+        public Text end() {
+            return value("end");
+        }
+    }
+
+    public class Direction extends PropertyDefinition<Text> {
+
+        private Direction() {
+            super("direction", Text.this);
+        }
+
+        /**
+         * Text and other elements go from left to right. This is the default value.
+         * 
+         * @return Chainable API.
+         */
+        public Text ltr() {
+            return value("ltr");
+        }
+
+        /**
+         * Text and other elements go from right to left.
+         * 
+         * @return Chainable API.
+         */
+        public Text rtl() {
+            return value("rtl");
+        }
+    }
+
+    public class UnicodeBidi extends PropertyDefinition<Text> {
+
+        private UnicodeBidi() {
+            super("unicode-bidi", Text.this);
+        }
+
+        /**
+         * The element does not offer an additional level of embedding with respect to the
+         * bidirectional algorithm. For inline elements, implicit reordering works across element
+         * boundaries.
+         * 
+         * @return Chainable API.
+         */
+        public Text normal() {
+            return value("normal");
+        }
+
+        /**
+         * If the element is inline, this value opens an additional level of embedding with respect
+         * to the bidirectional algorithm.
+         * 
+         * @return Chainable API.
+         */
+        public Text embed() {
+            return value("embed");
+        }
+
+        /**
+         * The element is treated as a neutral character within the bidirectional algorithm.
+         * 
+         * @return Chainable API.
+         */
+        public Text isolate() {
+            return value("isolate");
+        }
+
+        /**
+         * This is equivalent to the isolate value, but the directionality is not inherited.
+         * 
+         * @return Chainable API.
+         */
+        public Text plaintext() {
+            return value("plaintext");
+        }
+
+        /**
+         * For inline elements this creates an override.
+         * 
+         * @return Chainable API.
+         */
+        public Text bidiOverride() {
+            return value("bidi-override");
+        }
+
+        /**
+         * This is equivalent to the isolate and bidi-override values combined.
+         * 
+         * @return Chainable API.
+         */
+        public Text isolateOverride() {
+            return value("isolate-override");
+        }
+    }
+
+    public class WritingMode extends PropertyDefinition<Text> {
+
+        private WritingMode() {
+            super("writing-mode", Text.this);
+        }
+
+        /**
+         * Text is laid out horizontally from left to right. This is the default value.
+         * 
+         * @return Chainable API.
+         */
+        public Text horizontalTb() {
+            return value("horizontal-tb");
+        }
+
+        /**
+         * Text is laid out vertically from top to bottom, with lines progressing from right to
+         * left.
+         * 
+         * @return Chainable API.
+         */
+        public Text verticalRl() {
+            return value("vertical-rl");
+        }
+
+        /**
+         * Text is laid out vertically from top to bottom, with lines progressing from left to
+         * right.
+         * 
+         * @return Chainable API.
+         */
+        public Text verticalLr() {
+            return value("vertical-lr");
+        }
+
+        /**
+         * Text is laid out vertically from top to bottom, with lines progressing from right to
+         * left, and glyphs rotated 90 degrees clockwise.
+         * 
+         * @return Chainable API.
+         */
+        public Text sidewaysRl() {
+            return value("sideways-rl");
+        }
+
+        /**
+         * Text is laid out vertically from top to bottom, with lines progressing from left to
+         * right, and glyphs rotated 90 degrees counter-clockwise.
+         * 
+         * @return Chainable API.
+         */
+        public Text sidewaysLr() {
+            return value("sideways-lr");
+        }
+    }
+
+    public class UserSelect extends PropertyDefinition<Text> {
+
+        private UserSelect() {
+            super("user-select", Text.this);
+        }
+
+        /**
+         * The text of the element and its sub-elements is not selectable.
+         * 
+         * @return Chainable API.
+         */
+        public Text none() {
+            return value("none");
+        }
+
+        /**
+         * The used value is determined by the parent.
+         * 
+         * @return Chainable API.
+         */
+        public Text auto() {
+            return value("auto");
+        }
+
+        /**
+         * The text is selectable.
+         * 
+         * @return Chainable API.
+         */
+        public Text text() {
+            return value("text");
+        }
+
+        /**
+         * Text selection is allowed for all the content.
+         * 
+         * @return Chainable API.
+         */
+        public Text all() {
+            return value("all");
+        }
+
+        /**
+         * Selection is contained to the element boundary.
+         * 
+         * @return Chainable API.
+         */
+        public Text contain() {
+            return value("contain");
         }
     }
 }

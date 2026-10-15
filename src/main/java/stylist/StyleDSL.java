@@ -14,16 +14,22 @@ import kiss.Singleton;
 import stylist.property.Animation;
 import stylist.property.Appearance;
 import stylist.property.Background;
+import stylist.property.Blend;
 import stylist.property.Borders;
 import stylist.property.BoxLength;
+import stylist.property.ClipPath;
 import stylist.property.Container;
 import stylist.property.Content;
 import stylist.property.Cursor;
 import stylist.property.Display;
 import stylist.property.Fill;
+import stylist.property.Filter;
 import stylist.property.FlexItem;
 import stylist.property.Font;
+import stylist.property.Interaction;
 import stylist.property.ListStyle;
+import stylist.property.ObjectFit;
+import stylist.property.ObjectPosition;
 import stylist.property.Outline;
 import stylist.property.Overflows;
 import stylist.property.PlaceSelf;
@@ -65,6 +71,18 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Background background = new Background();
 
     /**
+     * The backdrop-filter CSS property lets you apply graphical effects such as blurring or
+     * color shifting to the area behind an element.
+     */
+    public static final Filter backdropFilter = new Filter.Backdrop();
+
+    /**
+     * The blend property controls how an element's background and content blend with the element
+     * behind it, or how a background image blends with a background color.
+     */
+    public static final Blend blend = new Blend();
+
+    /**
      * The border CSS property is a shorthand property for setting the individual border property
      * values in a single place in the style sheet. border can be used to set the values for one or
      * more of: border-width, border-style, border-color.
@@ -87,6 +105,12 @@ public interface StyleDSL extends StyleDeclarable, Unit {
      * or contextual size is not available, elements with size containment will collapse.
      */
     public static final Container container = new Container();
+
+    /**
+     * The clip-path CSS property creates a clipping region that sets what part of an element should
+     * be shown.
+     */
+    public static final ClipPath clipPath = new ClipPath();
 
     /**
      * The content CSS property is used with the ::before and ::after pseudo-elements to generate
@@ -116,6 +140,11 @@ public interface StyleDSL extends StyleDeclarable, Unit {
     public static final Fill fill = new Fill();
 
     /**
+     * The filter CSS property applies graphical effects like blur or color shift to an element.
+     */
+    public static final Filter filter = new Filter();
+
+    /**
      * The flex CSS property is a shorthand property specifying the ability of a flex item to alter
      * its dimensions to fill available space. Flex items can be stretched to use available space
      * proportional to their flex grow factor or their flex shrink factor to prevent overflow.
@@ -128,6 +157,12 @@ public interface StyleDSL extends StyleDeclarable, Unit {
      * system font, using specific keywords.
      */
     public static final Font font = new Font();
+
+    /**
+     * The interaction property groups together commonly used interactive behaviors such as
+     * touch-action, caret-color, accent-color, resize and will-change.
+     */
+    public static final Interaction interaction = new Interaction();
 
     /**
      * The list-style CSS property is a shorthand property for setting list-style-type,
@@ -143,6 +178,18 @@ public interface StyleDSL extends StyleDeclarable, Unit {
      * One single value applies to all four sides.
      */
     public static final BoxLength margin = new BoxLength("margin");
+
+    /**
+     * The object-fit CSS property sets how the content of a replaced element, such as an img or
+     * video, should be resized to fit its container.
+     */
+    public static final ObjectFit objectFit = new ObjectFit();
+
+    /**
+     * The object-position CSS property specifies the alignment of the selected replaced element's
+     * contents within the element's box.
+     */
+    public static final ObjectPosition objectPosition = new ObjectPosition();
 
     /**
      * The CSS outline property is a shorthand property for setting one or more of the individual

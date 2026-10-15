@@ -37,6 +37,24 @@ public class Transform extends PropertyDefinition<Transform> {
      */
     public final Origin origin = new Origin();
 
+    /**
+     * The transform-style CSS property sets whether children of an element are positioned in the
+     * 3D space or are flattened in the plane of the element.
+     */
+    public final Style style = new Style();
+
+    /**
+     * The backface-visibility CSS property sets whether the back face of an element is visible
+     * when turned towards the user.
+     */
+    public final Backface backfaceVisibility = new Backface();
+
+    /**
+     * The perspective-origin CSS property determines the position at which the viewer is looking.
+     * It is used as the vanishing point by the perspective property.
+     */
+    public final PerspectiveOrigin perspectiveOrigin = new PerspectiveOrigin();
+
     /** The function list. */
     private final List<Function> functions = new ArrayList();
 
@@ -539,6 +557,35 @@ public class Transform extends PropertyDefinition<Transform> {
     }
 
     /**
+     * <p>
+     * The perspective() CSS function defines a transformation that sets the distance between the
+     * user and the z=0 plane, the perspective from which the viewer would be if the 2-dimensional
+     * interface had been generated from a 3-dimensional scene.
+     * </p>
+     * 
+     * @param size The distance to the z=0 plane.
+     * @param unit The unit of the distance.
+     * @return Chainable API.
+     */
+    public Transform perspective(double size, Unit unit) {
+        return perspective(new Numeric(size, unit));
+    }
+
+    /**
+     * <p>
+     * The perspective() CSS function defines a transformation that sets the distance between the
+     * user and the z=0 plane, the perspective from which the viewer would be if the 2-dimensional
+     * interface had been generated from a 3-dimensional scene.
+     * </p>
+     * 
+     * @param size The distance to the z=0 plane.
+     * @return Chainable API.
+     */
+    public Transform perspective(Numeric size) {
+        return new Transform(this, "perspective", size);
+    }
+
+    /**
      * @version 2014/10/29 13:00:25
      */
     private static class Parameter extends Numeric {
@@ -710,6 +757,127 @@ public class Transform extends PropertyDefinition<Transform> {
          * @param horizontal
          * @param vertical
          * @return
+         */
+        public Transform position(Numeric horizontal, Numeric vertical) {
+            return value(horizontal + " " + vertical);
+        }
+    }
+
+    public class Style extends PropertyDefinition<Transform> {
+
+        private Style() {
+            super("transform-style", Transform.this);
+        }
+
+        /**
+         * The children of the element are lying in the plane of the element itself.
+         * 
+         * @return Chainable API.
+         */
+        public Transform flat() {
+            return value("flat");
+        }
+
+        /**
+         * The children of the element are positioned in the 3D-space.
+         * 
+         * @return Chainable API.
+         */
+        public Transform preserve3d() {
+            return value("preserve-3d");
+        }
+    }
+
+    public class Backface extends PropertyDefinition<Transform> {
+
+        private Backface() {
+            super("backface-visibility", Transform.this);
+        }
+
+        /**
+         * The back face is visible when turned towards the user.
+         * 
+         * @return Chainable API.
+         */
+        public Transform visible() {
+            return value("visible");
+        }
+
+        /**
+         * The back face is hidden, effectively making the element invisible when turned away from
+         * the user.
+         * 
+         * @return Chainable API.
+         */
+        public Transform hidden() {
+            return value("hidden");
+        }
+    }
+
+    public class PerspectiveOrigin extends PropertyDefinition<Transform> {
+
+        private PerspectiveOrigin() {
+            super("perspective-origin", Transform.this);
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return Chainable API.
+         */
+        public Transform bottom() {
+            return value("bottom");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return Chainable API.
+         */
+        public Transform center() {
+            return value("center");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return Chainable API.
+         */
+        public Transform left() {
+            return value("left");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return Chainable API.
+         */
+        public Transform right() {
+            return value("right");
+        }
+
+        /**
+         * One keyword.
+         * 
+         * @return Chainable API.
+         */
+        public Transform top() {
+            return value("top");
+        }
+
+        /**
+         * Two dimension.
+         * 
+         * @return Chainable API.
+         */
+        public Transform position(double horizontal, Unit horizontalUnit, double vertical, Unit verticalUnit) {
+            return position(Numeric.num(horizontal, horizontalUnit), Numeric.num(vertical, verticalUnit));
+        }
+
+        /**
+         * Two dimension.
+         * 
+         * @return Chainable API.
          */
         public Transform position(Numeric horizontal, Numeric vertical) {
             return value(horizontal + " " + vertical);

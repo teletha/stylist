@@ -165,4 +165,28 @@ class DisplayTest extends StyleTester {
         assert style.property("max-block-size", "100px");
         assert style.property("min-block-size", "10px");
     }
+
+    @Test
+    void aspectRatio() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.aspectRatio(16, 9);
+        });
+        assert style.property("aspect-ratio", "16/9");
+    }
+
+    @Test
+    void aspectRatioDecimal() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.aspectRatio(1.5);
+        });
+        assert style.property("aspect-ratio", "1.5");
+    }
+
+    @Test
+    void aspectRatioAuto() {
+        ValidatableStyle style = writeStyle(() -> {
+            display.aspectRatioAuto();
+        });
+        assert style.property("aspect-ratio", "auto");
+    }
 }

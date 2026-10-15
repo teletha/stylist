@@ -688,6 +688,45 @@ public final class Display extends PropertyDefinition<Display> {
         return value("box-shadow", join(shadows, v -> v.toString()));
     }
 
+    /**
+     * <p>
+     * The aspect-ratio CSS property sets a preferred aspect ratio for the box, which will be used
+     * in the calculation of auto sizes and some other layout functions.
+     * </p>
+     * 
+     * @param width A width ratio.
+     * @param height A height ratio.
+     * @return Chainable API.
+     */
+    public Display aspectRatio(double width, double height) {
+        return value("aspect-ratio", CSSValue.of(width) + "/" + CSSValue.of(height));
+    }
+
+    /**
+     * <p>
+     * The aspect-ratio CSS property sets a preferred aspect ratio for the box, which will be used
+     * in the calculation of auto sizes and some other layout functions.
+     * </p>
+     * 
+     * @param ratio A preferred ratio.
+     * @return Chainable API.
+     */
+    public Display aspectRatio(double ratio) {
+        return value("aspect-ratio", ratio);
+    }
+
+    /**
+     * <p>
+     * The aspect-ratio CSS property sets a preferred aspect ratio for the box. The auto value
+     * specifies that the box has no preferred aspect ratio.
+     * </p>
+     * 
+     * @return Chainable API.
+     */
+    public Display aspectRatioAuto() {
+        return value("aspect-ratio", "auto");
+    }
+
     public class Sizing extends PropertyDefinition<Display> {
 
         /**

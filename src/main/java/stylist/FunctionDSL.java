@@ -10,8 +10,10 @@
 package stylist;
 
 import stylist.property.Transition;
+import stylist.value.CSSValue;
 import stylist.value.Color;
 import stylist.value.LinearGradient;
+import stylist.value.ModernColor;
 import stylist.value.Numeric;
 import stylist.value.RadialGradient;
 import stylist.value.Shadow;
@@ -91,6 +93,159 @@ public final class FunctionDSL extends SelectorDSL {
      */
     public Color hsla(int hue, int saturation, int lightness, double alpha) {
         return Color.hsl(hue, saturation, lightness, alpha);
+    }
+
+    /**
+     * The CSS oklch() function expresses a color in the Oklch color space.
+     * 
+     * @param lightness A perceptual lightness.
+     * @param chroma A chroma value.
+     * @param hue A hue angle.
+     * @return A modern color value.
+     */
+    public ModernColor oklch(double lightness, double chroma, double hue) {
+        return ModernColor.oklch(lightness, chroma, hue);
+    }
+
+    /**
+     * The CSS oklch() function expresses a color in the Oklch color space.
+     * 
+     * @param lightness A perceptual lightness.
+     * @param chroma A chroma value.
+     * @param hue A hue angle.
+     * @param alpha An alpha value.
+     * @return A modern color value.
+     */
+    public ModernColor oklch(double lightness, double chroma, double hue, double alpha) {
+        return ModernColor.oklch(lightness, chroma, hue, alpha);
+    }
+
+    /**
+     * The CSS oklab() function expresses a color in the Oklab color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor oklab(double lightness, double a, double b) {
+        return ModernColor.oklab(lightness, a, b);
+    }
+
+    /**
+     * The CSS oklab() function expresses a color in the Oklab color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor oklab(double lightness, double a, double b, double alpha) {
+        return ModernColor.oklab(lightness, a, b, alpha);
+    }
+
+    /**
+     * The CSS lch() function expresses a color in the CIELCh color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor lch(double lightness, double chroma, double hue) {
+        return ModernColor.lch(lightness, chroma, hue);
+    }
+
+    /**
+     * The CSS lch() function expresses a color in the CIELCh color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor lch(double lightness, double chroma, double hue, double alpha) {
+        return ModernColor.lch(lightness, chroma, hue, alpha);
+    }
+
+    /**
+     * The CSS lab() function expresses a color in the CIELab color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor lab(double lightness, double a, double b) {
+        return ModernColor.lab(lightness, a, b);
+    }
+
+    /**
+     * The CSS lab() function expresses a color in the CIELab color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor lab(double lightness, double a, double b, double alpha) {
+        return ModernColor.lab(lightness, a, b, alpha);
+    }
+
+    /**
+     * The CSS hwb() function expresses a color in the HWB color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor hwb(double hue, double whiteness, double blackness) {
+        return ModernColor.hwb(hue, whiteness, blackness);
+    }
+
+    /**
+     * The CSS hwb() function expresses a color in the HWB color space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor hwb(double hue, double whiteness, double blackness, double alpha) {
+        return ModernColor.hwb(hue, whiteness, blackness, alpha);
+    }
+
+    /**
+     * The CSS color() function allows a color to be specified in a particular, specified color
+     * space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor color(String colorSpace, String channels) {
+        return ModernColor.color(colorSpace, channels);
+    }
+
+    /**
+     * The CSS color() function allows a color to be specified in a particular, specified color
+     * space.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor color(String colorSpace, double... channels) {
+        return ModernColor.color(colorSpace, channels);
+    }
+
+    /**
+     * The CSS color-mix() function mixes two colors together.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor colorMix(CSSValue first, CSSValue second) {
+        return ModernColor.colorMix(first, second);
+    }
+
+    /**
+     * The CSS color-mix() function mixes two colors together.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor colorMix(String colorSpace, CSSValue first, CSSValue second) {
+        return ModernColor.colorMix(colorSpace, first, second);
+    }
+
+    /**
+     * The CSS color-mix() function mixes two colors together with explicit weights.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor colorMix(String colorSpace, CSSValue first, double firstWeight, CSSValue second, double secondWeight) {
+        return ModernColor.colorMix(colorSpace, first, firstWeight, second, secondWeight);
+    }
+
+    /**
+     * The CSS light-dark() function returns one of two colors depending on the color scheme.
+     * 
+     * @return A modern color value.
+     */
+    public ModernColor lightDark(CSSValue light, CSSValue dark) {
+        return ModernColor.lightDark(light, dark);
     }
 
     /**
